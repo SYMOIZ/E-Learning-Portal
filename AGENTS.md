@@ -4,9 +4,10 @@ Guidance for AI agents working in this repository.
 
 ## Project overview
 
-**E-Learning Portal** is currently a placeholder repository. It contains:
+**E-Learning Portal** is currently a documentation-focused Python learning repository. It contains:
 
-- `README.md` — project title only
+- `README.md` — complete single-page Python learning roadmap
+- `python-learning-roadmap/` — nested curriculum directory with level and topic README files
 - `A Smarter Way to Learn Python .pdf` — static Python learning material (241 pages)
 
 There is no application source code, package manifests, Docker configuration, or CI setup yet.
@@ -53,7 +54,7 @@ Document in this file:
 2. Environment variables (`.env.example`)
 3. Non-obvious setup steps (migrations, seed data, etc.)
 
-Refer to the root `README.md` first once it includes setup instructions.
+Refer to the root `README.md` and `python-learning-roadmap/README.md` first once application setup instructions are added.
 
 ### Tooling available on the VM
 
