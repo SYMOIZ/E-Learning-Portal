@@ -45,6 +45,45 @@ python-learning-roadmap/
 - [Performance, Memory, and Profiling](./level-3-advanced/14-performance-memory-and-profiling/)
 - [Production Architecture, Security, and Deployment](./level-3-advanced/15-production-architecture-security-and-deployment/)
 
+
+
+## Deep Nested Topic Structure
+
+Each topic now includes a `deep-dive/` folder with smaller learning units:
+
+```text
+topic-name/
+  README.md
+  deep-dive/
+    README.md
+    01-overview/
+      README.md
+    02-learning-objectives/
+      README.md
+    03-real-world-applications/
+      README.md
+    04-core-concepts/
+      README.md
+    05-infographic-summary/
+      README.md
+    06-syntax-guide/
+      README.md
+    07-examples/
+      README.md
+      code/
+        beginner_example.py
+        intermediate_example.py
+        advanced_example.py
+        code_notes.md
+    08-workflow-diagram/
+      README.md
+    09-practice-questions/
+      README.md
+      answers.md
+```
+
+This deeper structure helps students learn in small parts, run code directly, answer questions, and check understanding after practice.
+
 ## Student Learning Method
 
 1. Read the level overview first.
