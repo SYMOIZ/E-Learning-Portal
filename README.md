@@ -9,6 +9,27 @@
 - Study **Level 3: Advanced** when you are ready to build scalable, secure, testable, production-grade systems.
 - For every topic, review the overview, objectives, real-world value, core concepts, syntax, examples, and workflow diagram.
 
+## Formal Directory-Based Curriculum
+
+This README is the complete single-page knowledge base. A student-friendly nested version is also available in [`python-learning-roadmap/`](./python-learning-roadmap/).
+
+Directory format:
+
+```text
+python-learning-roadmap/
+  level-1-beginner/
+    01-python-setup-and-program-execution/
+      README.md
+  level-2-intermediate/
+    06-object-oriented-programming/
+      README.md
+  level-3-advanced/
+    11-decorators-context-managers-and-metaprogramming/
+      README.md
+```
+
+Each topic subdirectory includes formal explanations, examples, workflow diagrams, student practice tasks, self-check questions, and evidence of mastery.
+
 ## Table of Contents
 
 ### Level 1: Beginner
