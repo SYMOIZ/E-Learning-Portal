@@ -1,0 +1,3 @@
+# Infographics
+
+Add resources here.
