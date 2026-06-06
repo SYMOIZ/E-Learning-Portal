@@ -223,3 +223,10 @@ A student can use advanced language features to reduce duplication while keeping
 - Ask the student to explain their code before asking them to optimize it.
 - Encourage small, frequent experiments in the Python interpreter.
 - Review mistakes as feedback about the mental model, not as failure.
+
+---
+
+## More Nested Student Breakdown
+
+For smaller study units, open the [`deep-dive/`](./deep-dive/) directory. It breaks this topic into overview, objectives, applications, concepts, syntax, examples, workflow, questions, code files, and answer guidance.
+
