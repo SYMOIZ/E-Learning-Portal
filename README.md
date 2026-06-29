@@ -656,7 +656,7 @@ flowchart LR
 | Concept | Definition | Visual Explanation | Practical Example |
 | --- | --- | --- | --- |
 | **Value** | A piece of information stored and processed by Python. | `name -> object` | `customer = "Ada"` |
-| **Type** | A category that defines allowed operations for a value. | `42:int | 3.14:float | True:bool` | `isinstance(42, int)` |
+| **Type** | A category that defines allowed operations for a value. | `42:int \| 3.14:float \| True:bool` | `isinstance(42, int)` |
 | **Expression** | A combination of values and operators that produces a result. | `inputs + operator -> result` | `total = price * quantity` |
 
 ## Infographic Summary
@@ -772,7 +772,7 @@ flowchart LR
 | Concept | Definition | Visual Explanation | Practical Example |
 | --- | --- | --- | --- |
 | **Value** | A piece of information stored and processed by Python. | `name -> object` | `customer = "Ada"` |
-| **Type** | A category that defines allowed operations for a value. | `42:int | 3.14:float | True:bool` | `isinstance(42, int)` |
+| **Type** | A category that defines allowed operations for a value. | `42:int \| 3.14:float \| True:bool` | `isinstance(42, int)` |
 | **Expression** | A combination of values and operators that produces a result. | `inputs + operator -> result` | `total = price * quantity` |
 
 ## Infographic Summary
@@ -888,7 +888,7 @@ flowchart LR
 | Concept | Definition | Visual Explanation | Practical Example |
 | --- | --- | --- | --- |
 | **Value** | A piece of information stored and processed by Python. | `name -> object` | `customer = "Ada"` |
-| **Type** | A category that defines allowed operations for a value. | `42:int | 3.14:float | True:bool` | `isinstance(42, int)` |
+| **Type** | A category that defines allowed operations for a value. | `42:int \| 3.14:float \| True:bool` | `isinstance(42, int)` |
 | **Expression** | A combination of values and operators that produces a result. | `inputs + operator -> result` | `total = price * quantity` |
 
 ## Infographic Summary
@@ -1004,7 +1004,7 @@ flowchart LR
 | Concept | Definition | Visual Explanation | Practical Example |
 | --- | --- | --- | --- |
 | **Value** | A piece of information stored and processed by Python. | `name -> object` | `customer = "Ada"` |
-| **Type** | A category that defines allowed operations for a value. | `42:int | 3.14:float | True:bool` | `isinstance(42, int)` |
+| **Type** | A category that defines allowed operations for a value. | `42:int \| 3.14:float \| True:bool` | `isinstance(42, int)` |
 | **Expression** | A combination of values and operators that produces a result. | `inputs + operator -> result` | `total = price * quantity` |
 
 ## Infographic Summary
@@ -1120,7 +1120,7 @@ flowchart LR
 | Concept | Definition | Visual Explanation | Practical Example |
 | --- | --- | --- | --- |
 | **Value** | A piece of information stored and processed by Python. | `name -> object` | `customer = "Ada"` |
-| **Type** | A category that defines allowed operations for a value. | `42:int | 3.14:float | True:bool` | `isinstance(42, int)` |
+| **Type** | A category that defines allowed operations for a value. | `42:int \| 3.14:float \| True:bool` | `isinstance(42, int)` |
 | **Expression** | A combination of values and operators that produces a result. | `inputs + operator -> result` | `total = price * quantity` |
 
 ## Infographic Summary
@@ -1237,7 +1237,7 @@ flowchart LR
 | --- | --- | --- | --- |
 | **Branch** | A path chosen when a condition is true or false. | `condition ? path A : path B` | `status = "pass" if score >= 70 else "retry"` |
 | **Iteration** | Repeating work over data or until a condition changes. | `collection -> repeated body` | `for item in items: process(item)` |
-| **Loop Control** | Keywords that alter normal loop execution. | `continue | break | pass` | `if item is None: continue` |
+| **Loop Control** | Keywords that alter normal loop execution. | `continue \| break \| pass` | `if item is None: continue` |
 
 ## Infographic Summary
 
@@ -1359,7 +1359,7 @@ flowchart LR
 | --- | --- | --- | --- |
 | **Branch** | A path chosen when a condition is true or false. | `condition ? path A : path B` | `status = "pass" if score >= 70 else "retry"` |
 | **Iteration** | Repeating work over data or until a condition changes. | `collection -> repeated body` | `for item in items: process(item)` |
-| **Loop Control** | Keywords that alter normal loop execution. | `continue | break | pass` | `if item is None: continue` |
+| **Loop Control** | Keywords that alter normal loop execution. | `continue \| break \| pass` | `if item is None: continue` |
 
 ## Infographic Summary
 
@@ -1481,7 +1481,7 @@ flowchart LR
 | --- | --- | --- | --- |
 | **Branch** | A path chosen when a condition is true or false. | `condition ? path A : path B` | `status = "pass" if score >= 70 else "retry"` |
 | **Iteration** | Repeating work over data or until a condition changes. | `collection -> repeated body` | `for item in items: process(item)` |
-| **Loop Control** | Keywords that alter normal loop execution. | `continue | break | pass` | `if item is None: continue` |
+| **Loop Control** | Keywords that alter normal loop execution. | `continue \| break \| pass` | `if item is None: continue` |
 
 ## Infographic Summary
 
@@ -1603,7 +1603,7 @@ flowchart LR
 | --- | --- | --- | --- |
 | **Branch** | A path chosen when a condition is true or false. | `condition ? path A : path B` | `status = "pass" if score >= 70 else "retry"` |
 | **Iteration** | Repeating work over data or until a condition changes. | `collection -> repeated body` | `for item in items: process(item)` |
-| **Loop Control** | Keywords that alter normal loop execution. | `continue | break | pass` | `if item is None: continue` |
+| **Loop Control** | Keywords that alter normal loop execution. | `continue \| break \| pass` | `if item is None: continue` |
 
 ## Infographic Summary
 
@@ -1725,7 +1725,7 @@ flowchart LR
 | --- | --- | --- | --- |
 | **Sequence** | An ordered container accessed by position. | `index -> element` | `names[0]` |
 | **Mapping** | A key-value structure for labeled data. | `key -> value` | `profile["email"]` |
-| **Mutability** | Whether a container can change after creation. | `list changes | tuple stays fixed` | `items.append('new')` |
+| **Mutability** | Whether a container can change after creation. | `list changes \| tuple stays fixed` | `items.append('new')` |
 
 ## Infographic Summary
 
@@ -1837,7 +1837,7 @@ flowchart LR
 | --- | --- | --- | --- |
 | **Sequence** | An ordered container accessed by position. | `index -> element` | `names[0]` |
 | **Mapping** | A key-value structure for labeled data. | `key -> value` | `profile["email"]` |
-| **Mutability** | Whether a container can change after creation. | `list changes | tuple stays fixed` | `items.append('new')` |
+| **Mutability** | Whether a container can change after creation. | `list changes \| tuple stays fixed` | `items.append('new')` |
 
 ## Infographic Summary
 
@@ -1949,7 +1949,7 @@ flowchart LR
 | --- | --- | --- | --- |
 | **Sequence** | An ordered container accessed by position. | `index -> element` | `names[0]` |
 | **Mapping** | A key-value structure for labeled data. | `key -> value` | `profile["email"]` |
-| **Mutability** | Whether a container can change after creation. | `list changes | tuple stays fixed` | `items.append('new')` |
+| **Mutability** | Whether a container can change after creation. | `list changes \| tuple stays fixed` | `items.append('new')` |
 
 ## Infographic Summary
 
@@ -2061,7 +2061,7 @@ flowchart LR
 | --- | --- | --- | --- |
 | **Sequence** | An ordered container accessed by position. | `index -> element` | `names[0]` |
 | **Mapping** | A key-value structure for labeled data. | `key -> value` | `profile["email"]` |
-| **Mutability** | Whether a container can change after creation. | `list changes | tuple stays fixed` | `items.append('new')` |
+| **Mutability** | Whether a container can change after creation. | `list changes \| tuple stays fixed` | `items.append('new')` |
 
 ## Infographic Summary
 
@@ -2173,7 +2173,7 @@ flowchart LR
 | --- | --- | --- | --- |
 | **Sequence** | An ordered container accessed by position. | `index -> element` | `names[0]` |
 | **Mapping** | A key-value structure for labeled data. | `key -> value` | `profile["email"]` |
-| **Mutability** | Whether a container can change after creation. | `list changes | tuple stays fixed` | `items.append('new')` |
+| **Mutability** | Whether a container can change after creation. | `list changes \| tuple stays fixed` | `items.append('new')` |
 
 ## Infographic Summary
 
@@ -2285,7 +2285,7 @@ flowchart LR
 | --- | --- | --- | --- |
 | **Sequence** | An ordered container accessed by position. | `index -> element` | `names[0]` |
 | **Mapping** | A key-value structure for labeled data. | `key -> value` | `profile["email"]` |
-| **Mutability** | Whether a container can change after creation. | `list changes | tuple stays fixed` | `items.append('new')` |
+| **Mutability** | Whether a container can change after creation. | `list changes \| tuple stays fixed` | `items.append('new')` |
 
 ## Infographic Summary
 
@@ -2397,7 +2397,7 @@ flowchart LR
 | --- | --- | --- | --- |
 | **Sequence** | An ordered container accessed by position. | `index -> element` | `names[0]` |
 | **Mapping** | A key-value structure for labeled data. | `key -> value` | `profile["email"]` |
-| **Mutability** | Whether a container can change after creation. | `list changes | tuple stays fixed` | `items.append('new')` |
+| **Mutability** | Whether a container can change after creation. | `list changes \| tuple stays fixed` | `items.append('new')` |
 
 ## Infographic Summary
 
@@ -2509,7 +2509,7 @@ flowchart LR
 | --- | --- | --- | --- |
 | **Parameter** | A named input accepted by a function. | `caller value -> parameter` | `def greet(name): ...` |
 | **Return Value** | The result sent back to the caller. | `function -> result` | `return total` |
-| **Scope** | The region where a name is available. | `local name | global name` | `count = len(items)` |
+| **Scope** | The region where a name is available. | `local name \| global name` | `count = len(items)` |
 
 ## Infographic Summary
 
@@ -2624,7 +2624,7 @@ flowchart LR
 | --- | --- | --- | --- |
 | **Parameter** | A named input accepted by a function. | `caller value -> parameter` | `def greet(name): ...` |
 | **Return Value** | The result sent back to the caller. | `function -> result` | `return total` |
-| **Scope** | The region where a name is available. | `local name | global name` | `count = len(items)` |
+| **Scope** | The region where a name is available. | `local name \| global name` | `count = len(items)` |
 
 ## Infographic Summary
 
@@ -2739,7 +2739,7 @@ flowchart LR
 | --- | --- | --- | --- |
 | **Parameter** | A named input accepted by a function. | `caller value -> parameter` | `def greet(name): ...` |
 | **Return Value** | The result sent back to the caller. | `function -> result` | `return total` |
-| **Scope** | The region where a name is available. | `local name | global name` | `count = len(items)` |
+| **Scope** | The region where a name is available. | `local name \| global name` | `count = len(items)` |
 
 ## Infographic Summary
 
@@ -2854,7 +2854,7 @@ flowchart LR
 | --- | --- | --- | --- |
 | **Parameter** | A named input accepted by a function. | `caller value -> parameter` | `def greet(name): ...` |
 | **Return Value** | The result sent back to the caller. | `function -> result` | `return total` |
-| **Scope** | The region where a name is available. | `local name | global name` | `count = len(items)` |
+| **Scope** | The region where a name is available. | `local name \| global name` | `count = len(items)` |
 
 ## Infographic Summary
 
@@ -2969,7 +2969,7 @@ flowchart LR
 | --- | --- | --- | --- |
 | **Parameter** | A named input accepted by a function. | `caller value -> parameter` | `def greet(name): ...` |
 | **Return Value** | The result sent back to the caller. | `function -> result` | `return total` |
-| **Scope** | The region where a name is available. | `local name | global name` | `count = len(items)` |
+| **Scope** | The region where a name is available. | `local name \| global name` | `count = len(items)` |
 
 ## Infographic Summary
 
@@ -9616,7 +9616,7 @@ flowchart LR
 | --- | --- | --- | --- |
 | **Throughput** | The amount of work completed per unit of time. | `tasks / second` | `pool.map(work, items)` |
 | **Coordination** | How processes, services, or nodes agree on work. | `producer -> queue -> consumers` | `message_id` |
-| **Bottleneck** | The slowest resource limiting the system. | `CPU | IO | network | lock` | `profile before optimizing` |
+| **Bottleneck** | The slowest resource limiting the system. | `CPU \| IO \| network \| lock` | `profile before optimizing` |
 
 ## Infographic Summary
 
@@ -9742,7 +9742,7 @@ flowchart LR
 | --- | --- | --- | --- |
 | **Throughput** | The amount of work completed per unit of time. | `tasks / second` | `pool.map(work, items)` |
 | **Coordination** | How processes, services, or nodes agree on work. | `producer -> queue -> consumers` | `message_id` |
-| **Bottleneck** | The slowest resource limiting the system. | `CPU | IO | network | lock` | `profile before optimizing` |
+| **Bottleneck** | The slowest resource limiting the system. | `CPU \| IO \| network \| lock` | `profile before optimizing` |
 
 ## Infographic Summary
 
@@ -9868,7 +9868,7 @@ flowchart LR
 | --- | --- | --- | --- |
 | **Throughput** | The amount of work completed per unit of time. | `tasks / second` | `pool.map(work, items)` |
 | **Coordination** | How processes, services, or nodes agree on work. | `producer -> queue -> consumers` | `message_id` |
-| **Bottleneck** | The slowest resource limiting the system. | `CPU | IO | network | lock` | `profile before optimizing` |
+| **Bottleneck** | The slowest resource limiting the system. | `CPU \| IO \| network \| lock` | `profile before optimizing` |
 
 ## Infographic Summary
 
@@ -9994,7 +9994,7 @@ flowchart LR
 | --- | --- | --- | --- |
 | **Throughput** | The amount of work completed per unit of time. | `tasks / second` | `pool.map(work, items)` |
 | **Coordination** | How processes, services, or nodes agree on work. | `producer -> queue -> consumers` | `message_id` |
-| **Bottleneck** | The slowest resource limiting the system. | `CPU | IO | network | lock` | `profile before optimizing` |
+| **Bottleneck** | The slowest resource limiting the system. | `CPU \| IO \| network \| lock` | `profile before optimizing` |
 
 ## Infographic Summary
 
@@ -10120,7 +10120,7 @@ flowchart LR
 | --- | --- | --- | --- |
 | **Throughput** | The amount of work completed per unit of time. | `tasks / second` | `pool.map(work, items)` |
 | **Coordination** | How processes, services, or nodes agree on work. | `producer -> queue -> consumers` | `message_id` |
-| **Bottleneck** | The slowest resource limiting the system. | `CPU | IO | network | lock` | `profile before optimizing` |
+| **Bottleneck** | The slowest resource limiting the system. | `CPU \| IO \| network \| lock` | `profile before optimizing` |
 
 ## Infographic Summary
 
@@ -13059,7 +13059,7 @@ flowchart LR
 | --- | --- | --- | --- |
 | **Throughput** | The amount of work completed per unit of time. | `tasks / second` | `pool.map(work, items)` |
 | **Coordination** | How processes, services, or nodes agree on work. | `producer -> queue -> consumers` | `message_id` |
-| **Bottleneck** | The slowest resource limiting the system. | `CPU | IO | network | lock` | `profile before optimizing` |
+| **Bottleneck** | The slowest resource limiting the system. | `CPU \| IO \| network \| lock` | `profile before optimizing` |
 
 ## Infographic Summary
 

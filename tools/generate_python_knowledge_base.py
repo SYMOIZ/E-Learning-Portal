@@ -483,6 +483,11 @@ def code_block(language: str, content: str) -> str:
     return f"```{language}\n{content.rstrip()}\n```"
 
 
+def table_cell(value: object) -> str:
+    """Escape Markdown table separators inside generated cell content."""
+    return str(value).replace("|", r"\|")
+
+
 def syntax_for(topic: str, family: str) -> tuple[str, str, str]:
     fn = function_name(topic)
     if family == "setup":
@@ -847,7 +852,9 @@ def render_topic(topic: str, level: str) -> str:
     ]
 
     for concept, definition, visual, example in concepts:  # type: ignore[misc]
-        lines.append(f"| **{concept}** | {definition} | `{visual}` | `{example}` |")
+        lines.append(
+            f"| **{table_cell(concept)}** | {table_cell(definition)} | `{table_cell(visual)}` | `{table_cell(example)}` |"
+        )
 
     lines.extend(
         [
