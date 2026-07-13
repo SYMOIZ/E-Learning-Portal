@@ -7503,7 +7503,7 @@ print(ET.tostring(root, encoding="unicode"))
 ```python
 import xml.etree.ElementTree as ET
 
-xml = "<orders><order total="10"/><order total="20"/></orders>"
+xml = '<orders><order total="10"/><order total="20"/></orders>'
 root = ET.fromstring(xml)
 print(sum(int(order.attrib["total"]) for order in root.findall("order")))
 ```
