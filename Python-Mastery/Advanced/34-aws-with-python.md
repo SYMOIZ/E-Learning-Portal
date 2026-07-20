@@ -146,7 +146,12 @@ s3.put_object(
 ### Advanced Example
 
 ```python
+import json
 import boto3
+
+def process(body: str) -> None:
+    job = json.loads(body)
+    print(f"processing job {job['id']}")
 
 sqs = boto3.client("sqs")
 response = sqs.receive_message(

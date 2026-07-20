@@ -38,9 +38,11 @@ print(package_file)
 - **Practical example:**
 
 ```python
-import importlib
-json_package = importlib.import_module("json")
-print(json_package.__package__)
+# academy/cli.py
+from .courses import list_courses
+
+for course in list_courses():
+    print(course)
 ```
 
 ### Package execution

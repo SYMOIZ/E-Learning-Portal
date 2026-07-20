@@ -159,6 +159,17 @@ def transfer(connection, source_id: int, target_id: int, amount: int):
         )
         if credit.rowcount != 1:
             raise ValueError("target account missing")
+
+connection = sqlite3.connect(":memory:")
+connection.execute(
+    "CREATE TABLE account (id INTEGER PRIMARY KEY, balance INTEGER CHECK (balance >= 0))"
+)
+connection.executemany(
+    "INSERT INTO account VALUES (?, ?)",
+    [(1, 100), (2, 20)],
+)
+transfer(connection, source_id=1, target_id=2, amount=25)
+print(connection.execute("SELECT * FROM account ORDER BY id").fetchall())
 ```
 
 ## Workflow Diagram

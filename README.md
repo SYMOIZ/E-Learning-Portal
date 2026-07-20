@@ -3869,9 +3869,11 @@ print(package_file)
 - **Practical example:**
 
 ```python
-import importlib
-json_package = importlib.import_module("json")
-print(json_package.__package__)
+# academy/cli.py
+from .courses import list_courses
+
+for course in list_courses():
+    print(course)
 ```
 
 ### Package execution
@@ -4787,10 +4789,10 @@ print(last_item(sample))
 
 ```python
 def ratio(total, count):
-    assert count > 0, "count must be positive"
     return total / count
 
-print(ratio(12, 3))
+# Run this failing case, then read the final exception and its call frame:
+print(ratio(12, 0))  # ZeroDivisionError points back to the division above.
 ```
 
 ### Hypothesis and regression
@@ -4867,7 +4869,7 @@ assert actual == expected
 
 ```python
 def lookup(items, index):
-    print(f"DEBUG {len(items)=} {index=}")
+    breakpoint()  # Inspect items and index, then enter "continue".
     return items[index]
 
 assert lookup(["a", "b", "c"], 2) == "c"
@@ -9679,6 +9681,17 @@ def transfer(connection, source_id: int, target_id: int, amount: int):
         )
         if credit.rowcount != 1:
             raise ValueError("target account missing")
+
+connection = sqlite3.connect(":memory:")
+connection.execute(
+    "CREATE TABLE account (id INTEGER PRIMARY KEY, balance INTEGER CHECK (balance >= 0))"
+)
+connection.executemany(
+    "INSERT INTO account VALUES (?, ?)",
+    [(1, 100), (2, 20)],
+)
+transfer(connection, source_id=1, target_id=2, amount=25)
+print(connection.execute("SELECT * FROM account ORDER BY id").fetchall())
 ```
 
 ## Workflow Diagram
@@ -9726,7 +9739,7 @@ print(connection.execute("SELECT sqlite_version()").fetchone())
 ```
 
 ### Rows and parameters
-- **Definition:** SQLite uses ? named placeholders; row_factory can expose name-addressable rows.
+- **Definition:** SQLite uses `?` for positional parameters and `:name` for named parameters; `row_factory` can expose name-addressable rows.
 - **Visual explanation:** ``SQL + tuple values -> cursor -> Row``
 - **Practical example:**
 
@@ -17113,7 +17126,12 @@ s3.put_object(
 ### Advanced Example
 
 ```python
+import json
 import boto3
+
+def process(body: str) -> None:
+    job = json.loads(body)
+    print(f"processing job {job['id']}")
 
 sqs = boto3.client("sqs")
 response = sqs.receive_message(

@@ -41,10 +41,10 @@ print(last_item(sample))
 
 ```python
 def ratio(total, count):
-    assert count > 0, "count must be positive"
     return total / count
 
-print(ratio(12, 3))
+# Run this failing case, then read the final exception and its call frame:
+print(ratio(12, 0))  # ZeroDivisionError points back to the division above.
 ```
 
 ### Hypothesis and regression
@@ -121,7 +121,7 @@ assert actual == expected
 
 ```python
 def lookup(items, index):
-    print(f"DEBUG {len(items)=} {index=}")
+    breakpoint()  # Inspect items and index, then enter "continue".
     return items[index]
 
 assert lookup(["a", "b", "c"], 2) == "c"

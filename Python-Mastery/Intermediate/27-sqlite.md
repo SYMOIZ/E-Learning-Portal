@@ -33,7 +33,7 @@ print(connection.execute("SELECT sqlite_version()").fetchone())
 ```
 
 ### Rows and parameters
-- **Definition:** SQLite uses ? named placeholders; row_factory can expose name-addressable rows.
+- **Definition:** SQLite uses `?` for positional parameters and `:name` for named parameters; `row_factory` can expose name-addressable rows.
 - **Visual explanation:** ``SQL + tuple values -> cursor -> Row``
 - **Practical example:**
 
