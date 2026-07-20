@@ -51,6 +51,7 @@ def validate_relative_links(markdown_file: Path, errors: list[str]) -> None:
 
 def validate_topic_files(errors: list[str]) -> int:
     expected_count = sum(len(topics) for topics in LEVELS.values())
+    root_document = SOURCE.read_text(encoding="utf-8")
     topic_files = [
         path
         for level in LEVELS
@@ -63,6 +64,23 @@ def validate_topic_files(errors: list[str]) -> int:
 
     for path in topic_files:
         document = path.read_text(encoding="utf-8")
+        topic_heading = next(
+            (line for line in document.splitlines() if line.startswith("# ")),
+            None,
+        )
+        if topic_heading is None:
+            errors.append(f"{path.relative_to(ROOT)}: missing topic heading")
+        else:
+            footer = document.rfind("\n---\n")
+            lesson = document[document.find(topic_heading) : footer].rstrip()
+            if root_document.count(f"\n{topic_heading}\n") != 1:
+                errors.append(
+                    f"README.md: expected exactly one synchronized {topic_heading}"
+                )
+            elif lesson not in root_document:
+                errors.append(
+                    f"{path.relative_to(ROOT)}: lesson differs from root README"
+                )
         for heading in REQUIRED_SECTIONS:
             if document.count(f"## {heading}") != 1:
                 errors.append(f"{path.relative_to(ROOT)}: invalid {heading!r} count")
