@@ -5,92 +5,102 @@
 # File Handling
 
 ## Overview
-- **What is it?** File handling reads, writes, appends, and manages files safely.
-- **Why is it important?** Persist and exchange data outside program memory.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** File handling opens filesystem paths and reads or writes persistent bytes or text.
+- **Why is it important?** Context managers close resources reliably, while explicit modes and encodings make data behavior predictable.
+- **Where is it used?** Applications store configuration, reports, logs, exports, and imported datasets in files.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review file handling code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind file handling.
-- Expected outcome: you can use file handling in a small project and recognize when it belongs in production code.
+- Open text files with a context manager and explicit encoding.
+- Choose read, write, append, or exclusive-creation modes.
+- Use `pathlib` and handle missing or malformed content.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Read application settings.
+- Write a generated report.
+- Append events to a log or process a file line by line.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives file handling its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> File Handling model -> clear code`
-- **Practical example:**
-
-```python
-apply_file_handling_label = "File Handling"
-print(apply_file_handling_label)
-```
-
-### Execution Flow
-- **Definition:** The ordered steps Python follows when file handling code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Paths and modes
+- **Definition:** A path identifies a filesystem entry; mode `r`, `w`, `a`, or `x` determines read, replace, append, or create-only behavior.
+- **Visual explanation:** `path + mode -> open file object`
 - **Practical example:**
 
 ```python
 from pathlib import Path
-Path("hello.txt").write_text("Hello file", encoding="utf-8")
-print(Path("hello.txt").read_text(encoding="utf-8"))
+path = Path("notes.txt")
+print(path.name, path.suffix)
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps file handling understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Context-managed resource
+- **Definition:** A `with` statement closes the file even when an exception leaves the block.
+- **Visual explanation:** `with open -> use resource -> automatic close`
+- **Practical example:**
+
+```python
+from io import StringIO
+with StringIO("first\nsecond\n") as file:
+    print(file.readline().strip())
+```
+
+### Text encoding and structure
+- **Definition:** Text must be encoded as bytes on disk; specifying UTF-8 avoids platform-dependent defaults.
+- **Visual explanation:** `Unicode text <-> UTF-8 bytes <-> file`
 - **Practical example:**
 
 ```python
 from pathlib import Path
-
-rows = ["name,score", "Ada,95"]
-Path("scores.csv").write_text("\n".join(rows), encoding="utf-8")
+path = Path("lesson_demo.txt")
+path.write_text("Python ✓\n", encoding="utf-8")
+print(path.read_text(encoding="utf-8").strip())
+path.unlink()
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | File Handling belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Persist and exchange data outside program memory. |
-| 🔥 Benefits | Logs, CSV imports, reports, configs, and backups. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | File handling opens filesystem paths and reads or writes persistent bytes or text. |
+| ⚡ Purpose | Read and write persistent text or bytes through safely managed file resources. |
+| 🔥 Benefits | Context managers close resources reliably, while explicit modes and encodings make data behavior predictable. |
+| 🎯 Use Cases | Applications store configuration, reports, logs, exports, and imported datasets in files. |
+| 🚀 Best Practices | Use `Path`, `with`, and `encoding='utf-8'`; write to a temporary path before replacing valuable data. |
+| ❌ Common Mistakes | Using write mode on an existing file without realizing it truncates all previous content. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-from pathlib import Path
-Path("notes.txt").write_text("hello", encoding="utf-8")
+from io import StringIO
+file = StringIO("alpha\nbeta\n")
+print(file.read())
+file.close()
 ```
 
 ### Standard Structure
 
 ```python
-def apply_file_handling(value):
-    """Apply the File Handling concept to one value."""
-    return value
-
-result = apply_file_handling("practice")
-print(result)
+from pathlib import Path
+path = Path("example.txt")
+path.write_text("one\ntwo\n", encoding="utf-8")
+lines = path.read_text(encoding="utf-8").splitlines()
+print(lines)
+path.unlink()
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the File Handling problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+from pathlib import Path
+import json
+
+path = Path("settings_demo.json")
+data = {"theme": "dark", "font_size": 14}
+path.write_text(json.dumps(data, indent=2), encoding="utf-8")
+loaded = json.loads(path.read_text(encoding="utf-8"))
+print(loaded["theme"])
+path.unlink()
 ```
 
 ## Examples
@@ -98,42 +108,53 @@ print(result)
 ### Beginner Example
 
 ```python
-from pathlib import Path
-Path("hello.txt").write_text("Hello file", encoding="utf-8")
-print(Path("hello.txt").read_text(encoding="utf-8"))
+from io import StringIO
+with StringIO("Python file practice") as file:
+    print(file.read())
 ```
 
 ### Intermediate Example
 
 ```python
 from pathlib import Path
-
-rows = ["name,score", "Ada,95"]
-Path("scores.csv").write_text("\n".join(rows), encoding="utf-8")
+path = Path("scores_demo.txt")
+path.write_text("80\n92\n76\n", encoding="utf-8")
+scores = [int(line) for line in path.read_text(encoding="utf-8").splitlines()]
+print(sum(scores) / len(scores))
+path.unlink()
 ```
 
 ### Advanced Example
 
 ```python
 from pathlib import Path
-import json
+import csv
 
-config = {"debug": False, "retries": 3}
-Path("config.json").write_text(json.dumps(config, indent=2), encoding="utf-8")
+path = Path("people_demo.csv")
+with path.open("w", newline="", encoding="utf-8") as file:
+    writer = csv.DictWriter(file, fieldnames=["name", "score"])
+    writer.writeheader()
+    writer.writerows([{"name": "Ada", "score": 90}, {"name": "Bo", "score": 84}])
+with path.open(newline="", encoding="utf-8") as file:
+    records = list(csv.DictReader(file))
+print(records)
+path.unlink()
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify File Handling Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Build filesystem path]
+    B[Choose mode and encoding]
+    C[Open with context manager]
+    D[Read parse or write content]
+    E[Close and handle errors]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
-
-
----
 
 ---
 

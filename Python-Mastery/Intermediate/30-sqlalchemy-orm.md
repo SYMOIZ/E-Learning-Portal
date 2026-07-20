@@ -5,96 +5,102 @@
 # SQLAlchemy ORM
 
 ## Overview
-- **What is it?** SQLAlchemy ORM is a Python knowledge area focused on integration.
-- **Why is it important?** Help developers apply integration techniques safely, clearly, and consistently.
-- **Where is it used?** Web services, persistence layers, analytics backends, and business systems.
+- **What is it?** SQLAlchemy ORM is the intermediate Python topic of mapping Python domain classes to relational tables with SQLAlchemy 2.x.
+- **Why is it important?** The ORM unit of work tracks mapped objects and flushes SQL through an explicit Session transaction.
+- **Where is it used?** backend persistence layers, complex relational domains, database-portable data access.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review sqlalchemy orm code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind sqlalchemy orm.
-- Expected outcome: you can use sqlalchemy orm in a small project and recognize when it belongs in production code.
+- Declare 2.x typed mappings.
+- Use select() and Session scopes.
+- Model relationships and avoid hidden N+1 queries.
 
 ## Real World Applications
-- **Industry use cases:** Web services, persistence layers, analytics backends, and business systems.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Backend persistence layers rely on this topic.
+- **Product work:** It supports complex relational domains.
+- **Operations:** It appears in database-portable data access.
 
 ## Core Concepts
 
-### Contract
-- **Definition:** The main idea that gives sqlalchemy orm its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> SQLAlchemy ORM model -> clear code`
+### Declarative mappings
+- **Definition:** DeclarativeBase, Mapped, and mapped_column connect typed class attributes to table columns.
+- **Visual explanation:** ``mapped class <-> table metadata``
 - **Practical example:**
 
 ```python
-apply_sqlalchemy_orm_label = "SQLAlchemy ORM"
-print(apply_sqlalchemy_orm_label)
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+
+class Base(DeclarativeBase):
+    pass
+
+class User(Base):
+    __tablename__ = "user"
+    id: Mapped[int] = mapped_column(primary_key=True)
 ```
 
-### Connection Flow
-- **Definition:** The ordered steps Python follows when sqlalchemy orm code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Session and unit of work
+- **Definition:** A Session is a short-lived identity map and transaction boundary that tracks changes and flushes SQL.
+- **Visual explanation:** ``objects -> Session unit of work -> flush -> transaction``
 - **Practical example:**
 
 ```python
-import sqlite3
-connection = sqlite3.connect(":memory:")
-connection.execute("CREATE TABLE users (name TEXT)")
-connection.execute("INSERT INTO users VALUES (?)", ("Ada",))
-print(connection.execute("SELECT name FROM users").fetchone()[0])
+from sqlalchemy.orm import Session
+
+with Session(engine) as session, session.begin():
+    session.add(User())
 ```
 
-### Reliability Boundary
-- **Definition:** The reliability habit that keeps sqlalchemy orm understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### 2.x queries and loading
+- **Definition:** SQLAlchemy 2.x queries use select(); relationship loading should be chosen explicitly to control round trips.
+- **Visual explanation:** ``select(User) -> execute -> scalars; selectinload -> bounded related query``
 - **Practical example:**
 
 ```python
-import sqlite3
-
-with sqlite3.connect(":memory:") as connection:
-    connection.execute("CREATE TABLE metrics (name TEXT, value REAL)")
-    connection.executemany("INSERT INTO metrics VALUES (?, ?)", [("latency", 120.5)])
-    print(connection.execute("SELECT COUNT(*) FROM metrics").fetchone()[0])
+from sqlalchemy import select
+statement = select(User).where(User.id == 1)
+user = session.scalar(statement)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | SQLAlchemy ORM belongs to the integration part of Python mastery. |
-| ⚡ Purpose | Help developers apply integration techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional integration decisions. |
-| 🎯 Use Cases | Web services, persistence layers, analytics backends, and business systems. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Declarative mappings, Session and unit of work, 2.x queries and loading |
+| ⚡ Purpose | The ORM unit of work tracks mapped objects and flushes SQL through an explicit Session transaction. |
+| 🔥 Benefits | Typed relational mappings, coordinated units of work, and expressive database-independent querying. |
+| 🎯 Use Cases | backend persistence layers, complex relational domains, database-portable data access |
+| 🚀 Best Practices | Use one Session per request or job and pass it explicitly to repositories. |
+| ❌ Common Mistakes | Keeping a global Session or relying on lazy loading after the Session closes. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import sqlite3
-connection = sqlite3.connect(":memory:")
+from sqlalchemy import create_engine, select
+from sqlalchemy.orm import Session
+
+engine = create_engine("sqlite:///app.db")
+with Session(engine) as session:
+    users = session.scalars(select(User)).all()
 ```
 
 ### Standard Structure
 
 ```python
-def apply_sqlalchemy_orm(value):
-    """Apply the SQLAlchemy ORM concept to one value."""
-    return value
-
-result = apply_sqlalchemy_orm("practice")
-print(result)
+with Session(engine) as session:
+    with session.begin():
+        user = User(email="ada@example.com")
+        session.add(user)
+    session.refresh(user)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the SQLAlchemy ORM problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Define typed declarative mappings.
+# Open a short-lived Session.
+# Execute select() or change mapped objects.
+# Commit transaction and close Session.
 ```
 
 ## Examples
@@ -102,49 +108,83 @@ print(result)
 ### Beginner Example
 
 ```python
-import sqlite3
-connection = sqlite3.connect(":memory:")
-connection.execute("CREATE TABLE users (name TEXT)")
-connection.execute("INSERT INTO users VALUES (?)", ("Ada",))
-print(connection.execute("SELECT name FROM users").fetchone()[0])
+from sqlalchemy import create_engine, select
+from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column
+class Base(DeclarativeBase):
+    pass
+class Course(Base):
+    __tablename__ = "course"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    title: Mapped[str]
+engine = create_engine("sqlite:///:memory:")
+Base.metadata.create_all(engine)
+with Session(engine) as session:
+    session.add(Course(title="Intermediate Python"))
+    session.commit()
+    print(session.scalars(select(Course)).one().title)
 ```
 
 ### Intermediate Example
 
 ```python
-import sqlite3
+from sqlalchemy import create_engine, select
+from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column
+class Base(DeclarativeBase):
+    pass
+class Task(Base):
+    __tablename__ = "task"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    title: Mapped[str]
+    done: Mapped[bool] = mapped_column(default=False)
+engine = create_engine("sqlite:///:memory:")
+Base.metadata.create_all(engine)
+with Session(engine) as session, session.begin():
+    session.add_all([Task(title="Map model"), Task(title="Query model")])
 
-with sqlite3.connect(":memory:") as connection:
-    connection.execute("CREATE TABLE metrics (name TEXT, value REAL)")
-    connection.executemany("INSERT INTO metrics VALUES (?, ?)", [("latency", 120.5)])
-    print(connection.execute("SELECT COUNT(*) FROM metrics").fetchone()[0])
+with Session(engine) as session:
+    open_tasks = session.scalars(
+        select(Task).where(Task.done.is_(False)).order_by(Task.id)
+    ).all()
+    print([task.title for task in open_tasks])
 ```
 
 ### Advanced Example
 
 ```python
-import sqlite3
-
-connection = sqlite3.connect(":memory:")
-connection.row_factory = sqlite3.Row
-connection.execute("CREATE TABLE users (id INTEGER, email TEXT)")
-connection.execute("INSERT INTO users VALUES (?, ?)", (1, "a@example.com"))
-row = connection.execute("SELECT * FROM users").fetchone()
-print(dict(row))
+from sqlalchemy import ForeignKey, create_engine, select
+from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column, relationship, selectinload
+class Base(DeclarativeBase):
+    pass
+class Author(Base):
+    __tablename__ = "author"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    name: Mapped[str]
+    books: Mapped[list["Book"]] = relationship(back_populates="author")
+class Book(Base):
+    __tablename__ = "book"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    title: Mapped[str]
+    author_id: Mapped[int] = mapped_column(ForeignKey("author.id"))
+    author: Mapped[Author] = relationship(back_populates="books")
+engine = create_engine("sqlite:///:memory:")
+Base.metadata.create_all(engine)
+with Session(engine) as session, session.begin():
+    session.add(Author(name="Ada", books=[Book(title="Python Systems")]))
+with Session(engine) as session:
+    query = select(Author).options(selectinload(Author.books))
+    author = session.scalars(query).one()
+    print([book.title for book in author.books])
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify SQLAlchemy ORM Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Define mapped classes] --> B[Open Session transaction]
+    B --> C[Load or mutate objects]
+    C --> D[Flush SQL and commit]
+    D --> E[Close Session]
 ```
-
-
----
 
 ---
 

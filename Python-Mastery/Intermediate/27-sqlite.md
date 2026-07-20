@@ -5,69 +5,65 @@
 # SQLite
 
 ## Overview
-- **What is it?** SQLite is a Python knowledge area focused on integration.
-- **Why is it important?** Help developers apply integration techniques safely, clearly, and consistently.
-- **Where is it used?** Web services, persistence layers, analytics backends, and business systems.
+- **What is it?** SQLite is the intermediate Python topic of using Python's built-in sqlite3 driver for embedded relational storage.
+- **Why is it important?** SQLite stores a transactional database in one file and needs no server, making it ideal for local tools and modest workloads.
+- **Where is it used?** desktop and CLI state, local caches, tests and prototypes.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review sqlite code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind sqlite.
-- Expected outcome: you can use sqlite in a small project and recognize when it belongs in production code.
+- Manage sqlite3 connections and transactions.
+- Use placeholders and row factories.
+- Understand locking, foreign keys, and file lifetime.
 
 ## Real World Applications
-- **Industry use cases:** Web services, persistence layers, analytics backends, and business systems.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Desktop and cli state rely on this topic.
+- **Product work:** It supports local caches.
+- **Operations:** It appears in tests and prototypes.
 
 ## Core Concepts
 
-### Contract
-- **Definition:** The main idea that gives sqlite its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> SQLite model -> clear code`
-- **Practical example:**
-
-```python
-apply_sqlite_label = "SQLite"
-print(apply_sqlite_label)
-```
-
-### Connection Flow
-- **Definition:** The ordered steps Python follows when sqlite code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Embedded connection
+- **Definition:** sqlite3 connects directly to a database file or :memory: database inside the current process.
+- **Visual explanation:** ``Python process -> sqlite3 connection -> database file``
 - **Practical example:**
 
 ```python
 import sqlite3
 connection = sqlite3.connect(":memory:")
-connection.execute("CREATE TABLE users (name TEXT)")
-connection.execute("INSERT INTO users VALUES (?)", ("Ada",))
-print(connection.execute("SELECT name FROM users").fetchone()[0])
+print(connection.execute("SELECT sqlite_version()").fetchone())
 ```
 
-### Reliability Boundary
-- **Definition:** The reliability habit that keeps sqlite understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Rows and parameters
+- **Definition:** SQLite uses ? named placeholders; row_factory can expose name-addressable rows.
+- **Visual explanation:** ``SQL + tuple values -> cursor -> Row``
 - **Practical example:**
 
 ```python
 import sqlite3
+connection = sqlite3.connect(":memory:")
+connection.row_factory = sqlite3.Row
+```
 
-with sqlite3.connect(":memory:") as connection:
-    connection.execute("CREATE TABLE metrics (name TEXT, value REAL)")
-    connection.executemany("INSERT INTO metrics VALUES (?, ?)", [("latency", 120.5)])
-    print(connection.execute("SELECT COUNT(*) FROM metrics").fetchone()[0])
+### Transactions and constraints
+- **Definition:** A connection context commits on normal exit and rolls back on exceptions; foreign keys must be enabled per connection.
+- **Visual explanation:** ``with connection -> transaction -> commit/rollback``
+- **Practical example:**
+
+```python
+import sqlite3
+connection = sqlite3.connect(":memory:")
+connection.execute("PRAGMA foreign_keys = ON")
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | SQLite belongs to the integration part of Python mastery. |
-| ⚡ Purpose | Help developers apply integration techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional integration decisions. |
-| 🎯 Use Cases | Web services, persistence layers, analytics backends, and business systems. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Embedded connection, Rows and parameters, Transactions and constraints |
+| ⚡ Purpose | SQLite stores a transactional database in one file and needs no server, making it ideal for local tools and modest workloads. |
+| 🔥 Benefits | Zero-service relational storage, transactional local data, and fast setup for tools and tests. |
+| 🎯 Use Cases | desktop and CLI state, local caches, tests and prototypes |
+| 🚀 Best Practices | Use short transactions, parameter binding, and PRAGMA foreign_keys = ON. |
+| ❌ Common Mistakes | Sharing one connection freely across threads or expecting server-scale concurrent writers. |
 
 ## Syntax Guide
 
@@ -75,26 +71,32 @@ with sqlite3.connect(":memory:") as connection:
 
 ```python
 import sqlite3
-connection = sqlite3.connect(":memory:")
+
+with sqlite3.connect("app.db") as connection:
+    connection.execute("CREATE TABLE IF NOT EXISTS note (text TEXT NOT NULL)")
 ```
 
 ### Standard Structure
 
 ```python
-def apply_sqlite(value):
-    """Apply the SQLite concept to one value."""
-    return value
+import sqlite3
 
-result = apply_sqlite("practice")
-print(result)
+connection = sqlite3.connect("app.db")
+connection.row_factory = sqlite3.Row
+connection.execute("PRAGMA foreign_keys = ON")
+row = connection.execute(
+    "SELECT id, text FROM note WHERE id = ?",
+    (note_id,),
+).fetchone()
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the SQLite problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Connect to a specific file.
+# Enable required pragmas.
+# Bind values with ? placeholders.
+# Keep writes in short connection-context transactions.
 ```
 
 ## Examples
@@ -103,10 +105,11 @@ print(result)
 
 ```python
 import sqlite3
-connection = sqlite3.connect(":memory:")
-connection.execute("CREATE TABLE users (name TEXT)")
-connection.execute("INSERT INTO users VALUES (?)", ("Ada",))
-print(connection.execute("SELECT name FROM users").fetchone()[0])
+
+with sqlite3.connect(":memory:") as connection:
+    connection.execute("CREATE TABLE note (id INTEGER PRIMARY KEY, text TEXT NOT NULL)")
+    connection.execute("INSERT INTO note (text) VALUES (?)", ("Learn SQLite",))
+    print(connection.execute("SELECT text FROM note").fetchone()[0])
 ```
 
 ### Intermediate Example
@@ -115,9 +118,19 @@ print(connection.execute("SELECT name FROM users").fetchone()[0])
 import sqlite3
 
 with sqlite3.connect(":memory:") as connection:
-    connection.execute("CREATE TABLE metrics (name TEXT, value REAL)")
-    connection.executemany("INSERT INTO metrics VALUES (?, ?)", [("latency", 120.5)])
-    print(connection.execute("SELECT COUNT(*) FROM metrics").fetchone()[0])
+    connection.row_factory = sqlite3.Row
+    connection.execute(
+        "CREATE TABLE inventory (sku TEXT PRIMARY KEY, quantity INTEGER NOT NULL)"
+    )
+    connection.executemany(
+        "INSERT INTO inventory VALUES (?, ?)",
+        [("A1", 3), ("B2", 7)],
+    )
+    rows = connection.execute(
+        "SELECT sku, quantity FROM inventory WHERE quantity >= ? ORDER BY sku",
+        (5,),
+    )
+    print([dict(row) for row in rows])
 ```
 
 ### Advanced Example
@@ -125,26 +138,34 @@ with sqlite3.connect(":memory:") as connection:
 ```python
 import sqlite3
 
+def reserve(connection, sku: str, amount: int) -> None:
+    if amount <= 0:
+        raise ValueError("amount must be positive")
+    with connection:
+        result = connection.execute(
+            "UPDATE inventory SET quantity = quantity - ? "
+            "WHERE sku = ? AND quantity >= ?",
+            (amount, sku, amount),
+        )
+        if result.rowcount != 1:
+            raise ValueError("unknown sku or insufficient stock")
+
 connection = sqlite3.connect(":memory:")
-connection.row_factory = sqlite3.Row
-connection.execute("CREATE TABLE users (id INTEGER, email TEXT)")
-connection.execute("INSERT INTO users VALUES (?, ?)", (1, "a@example.com"))
-row = connection.execute("SELECT * FROM users").fetchone()
-print(dict(row))
+connection.execute("CREATE TABLE inventory (sku TEXT PRIMARY KEY, quantity INTEGER CHECK(quantity >= 0))")
+connection.execute("INSERT INTO inventory VALUES (?, ?)", ("A1", 4))
+reserve(connection, "A1", 2)
+print(connection.execute("SELECT quantity FROM inventory").fetchone()[0])
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify SQLite Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Open file connection] --> B[Configure pragmas and rows]
+    B --> C[Execute bound SQL]
+    C --> D[Commit or roll back]
+    D --> E[Close connection]
 ```
-
-
----
 
 ---
 

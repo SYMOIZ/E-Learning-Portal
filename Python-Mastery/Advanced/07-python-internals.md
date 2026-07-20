@@ -5,92 +5,111 @@
 # Python Internals
 
 ## Overview
-- **What is it?** Python Internals is a Python knowledge area focused on advanced language engineering.
-- **Why is it important?** Help developers apply advanced language engineering techniques safely, clearly, and consistently.
-- **Where is it used?** Performance-sensitive systems, frameworks, libraries, and technical interviews.
+- **What is it?** Python internals connect source text to tokens, abstract syntax trees, code objects, bytecode, frames, and the CPython evaluation loop.
+- **Why is it important?** This model makes disassembly, import behavior, scope resolution, and interpreter-specific performance observations understandable.
+- **Where is it used?** It is useful for debuggers, profilers, framework authors, static-analysis tools, and advanced incident diagnosis.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review python internals code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind python internals.
-- Expected outcome: you can use python internals in a small project and recognize when it belongs in production code.
+- Trace source through parsing, compilation, bytecode, frames, and execution.
+- Inspect code objects and disassembly without relying on unstable opcode details.
+- Explain name resolution, imports, and interpreter-specific implementation boundaries.
 
 ## Real World Applications
-- **Industry use cases:** Performance-sensitive systems, frameworks, libraries, and technical interviews.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Building decorators, tracers, debuggers, linters, and code-generation tools.
+- Understanding closure state, exception tracebacks, and import cache behavior.
+- Reading performance profiles with awareness of interpreter specialization.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives python internals its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Python Internals model -> clear code`
+### Compilation Pipeline
+- **Definition:** `compile` transforms parsed source into an immutable code object containing bytecode, constants, names, and source-location metadata.
+- **Visual explanation:** `source → tokenizer/parser → AST → code object → evaluation`
 - **Practical example:**
 
 ```python
-apply_python_internals_label = "Python Internals"
-print(apply_python_internals_label)
+import ast
+
+tree = ast.parse("result = left + right")
+code_object = compile(tree, "<lesson>", "exec")
+print(code_object.co_names)
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when python internals code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Frames and Name Resolution
+- **Definition:** Each executing scope has a frame linking code, local/global mappings, and the previous frame; lexical names follow local, enclosing, global, builtins lookup.
+- **Visual explanation:** `bytecode instruction → frame locals/globals → resolved object`
 - **Practical example:**
 
 ```python
-value = 42
-print(type(value).__name__)
+import inspect
+
+def describe_frame() -> tuple[str, tuple[str, ...]]:
+    frame = inspect.currentframe()
+    assert frame is not None
+    return frame.f_code.co_name, frame.f_code.co_varnames
+
+print(describe_frame())
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps python internals understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Imports and Module Caching
+- **Definition:** Import finders locate a module specification, loaders execute module code, and `sys.modules` caches the resulting module object.
+- **Visual explanation:** `import statement → finder/spec → loader → `sys.modules``
 - **Practical example:**
 
 ```python
-profile = {"name": "Noor", "skills": ["Python", "SQL"], "active": True}
-print(profile["skills"][0])
+import importlib.util
+import sys
+
+specification = importlib.util.find_spec("json")
+assert specification is not None
+print(specification.origin)
+print("json" in sys.modules)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Python Internals belongs to the advanced language engineering part of Python mastery. |
-| ⚡ Purpose | Help developers apply advanced language engineering techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional advanced language engineering decisions. |
-| 🎯 Use Cases | Performance-sensitive systems, frameworks, libraries, and technical interviews. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Python internals connect source text to tokens, abstract syntax trees, code objects, bytecode, frames, and the CPython evaluation loop. |
+| ⚡ Purpose | This model makes disassembly, import behavior, scope resolution, and interpreter-specific performance observations understandable. |
+| 🔥 Benefits | Builds the ability to trace source through parsing, compilation, bytecode, frames, and execution; it also helps practitioners inspect code objects and disassembly without relying on unstable opcode details. |
+| 🎯 Use Cases | Building decorators, tracers, debuggers, linters, and code-generation tools. Understanding closure state, exception tracebacks, and import cache behavior. |
+| 🚀 Best Practices | Use documented introspection APIs before private interpreter fields. |
+| ❌ Common Mistakes | Ignoring the guardrail “Do not infer source-level cost from bytecode count alone”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-age = 31
-price = 19.99
-name = "Python"
-is_active = True
-missing = None
+import ast
+
+expression = ast.parse("price * quantity", mode="eval")
+print(ast.dump(expression, indent=2))
 ```
 
 ### Standard Structure
 
 ```python
-def apply_python_internals(value):
-    """Apply the Python Internals concept to one value."""
-    return value
+import dis
 
-result = apply_python_internals("practice")
-print(result)
+def squared(value: int) -> int:
+    return value * value
+
+dis.dis(squared)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Python Internals problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+def make_counter():
+    count = 0
+
+    def increment() -> int:
+        nonlocal count
+        count += 1
+        return count
+
+    return increment
 ```
 
 ## Examples
@@ -98,42 +117,53 @@ print(result)
 ### Beginner Example
 
 ```python
-value = 42
-print(type(value).__name__)
+source = "answer = 6 * 7"
+namespace: dict[str, object] = {}
+exec(compile(source, "<dynamic>", "exec"), namespace)
+assert namespace["answer"] == 42
 ```
 
 ### Intermediate Example
 
 ```python
-profile = {"name": "Noor", "skills": ["Python", "SQL"], "active": True}
-print(profile["skills"][0])
+def outer(prefix: str):
+    def inner(value: str) -> str:
+        return f"{prefix}:{value}"
+    return inner
+
+formatter = outer("id")
+print(formatter.__code__.co_freevars)
+print(formatter.__closure__[0].cell_contents)
 ```
 
 ### Advanced Example
 
 ```python
-from typing import TypedDict
+import ast
 
-class User(TypedDict):
-    id: int
-    email: str
+class NameCollector(ast.NodeVisitor):
+    def __init__(self) -> None:
+        self.names: set[str] = set()
 
-user: User = {"id": 1, "email": "dev@example.com"}
-print(user)
+    def visit_Name(self, node: ast.Name) -> None:
+        self.names.add(node.id)
+        self.generic_visit(node)
+
+collector = NameCollector()
+collector.visit(ast.parse("total = price * quantity"))
+print(collector.names)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Python Internals Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Read source] --> B[Build AST]
+    B --> C[Compile code object]
+    C --> D[Evaluate in frame]
+    D --> E[Inspect runtime evidence]
+    E -. feedback .-> A
 ```
-
-
----
 
 ---
 

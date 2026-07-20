@@ -5,95 +5,107 @@
 # Parallel Computing
 
 ## Overview
-- **What is it?** Parallel Computing is a Python knowledge area focused on execution model.
-- **Why is it important?** Help developers apply execution model techniques safely, clearly, and consistently.
-- **Where is it used?** High-throughput services, background jobs, io workloads, and cpu-bound processing.
+- **What is it?** Parallel computing executes CPU work simultaneously across cores or machines, commonly using processes to bypass CPython's global interpreter lock.
+- **Why is it important?** Speedup depends on task size, serialization cost, memory bandwidth, core count, and the serial fraction of the workload.
+- **Where is it used?** It supports numerical transforms, media processing, simulations, compilation, and independent batch computation.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review parallel computing code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind parallel computing.
-- Expected outcome: you can use parallel computing in a small project and recognize when it belongs in production code.
+- Distinguish concurrency from actual multi-core parallel execution.
+- Use process pools with picklable, coarse-grained tasks and explicit shutdown.
+- Evaluate speedup against serialization and scheduling overhead.
 
 ## Real World Applications
-- **Industry use cases:** High-throughput services, background jobs, io workloads, and cpu-bound processing.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Parallel image transforms, document parsing, simulation runs, and feature extraction.
+- Partitioning independent CPU-bound records across worker processes.
+- Using shared memory when copying large arrays would dominate runtime.
 
 ## Core Concepts
 
-### Task Unit
-- **Definition:** The main idea that gives parallel computing its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Parallel Computing model -> clear code`
+### Process Isolation
+- **Definition:** Worker processes have separate Python heaps; arguments and results normally cross process boundaries through serialization.
+- **Visual explanation:** `parent object → pickle/IPC → worker heap → result IPC`
 - **Practical example:**
 
 ```python
-apply_parallel_computing_label = "Parallel Computing"
-print(apply_parallel_computing_label)
-```
+from concurrent.futures import ProcessPoolExecutor
 
-### Scheduler or Worker
-- **Definition:** The ordered steps Python follows when parallel computing code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
-- **Practical example:**
-
-```python
-from multiprocessing import cpu_count
-print(cpu_count())
-```
-
-### Coordination Rule
-- **Definition:** The reliability habit that keeps parallel computing understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
-- **Practical example:**
-
-```python
-from multiprocessing import Pool
-
-def square(value):
+def square(value: int) -> int:
     return value * value
 
 if __name__ == "__main__":
-    with Pool(2) as pool:
-        print(pool.map(square, [1, 2, 3]))
+    with ProcessPoolExecutor() as pool:
+        print(list(pool.map(square, range(5))))
+```
+
+### Granularity and Amdahl's Law
+- **Definition:** Parallelism helps when each submitted unit contains enough CPU work to amortize startup, scheduling, and transfer costs.
+- **Visual explanation:** `serial setup + parallel fraction / workers + communication overhead`
+- **Practical example:**
+
+```python
+def theoretical_speedup(parallel_fraction: float, workers: int) -> float:
+    serial = 1.0 - parallel_fraction
+    return 1.0 / (serial + parallel_fraction / workers)
+
+print(theoretical_speedup(0.9, 8))
+```
+
+### Shared Memory
+- **Definition:** Shared memory exposes one byte buffer to multiple processes, avoiding copies but requiring disciplined ownership and synchronization.
+- **Visual explanation:** `shared segment ↔ process views; coordinate writes explicitly`
+- **Practical example:**
+
+```python
+from multiprocessing import shared_memory
+
+segment = shared_memory.SharedMemory(create=True, size=4)
+try:
+    segment.buf[:4] = b"data"
+    print(bytes(segment.buf[:4]))
+finally:
+    segment.close()
+    segment.unlink()
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Parallel Computing belongs to the execution model part of Python mastery. |
-| ⚡ Purpose | Help developers apply execution model techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional execution model decisions. |
-| 🎯 Use Cases | High-throughput services, background jobs, io workloads, and cpu-bound processing. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Parallel computing executes CPU work simultaneously across cores or machines, commonly using processes to bypass CPython's global interpreter lock. |
+| ⚡ Purpose | Speedup depends on task size, serialization cost, memory bandwidth, core count, and the serial fraction of the workload. |
+| 🔥 Benefits | Builds the ability to distinguish concurrency from actual multi-core parallel execution; it also helps practitioners use process pools with picklable, coarse-grained tasks and explicit shutdown. |
+| 🎯 Use Cases | Parallel image transforms, document parsing, simulation runs, and feature extraction. Partitioning independent CPU-bound records across worker processes. |
+| 🚀 Best Practices | Benchmark sequential and parallel versions on production-shaped data. |
+| ❌ Common Mistakes | Ignoring the guardrail “Do not submit tiny tasks one future at a time”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-from multiprocessing import Process
-process = Process(target=print, args=("hi",))
+from concurrent.futures import ProcessPoolExecutor
+
+def cube(value: int) -> int:
+    return value ** 3
 ```
 
 ### Standard Structure
 
 ```python
-def apply_parallel_computing(value):
-    """Apply the Parallel Computing concept to one value."""
-    return value
-
-result = apply_parallel_computing("practice")
-print(result)
+if __name__ == "__main__":
+    with ProcessPoolExecutor(max_workers=4) as executor:
+        values = list(executor.map(cube, range(10), chunksize=2))
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Parallel Computing problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+from multiprocessing import get_context
+
+if __name__ == "__main__":
+    context = get_context("spawn")
+    with context.Pool(processes=2) as pool:
+        values = pool.map(abs, [-3, -2, -1])
 ```
 
 ## Examples
@@ -101,48 +113,50 @@ print(result)
 ### Beginner Example
 
 ```python
-from multiprocessing import cpu_count
-print(cpu_count())
+def count_primes(limit: int) -> int:
+    def is_prime(value: int) -> bool:
+        return value > 1 and all(value % divisor for divisor in range(2, int(value ** 0.5) + 1))
+    return sum(is_prime(value) for value in range(limit))
 ```
 
 ### Intermediate Example
 
 ```python
-from multiprocessing import Pool
+from concurrent.futures import ProcessPoolExecutor
 
-def square(value):
-    return value * value
-
+limits = [10_000, 11_000, 12_000]
 if __name__ == "__main__":
-    with Pool(2) as pool:
-        print(pool.map(square, [1, 2, 3]))
+    with ProcessPoolExecutor() as executor:
+        counts = list(executor.map(count_primes, limits))
+    print(counts)
 ```
 
 ### Advanced Example
 
 ```python
-from concurrent.futures import ProcessPoolExecutor
-
-def score(value):
-    return sum(i * i for i in range(value))
+from concurrent.futures import ProcessPoolExecutor, as_completed
 
 if __name__ == "__main__":
-    with ProcessPoolExecutor() as pool:
-        print(list(pool.map(score, [1000, 2000])))
+    with ProcessPoolExecutor(max_workers=3) as executor:
+        futures = {executor.submit(count_primes, limit): limit for limit in limits}
+        for future in as_completed(futures):
+            limit = futures[future]
+            try:
+                print(limit, future.result())
+            except Exception as error:
+                print(limit, type(error).__name__)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Parallel Computing Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Measure sequential baseline] --> B[Partition coarse tasks]
+    B --> C[Choose process topology]
+    C --> D[Run and collect failures]
+    D --> E[Compare speedup and memory]
+    E -. feedback .-> A
 ```
-
-
----
 
 ---
 

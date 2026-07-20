@@ -5,94 +5,113 @@
 # Web Scraping
 
 ## Overview
-- **What is it?** Web Scraping is a Python knowledge area focused on integration.
-- **Why is it important?** Help developers apply integration techniques safely, clearly, and consistently.
-- **Where is it used?** Web services, persistence layers, analytics backends, and business systems.
+- **What is it?** Web scraping extracts structured data from permitted web pages while respecting site terms, robots guidance, rate limits, and data-protection obligations.
+- **Why is it important?** Reliable scrapers separate fetching from parsing, use stable semantic selectors, validate outputs, and cache or retry conservatively.
+- **Where is it used?** It is used for public-data research, price monitoring, content migration, quality assurance, and archival workflows.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review web scraping code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind web scraping.
-- Expected outcome: you can use web scraping in a small project and recognize when it belongs in production code.
+- Fetch pages with explicit identity, timeout, status handling, and pacing.
+- Parse HTML with BeautifulSoup selectors and normalize extracted fields.
+- Detect layout drift and avoid bypassing access controls or anti-abuse systems.
 
 ## Real World Applications
-- **Industry use cases:** Web services, persistence layers, analytics backends, and business systems.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Collecting permitted public catalogs, notices, and structured reports.
+- Validating links and metadata across owned websites.
+- Migrating legacy content into a documented internal schema.
 
 ## Core Concepts
 
-### Contract
-- **Definition:** The main idea that gives web scraping its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Web Scraping model -> clear code`
-- **Practical example:**
-
-```python
-apply_web_scraping_label = "Web Scraping"
-print(apply_web_scraping_label)
-```
-
-### Connection Flow
-- **Definition:** The ordered steps Python follows when web scraping code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Responsible Retrieval
+- **Definition:** A scraper should identify itself, respect published policies, limit request rate, use deadlines, and stop on denial rather than evade controls.
+- **Visual explanation:** `permission/policy → paced request → status check → cached response`
 - **Practical example:**
 
 ```python
 import requests
 
-response = requests.get("https://example.com", timeout=10)
-print(response.status_code)
+headers = {"User-Agent": "CurriculumResearchBot/1.0 (contact@example.com)"}
+response = requests.get("https://example.com", headers=headers, timeout=(3.05, 10))
+response.raise_for_status()
 ```
 
-### Reliability Boundary
-- **Definition:** The reliability habit that keeps web scraping understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### BeautifulSoup Parsing
+- **Definition:** BeautifulSoup builds a navigable tree from imperfect HTML; CSS selectors locate elements while attribute access and `get_text` extract normalized values.
+- **Visual explanation:** `HTML bytes → parser tree → CSS selection → normalized record`
 - **Practical example:**
 
 ```python
-import requests
+from bs4 import BeautifulSoup
 
-with requests.Session() as session:
-    response = session.get("https://api.github.com", timeout=10)
-    print(response.headers.get("content-type"))
+html = '<article data-id="7"><h2> Python </h2></article>'
+soup = BeautifulSoup(html, "html.parser")
+article = soup.select_one("article[data-id]")
+assert article is not None
+record = {"id": article["data-id"], "title": article.h2.get_text(strip=True)}
+```
+
+### Schema and Drift Detection
+- **Definition:** Parsing should produce a typed internal schema and fail visibly when required selectors disappear instead of silently emitting corrupt rows.
+- **Visual explanation:** `selected fields → required-field validation → record or drift alert`
+- **Practical example:**
+
+```python
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class Article:
+    identifier: str
+    title: str
+
+def require_text(element, selector: str) -> str:
+    match = element.select_one(selector)
+    if match is None:
+        raise ValueError(f"missing selector: {selector}")
+    return match.get_text(" ", strip=True)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Web Scraping belongs to the integration part of Python mastery. |
-| ⚡ Purpose | Help developers apply integration techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional integration decisions. |
-| 🎯 Use Cases | Web services, persistence layers, analytics backends, and business systems. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Web scraping extracts structured data from permitted web pages while respecting site terms, robots guidance, rate limits, and data-protection obligations. |
+| ⚡ Purpose | Reliable scrapers separate fetching from parsing, use stable semantic selectors, validate outputs, and cache or retry conservatively. |
+| 🔥 Benefits | Builds the ability to fetch pages with explicit identity, timeout, status handling, and pacing; it also helps practitioners parse HTML with BeautifulSoup selectors and normalize extracted fields. |
+| 🎯 Use Cases | Collecting permitted public catalogs, notices, and structured reports. Validating links and metadata across owned websites. |
+| 🚀 Best Practices | Cache pages during parser development to avoid repeated traffic. |
+| ❌ Common Mistakes | Ignoring the guardrail “Do not scrape private data or circumvent authentication and controls”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import requests
-response = requests.get("https://example.com", timeout=10)
+from bs4 import BeautifulSoup
+
+soup = BeautifulSoup("<p class='note'>Ready</p>", "html.parser")
+text = soup.select_one("p.note").get_text(strip=True)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_web_scraping(value):
-    """Apply the Web Scraping concept to one value."""
-    return value
+import requests
 
-result = apply_web_scraping("practice")
-print(result)
+with requests.Session() as session:
+    session.headers["User-Agent"] = "ResearchBot/1.0"
+    response = session.get("https://example.com", timeout=10)
+    response.raise_for_status()
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Web Scraping problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+from urllib.parse import urljoin
+
+def links(soup, base_url: str) -> list[str]:
+    return [
+        urljoin(base_url, anchor["href"])
+        for anchor in soup.select("a[href]")
+    ]
 ```
 
 ## Examples
@@ -100,46 +119,57 @@ print(result)
 ### Beginner Example
 
 ```python
-import requests
+from bs4 import BeautifulSoup
 
-response = requests.get("https://example.com", timeout=10)
-print(response.status_code)
+soup = BeautifulSoup("<ul><li>A</li><li>B</li></ul>", "html.parser")
+print([item.get_text(strip=True) for item in soup.select("li")])
 ```
 
 ### Intermediate Example
 
 ```python
-import requests
+from bs4 import BeautifulSoup
 
-with requests.Session() as session:
-    response = session.get("https://api.github.com", timeout=10)
-    print(response.headers.get("content-type"))
+html = '<div class="product" data-sku="P1"><span class="price">$12.50</span></div>'
+soup = BeautifulSoup(html, "html.parser")
+products = [
+    {"sku": node["data-sku"], "price": node.select_one(".price").get_text(strip=True)}
+    for node in soup.select(".product[data-sku]")
+]
+print(products)
 ```
 
 ### Advanced Example
 
 ```python
-import requests
-from requests.adapters import HTTPAdapter
+from bs4 import BeautifulSoup
+from decimal import Decimal
 
-session = requests.Session()
-session.mount("https://", HTTPAdapter(max_retries=3))
-response = session.get("https://example.com", timeout=(3, 10))
-print(response.ok)
+def parse_products(html: str) -> list[dict[str, object]]:
+    soup = BeautifulSoup(html, "html.parser")
+    records = []
+    for node in soup.select("article.product[data-sku]"):
+        price_text = require_text(node, ".price").removeprefix("$")
+        records.append({
+            "sku": str(node["data-sku"]),
+            "name": require_text(node, "h2"),
+            "price": Decimal(price_text),
+        })
+    if not records:
+        raise ValueError("no products found; layout may have changed")
+    return records
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Web Scraping Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Confirm permission and policy] --> B[Fetch with pacing and timeout]
+    B --> C[Parse with BeautifulSoup]
+    C --> D[Validate typed records]
+    D --> E[Persist data and drift metrics]
+    E -. feedback .-> A
 ```
-
-
----
 
 ---
 

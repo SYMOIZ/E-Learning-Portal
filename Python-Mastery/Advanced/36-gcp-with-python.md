@@ -5,94 +5,112 @@
 # GCP with Python
 
 ## Overview
-- **What is it?** GCP with Python is a Python knowledge area focused on cloud and DevOps.
-- **Why is it important?** Help developers apply cloud and DevOps techniques safely, clearly, and consistently.
-- **Where is it used?** Deployment automation, infrastructure operations, and scalable production delivery.
+- **What is it?** Google Cloud Python libraries provide idiomatic clients for services such as Cloud Storage, Pub/Sub, BigQuery, and Secret Manager using Application Default Credentials.
+- **Why is it important?** Reliable code uses service accounts or workload identity, project/location configuration, iterators, preconditions, deadlines, and `google.api_core` retry semantics.
+- **Where is it used?** It is used for object storage, analytics, messaging, AI platforms, and cloud operations.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review gcp with python code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind gcp with python.
-- Expected outcome: you can use gcp with python in a small project and recognize when it belongs in production code.
+- Authenticate google-cloud clients with Application Default Credentials.
+- Use Cloud Storage generations and Pub/Sub acknowledgements safely.
+- Configure timeouts, retries, paging, and structured Google API errors.
 
 ## Real World Applications
-- **Industry use cases:** Deployment automation, infrastructure operations, and scalable production delivery.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Uploading versioned data and artifacts to Cloud Storage.
+- Publishing and consuming messages through Pub/Sub.
+- Submitting BigQuery jobs and automating cloud resource workflows.
 
 ## Core Concepts
 
-### Runtime Artifact
-- **Definition:** The main idea that gives gcp with python its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> GCP with Python model -> clear code`
+### Application Default Credentials
+- **Definition:** ADC searches the runtime's supported identity sources and scopes tokens for a client, avoiding embedded service-account keys.
+- **Visual explanation:** `developer/workload identity → ADC token → google-cloud client`
 - **Practical example:**
 
 ```python
-apply_gcp_with_python_label = "GCP with Python"
-print(apply_gcp_with_python_label)
+import google.auth
+from google.cloud import storage
+
+credentials, project = google.auth.default()
+client = storage.Client(project=project, credentials=credentials)
 ```
 
-### Deployment Target
-- **Definition:** The ordered steps Python follows when gcp with python code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Object Generations and Preconditions
+- **Definition:** Cloud Storage assigns a generation to each object version; generation-match preconditions prevent lost updates and make retries safe.
+- **Visual explanation:** `read generation → conditional write → new immutable generation`
 - **Practical example:**
 
 ```python
-import requests
+from google.cloud import storage
 
-response = requests.get("https://example.com", timeout=10)
-print(response.status_code)
+client = storage.Client()
+blob = client.bucket("example-bucket").blob("reports/current.json")
+blob.upload_from_string(
+    '{"status":"ready"}',
+    content_type="application/json",
+    if_generation_match=0,
+    timeout=30,
+)
 ```
 
-### Operational Feedback
-- **Definition:** The reliability habit that keeps gcp with python understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Pub/Sub Delivery
+- **Definition:** Pub/Sub subscribers receive messages at least once and acknowledge only after an idempotent handler durably completes.
+- **Visual explanation:** `publisher → topic/subscription → handler → durable effect → ack`
 - **Practical example:**
 
 ```python
-import requests
+from google.cloud import pubsub_v1
 
-with requests.Session() as session:
-    response = session.get("https://api.github.com", timeout=10)
-    print(response.headers.get("content-type"))
+subscriber = pubsub_v1.SubscriberClient()
+
+def callback(message: pubsub_v1.subscriber.message.Message) -> None:
+    handle(message.message_id, message.data)
+    message.ack()
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | GCP with Python belongs to the cloud and DevOps part of Python mastery. |
-| ⚡ Purpose | Help developers apply cloud and DevOps techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional cloud and DevOps decisions. |
-| 🎯 Use Cases | Deployment automation, infrastructure operations, and scalable production delivery. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Google Cloud Python libraries provide idiomatic clients for services such as Cloud Storage, Pub/Sub, BigQuery, and Secret Manager using Application Default Credentials. |
+| ⚡ Purpose | Reliable code uses service accounts or workload identity, project/location configuration, iterators, preconditions, deadlines, and `google.api_core` retry semantics. |
+| 🔥 Benefits | Builds the ability to authenticate google-cloud clients with Application Default Credentials; it also helps practitioners use Cloud Storage generations and Pub/Sub acknowledgements safely. |
+| 🎯 Use Cases | Uploading versioned data and artifacts to Cloud Storage. Publishing and consuming messages through Pub/Sub. |
+| 🚀 Best Practices | `google.api_core.retry.Retry` targets selected transient exceptions. |
+| ❌ Common Mistakes | Ignoring the guardrail “Avoid downloadable service-account keys for hosted workloads”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import requests
-response = requests.get("https://example.com", timeout=10)
+from google.cloud import storage
+
+client = storage.Client()
+bucket = client.bucket("example-bucket")
+names = [blob.name for blob in client.list_blobs(bucket, prefix="daily/")]
 ```
 
 ### Standard Structure
 
 ```python
-def apply_gcp_with_python(value):
-    """Apply the GCP with Python concept to one value."""
-    return value
+from google.cloud import pubsub_v1
 
-result = apply_gcp_with_python("practice")
-print(result)
+publisher = pubsub_v1.PublisherClient()
+topic = publisher.topic_path("example-project", "jobs")
+future = publisher.publish(topic, b'{"job_id":"J-7"}', schema="v1")
+message_id = future.result(timeout=10)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the GCP with Python problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+from google.api_core import retry
+from google.api_core.exceptions import ServiceUnavailable
+
+transient_retry = retry.Retry(
+    predicate=retry.if_exception_type(ServiceUnavailable),
+    deadline=30,
+)
 ```
 
 ## Examples
@@ -100,46 +118,52 @@ print(result)
 ### Beginner Example
 
 ```python
-import requests
+from google.cloud import storage
 
-response = requests.get("https://example.com", timeout=10)
-print(response.status_code)
+client = storage.Client()
+for bucket in client.list_buckets(page_size=20):
+    print(bucket.name)
 ```
 
 ### Intermediate Example
 
 ```python
-import requests
+from google.cloud import bigquery
 
-with requests.Session() as session:
-    response = session.get("https://api.github.com", timeout=10)
-    print(response.headers.get("content-type"))
+client = bigquery.Client()
+job = client.query(
+    "SELECT word, word_count FROM `bigquery-public-data.samples.shakespeare` "
+    "ORDER BY word_count DESC LIMIT 5"
+)
+for row in job.result(timeout=60):
+    print(row.word, row.word_count)
 ```
 
 ### Advanced Example
 
 ```python
-import requests
-from requests.adapters import HTTPAdapter
+from google.cloud import pubsub_v1
 
-session = requests.Session()
-session.mount("https://", HTTPAdapter(max_retries=3))
-response = session.get("https://example.com", timeout=(3, 10))
-print(response.ok)
+subscriber = pubsub_v1.SubscriberClient()
+path = subscriber.subscription_path("example-project", "jobs-subscription")
+streaming_pull = subscriber.subscribe(path, callback=callback)
+try:
+    streaming_pull.result(timeout=60)
+except TimeoutError:
+    streaming_pull.cancel()
+    streaming_pull.result()
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify GCP with Python Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Resolve ADC and project] --> B[Create google-cloud client]
+    B --> C[Call conditional/paged API]
+    C --> D[Await operation or acknowledge message]
+    D --> E[Record result and close clients]
+    E -. feedback .-> A
 ```
-
-
----
 
 ---
 

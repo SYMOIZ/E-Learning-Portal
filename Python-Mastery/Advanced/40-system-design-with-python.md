@@ -5,101 +5,117 @@
 # System Design with Python
 
 ## Overview
-- **What is it?** System Design with Python is a Python knowledge area focused on architecture.
-- **Why is it important?** Help developers apply architecture techniques safely, clearly, and consistently.
-- **Where is it used?** Large systems, latency reduction, scaling, reliability, and senior engineering decisions.
+- **What is it?** System design translates functional requirements and service-level objectives into components, data flows, capacity assumptions, consistency rules, and failure handling.
+- **Why is it important?** Python is well suited to orchestration and service logic, but architecture must account for runtime concurrency, deployment topology, storage semantics, and operational feedback.
+- **Where is it used?** It is used for scalable APIs, job platforms, event systems, data products, and senior engineering design decisions.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review system design with python code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind system design with python.
-- Expected outcome: you can use system design with python in a small project and recognize when it belongs in production code.
+- Turn requirements into capacity estimates, interfaces, and data models.
+- Choose caching, partitioning, queues, consistency, and resilience deliberately.
+- Design observability, overload behavior, migration, and recovery before launch.
 
 ## Real World Applications
-- **Industry use cases:** Large systems, latency reduction, scaling, reliability, and senior engineering decisions.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Designing read-heavy content services with bounded stale caching.
+- Building asynchronous job systems with idempotent execution.
+- Scaling stateful data while preserving ownership and recovery guarantees.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives system design with python its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> System Design with Python model -> clear code`
+### Requirements and Capacity
+- **Definition:** A design begins with workload shape, latency and availability targets, data volume, growth, read/write ratio, object size, and retention.
+- **Visual explanation:** `requirements + estimates → bottlenecks → component budget`
 - **Practical example:**
 
 ```python
-apply_system_design_with_python_label = "System Design with Python"
-print(apply_system_design_with_python_label)
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class Workload:
+    requests_per_second: int
+    average_payload_bytes: int
+
+    @property
+    def ingress_bytes_per_second(self) -> int:
+        return self.requests_per_second * self.average_payload_bytes
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when system design with python code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### State, Caching, and Partitioning
+- **Definition:** Caches trade freshness for latency and load, while partitioning distributes authoritative state by a stable key and requires rebalancing strategy.
+- **Visual explanation:** `request → cache → owner partition → replicated durable state`
 - **Practical example:**
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
+from hashlib import blake2b
 
-print(Dog().speak())
+def shard_for(key: str, shard_count: int) -> int:
+    if shard_count < 1:
+        raise ValueError("shard_count must be positive")
+    digest = blake2b(key.encode(), digest_size=8).digest()
+    return int.from_bytes(digest, "big") % shard_count
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps system design with python understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Overload and Failure Design
+- **Definition:** A resilient system bounds queues and concurrency, applies deadlines, sheds excess work, makes retries idempotent, and degrades noncritical features.
+- **Visual explanation:** `admission control → bounded work → dependency budgets → fallback or result`
 - **Practical example:**
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
+from asyncio import Semaphore
 
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
+class AdmissionController:
+    def __init__(self, capacity: int) -> None:
+        self._slots = Semaphore(capacity)
 
-account = Account()
-account.deposit(50)
-print(account.balance)
+    async def run(self, operation):
+        async with self._slots:
+            return await operation()
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | System Design with Python belongs to the architecture part of Python mastery. |
-| ⚡ Purpose | Help developers apply architecture techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional architecture decisions. |
-| 🎯 Use Cases | Large systems, latency reduction, scaling, reliability, and senior engineering decisions. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | System design translates functional requirements and service-level objectives into components, data flows, capacity assumptions, consistency rules, and failure handling. |
+| ⚡ Purpose | Python is well suited to orchestration and service logic, but architecture must account for runtime concurrency, deployment topology, storage semantics, and operational feedback. |
+| 🔥 Benefits | Builds the ability to turn requirements into capacity estimates, interfaces, and data models; it also helps practitioners choose caching, partitioning, queues, consistency, and resilience deliberately. |
+| 🎯 Use Cases | Designing read-heavy content services with bounded stale caching. Building asynchronous job systems with idempotent execution. |
+| 🚀 Best Practices | Partitioning needs stable ownership, rebalancing, and hotspot policy. |
+| ❌ Common Mistakes | Ignoring the guardrail “Document failure modes, recovery objectives, and migration paths”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-class Customer:
-    def __init__(self, name):
-        self.name = name
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class SLO:
+    availability: float
+    p95_latency_ms: int
 ```
 
 ### Standard Structure
 
 ```python
-def apply_system_design_with_python(value):
-    """Apply the System Design with Python concept to one value."""
-    return value
-
-result = apply_system_design_with_python("practice")
-print(result)
+def cache_key(namespace: str, version: int, identifier: str) -> str:
+    return f"{namespace}:v{version}:{identifier}"
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the System Design with Python problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+from collections import deque
+
+class BoundedBuffer:
+    def __init__(self, capacity: int) -> None:
+        self._items = deque(maxlen=capacity)
+
+    def offer(self, item: object) -> bool:
+        if len(self._items) == self._items.maxlen:
+            return False
+        self._items.append(item)
+        return True
 ```
 
 ## Examples
@@ -107,56 +123,54 @@ print(result)
 ### Beginner Example
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
-
-print(Dog().speak())
+workload = Workload(requests_per_second=2_000, average_payload_bytes=4_096)
+print(workload.ingress_bytes_per_second)
 ```
 
 ### Intermediate Example
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
-
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
-
-account = Account()
-account.deposit(50)
-print(account.balance)
+users = ["user-a", "user-b", "user-c"]
+assignments = {user: shard_for(user, shard_count=16) for user in users}
+print(assignments)
 ```
 
 ### Advanced Example
 
 ```python
 from dataclasses import dataclass
+from time import monotonic
 
 @dataclass
-class Order:
-    id: int
-    total: float
+class CacheEntry:
+    value: object
+    expires_at: float
 
-    def is_large(self) -> bool:
-        return self.total >= 1000
+class TTLCache:
+    def __init__(self) -> None:
+        self._entries: dict[str, CacheEntry] = {}
 
-print(Order(1, 1200).is_large())
+    def get(self, key: str) -> object | None:
+        entry = self._entries.get(key)
+        if entry is None or entry.expires_at <= monotonic():
+            self._entries.pop(key, None)
+            return None
+        return entry.value
+
+    def put(self, key: str, value: object, ttl: float) -> None:
+        self._entries[key] = CacheEntry(value, monotonic() + ttl)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify System Design with Python Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Define requirements and SLO] --> B[Estimate capacity and data growth]
+    B --> C[Choose state and communication]
+    C --> D[Design overload and failure recovery]
+    D --> E[Validate with tests and telemetry]
+    E -. feedback .-> A
 ```
-
-
----
 
 ---
 

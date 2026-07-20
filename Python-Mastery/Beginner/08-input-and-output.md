@@ -5,91 +5,94 @@
 # Input and Output
 
 ## Overview
-- **What is it?** Input and output move data into and out of programs through keyboards, files, streams, APIs, and terminals.
-- **Why is it important?** Let programs interact with users and external systems.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** Input and output move information between a program and users or external streams; `input()` reads terminal text and `print()` writes display text.
+- **Why is it important?** Interaction makes a program responsive, but entered text must be converted and validated before use.
+- **Where is it used?** Command-line tools, questionnaires, games, and administrative scripts all use terminal I/O.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review input and output code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind input and output.
-- Expected outcome: you can use input and output in a small project and recognize when it belongs in production code.
+- Read text with `input` and display values with `print`.
+- Convert and validate user input before calculation.
+- Separate interaction from calculation so logic remains testable.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Collect a user's name or menu choice.
+- Display a formatted receipt or progress report.
+- Build a small command-line calculator or questionnaire.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives input and output its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Input and Output model -> clear code`
+### Reading input
+- **Definition:** `input(prompt)` displays a prompt, waits for a line, removes the trailing newline, and always returns a string.
+- **Visual explanation:** `keyboard text -> input -> str`
 - **Practical example:**
 
 ```python
-apply_input_and_output_label = "Input and Output"
-print(apply_input_and_output_label)
+name = input("Name: ")
+print(f"Hello, {name}!")
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when input and output code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Producing output
+- **Definition:** `print` converts objects to text and writes them to standard output with configurable separators and endings.
+- **Visual explanation:** `values -> string conversion -> stdout`
 - **Practical example:**
 
 ```python
-name = "Learner"
-print(f"Welcome, {name}!")
+item = "notebook"
+price = 4.5
+print(item, price, sep=": $")
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps input and output understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Boundary validation
+- **Definition:** Interactive text should be normalized, converted, and checked before business logic consumes it.
+- **Visual explanation:** `raw input -> strip -> convert -> validate -> calculate`
 - **Practical example:**
 
 ```python
-def render_invoice(customer: str, total: float) -> str:
-    return f"Invoice for {customer}: ${total:.2f}"
-
-print(render_invoice("Ada", 125.5))
+raw = input("Quantity: ")
+try:
+    quantity = int(raw)
+    print("Accepted:", quantity) if quantity > 0 else print("Must be positive")
+except ValueError:
+    print("Enter a whole number")
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Input and Output belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Let programs interact with users and external systems. |
-| 🔥 Benefits | Useful scripts, reports, automation, and command-line tools. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Input and output move information between a program and users or external streams; `input()` reads terminal text and `print()` writes display text. |
+| ⚡ Purpose | Exchange text with users through prompts and clearly formatted terminal output. |
+| 🔥 Benefits | Interaction makes a program responsive, but entered text must be converted and validated before use. |
+| 🎯 Use Cases | Command-line tools, questionnaires, games, and administrative scripts all use terminal I/O. |
+| 🚀 Best Practices | Keep `input` and `print` at the edge of the program; pass clean values into functions that compute results. |
+| ❌ Common Mistakes | Performing arithmetic directly on `input()` results without converting the returned strings. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-name = input("Name: ")
-print(f"Hello, {name}")
+answer = input("Favorite color: ")
+print("You chose", answer)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_input_and_output(value):
-    """Apply the Input and Output concept to one value."""
-    return value
-
-result = apply_input_and_output("practice")
-print(result)
+name = input("Name: ").strip()
+age = int(input("Age: "))
+print(f"{name} will be {age + 1} next year.")
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Input and Output problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+def calculate_total(price, quantity):
+    return price * quantity
+
+price = float(input("Unit price: "))
+quantity = int(input("Quantity: "))
+print(f"Total: ${calculate_total(price, quantity):.2f}")
 ```
 
 ## Examples
@@ -97,40 +100,54 @@ print(result)
 ### Beginner Example
 
 ```python
-name = "Learner"
-print(f"Welcome, {name}!")
+city = input("City: ")
+print(f"Weather lookup requested for {city}.")
 ```
 
 ### Intermediate Example
 
 ```python
-def render_invoice(customer: str, total: float) -> str:
-    return f"Invoice for {customer}: ${total:.2f}"
-
-print(render_invoice("Ada", 125.5))
+raw_score = input("Score from 0 to 100: ")
+score = int(raw_score)
+if 0 <= score <= 100:
+    print(f"Recorded: {score}")
+else:
+    print("Score out of range")
 ```
 
 ### Advanced Example
 
 ```python
-import sys
+def prompt_positive_integer(prompt):
+    while True:
+        raw = input(prompt).strip()
+        try:
+            value = int(raw)
+        except ValueError:
+            print("Use digits only.")
+            continue
+        if value > 0:
+            return value
+        print("Value must be positive.")
 
-sys.stdout.write("streamed output\n")
-sys.stderr.write("diagnostic output\n")
+seats = prompt_positive_integer("Seats: ")
+print(f"Reserved {seats} seat(s).")
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Input and Output Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Display clear prompt]
+    B[Read string with input]
+    C[Normalize and convert]
+    D[Validate value]
+    E[Compute and print result]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
-
-
----
 
 ---
 

@@ -5,101 +5,125 @@
 # Descriptors
 
 ## Overview
-- **What is it?** Descriptors is a Python knowledge area focused on advanced language engineering.
-- **Why is it important?** Help developers apply advanced language engineering techniques safely, clearly, and consistently.
-- **Where is it used?** Performance-sensitive systems, frameworks, libraries, and technical interviews.
+- **What is it?** Descriptors are objects defining `__get__`, `__set__`, or `__delete__` to customize attribute access from another class.
+- **Why is it important?** They are the mechanism beneath methods, properties, `classmethod`, `staticmethod`, slots, and many ORM fields.
+- **Where is it used?** Descriptors centralize validation, lazy computation, binding, and storage across many managed attributes.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review descriptors code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind descriptors.
-- Expected outcome: you can use descriptors in a small project and recognize when it belongs in production code.
+- Apply descriptor lookup precedence for class and instance access.
+- Implement reusable validated fields with `__set_name__`.
+- Distinguish data descriptors, non-data descriptors, and ordinary instance attributes.
 
 ## Real World Applications
-- **Industry use cases:** Performance-sensitive systems, frameworks, libraries, and technical interviews.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Validated model fields, lazy properties, ORM columns, and dependency injection.
+- Understanding why functions bind into methods when read from instances.
+- Building declarative APIs without repetitive property definitions.
 
 ## Core Concepts
 
-### Model
-- **Definition:** The main idea that gives descriptors its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Descriptors model -> clear code`
+### Descriptor Protocol
+- **Definition:** Attribute lookup invokes a descriptor's methods with the managed instance and owner; class access conventionally returns the descriptor itself.
+- **Visual explanation:** `instance.attr → owner namespace descriptor → `__get__``
 - **Practical example:**
 
 ```python
-apply_descriptors_label = "Descriptors"
-print(apply_descriptors_label)
+class Constant:
+    def __get__(self, instance, owner):
+        return 42
+
+class Answer:
+    value = Constant()
+
+print(Answer().value)
 ```
 
-### Interface
-- **Definition:** The ordered steps Python follows when descriptors code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Lookup Precedence
+- **Definition:** A data descriptor with `__set__` outranks the instance dictionary, while a non-data descriptor can be shadowed by an instance attribute.
+- **Visual explanation:** `data descriptor → instance dictionary → non-data descriptor → class value`
 - **Practical example:**
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
+class NonData:
+    def __get__(self, instance, owner):
+        return "descriptor"
 
-print(Dog().speak())
+class Example:
+    value = NonData()
+
+item = Example()
+item.value = "instance"
+print(item.value)
 ```
 
-### Behavior Rule
-- **Definition:** The reliability habit that keeps descriptors understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Managed Storage
+- **Definition:** `__set_name__` tells a descriptor its assigned attribute name so one descriptor class can store and validate many fields safely.
+- **Visual explanation:** `class creation → storage name → validated set/get`
 - **Practical example:**
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
+class Positive:
+    def __set_name__(self, owner, name):
+        self.storage_name = f"_{name}"
 
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
+    def __get__(self, instance, owner):
+        if instance is None:
+            return self
+        return getattr(instance, self.storage_name)
 
-account = Account()
-account.deposit(50)
-print(account.balance)
+    def __set__(self, instance, value):
+        if value <= 0:
+            raise ValueError("must be positive")
+        setattr(instance, self.storage_name, value)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Descriptors belongs to the advanced language engineering part of Python mastery. |
-| ⚡ Purpose | Help developers apply advanced language engineering techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional advanced language engineering decisions. |
-| 🎯 Use Cases | Performance-sensitive systems, frameworks, libraries, and technical interviews. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Descriptors are objects defining `__get__`, `__set__`, or `__delete__` to customize attribute access from another class. |
+| ⚡ Purpose | They are the mechanism beneath methods, properties, `classmethod`, `staticmethod`, slots, and many ORM fields. |
+| 🔥 Benefits | Builds the ability to apply descriptor lookup precedence for class and instance access; it also helps practitioners implement reusable validated fields with `__set_name__`. |
+| 🎯 Use Cases | Validated model fields, lazy properties, ORM columns, and dependency injection. Understanding why functions bind into methods when read from instances. |
+| 🚀 Best Practices | Store per-instance data on the instance, not the descriptor. |
+| ❌ Common Mistakes | Ignoring the guardrail “Return `self` for class-level descriptor inspection”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-class Customer:
-    def __init__(self, name):
-        self.name = name
+class Descriptor:
+    def __get__(self, instance, owner):
+        if instance is None:
+            return self
+        return instance.__dict__["value"]
 ```
 
 ### Standard Structure
 
 ```python
-def apply_descriptors(value):
-    """Apply the Descriptors concept to one value."""
-    return value
+class NamedField:
+    def __set_name__(self, owner, name):
+        self.name = name
 
-result = apply_descriptors("practice")
-print(result)
+    def __set__(self, instance, value):
+        instance.__dict__[self.name] = value
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Descriptors problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+class Lazy:
+    def __init__(self, function):
+        self.function = function
+        self.name = function.__name__
+
+    def __get__(self, instance, owner):
+        if instance is None:
+            return self
+        value = self.function(instance)
+        instance.__dict__[self.name] = value
+        return value
 ```
 
 ## Examples
@@ -107,56 +131,63 @@ print(result)
 ### Beginner Example
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
+class Celsius:
+    def __init__(self, value: float) -> None:
+        self._value = value
 
-print(Dog().speak())
+    @property
+    def value(self) -> float:
+        return self._value
 ```
 
 ### Intermediate Example
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
+class Product:
+    price = Positive()
 
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
+    def __init__(self, price: float) -> None:
+        self.price = price
 
-account = Account()
-account.deposit(50)
-print(account.balance)
+product = Product(19.5)
+assert product.price == 19.5
 ```
 
 ### Advanced Example
 
 ```python
-from dataclasses import dataclass
+class Typed:
+    def __init__(self, expected_type: type) -> None:
+        self.expected_type = expected_type
 
-@dataclass
-class Order:
-    id: int
-    total: float
+    def __set_name__(self, owner, name):
+        self.name = name
 
-    def is_large(self) -> bool:
-        return self.total >= 1000
+    def __get__(self, instance, owner):
+        return self if instance is None else instance.__dict__[self.name]
 
-print(Order(1, 1200).is_large())
+    def __set__(self, instance, value):
+        if not isinstance(value, self.expected_type):
+            raise TypeError(f"{self.name} requires {self.expected_type.__name__}")
+        instance.__dict__[self.name] = value
+
+class Event:
+    name = Typed(str)
+
+event = Event()
+event.name = "deployed"
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Descriptors Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Declare descriptor] --> B[Receive storage name]
+    B --> C[Intercept attribute access]
+    C --> D[Validate or compute]
+    D --> E[Store per-instance value]
+    E -. feedback .-> A
 ```
-
-
----
 
 ---
 

@@ -5,90 +5,91 @@
 # Sets
 
 ## Overview
-- **What is it?** Sets are unordered collections of unique values.
-- **Why is it important?** Remove duplicates and perform membership or mathematical set operations.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** A set is a mutable, unordered collection of unique hashable elements.
+- **Why is it important?** Sets remove duplicates and provide fast membership plus union, intersection, and difference operations.
+- **Where is it used?** Permissions, tags, unique identifiers, and comparisons between groups are natural set use cases.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review sets code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind sets.
-- Expected outcome: you can use sets in a small project and recognize when it belongs in production code.
+- Create non-empty and empty sets correctly.
+- Add, remove, and test unique elements.
+- Apply union, intersection, difference, and subset operations.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Deduplicate imported labels.
+- Find shared skills or missing permissions.
+- Track identifiers already processed.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives sets its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Sets model -> clear code`
+### Uniqueness and membership
+- **Definition:** Adding an equal element has no effect, and membership does not depend on a visible position.
+- **Visual explanation:** `many repeated values -> set -> unique values`
 - **Practical example:**
 
 ```python
-apply_sets_label = "Sets"
-print(apply_sets_label)
+tags = {"python", "beginner", "python"}
+print(len(tags), "python" in tags)
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when sets code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Set algebra
+- **Definition:** Union combines members, intersection keeps shared members, and difference keeps members found only on the left.
+- **Visual explanation:** `A | B union; A & B shared; A - B left only`
 - **Practical example:**
 
 ```python
-names = {"Ada", "Ada", "Lin"}
-print(names)
+team_a = {"Ana", "Bo"}
+team_b = {"Bo", "Cy"}
+print(team_a | team_b, team_a & team_b, team_a - team_b)
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps sets understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Hashable elements
+- **Definition:** Set members must have stable hashes, so immutable values such as strings and tuples work but lists do not.
+- **Visual explanation:** `hashable value -> set member`
 - **Practical example:**
 
 ```python
-required = {"python", "git"}
-known = {"python", "sql", "git"}
-print(required <= known)
+visited = {("row1", 2), ("row2", 4)}
+visited.add(("row3", 1))
+print(visited)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Sets belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Remove duplicates and perform membership or mathematical set operations. |
-| 🔥 Benefits | Access checks, tag comparisons, deduplication, and matching. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | A set is a mutable, unordered collection of unique hashable elements. |
+| ⚡ Purpose | Represent unique values and compare groups with membership and set algebra. |
+| 🔥 Benefits | Sets remove duplicates and provide fast membership plus union, intersection, and difference operations. |
+| 🎯 Use Cases | Permissions, tags, unique identifiers, and comparisons between groups are natural set use cases. |
+| 🚀 Best Practices | Use `set()` for an empty set and sort only when presentation requires deterministic order. |
+| ❌ Common Mistakes | Writing `{}` for an empty set; that literal creates an empty dictionary. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-skills = {"python", "sql"}
-skills.add("git")
+unique_scores = set([80, 90, 80, 75])
+print(unique_scores)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_sets(value):
-    """Apply the Sets concept to one value."""
-    return value
-
-result = apply_sets("practice")
-print(result)
+required = {"read", "write"}
+granted = {"read", "share"}
+missing = required - granted
+print(missing)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Sets problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+enrolled = {"Ada", "Ben", "Chao"}
+completed = {"Ada", "Chao", "Dina"}
+print("Completed and enrolled:", enrolled & completed)
+print("Still pending:", enrolled - completed)
+print("All known learners:", enrolled | completed)
 ```
 
 ## Examples
@@ -96,38 +97,44 @@ print(result)
 ### Beginner Example
 
 ```python
-names = {"Ada", "Ada", "Lin"}
-print(names)
+colors = {"red", "blue"}
+colors.add("green")
+print("green" in colors)
 ```
 
 ### Intermediate Example
 
 ```python
-required = {"python", "git"}
-known = {"python", "sql", "git"}
-print(required <= known)
+raw_ids = [101, 102, 101, 103]
+unique_ids = set(raw_ids)
+print(len(raw_ids) - len(unique_ids), "duplicate(s)")
 ```
 
 ### Advanced Example
 
 ```python
-active_users = {1, 2, 3}
-paid_users = {2, 3, 4}
-print(active_users & paid_users)
+required_skills = {"python", "git", "sql"}
+candidate_skills = {"python", "git", "linux"}
+coverage = required_skills & candidate_skills
+gaps = required_skills - candidate_skills
+qualified = required_skills <= candidate_skills
+print(coverage, gaps, qualified)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Sets Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Collect candidate values]
+    B[Create set of unique members]
+    C[Test membership or compare sets]
+    D[Apply algebra operation]
+    E[Present ordered result if needed]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
-
-
----
 
 ---
 

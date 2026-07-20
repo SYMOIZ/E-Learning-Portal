@@ -5,97 +5,109 @@
 # Performance Optimization
 
 ## Overview
-- **What is it?** Performance Optimization is a Python knowledge area focused on architecture.
-- **Why is it important?** Help developers apply architecture techniques safely, clearly, and consistently.
-- **Where is it used?** Large systems, latency reduction, scaling, reliability, and senior engineering decisions.
+- **What is it?** Performance optimization is an evidence-driven process: define a user-visible target, profile the real workload, fix the dominant bottleneck, and verify the trade-off.
+- **Why is it important?** Python offers wall-clock timing, deterministic and sampling CPU profilers, allocation tracing, benchmark tools, and optimized built-ins.
+- **Where is it used?** It is used to reduce latency, increase throughput, lower memory and compute cost, and protect service-level objectives.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review performance optimization code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind performance optimization.
-- Expected outcome: you can use performance optimization in a small project and recognize when it belongs in production code.
+- Establish representative baselines and profile before changing code.
+- Interpret CPU, wall-time, allocation, and I/O evidence correctly.
+- Apply algorithmic, data-structure, batching, caching, and vectorization improvements.
 
 ## Real World Applications
-- **Industry use cases:** Large systems, latency reduction, scaling, reliability, and senior engineering decisions.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Finding hot functions in request, batch, and data-processing workloads.
+- Reducing allocation pressure and peak memory in long-lived processes.
+- Comparing an optimization against regression-safe benchmarks.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives performance optimization its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Performance Optimization model -> clear code`
+### Baseline Before Optimization
+- **Definition:** A baseline records representative inputs, environment, warm-up, latency distribution, throughput, and resource use before any optimization.
+- **Visual explanation:** `performance goal → reproducible workload → baseline distribution`
 - **Practical example:**
 
 ```python
-apply_performance_optimization_label = "Performance Optimization"
-print(apply_performance_optimization_label)
+from timeit import repeat
+
+samples = repeat(
+    "sum(range(10_000))",
+    repeat=7,
+    number=1_000,
+)
+print(min(samples), sorted(samples)[len(samples) // 2])
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when performance optimization code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Profile the Bottleneck
+- **Definition:** `cProfile` attributes deterministic call time and `tracemalloc` attributes Python allocations; both guide investigation but add measurement overhead.
+- **Visual explanation:** `representative run → CPU/allocation profile → dominant call site`
 - **Practical example:**
 
 ```python
-def countdown(start):
-    while start > 0:
-        yield start
-        start -= 1
+import cProfile
+import pstats
 
-print(list(countdown(3)))
+profiler = cProfile.Profile()
+profiler.enable()
+result = sum(value * value for value in range(100_000))
+profiler.disable()
+pstats.Stats(profiler).sort_stats("cumulative").print_stats(5)
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps performance optimization understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Optimize and Re-verify
+- **Definition:** Prefer algorithmic improvements and less work before micro-optimizations, then rerun correctness tests and the same benchmark to detect regressions.
+- **Visual explanation:** `profile hotspot → change one cause → correctness → benchmark comparison`
 - **Practical example:**
 
 ```python
-def read_batches(rows, size):
-    for index in range(0, len(rows), size):
-        yield rows[index:index + size]
+def repeated_membership(items: list[int], queries: list[int]) -> list[bool]:
+    index = set(items)
+    return [query in index for query in queries]
 
-print(list(read_batches([1, 2, 3, 4], 2)))
+assert repeated_membership([1, 2, 3], [2, 4]) == [True, False]
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Performance Optimization belongs to the architecture part of Python mastery. |
-| ⚡ Purpose | Help developers apply architecture techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional architecture decisions. |
-| 🎯 Use Cases | Large systems, latency reduction, scaling, reliability, and senior engineering decisions. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Performance optimization is an evidence-driven process: define a user-visible target, profile the real workload, fix the dominant bottleneck, and verify the trade-off. |
+| ⚡ Purpose | Python offers wall-clock timing, deterministic and sampling CPU profilers, allocation tracing, benchmark tools, and optimized built-ins. |
+| 🔥 Benefits | Builds the ability to establish representative baselines and profile before changing code; it also helps practitioners interpret CPU, wall-time, allocation, and I/O evidence correctly. |
+| 🎯 Use Cases | Finding hot functions in request, batch, and data-processing workloads. Reducing allocation pressure and peak memory in long-lived processes. |
+| 🚀 Best Practices | Verify correctness and benchmark against the same baseline. |
+| ❌ Common Mistakes | Ignoring the guardrail “Reject optimizations that shift cost beyond the actual SLO”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-def numbers():
-    yield 1
-    yield 2
+from time import perf_counter
+
+started = perf_counter()
+result = sum(range(1_000_000))
+elapsed = perf_counter() - started
 ```
 
 ### Standard Structure
 
 ```python
-def apply_performance_optimization(value):
-    """Apply the Performance Optimization concept to one value."""
-    return value
+import cProfile
 
-result = apply_performance_optimization("practice")
-print(result)
+cProfile.run("sum(range(1_000_000))", sort="cumulative")
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Performance Optimization problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+import tracemalloc
+
+tracemalloc.start()
+before = tracemalloc.take_snapshot()
+values = [str(number) for number in range(10_000)]
+after = tracemalloc.take_snapshot()
+changes = after.compare_to(before, "lineno")
+tracemalloc.stop()
 ```
 
 ## Examples
@@ -103,45 +115,53 @@ print(result)
 ### Beginner Example
 
 ```python
-def countdown(start):
-    while start > 0:
-        yield start
-        start -= 1
+from timeit import timeit
 
-print(list(countdown(3)))
+duration = timeit("'-'.join(['a', 'b', 'c'])", number=100_000)
+print(duration)
 ```
 
 ### Intermediate Example
 
 ```python
-def read_batches(rows, size):
-    for index in range(0, len(rows), size):
-        yield rows[index:index + size]
+def duplicate_pairs_slow(values: list[int]) -> int:
+    return sum(left == right for i, left in enumerate(values) for right in values[i + 1:])
 
-print(list(read_batches([1, 2, 3, 4], 2)))
+def duplicate_pairs(values: list[int]) -> int:
+    from collections import Counter
+
+    return sum(count * (count - 1) // 2 for count in Counter(values).values())
+
+assert duplicate_pairs_slow([1, 2, 1, 1]) == duplicate_pairs([1, 2, 1, 1])
 ```
 
 ### Advanced Example
 
 ```python
-def pipeline(values):
-    yield from (value * value for value in values if value % 2 == 0)
+from functools import lru_cache
+from timeit import repeat
 
-print(list(pipeline(range(10))))
+@lru_cache(maxsize=1_024)
+def parse_rule(text: str) -> tuple[str, str]:
+    key, separator, value = text.partition("=")
+    if not separator:
+        raise ValueError("rule requires '='")
+    return key.strip(), value.strip()
+
+baseline = min(repeat(lambda: parse_rule("mode = safe"), repeat=5, number=10_000))
+print(parse_rule.cache_info(), baseline)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Performance Optimization Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Define SLO and workload] --> B[Capture baseline]
+    B --> C[Profile CPU/I/O/memory]
+    C --> D[Change dominant bottleneck]
+    D --> E[Test and benchmark again]
+    E -. feedback .-> A
 ```
-
-
----
 
 ---
 

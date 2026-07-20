@@ -5,93 +5,113 @@
 # Algorithms in Python
 
 ## Overview
-- **What is it?** Algorithms in Python is a Python knowledge area focused on advanced language engineering.
-- **Why is it important?** Help developers apply advanced language engineering techniques safely, clearly, and consistently.
-- **Where is it used?** Performance-sensitive systems, frameworks, libraries, and technical interviews.
+- **What is it?** Algorithm engineering in Python combines complexity analysis with language-aware choices such as built-in C implementations, iterators, and appropriate data structures.
+- **Why is it important?** A correct algorithm can still fail operationally if its memory growth, recursion depth, or constant factors do not match the input distribution.
+- **Where is it used?** It is used in search, scheduling, routing, ranking, parsing, and data-processing pipelines.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review algorithms in python code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind algorithms in python.
-- Expected outcome: you can use algorithms in python in a small project and recognize when it belongs in production code.
+- State time and auxiliary-space complexity for common algorithmic strategies.
+- Use `bisect`, `heapq`, memoization, and graph traversal idiomatically.
+- Test invariants and boundary cases instead of relying on happy-path examples.
 
 ## Real World Applications
-- **Industry use cases:** Performance-sensitive systems, frameworks, libraries, and technical interviews.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Shortest-route calculation, top-k ranking, interval scheduling, and dependency resolution.
+- Efficient lookup and aggregation over datasets too large for naive nested loops.
+- Interview problem solving that translates into maintainable production implementations.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives algorithms in python its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Algorithms in Python model -> clear code`
+### Complexity as a Growth Model
+- **Definition:** Big-O describes how resource use scales with input size; Python implementations also account for object allocation, hashing, and optimized built-ins.
+- **Visual explanation:** `input size n → operation count f(n) → feasible latency and memory`
 - **Practical example:**
 
 ```python
-apply_algorithms_in_python_label = "Algorithms in Python"
-print(apply_algorithms_in_python_label)
+def contains_duplicate(values: list[int]) -> bool:
+    seen: set[int] = set()
+    for value in values:
+        if value in seen:
+            return True
+        seen.add(value)
+    return False
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when algorithms in python code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Greedy and Heap Invariants
+- **Definition:** A heap exposes the smallest item while preserving a partial-order invariant, enabling O(log n) priority updates without fully sorting every step.
+- **Visual explanation:** `candidates → heap invariant → extract best → add successors`
 - **Practical example:**
 
 ```python
-def greet(name):
-    print(f"Hello, {name}")
+import heapq
 
-greet("Ada")
+jobs = [(4, "report"), (1, "alert"), (3, "backup")]
+heapq.heapify(jobs)
+while jobs:
+    priority, name = heapq.heappop(jobs)
+    print(priority, name)
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps algorithms in python understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Dynamic Programming
+- **Definition:** Dynamic programming stores overlapping subproblem results and builds a solution from a recurrence with explicit base cases.
+- **Visual explanation:** `state + recurrence → memoized subproblems → optimal result`
 - **Practical example:**
 
 ```python
-def calculate_total(subtotal: float, tax_rate: float = 0.08) -> float:
-    return subtotal * (1 + tax_rate)
+from functools import cache
 
-print(calculate_total(100))
+@cache
+def ways(steps: int) -> int:
+    if steps < 0:
+        return 0
+    if steps == 0:
+        return 1
+    return ways(steps - 1) + ways(steps - 2)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Algorithms in Python belongs to the advanced language engineering part of Python mastery. |
-| ⚡ Purpose | Help developers apply advanced language engineering techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional advanced language engineering decisions. |
-| 🎯 Use Cases | Performance-sensitive systems, frameworks, libraries, and technical interviews. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Algorithm engineering in Python combines complexity analysis with language-aware choices such as built-in C implementations, iterators, and appropriate data structures. |
+| ⚡ Purpose | A correct algorithm can still fail operationally if its memory growth, recursion depth, or constant factors do not match the input distribution. |
+| 🔥 Benefits | Builds the ability to state time and auxiliary-space complexity for common algorithmic strategies; it also helps practitioners use `bisect`, `heapq`, memoization, and graph traversal idiomatically. |
+| 🎯 Use Cases | Shortest-route calculation, top-k ranking, interval scheduling, and dependency resolution. Efficient lookup and aggregation over datasets too large for naive nested loops. |
+| 🚀 Best Practices | Validate empty, singleton, duplicate, and worst-shaped inputs. |
+| ❌ Common Mistakes | Ignoring the guardrail “Prefer a simpler O(n log n) solution until constraints justify complexity”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-def add(left, right):
-    return left + right
+from bisect import bisect_left
+
+values = [2, 5, 9, 14]
+index = bisect_left(values, 9)
+found = index < len(values) and values[index] == 9
 ```
 
 ### Standard Structure
 
 ```python
-def apply_algorithms_in_python(value):
-    """Apply the Algorithms in Python concept to one value."""
-    return value
+import heapq
 
-result = apply_algorithms_in_python("practice")
-print(result)
+def smallest_three(values: list[int]) -> list[int]:
+    return heapq.nsmallest(3, values)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Algorithms in Python problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+def binary_search(values: list[int], target: int) -> int | None:
+    low, high = 0, len(values)
+    while low < high:
+        middle = (low + high) // 2
+        if values[middle] < target:
+            low = middle + 1
+        else:
+            high = middle
+    return low if low < len(values) and values[low] == target else None
 ```
 
 ## Examples
@@ -99,45 +119,62 @@ print(result)
 ### Beginner Example
 
 ```python
-def greet(name):
-    print(f"Hello, {name}")
+from bisect import insort
 
-greet("Ada")
+scores = [10, 30, 50]
+insort(scores, 40)
+print(scores)
 ```
 
 ### Intermediate Example
 
 ```python
-def calculate_total(subtotal: float, tax_rate: float = 0.08) -> float:
-    return subtotal * (1 + tax_rate)
+from collections import deque
 
-print(calculate_total(100))
+graph = {"A": ["B", "C"], "B": ["D"], "C": ["D"], "D": []}
+queue = deque([("A", 0)])
+seen = {"A"}
+while queue:
+    node, distance = queue.popleft()
+    print(node, distance)
+    for neighbor in graph[node]:
+        if neighbor not in seen:
+            seen.add(neighbor)
+            queue.append((neighbor, distance + 1))
 ```
 
 ### Advanced Example
 
 ```python
-from functools import lru_cache
+import heapq
+import math
 
-@lru_cache(maxsize=128)
-def fibonacci(n: int) -> int:
-    return n if n < 2 else fibonacci(n - 1) + fibonacci(n - 2)
-
-print(fibonacci(10))
+graph = {"A": [("B", 2), ("C", 5)], "B": [("C", 1)], "C": []}
+distances = {node: math.inf for node in graph}
+distances["A"] = 0
+frontier = [(0, "A")]
+while frontier:
+    distance, node = heapq.heappop(frontier)
+    if distance != distances[node]:
+        continue
+    for neighbor, weight in graph[node]:
+        candidate = distance + weight
+        if candidate < distances[neighbor]:
+            distances[neighbor] = candidate
+            heapq.heappush(frontier, (candidate, neighbor))
+print(distances)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Algorithms in Python Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Define constraints] --> B[Choose invariant]
+    B --> C[Implement algorithm]
+    C --> D[Test edge cases]
+    D --> E[Benchmark representative inputs]
+    E -. feedback .-> A
 ```
-
-
----
 
 ---
 

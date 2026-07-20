@@ -5,93 +5,108 @@
 # Return Statements
 
 ## Overview
-- **What is it?** Return statements send results back from functions.
-- **Why is it important?** Separate computation from output and side effects.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** A `return` statement ends a function call and sends a result object back to its caller.
+- **Why is it important?** Returning data separates computation from display and lets callers compose, store, or test results.
+- **Where is it used?** Calculators, parsers, searches, and transformations return values for later decisions.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review return statements code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind return statements.
-- Expected outcome: you can use return statements in a small project and recognize when it belongs in production code.
+- Return a computed value and capture it at the call site.
+- Use early returns for guard cases.
+- Explain implicit `None` and tuple packing for multiple results.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Compute a subtotal for a receipt.
+- Return a matching record from a search.
+- Report both minimum and maximum values.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives return statements its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Return Statements model -> clear code`
+### Result transfer
+- **Definition:** `return expression` evaluates the expression, ends the call, and makes the value become the call expression's result.
+- **Visual explanation:** `function body -> return value -> caller`
 - **Practical example:**
 
 ```python
-apply_return_statements_label = "Return Statements"
-print(apply_return_statements_label)
+def double(number):
+    return number * 2
+
+result = double(6)
+print(result)
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when return statements code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Early return
+- **Definition:** A return can handle an exceptional condition immediately, preventing the remaining body from running.
+- **Visual explanation:** `guard true -> return now; false -> normal path`
 - **Practical example:**
 
 ```python
-def greet(name):
-    print(f"Hello, {name}")
+def divide(total, count):
+    if count == 0:
+        return None
+    return total / count
 
-greet("Ada")
+print(divide(10, 0))
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps return statements understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Implicit None and multiple values
+- **Definition:** A function reaching its end returns `None`; comma-separated return values are packed into a tuple.
+- **Visual explanation:** `no return -> None; return a, b -> tuple`
 - **Practical example:**
 
 ```python
-def calculate_total(subtotal: float, tax_rate: float = 0.08) -> float:
-    return subtotal * (1 + tax_rate)
+def limits(values):
+    return min(values), max(values)
 
-print(calculate_total(100))
+low, high = limits([8, 3, 11])
+print(low, high)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Return Statements belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Separate computation from output and side effects. |
-| 🔥 Benefits | Composable logic, testing, pipelines, and service functions. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | A `return` statement ends a function call and sends a result object back to its caller. |
+| ⚡ Purpose | Send computed results from a function back to its caller. |
+| 🔥 Benefits | Returning data separates computation from display and lets callers compose, store, or test results. |
+| 🎯 Use Cases | Calculators, parsers, searches, and transformations return values for later decisions. |
+| 🚀 Best Practices | Return useful data from logic functions and let the outer interaction layer decide how to print or store it. |
+| ❌ Common Mistakes | Printing a value inside a function when the caller needs to receive and reuse that value. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-def add(left, right):
-    return left + right
+def square(number):
+    return number ** 2
+
+print(square(5))
 ```
 
 ### Standard Structure
 
 ```python
-def apply_return_statements(value):
-    """Apply the Return Statements concept to one value."""
-    return value
+def normalize(text):
+    cleaned = text.strip()
+    if not cleaned:
+        return None
+    return cleaned.title()
 
-result = apply_return_statements("practice")
-print(result)
+print(normalize("  ada  "))
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Return Statements problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+def statistics(values):
+    if not values:
+        return None
+    return min(values), max(values), sum(values) / len(values)
+
+result = statistics([4, 9, 2, 7])
+if result is not None:
+    low, high, average = result
+    print(low, high, average)
 ```
 
 ## Examples
@@ -99,45 +114,55 @@ print(result)
 ### Beginner Example
 
 ```python
-def greet(name):
-    print(f"Hello, {name}")
+def answer():
+    return 42
 
-greet("Ada")
+value = answer()
+print(value)
 ```
 
 ### Intermediate Example
 
 ```python
-def calculate_total(subtotal: float, tax_rate: float = 0.08) -> float:
-    return subtotal * (1 + tax_rate)
+def find_even(numbers):
+    for number in numbers:
+        if number % 2 == 0:
+            return number
+    return None
 
-print(calculate_total(100))
+print(find_even([3, 7, 10, 13]))
 ```
 
 ### Advanced Example
 
 ```python
-from functools import lru_cache
+def invoice_summary(prices, tax_rate):
+    subtotal = sum(prices)
+    tax = subtotal * tax_rate
+    return {
+        "subtotal": subtotal,
+        "tax": tax,
+        "total": subtotal + tax,
+    }
 
-@lru_cache(maxsize=128)
-def fibonacci(n: int) -> int:
-    return n if n < 2 else fibonacci(n - 1) + fibonacci(n - 2)
-
-print(fibonacci(10))
+summary = invoice_summary([12.5, 7.5], 0.08)
+print(summary)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Return Statements Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Call function]
+    B[Execute statements]
+    C[Evaluate return expression]
+    D[End current call]
+    E[Caller receives result]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
-
-
----
 
 ---
 

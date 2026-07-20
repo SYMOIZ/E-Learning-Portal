@@ -5,103 +5,133 @@
 # CI/CD Pipelines
 
 ## Overview
-- **What is it?** CI/CD Pipelines is a Python knowledge area focused on cloud and DevOps.
-- **Why is it important?** Help developers apply cloud and DevOps techniques safely, clearly, and consistently.
-- **Where is it used?** Deployment automation, infrastructure operations, and scalable production delivery.
+- **What is it?** Continuous integration validates every change in a clean environment, while continuous delivery builds, secures, and promotes one immutable artifact through controlled environments.
+- **Why is it important?** A trustworthy pipeline is reproducible, least-privileged, cache-aware, observable, and protected by required checks and deployment approvals.
+- **Where is it used?** It supports automated tests, artifact publication, supply-chain evidence, progressive deployment, and rollback.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review ci/cd pipelines code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind ci/cd pipelines.
-- Expected outcome: you can use ci/cd pipelines in a small project and recognize when it belongs in production code.
+- Design CI stages for deterministic install, lint, test, build, and scan.
+- Use YAML workflows with pinned permissions, matrices, caches, and artifacts.
+- Promote one artifact by digest through gated deployment and verification.
 
 ## Real World Applications
-- **Industry use cases:** Deployment automation, infrastructure operations, and scalable production delivery.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Validating Python versions and dependency compatibility on pull requests.
+- Building and signing container or package artifacts once.
+- Deploying to staging and production with approvals and health gates.
 
 ## Core Concepts
 
-### Runtime Artifact
-- **Definition:** The main idea that gives ci/cd pipelines its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> CI/CD Pipelines model -> clear code`
+### Clean Reproducible CI
+- **Definition:** Each CI job starts from declared source, runtime, and locked dependencies so results do not depend on a developer machine.
+- **Visual explanation:** `commit + lockfile + runner image → checks → immutable evidence`
 - **Practical example:**
 
 ```python
-apply_ci_cd_pipelines_label = "CI/CD Pipelines"
-print(apply_ci_cd_pipelines_label)
+from pathlib import Path
+
+required = ["pyproject.toml", "requirements.lock"]
+missing = [name for name in required if not Path(name).exists()]
+if missing:
+    raise SystemExit(f"missing reproducibility inputs: {missing}")
 ```
 
-### Deployment Target
-- **Definition:** The ordered steps Python follows when ci/cd pipelines code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Artifact Promotion
+- **Definition:** A build creates one content-addressed artifact; later stages verify and promote that same digest instead of rebuilding environment-specific variants.
+- **Visual explanation:** `commit → build/test/scan → artifact digest → stage → production`
 - **Practical example:**
 
 ```python
-import argparse
+from hashlib import sha256
+from pathlib import Path
 
-parser = argparse.ArgumentParser()
-parser.add_argument("--name", default="Python")
-args = parser.parse_args([])
-print(args.name)
+artifact = Path("dist/application.whl")
+digest = sha256(artifact.read_bytes()).hexdigest()
+print(f"sha256:{digest}")
 ```
 
-### Operational Feedback
-- **Definition:** The reliability habit that keeps ci/cd pipelines understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Deployment Safety
+- **Definition:** Protected environments, least-privilege identity, concurrency controls, health checks, and rollback thresholds turn deployment into a bounded experiment.
+- **Visual explanation:** `approval → canary → health/SLO gate → expand or rollback`
 - **Practical example:**
 
 ```python
-import argparse
+from dataclasses import dataclass
 
-def build_parser():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("count", type=int)
-    return parser
+@dataclass(frozen=True)
+class HealthGate:
+    maximum_error_rate: float
+    maximum_p95_ms: int
 
-args = build_parser().parse_args(["3"])
-print(args.count * 2)
+    def passes(self, error_rate: float, p95_ms: int) -> bool:
+        return error_rate <= self.maximum_error_rate and p95_ms <= self.maximum_p95_ms
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | CI/CD Pipelines belongs to the cloud and DevOps part of Python mastery. |
-| ⚡ Purpose | Help developers apply cloud and DevOps techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional cloud and DevOps decisions. |
-| 🎯 Use Cases | Deployment automation, infrastructure operations, and scalable production delivery. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Continuous integration validates every change in a clean environment, while continuous delivery builds, secures, and promotes one immutable artifact through controlled environments. |
+| ⚡ Purpose | A trustworthy pipeline is reproducible, least-privileged, cache-aware, observable, and protected by required checks and deployment approvals. |
+| 🔥 Benefits | Builds the ability to design CI stages for deterministic install, lint, test, build, and scan; it also helps practitioners use YAML workflows with pinned permissions, matrices, caches, and artifacts. |
+| 🎯 Use Cases | Validating Python versions and dependency compatibility on pull requests. Building and signing container or package artifacts once. |
+| 🚀 Best Practices | Environment approvals and concurrency serialize risky deployments. |
+| ❌ Common Mistakes | Ignoring the guardrail “Do not rebuild between staging and production”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
-```yaml
-name: Python CI
-on: [push]
-jobs:
-  test:
-    runs-on: ubuntu-latest
+```python
+import os
+
+commit = os.environ.get("GITHUB_SHA", "local")
+run_id = os.environ.get("GITHUB_RUN_ID", "manual")
 ```
 
 ### Standard Structure
 
 ```python
-def apply_ci_cd_pipelines(value):
-    """Apply the CI/CD Pipelines concept to one value."""
-    return value
+from pathlib import Path
 
-result = apply_ci_cd_pipelines("practice")
-print(result)
+artifacts = sorted(Path("dist").glob("*"))
+if not artifacts:
+    raise SystemExit("build produced no artifacts")
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the CI/CD Pipelines problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+import json
+from pathlib import Path
+
+evidence = {"commit": commit, "run_id": run_id, "artifacts": [p.name for p in artifacts]}
+Path("build-evidence.json").write_text(json.dumps(evidence, indent=2))
+```
+
+#### Deployment Artifact
+
+```yaml
+name: ci
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+      - run: python -m pip install -r requirements.lock
+      - run: python -m pytest -q
 ```
 
 ## Examples
@@ -109,52 +139,46 @@ print(result)
 ### Beginner Example
 
 ```python
-import argparse
+import subprocess
 
-parser = argparse.ArgumentParser()
-parser.add_argument("--name", default="Python")
-args = parser.parse_args([])
-print(args.name)
+subprocess.run(["python", "-m", "pytest", "-q"], check=True, timeout=600)
 ```
 
 ### Intermediate Example
 
 ```python
-import argparse
+import subprocess
+from pathlib import Path
 
-def build_parser():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("count", type=int)
-    return parser
-
-args = build_parser().parse_args(["3"])
-print(args.count * 2)
+subprocess.run(["python", "-m", "build"], check=True, timeout=600)
+distributions = [str(path) for path in Path("dist").iterdir()]
+subprocess.run(
+    ["python", "-m", "twine", "check", *distributions],
+    check=True,
+    timeout=120,
+)
 ```
 
 ### Advanced Example
 
 ```python
-import argparse
-
-parser = argparse.ArgumentParser(prog="portal")
-subcommands = parser.add_subparsers(dest="command", required=True)
-run = subcommands.add_parser("run")
-run.add_argument("--dry-run", action="store_true")
-print(parser.parse_args(["run", "--dry-run"]))
+gate = HealthGate(maximum_error_rate=0.01, maximum_p95_ms=300)
+measurements = {"error_rate": 0.004, "p95_ms": 180}
+if not gate.passes(**measurements):
+    raise SystemExit("rollback: canary health gate failed")
+print("promote canary")
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify CI/CD Pipelines Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Checkout immutable commit] --> B[Install and run CI checks]
+    B --> C[Build/scan/sign artifact]
+    C --> D[Deploy canary by digest]
+    D --> E[Promote or rollback from health gate]
+    E -. feedback .-> A
 ```
-
-
----
 
 ---
 

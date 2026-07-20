@@ -5,93 +5,106 @@
 # Computer Vision
 
 ## Overview
-- **What is it?** Computer Vision is a Python knowledge area focused on AI engineering.
-- **Why is it important?** Help developers apply AI engineering techniques safely, clearly, and consistently.
-- **Where is it used?** Predictive products, language systems, vision applications, and model-powered automation.
+- **What is it?** Computer vision converts images or video into measurements and predictions through image geometry, color transforms, filtering, feature extraction, and learned models.
+- **Why is it important?** OpenCV arrays require careful handling of BGR channel order, coordinate conventions, dtypes, interpolation, and camera or dataset variation.
+- **Where is it used?** It is used in inspection, document processing, robotics, medical imaging, media analysis, and visual search.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review computer vision code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind computer vision.
-- Expected outcome: you can use computer vision in a small project and recognize when it belongs in production code.
+- Read, validate, transform, and write images with OpenCV.
+- Build reproducible thresholding, morphology, contour, and feature pipelines.
+- Evaluate robustness across lighting, scale, viewpoint, and acquisition devices.
 
 ## Real World Applications
-- **Industry use cases:** Predictive products, language systems, vision applications, and model-powered automation.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Detecting defects and measuring objects on production lines.
+- Deskewing, cleaning, and segmenting scanned documents.
+- Preparing frames and post-processing outputs for learned vision models.
 
 ## Core Concepts
 
-### Dataset Representation
-- **Definition:** The main idea that gives computer vision its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Computer Vision model -> clear code`
+### Image Arrays and Color
+- **Definition:** OpenCV represents images as NumPy arrays with height, width, and channels; color images are normally decoded in BGR order.
+- **Visual explanation:** `encoded file → BGR ndarray [height,width,channel] → color transform`
 - **Practical example:**
 
 ```python
-apply_computer_vision_label = "Computer Vision"
-print(apply_computer_vision_label)
+import cv2
+
+image = cv2.imread("input.png", cv2.IMREAD_COLOR)
+if image is None:
+    raise FileNotFoundError("input.png")
+rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 ```
 
-### Transformation Pipeline
-- **Definition:** The ordered steps Python follows when computer vision code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Segmentation and Morphology
+- **Definition:** Thresholding separates pixels by intensity, while erosion, dilation, opening, and closing reshape binary regions using a structuring element.
+- **Visual explanation:** `gray image → threshold → morphology → connected regions`
 - **Practical example:**
 
 ```python
+import cv2
 import numpy as np
 
-values = np.array([1, 2, 3])
-print(values.mean())
+gray = np.array([[10, 240], [20, 230]], dtype=np.uint8)
+_, mask = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3, 3))
+cleaned = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel)
 ```
 
-### Validation Signal
-- **Definition:** The reliability habit that keeps computer vision understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Geometry and Contours
+- **Definition:** Contours approximate binary boundaries; their area, bounding box, and moments produce measurements in pixel coordinates.
+- **Visual explanation:** `binary mask → contours → filter geometry → annotated measurement`
 - **Practical example:**
 
 ```python
-import numpy as np
+import cv2
 
-matrix = np.array([[1, 2], [3, 4]])
-print(matrix.T)
+contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+boxes = [
+    cv2.boundingRect(contour)
+    for contour in contours
+    if cv2.contourArea(contour) >= 10
+]
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Computer Vision belongs to the AI engineering part of Python mastery. |
-| ⚡ Purpose | Help developers apply AI engineering techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional AI engineering decisions. |
-| 🎯 Use Cases | Predictive products, language systems, vision applications, and model-powered automation. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Computer vision converts images or video into measurements and predictions through image geometry, color transforms, filtering, feature extraction, and learned models. |
+| ⚡ Purpose | OpenCV arrays require careful handling of BGR channel order, coordinate conventions, dtypes, interpolation, and camera or dataset variation. |
+| 🔥 Benefits | Builds the ability to read, validate, transform, and write images with OpenCV; it also helps practitioners build reproducible thresholding, morphology, contour, and feature pipelines. |
+| 🎯 Use Cases | Detecting defects and measuring objects on production lines. Deskewing, cleaning, and segmenting scanned documents. |
+| 🚀 Best Practices | Validate image load before accessing shape or pixels. |
+| ❌ Common Mistakes | Ignoring the guardrail “Evaluate across acquisition conditions, not one sample frame”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import numpy as np
-array = np.array([1, 2, 3])
+import cv2
+
+image = cv2.imread("photo.jpg")
+if image is None:
+    raise FileNotFoundError("photo.jpg")
+height, width = image.shape[:2]
 ```
 
 ### Standard Structure
 
 ```python
-def apply_computer_vision(value):
-    """Apply the Computer Vision concept to one value."""
-    return value
-
-result = apply_computer_vision("practice")
-print(result)
+gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+blurred = cv2.GaussianBlur(gray, (5, 5), 0)
+edges = cv2.Canny(blurred, 50, 150)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Computer Vision problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+def resize_to_width(image, width: int):
+    scale = width / image.shape[1]
+    size = (width, round(image.shape[0] * scale))
+    return cv2.resize(image, size, interpolation=cv2.INTER_AREA)
 ```
 
 ## Examples
@@ -99,43 +112,57 @@ print(result)
 ### Beginner Example
 
 ```python
+import cv2
 import numpy as np
 
-values = np.array([1, 2, 3])
-print(values.mean())
+image = np.zeros((100, 100, 3), dtype=np.uint8)
+cv2.circle(image, (50, 50), 20, (0, 255, 0), thickness=-1)
+assert image.shape == (100, 100, 3)
 ```
 
 ### Intermediate Example
 
 ```python
+import cv2
 import numpy as np
 
-matrix = np.array([[1, 2], [3, 4]])
-print(matrix.T)
+gray = np.zeros((120, 120), dtype=np.uint8)
+cv2.rectangle(gray, (20, 30), (80, 90), 255, thickness=-1)
+contours, _ = cv2.findContours(gray, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+largest = max(contours, key=cv2.contourArea)
+print(cv2.boundingRect(largest))
 ```
 
 ### Advanced Example
 
 ```python
-import numpy as np
+import cv2
 
-features = np.array([[1.0, 2.0], [3.0, 4.0]])
-weights = np.array([0.25, 0.75])
-print(features @ weights)
+capture = cv2.VideoCapture("input.mp4")
+if not capture.isOpened():
+    raise OSError("cannot open video")
+try:
+    while True:
+        ok, frame = capture.read()
+        if not ok:
+            break
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        edges = cv2.Canny(gray, 80, 160)
+        print(cv2.countNonZero(edges))
+finally:
+    capture.release()
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Computer Vision Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Acquire and validate image] --> B[Normalize color and geometry]
+    B --> C[Segment or infer features]
+    C --> D[Measure and filter results]
+    D --> E[Evaluate across conditions]
+    E -. feedback .-> A
 ```
-
-
----
 
 ---
 

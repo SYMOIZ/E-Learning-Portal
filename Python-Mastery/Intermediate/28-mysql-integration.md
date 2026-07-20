@@ -5,96 +5,106 @@
 # MySQL Integration
 
 ## Overview
-- **What is it?** MySQL Integration is a Python knowledge area focused on integration.
-- **Why is it important?** Help developers apply integration techniques safely, clearly, and consistently.
-- **Where is it used?** Web services, persistence layers, analytics backends, and business systems.
+- **What is it?** MySQL Integration is the intermediate Python topic of connecting Python applications to MySQL with a MySQL DB-API driver.
+- **Why is it important?** MySQL integration requires server connection management, %s parameter binding, transactions, and production pooling.
+- **Where is it used?** web application persistence, transactional business systems, MySQL-backed services.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review mysql integration code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind mysql integration.
-- Expected outcome: you can use mysql integration in a small project and recognize when it belongs in production code.
+- Use mysql.connector connection and cursor patterns.
+- Bind parameters with %s placeholders.
+- Manage transactions, dictionary rows, and connection pools.
 
 ## Real World Applications
-- **Industry use cases:** Web services, persistence layers, analytics backends, and business systems.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Web application persistence rely on this topic.
+- **Product work:** It supports transactional business systems.
+- **Operations:** It appears in MySQL-backed services.
 
 ## Core Concepts
 
-### Contract
-- **Definition:** The main idea that gives mysql integration its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> MySQL Integration model -> clear code`
+### Driver connection
+- **Definition:** A MySQL driver opens a network connection using host, credentials, and database settings; it should be closed or returned to a pool.
+- **Visual explanation:** ``application -> MySQL driver -> TCP/TLS -> server``
 - **Practical example:**
 
 ```python
-apply_mysql_integration_label = "MySQL Integration"
-print(apply_mysql_integration_label)
+import mysql.connector
+
+connection = mysql.connector.connect(
+    host="localhost", user="app", password="secret", database="shop"
+)
 ```
 
-### Connection Flow
-- **Definition:** The ordered steps Python follows when mysql integration code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### MySQL parameters and cursors
+- **Definition:** Connector/Python binds values with %s placeholders and can return dictionary rows without interpolating SQL.
+- **Visual explanation:** ``SQL with %s + tuple -> prepared execution -> rows``
 - **Practical example:**
 
 ```python
-import sqlite3
-connection = sqlite3.connect(":memory:")
-connection.execute("CREATE TABLE users (name TEXT)")
-connection.execute("INSERT INTO users VALUES (?)", ("Ada",))
-print(connection.execute("SELECT name FROM users").fetchone()[0])
+cursor = connection.cursor(dictionary=True)
+cursor.execute("SELECT id, email FROM users WHERE id = %s", (42,))
+row = cursor.fetchone()
 ```
 
-### Reliability Boundary
-- **Definition:** The reliability habit that keeps mysql integration understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Transactions and pooling
+- **Definition:** Explicit commit or rollback defines write durability; pooling reuses bounded server connections across requests.
+- **Visual explanation:** ``pool -> connection -> transaction -> return to pool``
 - **Practical example:**
 
 ```python
-import sqlite3
-
-with sqlite3.connect(":memory:") as connection:
-    connection.execute("CREATE TABLE metrics (name TEXT, value REAL)")
-    connection.executemany("INSERT INTO metrics VALUES (?, ?)", [("latency", 120.5)])
-    print(connection.execute("SELECT COUNT(*) FROM metrics").fetchone()[0])
+try:
+    connection.start_transaction()
+    cursor.execute("UPDATE stock SET quantity = quantity - %s WHERE sku = %s", (1, "A1"))
+    connection.commit()
+except Exception:
+    connection.rollback()
+    raise
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | MySQL Integration belongs to the integration part of Python mastery. |
-| ⚡ Purpose | Help developers apply integration techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional integration decisions. |
-| 🎯 Use Cases | Web services, persistence layers, analytics backends, and business systems. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Driver connection, MySQL parameters and cursors, Transactions and pooling |
+| ⚡ Purpose | MySQL integration requires server connection management, %s parameter binding, transactions, and production pooling. |
+| 🔥 Benefits | Safe MySQL queries, reusable server connections, and explicit transactional durability. |
+| 🎯 Use Cases | web application persistence, transactional business systems, MySQL-backed services |
+| 🚀 Best Practices | Use a supported driver, parameter binding, TLS in production, and a bounded pool. |
+| ❌ Common Mistakes | Copying sqlite3 placeholders or APIs into MySQL code. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import sqlite3
-connection = sqlite3.connect(":memory:")
+import mysql.connector
+
+connection = mysql.connector.connect(**database_config)
+cursor = connection.cursor()
+cursor.execute("SELECT name FROM users WHERE id = %s", (user_id,))
+row = cursor.fetchone()
+cursor.close()
+connection.close()
 ```
 
 ### Standard Structure
 
 ```python
-def apply_mysql_integration(value):
-    """Apply the MySQL Integration concept to one value."""
-    return value
+from mysql.connector.pooling import MySQLConnectionPool
 
-result = apply_mysql_integration("practice")
-print(result)
+pool = MySQLConnectionPool(pool_name="app", pool_size=5, **database_config)
+with pool.get_connection() as connection:
+    with connection.cursor(dictionary=True) as cursor:
+        cursor.execute("SELECT id, email FROM users WHERE active = %s", (True,))
+        users = cursor.fetchall()
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the MySQL Integration problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Acquire a TLS-configured pooled connection.
+# Open the appropriate cursor type.
+# Bind values with %s placeholders.
+# Commit/rollback and return connection to pool.
 ```
 
 ## Examples
@@ -102,49 +112,79 @@ print(result)
 ### Beginner Example
 
 ```python
-import sqlite3
-connection = sqlite3.connect(":memory:")
-connection.execute("CREATE TABLE users (name TEXT)")
-connection.execute("INSERT INTO users VALUES (?)", ("Ada",))
-print(connection.execute("SELECT name FROM users").fetchone()[0])
+import mysql.connector
+
+connection = mysql.connector.connect(
+    host="127.0.0.1",
+    user="app",
+    password="secret",
+    database="learning",
+)
+try:
+    cursor = connection.cursor()
+    cursor.execute("SELECT id, name FROM course WHERE id = %s", (1,))
+    print(cursor.fetchone())
+    cursor.close()
+finally:
+    connection.close()
 ```
 
 ### Intermediate Example
 
 ```python
-import sqlite3
+import mysql.connector
 
-with sqlite3.connect(":memory:") as connection:
-    connection.execute("CREATE TABLE metrics (name TEXT, value REAL)")
-    connection.executemany("INSERT INTO metrics VALUES (?, ?)", [("latency", 120.5)])
-    print(connection.execute("SELECT COUNT(*) FROM metrics").fetchone()[0])
+def add_user(config: dict, email: str) -> int:
+    with mysql.connector.connect(**config) as connection:
+        with connection.cursor() as cursor:
+            try:
+                cursor.execute(
+                    "INSERT INTO users (email) VALUES (%s)",
+                    (email,),
+                )
+                connection.commit()
+                return cursor.lastrowid
+            except mysql.connector.Error:
+                connection.rollback()
+                raise
 ```
 
 ### Advanced Example
 
 ```python
-import sqlite3
+from mysql.connector.pooling import MySQLConnectionPool
 
-connection = sqlite3.connect(":memory:")
-connection.row_factory = sqlite3.Row
-connection.execute("CREATE TABLE users (id INTEGER, email TEXT)")
-connection.execute("INSERT INTO users VALUES (?, ?)", (1, "a@example.com"))
-row = connection.execute("SELECT * FROM users").fetchone()
-print(dict(row))
+class UserRepository:
+    def __init__(self, config: dict):
+        self.pool = MySQLConnectionPool(
+            pool_name="users",
+            pool_size=5,
+            pool_reset_session=True,
+            **config,
+        )
+
+    def active_users(self, limit: int) -> list[dict]:
+        if not 1 <= limit <= 100:
+            raise ValueError("limit out of range")
+        with self.pool.get_connection() as connection:
+            with connection.cursor(dictionary=True) as cursor:
+                cursor.execute(
+                    "SELECT id, email FROM users "
+                    "WHERE active = %s ORDER BY id LIMIT %s",
+                    (True, limit),
+                )
+                return cursor.fetchall()
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify MySQL Integration Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Acquire pooled MySQL connection] --> B[Open cursor]
+    B --> C[Execute SQL with %s bindings]
+    C --> D[Fetch or commit/rollback]
+    D --> E[Close cursor and return connection]
 ```
-
-
----
 
 ---
 

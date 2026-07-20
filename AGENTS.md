@@ -7,6 +7,7 @@ Guidance for AI agents working in this repository.
 **E-Learning Portal** is currently a documentation-focused Python learning repository. It contains:
 
 - `README.md` — complete single-page Python learning roadmap
+- `Python-Mastery/` — 110 topic-level lessons plus indexes for portable documentation imports
 - `python-learning-roadmap/` — nested curriculum directory with level and topic README files
 - `A Smarter Way to Learn Python .pdf` — static Python learning material (241 pages)
 
@@ -25,8 +26,9 @@ There is no application source code, package manifests, Docker configuration, or
 ### Development workflow
 
 - **Dependencies:** None to install. The VM update script is a no-op (`true`).
-- **Lint / test / build:** No scripts exist. Skip unless new tooling is added to the repo.
-- **Run:** There is no dev server. Validate changes with `git status` and file checks until an app is scaffolded.
+- **Build:** Run `python3 tools/sync_knowledge_base.py` after editing topic files to update the single-page root README.
+- **Validate:** Run `python3 tools/validate_knowledge_base.py` to check topic coverage, required sections, Python syntax, diagrams, roadmaps, and relative links.
+- **Run:** There is no dev server. Validate documentation changes with the commands above and `git status`.
 
 ### Validating the learning resource
 

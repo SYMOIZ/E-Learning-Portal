@@ -5,112 +5,106 @@
 # Decorators
 
 ## Overview
-- **What is it?** Decorators is a Python knowledge area focused on professional Python patterns.
-- **Why is it important?** Help developers apply professional Python patterns techniques safely, clearly, and consistently.
-- **Where is it used?** Data exchange, observability, clean abstractions, and production utilities.
+- **What is it?** Decorators is the intermediate Python topic of wrapping callables or classes to add reusable behavior declaratively.
+- **Why is it important?** Decorator syntax rebinds a name to the result of a transformation performed when the definition executes.
+- **Where is it used?** authorization checks, instrumentation, registration and caching.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review decorators code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind decorators.
-- Expected outcome: you can use decorators in a small project and recognize when it belongs in production code.
+- Translate @syntax into function application.
+- Preserve wrapped metadata.
+- Write parameterized and stateful decorators.
 
 ## Real World Applications
-- **Industry use cases:** Data exchange, observability, clean abstractions, and production utilities.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Authorization checks rely on this topic.
+- **Product work:** It supports instrumentation.
+- **Operations:** It appears in registration and caching.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives decorators its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Decorators model -> clear code`
+### Callable transformation
+- **Definition:** A function decorator receives a callable and returns the callable that should replace it.
+- **Visual explanation:** ``@trace def f -> f = trace(f)``
 - **Practical example:**
 
 ```python
-apply_decorators_label = "Decorators"
-print(apply_decorators_label)
-```
-
-### Execution Flow
-- **Definition:** The ordered steps Python follows when decorators code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
-- **Practical example:**
-
-```python
-def uppercase(func):
+def uppercase(function):
     def wrapper():
-        return func().upper()
+        return function().upper()
     return wrapper
-
-@uppercase
-def message():
-    return "hello"
-
-print(message())
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps decorators understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Closures and metadata
+- **Definition:** The wrapper closes over the original callable; functools.wraps copies metadata and exposes __wrapped__.
+- **Visual explanation:** ``wrapper closure -> original; wraps -> preserved identity``
 - **Practical example:**
 
 ```python
-import time
+from functools import wraps
 
-def timer(func):
+def traced(function):
+    @wraps(function)
     def wrapper(*args, **kwargs):
-        start = time.perf_counter()
-        result = func(*args, **kwargs)
-        print(round(time.perf_counter() - start, 6))
-        return result
+        return function(*args, **kwargs)
     return wrapper
+```
 
-@timer
-def work():
-    return sum(range(1000))
+### Decorator factories
+- **Definition:** A parameterized decorator adds an outer factory that captures configuration before receiving the target.
+- **Visual explanation:** ``@retry(3) -> factory(3) -> decorator -> wrapper``
+- **Practical example:**
 
-print(work())
+```python
+def tagged(label):
+    def decorate(function):
+        function.label = label
+        return function
+    return decorate
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Decorators belongs to the professional Python patterns part of Python mastery. |
-| ⚡ Purpose | Help developers apply professional Python patterns techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional professional Python patterns decisions. |
-| 🎯 Use Cases | Data exchange, observability, clean abstractions, and production utilities. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Callable transformation, Closures and metadata, Decorator factories |
+| ⚡ Purpose | Decorator syntax rebinds a name to the result of a transformation performed when the definition executes. |
+| 🔥 Benefits | Reusable cross-cutting behavior, declarative application, and consistent instrumentation or policy. |
+| 🎯 Use Cases | authorization checks, instrumentation, registration and caching |
+| 🚀 Best Practices | Keep wrappers transparent and use wraps unless intentionally changing the interface. |
+| ❌ Common Mistakes | Performing request-time work when the decorated function is defined. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-def decorator(func):
+def announce(function):
     def wrapper(*args, **kwargs):
-        return func(*args, **kwargs)
+        print(function.__name__)
+        return function(*args, **kwargs)
     return wrapper
 ```
 
 ### Standard Structure
 
 ```python
-def apply_decorators(value):
-    """Apply the Decorators concept to one value."""
-    return value
+from functools import wraps
 
-result = apply_decorators("practice")
-print(result)
+def require_nonempty(function):
+    @wraps(function)
+    def wrapper(value, *args, **kwargs):
+        if not value:
+            raise ValueError("value is required")
+        return function(value, *args, **kwargs)
+    return wrapper
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Decorators problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Factory captures decorator arguments (optional).
+# Decorator receives the target.
+# Wrapper runs before/after behavior.
+# functools.wraps preserves target metadata.
 ```
 
 ## Examples
@@ -118,36 +112,39 @@ print(result)
 ### Beginner Example
 
 ```python
-def uppercase(func):
-    def wrapper():
-        return func().upper()
+def excited(function):
+    def wrapper(name):
+        return function(name) + "!"
     return wrapper
 
-@uppercase
-def message():
-    return "hello"
+@excited
+def greet(name):
+    return f"Hello, {name}"
 
-print(message())
+print(greet("Ada"))
 ```
 
 ### Intermediate Example
 
 ```python
-import time
+from functools import wraps
+from time import perf_counter
 
-def timer(func):
+def timed(function):
+    @wraps(function)
     def wrapper(*args, **kwargs):
-        start = time.perf_counter()
-        result = func(*args, **kwargs)
-        print(round(time.perf_counter() - start, 6))
-        return result
+        started = perf_counter()
+        try:
+            return function(*args, **kwargs)
+        finally:
+            print(f"{function.__name__}: {perf_counter() - started:.6f}s")
     return wrapper
 
-@timer
-def work():
-    return sum(range(1000))
+@timed
+def total(values):
+    return sum(values)
 
-print(work())
+print(total(range(1000)))
 ```
 
 ### Advanced Example
@@ -155,35 +152,38 @@ print(work())
 ```python
 from functools import wraps
 
-def require_role(role: str):
-    def outer(func):
-        @wraps(func)
-        def inner(user, *args, **kwargs):
-            if user.get("role") != role:
-                raise PermissionError(role)
-            return func(user, *args, **kwargs)
-        return inner
-    return outer
+def retry(attempts: int, exceptions=(Exception,)):
+    if attempts < 1:
+        raise ValueError("attempts must be positive")
 
-@require_role("admin")
-def delete_user(user):
-    return "deleted"
+    def decorate(function):
+        @wraps(function)
+        def wrapper(*args, **kwargs):
+            for attempt in range(1, attempts + 1):
+                try:
+                    return function(*args, **kwargs)
+                except exceptions:
+                    if attempt == attempts:
+                        raise
+        return wrapper
+    return decorate
 
-print(delete_user({"role": "admin"}))
+@retry(3, (ConnectionError,))
+def connect():
+    return "connected"
+
+print(connect())
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Decorators Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Execute decorator factory] --> B[Pass target to decorator]
+    B --> C[Rebind name to wrapper]
+    C --> D[Call wrapper]
+    D --> E[Delegate to original callable]
 ```
-
-
----
 
 ---
 

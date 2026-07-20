@@ -5,97 +5,100 @@
 # Iterators
 
 ## Overview
-- **What is it?** Iterators is a Python knowledge area focused on professional Python patterns.
-- **Why is it important?** Help developers apply professional Python patterns techniques safely, clearly, and consistently.
-- **Where is it used?** Data exchange, observability, clean abstractions, and production utilities.
+- **What is it?** Iterators is the intermediate Python topic of representing pull-based streams that produce one item at a time.
+- **Why is it important?** An iterable creates an iterator; an iterator tracks traversal state and raises StopIteration when exhausted.
+- **Where is it used?** custom collections, streaming parsers, lazy data pipelines.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review iterators code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind iterators.
-- Expected outcome: you can use iterators in a small project and recognize when it belongs in production code.
+- Distinguish iterable from iterator.
+- Implement __iter__ and __next__.
+- Use iter(callable, sentinel) and iterator tools.
 
 ## Real World Applications
-- **Industry use cases:** Data exchange, observability, clean abstractions, and production utilities.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Custom collections rely on this topic.
+- **Product work:** It supports streaming parsers.
+- **Operations:** It appears in lazy data pipelines.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives iterators its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Iterators model -> clear code`
+### Iterable protocol
+- **Definition:** An iterable's __iter__ returns a fresh iterator or, for an iterator, itself.
+- **Visual explanation:** ``iterable --iter()--> iterator``
 - **Practical example:**
 
 ```python
-apply_iterators_label = "Iterators"
-print(apply_iterators_label)
+numbers = [1, 2]
+iterator = iter(numbers)
+print(next(iterator))
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when iterators code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Iterator protocol
+- **Definition:** An iterator's __next__ returns the next value and raises StopIteration permanently after exhaustion.
+- **Visual explanation:** ``next -> value -> ... -> StopIteration``
 - **Practical example:**
 
 ```python
-def countdown(start):
-    while start > 0:
-        yield start
-        start -= 1
-
-print(list(countdown(3)))
+iterator = iter("ab")
+print(next(iterator), next(iterator))
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps iterators understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Stateful consumption
+- **Definition:** Iterators are single-pass cursors; consuming through one reference advances the same underlying state.
+- **Visual explanation:** ``shared cursor: consumer A advances consumer B``
 - **Practical example:**
 
 ```python
-def read_batches(rows, size):
-    for index in range(0, len(rows), size):
-        yield rows[index:index + size]
-
-print(list(read_batches([1, 2, 3, 4], 2)))
+cursor = iter([10, 20, 30])
+first = next(cursor)
+rest = list(cursor)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Iterators belongs to the professional Python patterns part of Python mastery. |
-| ⚡ Purpose | Help developers apply professional Python patterns techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional professional Python patterns decisions. |
-| 🎯 Use Cases | Data exchange, observability, clean abstractions, and production utilities. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Iterable protocol, Iterator protocol, Stateful consumption |
+| ⚡ Purpose | An iterable creates an iterator; an iterator tracks traversal state and raises StopIteration when exhausted. |
+| 🔥 Benefits | Memory-efficient traversal, explicit single-pass state, and compatibility with Python iteration tools. |
+| 🎯 Use Cases | custom collections, streaming parsers, lazy data pipelines |
+| 🚀 Best Practices | Return a fresh iterator from reusable container objects. |
+| ❌ Common Mistakes | Expecting an exhausted iterator to restart automatically. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-def numbers():
-    yield 1
-    yield 2
+iterator = iter([10, 20])
+print(next(iterator))
+print(next(iterator))
 ```
 
 ### Standard Structure
 
 ```python
-def apply_iterators(value):
-    """Apply the Iterators concept to one value."""
-    return value
+class Countdown:
+    def __init__(self, start):
+        self.current = start
 
-result = apply_iterators("practice")
-print(result)
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.current <= 0:
+            raise StopIteration
+        value = self.current
+        self.current -= 1
+        return value
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Iterators problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Iterable produces an iterator.
+# Iterator owns traversal state.
+# __next__ returns one item.
+# Exhaustion is signaled with StopIteration.
 ```
 
 ## Examples
@@ -103,45 +106,70 @@ print(result)
 ### Beginner Example
 
 ```python
-def countdown(start):
-    while start > 0:
-        yield start
-        start -= 1
-
-print(list(countdown(3)))
+colors = ["red", "green", "blue"]
+cursor = iter(colors)
+print(next(cursor))
+print(list(cursor))
 ```
 
 ### Intermediate Example
 
 ```python
-def read_batches(rows, size):
-    for index in range(0, len(rows), size):
-        yield rows[index:index + size]
+class StepRange:
+    def __init__(self, start: int, stop: int, step: int):
+        self.current = start
+        self.stop = stop
+        self.step = step
 
-print(list(read_batches([1, 2, 3, 4], 2)))
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.current >= self.stop:
+            raise StopIteration
+        value = self.current
+        self.current += self.step
+        return value
+
+print(list(StepRange(1, 8, 2)))
 ```
 
 ### Advanced Example
 
 ```python
-def pipeline(values):
-    yield from (value * value for value in values if value % 2 == 0)
+class LogEntries:
+    def __init__(self, lines):
+        self.lines = list(lines)
 
-print(list(pipeline(range(10))))
+    def __iter__(self):
+        return LogEntryIterator(self.lines)
+
+class LogEntryIterator:
+    def __init__(self, lines):
+        self._source = iter(lines)
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        line = next(self._source)
+        timestamp, message = line.split(" ", 1)
+        return {"timestamp": timestamp, "message": message}
+
+entries = LogEntries(["09:00 started", "09:01 ready"])
+print(list(entries))
+print(list(entries))  # fresh traversal
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Iterators Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Request iter()] --> B[Obtain iterator]
+    B --> C[Call next()]
+    C --> D[Return item and advance]
+    D --> E[Raise StopIteration]
 ```
-
-
----
 
 ---
 

@@ -5,101 +5,108 @@
 # Inheritance
 
 ## Overview
-- **What is it?** Inheritance is a Python knowledge area focused on object-oriented design.
-- **Why is it important?** Help developers apply object-oriented design techniques safely, clearly, and consistently.
-- **Where is it used?** Domain modeling, application architecture, frameworks, and reusable components.
+- **What is it?** Inheritance is the intermediate Python topic of specializing behavior through an is-a relationship between classes.
+- **Why is it important?** Inheritance can reuse and extend contracts, but composition is safer when substitutability does not hold.
+- **Where is it used?** framework extension points, exception hierarchies, related domain variants.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review inheritance code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind inheritance.
-- Expected outcome: you can use inheritance in a small project and recognize when it belongs in production code.
+- Apply is-a and substitutability tests.
+- Override methods and use super correctly.
+- Understand method resolution order.
 
 ## Real World Applications
-- **Industry use cases:** Domain modeling, application architecture, frameworks, and reusable components.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Framework extension points rely on this topic.
+- **Product work:** It supports exception hierarchies.
+- **Operations:** It appears in related domain variants.
 
 ## Core Concepts
 
-### Model
-- **Definition:** The main idea that gives inheritance its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Inheritance model -> clear code`
+### Subclass relationship
+- **Definition:** A subclass inherits attributes and should remain usable wherever its base-class contract is expected.
+- **Visual explanation:** ``Dog is-an Animal -> inherited interface``
 - **Practical example:**
 
 ```python
-apply_inheritance_label = "Inheritance"
-print(apply_inheritance_label)
+class Animal:
+    def move(self):
+        return "moving"
+
+class Bird(Animal):
+    pass
 ```
 
-### Interface
-- **Definition:** The ordered steps Python follows when inheritance code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Overriding and super
+- **Definition:** Overriding replaces inherited behavior; super delegates to the next implementation in the method resolution order.
+- **Visual explanation:** ``subclass method -> super() -> next MRO method``
 - **Practical example:**
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
-
-print(Dog().speak())
+class TrackedList(list):
+    def append(self, value):
+        print("adding", value)
+        super().append(value)
 ```
 
-### Behavior Rule
-- **Definition:** The reliability habit that keeps inheritance understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Method resolution order
+- **Definition:** The MRO is the deterministic class search order used for attributes, including cooperative multiple inheritance.
+- **Visual explanation:** ``Child.__mro__: Child -> mixins -> Base -> object``
 - **Practical example:**
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
+class JsonMixin:
+    def format(self):
+        return "{}"
 
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
-
-account = Account()
-account.deposit(50)
-print(account.balance)
+class Response(JsonMixin):
+    pass
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Inheritance belongs to the object-oriented design part of Python mastery. |
-| ⚡ Purpose | Help developers apply object-oriented design techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional object-oriented design decisions. |
-| 🎯 Use Cases | Domain modeling, application architecture, frameworks, and reusable components. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Subclass relationship, Overriding and super, Method resolution order |
+| ⚡ Purpose | Inheritance can reuse and extend contracts, but composition is safer when substitutability does not hold. |
+| 🔥 Benefits | Focused specialization, framework extensibility, and reusable behavior where substitutability holds. |
+| 🎯 Use Cases | framework extension points, exception hierarchies, related domain variants |
+| 🚀 Best Practices | Inherit only when the subtype honors the complete base contract. |
+| ❌ Common Mistakes | Inheriting solely to reuse one helper method. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-class Customer:
-    def __init__(self, name):
-        self.name = name
+class Employee:
+    def describe(self):
+        return "employee"
+
+class Manager(Employee):
+    pass
 ```
 
 ### Standard Structure
 
 ```python
-def apply_inheritance(value):
-    """Apply the Inheritance concept to one value."""
-    return value
+class Message:
+    def render(self):
+        raise NotImplementedError
 
-result = apply_inheritance("practice")
-print(result)
+class TextMessage(Message):
+    def __init__(self, text):
+        self.text = text
+
+    def render(self):
+        return self.text
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Inheritance problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# 1. Verify the subtype is-a base type.
+# 2. Preserve input and output expectations.
+# 3. Override only specialization points.
+# 4. Use super() for cooperative behavior.
 ```
 
 ## Examples
@@ -107,56 +114,72 @@ print(result)
 ### Beginner Example
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
+class Vehicle:
+    def description(self):
+        return "vehicle"
 
-print(Dog().speak())
+class Bicycle(Vehicle):
+    def description(self):
+        return "pedal bicycle"
+
+print(Bicycle().description())
 ```
 
 ### Intermediate Example
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
+class Notification:
+    def __init__(self, recipient: str):
+        self.recipient = recipient
 
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
+    def summary(self) -> str:
+        return f"to {self.recipient}"
 
-account = Account()
-account.deposit(50)
-print(account.balance)
+class EmailNotification(Notification):
+    def __init__(self, recipient: str, subject: str):
+        super().__init__(recipient)
+        self.subject = subject
+
+    def summary(self) -> str:
+        return f"{self.subject} {super().summary()}"
+
+print(EmailNotification("ada@example.com", "Welcome").summary())
 ```
 
 ### Advanced Example
 
 ```python
-from dataclasses import dataclass
+class AuditMixin:
+    def save(self):
+        print("audit before save")
+        return super().save()
 
-@dataclass
-class Order:
-    id: int
-    total: float
+class TimestampMixin:
+    def save(self):
+        print("timestamp before save")
+        return super().save()
 
-    def is_large(self) -> bool:
-        return self.total >= 1000
+class Record:
+    def save(self):
+        return "stored"
 
-print(Order(1, 1200).is_large())
+class AuditedRecord(AuditMixin, TimestampMixin, Record):
+    pass
+
+record = AuditedRecord()
+print(record.save())
+print([cls.__name__ for cls in AuditedRecord.__mro__])
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Inheritance Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Define base contract] --> B[Confirm is-a relationship]
+    B --> C[Create subclass]
+    C --> D[Override specialization]
+    D --> E[Resolve through MRO]
 ```
-
-
----
 
 ---
 

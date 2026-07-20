@@ -5,35 +5,25 @@
 # API Development
 
 ## Overview
-- **What is it?** API Development is a Python knowledge area focused on integration.
-- **Why is it important?** Help developers apply integration techniques safely, clearly, and consistently.
-- **Where is it used?** Web services, persistence layers, analytics backends, and business systems.
+- **What is it?** API Development is the intermediate Python topic of designing and implementing HTTP endpoints that expose a stable service contract.
+- **Why is it important?** API development covers server-side routing, validation, status codes, serialization, and operational behavior.
+- **Where is it used?** web and mobile backends, internal microservices, automation interfaces.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review api development code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind api development.
-- Expected outcome: you can use api development in a small project and recognize when it belongs in production code.
+- Design resource-oriented endpoints and schemas.
+- Return meaningful status codes and errors.
+- Separate transport, business logic, and persistence.
 
 ## Real World Applications
-- **Industry use cases:** Web services, persistence layers, analytics backends, and business systems.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Web and mobile backends rely on this topic.
+- **Product work:** It supports internal microservices.
+- **Operations:** It appears in automation interfaces.
 
 ## Core Concepts
 
-### Contract
-- **Definition:** The main idea that gives api development its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> API Development model -> clear code`
-- **Practical example:**
-
-```python
-apply_api_development_label = "API Development"
-print(apply_api_development_label)
-```
-
-### Connection Flow
-- **Definition:** The ordered steps Python follows when api development code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### HTTP contract
+- **Definition:** An endpoint contract defines method, path, parameters, body schema, status codes, and response representation.
+- **Visual explanation:** ``request method + path + body -> status + headers + body``
 - **Practical example:**
 
 ```python
@@ -41,38 +31,45 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
-@app.get("/")
-def root():
-    return {"message": "Hello API"}
+@app.get("/health")
+def health():
+    return {"status": "ok"}
 ```
 
-### Reliability Boundary
-- **Definition:** The reliability habit that keeps api development understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Validation and errors
+- **Definition:** Request models reject malformed data at the boundary; domain failures should map consistently to documented HTTP responses.
+- **Visual explanation:** ``untrusted request -> schema -> domain -> HTTP result``
 - **Practical example:**
 
 ```python
 from pydantic import BaseModel
 
-class UserIn(BaseModel):
-    email: str
+class TaskInput(BaseModel):
+    title: str
+    priority: int = 1
+```
 
-def create_user(user: UserIn) -> dict[str, str]:
-    return {"email": user.email, "status": "created"}
+### Layered handlers
+- **Definition:** A route handler translates HTTP data and delegates business decisions to a service rather than embedding persistence logic.
+- **Visual explanation:** ``HTTP adapter -> application service -> repository``
+- **Practical example:**
 
-print(create_user(UserIn(email="a@example.com")))
+```python
+def create_task(payload, service):
+    task = service.create(payload.title)
+    return {"id": task.id}
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | API Development belongs to the integration part of Python mastery. |
-| ⚡ Purpose | Help developers apply integration techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional integration decisions. |
-| 🎯 Use Cases | Web services, persistence layers, analytics backends, and business systems. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | HTTP contract, Validation and errors, Layered handlers |
+| ⚡ Purpose | API development covers server-side routing, validation, status codes, serialization, and operational behavior. |
+| 🔥 Benefits | Stable service contracts, validated boundaries, and maintainable separation of HTTP and domain logic. |
+| 🎯 Use Cases | web and mobile backends, internal microservices, automation interfaces |
+| 🚀 Best Practices | Publish an explicit schema and make handlers thin, deterministic adapters. |
+| ❌ Common Mistakes | Returning 200 for every outcome or exposing internal exceptions to clients. |
 
 ## Syntax Guide
 
@@ -80,30 +77,37 @@ print(create_user(UserIn(email="a@example.com")))
 
 ```python
 from fastapi import FastAPI
+
 app = FastAPI()
 
-@app.get("/health")
-def health():
-    return {"ok": True}
+@app.get("/items/{item_id}")
+def read_item(item_id: int):
+    return {"id": item_id}
 ```
 
 ### Standard Structure
 
 ```python
-def apply_api_development(value):
-    """Apply the API Development concept to one value."""
-    return value
+from fastapi import FastAPI, status
+from pydantic import BaseModel, Field
 
-result = apply_api_development("practice")
-print(result)
+app = FastAPI()
+
+class ItemCreate(BaseModel):
+    name: str = Field(min_length=1)
+
+@app.post("/items", status_code=status.HTTP_201_CREATED)
+def create_item(command: ItemCreate):
+    return {"id": 1, "name": command.name}
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the API Development problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Route matches method and resource path.
+# Schema validates external input.
+# Service executes business behavior.
+# Handler maps outcome to status and representation.
 ```
 
 ## Examples
@@ -115,52 +119,68 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
-@app.get("/")
-def root():
-    return {"message": "Hello API"}
+@app.get("/health")
+def health():
+    return {"status": "ok"}
 ```
 
 ### Intermediate Example
 
 ```python
-from pydantic import BaseModel
+from fastapi import FastAPI, HTTPException
 
-class UserIn(BaseModel):
-    email: str
+app = FastAPI()
+ITEMS = {1: {"id": 1, "name": "Keyboard"}}
 
-def create_user(user: UserIn) -> dict[str, str]:
-    return {"email": user.email, "status": "created"}
-
-print(create_user(UserIn(email="a@example.com")))
+@app.get("/items/{item_id}")
+def get_item(item_id: int):
+    item = ITEMS.get(item_id)
+    if item is None:
+        raise HTTPException(status_code=404, detail="item not found")
+    return item
 ```
 
 ### Advanced Example
 
 ```python
-from fastapi import Depends, FastAPI
+from fastapi import Depends, FastAPI, HTTPException, status
+from pydantic import BaseModel, Field
 
 app = FastAPI()
 
-def get_settings():
-    return {"debug": False}
+class TaskCreate(BaseModel):
+    title: str = Field(min_length=1, max_length=100)
 
-@app.get("/settings")
-def settings(settings = Depends(get_settings)):
-    return settings
+class TaskService:
+    def __init__(self):
+        self.tasks = {}
+
+    def create(self, title: str):
+        task = {"id": len(self.tasks) + 1, "title": title.strip()}
+        self.tasks[task["id"]] = task
+        return task
+
+service = TaskService()
+
+def get_service():
+    return service
+
+@app.post("/tasks", status_code=status.HTTP_201_CREATED)
+def create_task(command: TaskCreate, tasks: TaskService = Depends(get_service)):
+    if not command.title.strip():
+        raise HTTPException(422, "blank title")
+    return tasks.create(command.title)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify API Development Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Route HTTP request] --> B[Validate request schema]
+    B --> C[Call application service]
+    C --> D[Map domain outcome]
+    D --> E[Serialize HTTP response]
 ```
-
-
----
 
 ---
 

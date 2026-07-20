@@ -5,65 +5,64 @@
 # Math Module
 
 ## Overview
-- **What is it?** The math module provides numeric functions and constants.
-- **Why is it important?** Perform reliable mathematical operations using the standard library.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** The standard-library `math` module provides constants and real-number functions beyond basic arithmetic operators.
+- **Why is it important?** Its tested implementations cover roots, rounding directions, logarithms, trigonometry, and accurate aggregation.
+- **Where is it used?** Geometry, simulations, analytics, finance, and scientific calculations use these functions.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review math module code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind math module.
-- Expected outcome: you can use math module in a small project and recognize when it belongs in production code.
+- Import and call common `math` functions.
+- Use constants and choose floor, ceil, truncation, or closeness checks correctly.
+- Recognize that `math` generally operates on real numbers, not arbitrary collections.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Calculate geometric measurements.
+- Round resource counts up to whole units.
+- Compare floating-point results with a tolerance.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives math module its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Math Module model -> clear code`
-- **Practical example:**
-
-```python
-apply_math_module_label = "Math Module"
-print(apply_math_module_label)
-```
-
-### Execution Flow
-- **Definition:** The ordered steps Python follows when math module code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Constants and roots
+- **Definition:** `math.pi`, `math.e`, `sqrt`, and related functions provide standard numeric definitions.
+- **Visual explanation:** `numeric input -> math function -> float result`
 - **Practical example:**
 
 ```python
 import math
-print(math.pi)
+radius = 3
+print(math.pi * radius ** 2, math.sqrt(81))
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps math module understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Rounding direction
+- **Definition:** `floor` rounds down, `ceil` rounds up, and `trunc` removes the fractional part toward zero.
+- **Visual explanation:** `real number -> chosen rounding rule -> integer`
 - **Practical example:**
 
 ```python
 import math
+print(math.floor(2.9), math.ceil(2.1), math.trunc(-2.9))
+```
 
-radius = 5
-area = math.pi * math.pow(radius, 2)
-print(round(area, 2))
+### Floating-point reliability
+- **Definition:** `isclose` compares approximate values using relative and absolute tolerances; `fsum` reduces summation error.
+- **Visual explanation:** `floating results + tolerance -> reliable comparison`
+- **Practical example:**
+
+```python
+import math
+total = math.fsum([0.1, 0.1, 0.1])
+print(total, math.isclose(total, 0.3))
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Math Module belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Perform reliable mathematical operations using the standard library. |
-| 🔥 Benefits | Finance, analytics, geometry, science, and simulations. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | The standard-library `math` module provides constants and real-number functions beyond basic arithmetic operators. |
+| ⚡ Purpose | Apply standard mathematical constants and real-number functions reliably. |
+| 🔥 Benefits | Its tested implementations cover roots, rounding directions, logarithms, trigonometry, and accurate aggregation. |
+| 🎯 Use Cases | Geometry, simulations, analytics, finance, and scientific calculations use these functions. |
+| 🚀 Best Practices | Choose the function whose mathematical rule matches the domain, and use `isclose` instead of exact float equality. |
+| ❌ Common Mistakes | Using `round` or `int` when the requirement specifically says always round up or always round down. |
 
 ## Syntax Guide
 
@@ -71,26 +70,29 @@ print(round(area, 2))
 
 ```python
 import math
-print(math.sqrt(81))
+print(math.sqrt(144))
+print(math.pi)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_math_module(value):
-    """Apply the Math Module concept to one value."""
-    return value
-
-result = apply_math_module("practice")
-print(result)
+import math
+items = 23
+box_capacity = 5
+boxes = math.ceil(items / box_capacity)
+print(boxes)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Math Module problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+import math
+points = [(0, 0), (3, 4), (6, 8)]
+distances = []
+for (x1, y1), (x2, y2) in zip(points, points[1:]):
+    distances.append(math.hypot(x2 - x1, y2 - y1))
+print(math.fsum(distances))
 ```
 
 ## Examples
@@ -99,40 +101,46 @@ print(result)
 
 ```python
 import math
-print(math.pi)
+radius = 5
+print(math.tau * radius)
 ```
 
 ### Intermediate Example
 
 ```python
 import math
-
-radius = 5
-area = math.pi * math.pow(radius, 2)
-print(round(area, 2))
+angle_degrees = 30
+angle_radians = math.radians(angle_degrees)
+print(math.sin(angle_radians))
 ```
 
 ### Advanced Example
 
 ```python
-import statistics
+import math
 
-latencies = [120, 95, 140, 110]
-print(statistics.mean(latencies), statistics.pstdev(latencies))
+def compound(principal, annual_rate, years):
+    return principal * math.pow(1 + annual_rate, years)
+
+future = compound(1000, 0.05, 10)
+print(f"${future:.2f}")
+print(math.isfinite(future))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Math Module Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Identify mathematical rule]
+    B[Select math constant or function]
+    C[Pass numeric arguments]
+    D[Check finite or approximate result]
+    E[Use value in domain calculation]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
-
-
----
 
 ---
 

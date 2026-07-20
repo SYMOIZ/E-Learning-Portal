@@ -5,94 +5,106 @@
 # Azure with Python
 
 ## Overview
-- **What is it?** Azure with Python is a Python knowledge area focused on cloud and DevOps.
-- **Why is it important?** Help developers apply cloud and DevOps techniques safely, clearly, and consistently.
-- **Where is it used?** Deployment automation, infrastructure operations, and scalable production delivery.
+- **What is it?** Azure SDK for Python packages expose service clients that authenticate through Azure Identity and call Azure data-plane or management-plane APIs.
+- **Why is it important?** Applications should use `DefaultAzureCredential`, explicit resource scopes, async clients when appropriate, paging, long-running-operation pollers, and structured Azure errors.
+- **Where is it used?** It is used with Blob Storage, Service Bus, Key Vault, Cosmos DB, Azure ML, and Resource Manager.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review azure with python code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind azure with python.
-- Expected outcome: you can use azure with python in a small project and recognize when it belongs in production code.
+- Authenticate Azure SDK clients with workload or developer identity.
+- Use Blob Storage paging and upload APIs safely.
+- Handle async clients, pollers, retries, and `azure.core` exceptions.
 
 ## Real World Applications
-- **Industry use cases:** Deployment automation, infrastructure operations, and scalable production delivery.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Uploading application artifacts and datasets to Azure Blob Storage.
+- Publishing messages and retrieving secrets through managed identity.
+- Automating resource inventory and long-running management operations.
 
 ## Core Concepts
 
-### Runtime Artifact
-- **Definition:** The main idea that gives azure with python its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Azure with Python model -> clear code`
+### Azure Identity
+- **Definition:** `DefaultAzureCredential` tries a documented chain suitable for local development and hosted workload identity without putting secrets in source.
+- **Visual explanation:** `developer/workload identity → OAuth token → Azure service client`
 - **Practical example:**
 
 ```python
-apply_azure_with_python_label = "Azure with Python"
-print(apply_azure_with_python_label)
+from azure.identity import DefaultAzureCredential
+from azure.storage.blob import BlobServiceClient
+
+credential = DefaultAzureCredential()
+blobs = BlobServiceClient(
+    account_url="https://example.blob.core.windows.net",
+    credential=credential,
+)
 ```
 
-### Deployment Target
-- **Definition:** The ordered steps Python follows when azure with python code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Data-plane Clients and Paging
+- **Definition:** Service clients create resource-scoped clients, and list operations expose pageable iterators that fetch continuation pages lazily.
+- **Visual explanation:** `service client → container client → pageable API → resources`
 - **Practical example:**
 
 ```python
-import requests
-
-response = requests.get("https://example.com", timeout=10)
-print(response.status_code)
+container = blobs.get_container_client("reports")
+for blob in container.list_blobs(name_starts_with="daily/"):
+    print(blob.name, blob.size)
 ```
 
-### Operational Feedback
-- **Definition:** The reliability habit that keeps azure with python understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Pollers and Azure Errors
+- **Definition:** Management and copy operations may return pollers; SDK exceptions carry HTTP status and service details for retry or operator decisions.
+- **Visual explanation:** `begin operation → poll status → result or `HttpResponseError``
 - **Practical example:**
 
 ```python
-import requests
+from azure.core.exceptions import HttpResponseError, ResourceNotFoundError
 
-with requests.Session() as session:
-    response = session.get("https://api.github.com", timeout=10)
-    print(response.headers.get("content-type"))
+blob = container.get_blob_client("daily/report.json")
+try:
+    properties = blob.get_blob_properties()
+except ResourceNotFoundError:
+    properties = None
+except HttpResponseError:
+    raise
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Azure with Python belongs to the cloud and DevOps part of Python mastery. |
-| ⚡ Purpose | Help developers apply cloud and DevOps techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional cloud and DevOps decisions. |
-| 🎯 Use Cases | Deployment automation, infrastructure operations, and scalable production delivery. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Azure SDK for Python packages expose service clients that authenticate through Azure Identity and call Azure data-plane or management-plane APIs. |
+| ⚡ Purpose | Applications should use `DefaultAzureCredential`, explicit resource scopes, async clients when appropriate, paging, long-running-operation pollers, and structured Azure errors. |
+| 🔥 Benefits | Builds the ability to authenticate Azure SDK clients with workload or developer identity; it also helps practitioners use Blob Storage paging and upload APIs safely. |
+| 🎯 Use Cases | Uploading application artifacts and datasets to Azure Blob Storage. Publishing messages and retrieving secrets through managed identity. |
+| 🚀 Best Practices | `azure.core.exceptions` distinguishes transport and service failures. |
+| ❌ Common Mistakes | Ignoring the guardrail “Close clients or use context managers to release transports”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import requests
-response = requests.get("https://example.com", timeout=10)
+from azure.identity import DefaultAzureCredential
+
+credential = DefaultAzureCredential()
+token = credential.get_token("https://storage.azure.com/.default")
 ```
 
 ### Standard Structure
 
 ```python
-def apply_azure_with_python(value):
-    """Apply the Azure with Python concept to one value."""
-    return value
-
-result = apply_azure_with_python("practice")
-print(result)
+blob = blobs.get_blob_client(container="reports", blob="daily/result.json")
+blob.upload_blob(b'{"status":"ready"}', overwrite=True)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Azure with Python problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+from azure.identity.aio import DefaultAzureCredential
+from azure.storage.blob.aio import BlobServiceClient
+
+async def list_names(account_url: str) -> list[str]:
+    async with DefaultAzureCredential() as credential:
+        async with BlobServiceClient(account_url, credential=credential) as service:
+            container = service.get_container_client("reports")
+            return [item.name async for item in container.list_blobs()]
 ```
 
 ## Examples
@@ -100,46 +112,56 @@ print(result)
 ### Beginner Example
 
 ```python
-import requests
+from azure.identity import DefaultAzureCredential
+from azure.keyvault.secrets import SecretClient
 
-response = requests.get("https://example.com", timeout=10)
-print(response.status_code)
+client = SecretClient(
+    vault_url="https://example.vault.azure.net",
+    credential=DefaultAzureCredential(),
+)
+secret = client.get_secret("database-url")
 ```
 
 ### Intermediate Example
 
 ```python
-import requests
+from azure.core.exceptions import ResourceExistsError
 
-with requests.Session() as session:
-    response = session.get("https://api.github.com", timeout=10)
-    print(response.headers.get("content-type"))
+container = blobs.get_container_client("reports")
+try:
+    container.create_container()
+except ResourceExistsError:
+    pass
 ```
 
 ### Advanced Example
 
 ```python
-import requests
-from requests.adapters import HTTPAdapter
+from azure.servicebus import ServiceBusClient, ServiceBusMessage
+from azure.identity import DefaultAzureCredential
 
-session = requests.Session()
-session.mount("https://", HTTPAdapter(max_retries=3))
-response = session.get("https://example.com", timeout=(3, 10))
-print(response.ok)
+namespace = "example.servicebus.windows.net"
+with DefaultAzureCredential() as credential:
+    with ServiceBusClient(
+        fully_qualified_namespace=namespace,
+        credential=credential,
+    ) as service_bus:
+        with service_bus.get_queue_sender("jobs") as sender:
+            sender.send_messages(
+                ServiceBusMessage('{"job_id":"J-7"}', message_id="J-7")
+            )
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Azure with Python Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Resolve Azure identity] --> B[Construct scoped service client]
+    B --> C[Call pageable or begin API]
+    C --> D[Poll/classify Azure response]
+    D --> E[Close transport and record outcome]
+    E -. feedback .-> A
 ```
-
-
----
 
 ---
 

@@ -8,7 +8,7 @@ import re
 from pathlib import Path
 from urllib.parse import unquote
 
-from export_knowledge_base import DESTINATION, LEVELS, REQUIRED_SECTIONS, ROOT, SOURCE
+from curriculum_manifest import DESTINATION, LEVELS, REQUIRED_SECTIONS, ROOT, SOURCE
 
 
 EXAMPLE_SECTIONS = ("Beginner Example", "Intermediate Example", "Advanced Example")

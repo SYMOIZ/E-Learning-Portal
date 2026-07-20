@@ -5,93 +5,121 @@
 # Automation Frameworks
 
 ## Overview
-- **What is it?** Automation Frameworks is a Python knowledge area focused on systems automation.
-- **Why is it important?** Help developers apply systems automation techniques safely, clearly, and consistently.
-- **Where is it used?** Network services, security operations, scraping pipelines, and orchestration.
+- **What is it?** An automation framework turns one-off scripts into repeatable commands with configuration, task discovery, dependency ordering, logging, retries, and testable adapters.
+- **Why is it important?** The framework should make actions observable and idempotent while keeping shell, filesystem, and network effects behind explicit interfaces.
+- **Where is it used?** It supports release tooling, environment checks, scheduled maintenance, migrations, and operator runbooks.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review automation frameworks code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind automation frameworks.
-- Expected outcome: you can use automation frameworks in a small project and recognize when it belongs in production code.
+- Design discoverable tasks with validated inputs and structured results.
+- Use `argparse`, subprocess argument vectors, and dependency graphs safely.
+- Add dry-run, idempotency, retry policy, and machine-readable logging.
 
 ## Real World Applications
-- **Industry use cases:** Network services, security operations, scraping pipelines, and orchestration.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- CLI runbooks for backups, release checks, and environment bootstrapping.
+- Reusable task libraries invoked locally, on schedules, or in CI.
+- Operational workflows where partial completion must be resumable.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives automation frameworks its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Automation Frameworks model -> clear code`
+### Task Contracts
+- **Definition:** A task contract names inputs, outputs, side effects, and failure behavior so orchestration does not depend on print statements.
+- **Visual explanation:** `validated context → task → structured result/error`
 - **Practical example:**
 
 ```python
-apply_automation_frameworks_label = "Automation Frameworks"
-print(apply_automation_frameworks_label)
+from dataclasses import dataclass
+from typing import Protocol
+
+@dataclass(frozen=True)
+class Result:
+    changed: bool
+    message: str
+
+class Task(Protocol):
+    def run(self, dry_run: bool = False) -> Result: ...
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when automation frameworks code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Dependency Ordering
+- **Definition:** A directed acyclic graph expresses prerequisites; topological execution prevents a task from running before its required state exists.
+- **Visual explanation:** `task graph → validate acyclic → topological order → execute`
 - **Practical example:**
 
 ```python
-def greet(name):
-    print(f"Hello, {name}")
+from graphlib import TopologicalSorter
 
-greet("Ada")
+dependencies = {
+    "deploy": {"test", "build"},
+    "test": {"build"},
+    "build": set(),
+}
+order = tuple(TopologicalSorter(dependencies).static_order())
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps automation frameworks understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Safe Effect Adapters
+- **Definition:** Effects use bounded, explicit APIs and return evidence; subprocesses receive argument lists, timeouts, captured output, and checked exit status.
+- **Visual explanation:** `task plan → effect adapter → external system → recorded result`
 - **Practical example:**
 
 ```python
-def calculate_total(subtotal: float, tax_rate: float = 0.08) -> float:
-    return subtotal * (1 + tax_rate)
+import subprocess
 
-print(calculate_total(100))
+def git_revision() -> str:
+    completed = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        check=True,
+        capture_output=True,
+        text=True,
+        timeout=5,
+    )
+    return completed.stdout.strip()
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Automation Frameworks belongs to the systems automation part of Python mastery. |
-| ⚡ Purpose | Help developers apply systems automation techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional systems automation decisions. |
-| 🎯 Use Cases | Network services, security operations, scraping pipelines, and orchestration. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | An automation framework turns one-off scripts into repeatable commands with configuration, task discovery, dependency ordering, logging, retries, and testable adapters. |
+| ⚡ Purpose | The framework should make actions observable and idempotent while keeping shell, filesystem, and network effects behind explicit interfaces. |
+| 🔥 Benefits | Builds the ability to design discoverable tasks with validated inputs and structured results; it also helps practitioners use `argparse`, subprocess argument vectors, and dependency graphs safely. |
+| 🎯 Use Cases | CLI runbooks for backups, release checks, and environment bootstrapping. Reusable task libraries invoked locally, on schedules, or in CI. |
+| 🚀 Best Practices | Structured logs: task, duration, attempt, outcome, correlation ID. |
+| ❌ Common Mistakes | Ignoring the guardrail “Avoid hidden module-import side effects and unbounded retries”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-def add(left, right):
-    return left + right
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--dry-run", action="store_true")
+arguments = parser.parse_args([])
 ```
 
 ### Standard Structure
 
 ```python
-def apply_automation_frameworks(value):
-    """Apply the Automation Frameworks concept to one value."""
-    return value
+from collections.abc import Callable
 
-result = apply_automation_frameworks("practice")
-print(result)
+tasks: dict[str, Callable[[], object]] = {}
+
+def task(name: str):
+    def register(function: Callable[[], object]) -> Callable[[], object]:
+        tasks[name] = function
+        return function
+    return register
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Automation Frameworks problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class TaskContext:
+    dry_run: bool
+    correlation_id: str
 ```
 
 ## Examples
@@ -99,45 +127,56 @@ print(result)
 ### Beginner Example
 
 ```python
-def greet(name):
-    print(f"Hello, {name}")
+from pathlib import Path
 
-greet("Ada")
+def ensure_directory(path: Path, dry_run: bool = False) -> Result:
+    if path.is_dir():
+        return Result(False, "already exists")
+    if not dry_run:
+        path.mkdir(parents=True)
+    return Result(True, f"create {path}")
 ```
 
 ### Intermediate Example
 
 ```python
-def calculate_total(subtotal: float, tax_rate: float = 0.08) -> float:
-    return subtotal * (1 + tax_rate)
+import logging
+import time
 
-print(calculate_total(100))
+def execute(name: str, action) -> Result:
+    started = time.monotonic()
+    try:
+        result = action()
+        return result
+    finally:
+        logging.info("task=%s duration=%.3f", name, time.monotonic() - started)
 ```
 
 ### Advanced Example
 
 ```python
-from functools import lru_cache
+from graphlib import TopologicalSorter
 
-@lru_cache(maxsize=128)
-def fibonacci(n: int) -> int:
-    return n if n < 2 else fibonacci(n - 1) + fibonacci(n - 2)
-
-print(fibonacci(10))
+def run_plan(graph: dict[str, set[str]], registry: dict[str, Task]) -> list[Result]:
+    results = []
+    for name in TopologicalSorter(graph).static_order():
+        try:
+            results.append(registry[name].run())
+        except KeyError as error:
+            raise ValueError(f"unknown task: {name}") from error
+    return results
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Automation Frameworks Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Load validated configuration] --> B[Resolve task DAG]
+    B --> C[Preview planned effects]
+    C --> D[Execute idempotent tasks]
+    D --> E[Record results and resume point]
+    E -. feedback .-> A
 ```
-
-
----
 
 ---
 

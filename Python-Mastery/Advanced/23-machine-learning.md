@@ -5,93 +5,111 @@
 # Machine Learning
 
 ## Overview
-- **What is it?** Machine Learning is a Python knowledge area focused on AI engineering.
-- **Why is it important?** Help developers apply AI engineering techniques safely, clearly, and consistently.
-- **Where is it used?** Predictive products, language systems, vision applications, and model-powered automation.
+- **What is it?** Machine learning estimates patterns from data and evaluates whether those patterns generalize to unseen examples under a defined objective.
+- **Why is it important?** A sound workflow prevents leakage, establishes baselines, uses suitable metrics, and packages preprocessing with the estimator.
+- **Where is it used?** It supports classification, regression, ranking, forecasting, anomaly detection, and decision support.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review machine learning code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind machine learning.
-- Expected outcome: you can use machine learning in a small project and recognize when it belongs in production code.
+- Split data according to deployment reality and prevent target leakage.
+- Build scikit-learn preprocessing and estimator pipelines.
+- Evaluate baselines, cross-validation variance, calibration, and error slices.
 
 ## Real World Applications
-- **Industry use cases:** Predictive products, language systems, vision applications, and model-powered automation.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Predicting churn, demand, risk, quality, or response propensity.
+- Ranking candidates and detecting unusual behavior for human review.
+- Automating repeatable model training and evaluation with stored metadata.
 
 ## Core Concepts
 
-### Dataset Representation
-- **Definition:** The main idea that gives machine learning its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Machine Learning model -> clear code`
+### Generalization and Leakage
+- **Definition:** Generalization is performance on future data; leakage occurs when training features or preprocessing use information unavailable at prediction time.
+- **Visual explanation:** `raw historical data → deployment-aligned split → fit only on train → evaluate`
 - **Practical example:**
 
 ```python
-apply_machine_learning_label = "Machine Learning"
-print(apply_machine_learning_label)
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(
+    features,
+    target,
+    test_size=0.2,
+    random_state=42,
+    stratify=target,
+)
 ```
 
-### Transformation Pipeline
-- **Definition:** The ordered steps Python follows when machine learning code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Pipelines and Preprocessing
+- **Definition:** A scikit-learn Pipeline fits each preprocessing step only on training folds and applies the same transformation sequence during prediction.
+- **Visual explanation:** `raw features → fitted transformer → estimator → prediction`
 - **Practical example:**
 
 ```python
-import numpy as np
+from sklearn.impute import SimpleImputer
+from sklearn.linear_model import LogisticRegression
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
 
-values = np.array([1, 2, 3])
-print(values.mean())
+model = make_pipeline(
+    SimpleImputer(),
+    StandardScaler(),
+    LogisticRegression(max_iter=1_000),
+)
 ```
 
-### Validation Signal
-- **Definition:** The reliability habit that keeps machine learning understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Evaluation and Uncertainty
+- **Definition:** Metrics must reflect decision costs and class balance; cross-validation estimates variability but does not replace a final untouched test set.
+- **Visual explanation:** `baseline → cross-validation distribution → test metric → slice errors`
 - **Practical example:**
 
 ```python
-import numpy as np
+from sklearn.model_selection import cross_validate
 
-matrix = np.array([[1, 2], [3, 4]])
-print(matrix.T)
+scores = cross_validate(
+    model,
+    features,
+    target,
+    cv=5,
+    scoring=["roc_auc", "neg_log_loss"],
+)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Machine Learning belongs to the AI engineering part of Python mastery. |
-| ⚡ Purpose | Help developers apply AI engineering techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional AI engineering decisions. |
-| 🎯 Use Cases | Predictive products, language systems, vision applications, and model-powered automation. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Machine learning estimates patterns from data and evaluates whether those patterns generalize to unseen examples under a defined objective. |
+| ⚡ Purpose | A sound workflow prevents leakage, establishes baselines, uses suitable metrics, and packages preprocessing with the estimator. |
+| 🔥 Benefits | Builds the ability to split data according to deployment reality and prevent target leakage; it also helps practitioners build scikit-learn preprocessing and estimator pipelines. |
+| 🎯 Use Cases | Predicting churn, demand, risk, quality, or response propensity. Ranking candidates and detecting unusual behavior for human review. |
+| 🚀 Best Practices | Inspect errors by meaningful cohorts, not only one aggregate. |
+| ❌ Common Mistakes | Ignoring the guardrail “Monitor feature drift and outcome quality after deployment”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import numpy as np
-array = np.array([1, 2, 3])
+from sklearn.dummy import DummyClassifier
+
+baseline = DummyClassifier(strategy="prior")
+baseline.fit(X_train, y_train)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_machine_learning(value):
-    """Apply the Machine Learning concept to one value."""
-    return value
-
-result = apply_machine_learning("practice")
-print(result)
+model.fit(X_train, y_train)
+probabilities = model.predict_proba(X_test)[:, 1]
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Machine Learning problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+from sklearn.metrics import classification_report, roc_auc_score
+
+predictions = model.predict(X_test)
+print(classification_report(y_test, predictions))
+auc = roc_auc_score(y_test, probabilities)
 ```
 
 ## Examples
@@ -99,43 +117,61 @@ print(result)
 ### Beginner Example
 
 ```python
-import numpy as np
+from sklearn.datasets import load_iris
+from sklearn.linear_model import LogisticRegression
 
-values = np.array([1, 2, 3])
-print(values.mean())
+X, y = load_iris(return_X_y=True)
+classifier = LogisticRegression(max_iter=1_000).fit(X, y)
+print(classifier.predict(X[:2]))
 ```
 
 ### Intermediate Example
 
 ```python
-import numpy as np
+from sklearn.datasets import load_breast_cancer
+from sklearn.model_selection import cross_val_score
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LogisticRegression
 
-matrix = np.array([[1, 2], [3, 4]])
-print(matrix.T)
+X, y = load_breast_cancer(return_X_y=True)
+pipeline = make_pipeline(StandardScaler(), LogisticRegression(max_iter=1_000))
+print(cross_val_score(pipeline, X, y, cv=5, scoring="roc_auc").mean())
 ```
 
 ### Advanced Example
 
 ```python
-import numpy as np
+from sklearn.compose import ColumnTransformer
+from sklearn.impute import SimpleImputer
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
-features = np.array([[1.0, 2.0], [3.0, 4.0]])
-weights = np.array([0.25, 0.75])
-print(features @ weights)
+numeric = make_pipeline(SimpleImputer(strategy="median"), StandardScaler())
+categorical = make_pipeline(
+    SimpleImputer(strategy="most_frequent"),
+    OneHotEncoder(handle_unknown="ignore"),
+)
+preprocessing = ColumnTransformer([
+    ("numeric", numeric, ["age", "income"]),
+    ("categorical", categorical, ["region"]),
+])
+production_model = make_pipeline(
+    preprocessing,
+    LogisticRegression(max_iter=1_000),
+)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Machine Learning Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Define decision and metric] --> B[Create deployment-aligned split]
+    B --> C[Fit pipeline on training data]
+    C --> D[Compare baseline and validation]
+    D --> E[Evaluate test set and monitor]
+    E -. feedback .-> A
 ```
-
-
----
 
 ---
 

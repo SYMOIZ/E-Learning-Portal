@@ -5,70 +5,64 @@
 # Unit Testing
 
 ## Overview
-- **What is it?** Unit Testing is a Python knowledge area focused on delivery quality.
-- **Why is it important?** Help developers apply delivery quality techniques safely, clearly, and consistently.
-- **Where is it used?** Reliable releases, automation tools, reusable packages, and developer productivity.
+- **What is it?** Unit Testing is the intermediate Python topic of testing small units with Python's standard-library unittest framework.
+- **Why is it important?** unittest organizes TestCase classes, lifecycle methods, assertions, discovery, and mock integration without third-party tools.
+- **Where is it used?** library regression suites, legacy test code, standard-library-only projects.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review unit testing code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind unit testing.
-- Expected outcome: you can use unit testing in a small project and recognize when it belongs in production code.
+- Write TestCase methods and assertions.
+- Use setUp/tearDown and subTest appropriately.
+- Contrast unittest class style with pytest function-and-fixture style.
 
 ## Real World Applications
-- **Industry use cases:** Reliable releases, automation tools, reusable packages, and developer productivity.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Library regression suites rely on this topic.
+- **Product work:** It supports legacy test code.
+- **Operations:** It appears in standard-library-only projects.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives unit testing its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Unit Testing model -> clear code`
-- **Practical example:**
-
-```python
-apply_unit_testing_label = "Unit Testing"
-print(apply_unit_testing_label)
-```
-
-### Execution Flow
-- **Definition:** The ordered steps Python follows when unit testing code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
-- **Practical example:**
-
-```python
-def add(left, right):
-    return left + right
-
-assert add(2, 3) == 5
-```
-
-### Quality Rule
-- **Definition:** The reliability habit that keeps unit testing understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### TestCase lifecycle
+- **Definition:** unittest creates a fresh TestCase instance for each test method and runs setUp and tearDown around it.
+- **Visual explanation:** ``new TestCase -> setUp -> test_* -> tearDown``
 - **Practical example:**
 
 ```python
 import unittest
 
-def normalize(value):
-    return value.strip().lower()
+class MathTests(unittest.TestCase):
+    def test_sum(self):
+        self.assertEqual(2 + 3, 5)
+```
 
-class TestNormalize(unittest.TestCase):
-    def test_normalize(self):
-        self.assertEqual(normalize(" Python "), "python")
+### Assertions
+- **Definition:** TestCase assertions report structured differences and expected exceptions instead of relying on bare boolean output.
+- **Visual explanation:** ``arrange -> act -> assertEqual/assertRaises``
+- **Practical example:**
+
+```python
+with self.assertRaises(ValueError):
+    int("invalid")
+```
+
+### Discovery and isolation
+- **Definition:** python -m unittest discovers test modules; each test must control state and remain independent of execution order.
+- **Visual explanation:** ``discovery -> isolated test methods -> report``
+- **Practical example:**
+
+```python
+# python -m unittest discover -s tests -p "test_*.py"
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Unit Testing belongs to the delivery quality part of Python mastery. |
-| ⚡ Purpose | Help developers apply delivery quality techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional delivery quality decisions. |
-| 🎯 Use Cases | Reliable releases, automation tools, reusable packages, and developer productivity. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | TestCase lifecycle, Assertions, Discovery and isolation |
+| ⚡ Purpose | unittest organizes TestCase classes, lifecycle methods, assertions, discovery, and mock integration without third-party tools. |
+| 🔥 Benefits | Standard-library test discovery, isolated lifecycle control, and structured regression assertions. |
+| 🎯 Use Cases | library regression suites, legacy test code, standard-library-only projects |
+| 🚀 Best Practices | Test observable behavior with one clear reason for failure per test. |
+| ❌ Common Mistakes | Sharing mutable class or global state between tests. |
 
 ## Syntax Guide
 
@@ -77,28 +71,30 @@ class TestNormalize(unittest.TestCase):
 ```python
 import unittest
 
-class TestMath(unittest.TestCase):
-    def test_add(self):
-        self.assertEqual(1 + 1, 2)
+class SlugTests(unittest.TestCase):
+    def test_spaces_become_hyphens(self):
+        self.assertEqual(slugify("hello world"), "hello-world")
 ```
 
 ### Standard Structure
 
 ```python
-def apply_unit_testing(value):
-    """Apply the Unit Testing concept to one value."""
-    return value
+class RepositoryTests(unittest.TestCase):
+    def setUp(self):
+        self.repository = MemoryRepository()
 
-result = apply_unit_testing("practice")
-print(result)
+    def test_saved_item_can_be_loaded(self):
+        self.repository.save("a", 1)
+        self.assertEqual(self.repository.load("a"), 1)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Unit Testing problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Arrange one isolated starting state.
+# Act through the unit's public interface.
+# Assert the observable result or exception.
+# unittest runner discovers test_* methods.
 ```
 
 ## Examples
@@ -106,10 +102,17 @@ print(result)
 ### Beginner Example
 
 ```python
-def add(left, right):
-    return left + right
+import unittest
 
-assert add(2, 3) == 5
+def double(value):
+    return value * 2
+
+class DoubleTests(unittest.TestCase):
+    def test_doubles_integer(self):
+        self.assertEqual(double(4), 8)
+
+if __name__ == "__main__":
+    unittest.main()
 ```
 
 ### Intermediate Example
@@ -117,42 +120,64 @@ assert add(2, 3) == 5
 ```python
 import unittest
 
-def normalize(value):
-    return value.strip().lower()
+def percentage(part: float, total: float) -> float:
+    if total == 0:
+        raise ValueError("total cannot be zero")
+    return part / total * 100
 
-class TestNormalize(unittest.TestCase):
-    def test_normalize(self):
-        self.assertEqual(normalize(" Python "), "python")
+class PercentageTests(unittest.TestCase):
+    def test_calculates_percentage(self):
+        self.assertAlmostEqual(percentage(1, 4), 25.0)
+
+    def test_rejects_zero_total(self):
+        with self.assertRaisesRegex(ValueError, "cannot be zero"):
+            percentage(3, 0)
+
+    def test_multiple_ratios(self):
+        for part, total, expected in ((1, 2, 50), (3, 4, 75)):
+            with self.subTest(part=part, total=total):
+                self.assertEqual(percentage(part, total), expected)
 ```
 
 ### Advanced Example
 
 ```python
-from dataclasses import dataclass
+import unittest
+from unittest.mock import Mock
 
-@dataclass
-class Cart:
-    items: list[float]
+class RegistrationService:
+    def __init__(self, repository, mailer):
+        self.repository = repository
+        self.mailer = mailer
 
-    def total(self) -> float:
-        return sum(self.items)
+    def register(self, email):
+        user = self.repository.save(email)
+        self.mailer.send_welcome(user)
+        return user
 
-def test_cart_total():
-    assert Cart([10, 15]).total() == 25
+class RegistrationTests(unittest.TestCase):
+    def setUp(self):
+        self.repository = Mock()
+        self.mailer = Mock()
+        self.service = RegistrationService(self.repository, self.mailer)
+
+    def test_saves_then_sends_welcome(self):
+        user = {"id": 7, "email": "ada@example.com"}
+        self.repository.save.return_value = user
+        self.assertIs(self.service.register(user["email"]), user)
+        self.repository.save.assert_called_once_with(user["email"])
+        self.mailer.send_welcome.assert_called_once_with(user)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Unit Testing Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Discover TestCase methods] --> B[Create fresh case]
+    B --> C[Run setUp]
+    C --> D[Execute and assert]
+    D --> E[Run tearDown and report]
 ```
-
-
----
 
 ---
 

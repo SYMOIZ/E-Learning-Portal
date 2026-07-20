@@ -5,94 +5,134 @@
 # Docker with Python
 
 ## Overview
-- **What is it?** Docker with Python is a Python knowledge area focused on cloud and DevOps.
-- **Why is it important?** Help developers apply cloud and DevOps techniques safely, clearly, and consistently.
-- **Where is it used?** Deployment automation, infrastructure operations, and scalable production delivery.
+- **What is it?** Docker packages a Python application, interpreter, dependencies, and filesystem into an immutable image executed as an isolated container process.
+- **Why is it important?** Secure, reproducible images use pinned lock data, multi-stage builds, a non-root runtime, small build contexts, health signals, and external configuration.
+- **Where is it used?** Docker supports consistent development, CI, service deployment, batch jobs, and dependency isolation.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review docker with python code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind docker with python.
-- Expected outcome: you can use docker with python in a small project and recognize when it belongs in production code.
+- Write cache-efficient multi-stage Dockerfiles for Python.
+- Run one foreground process as a non-root user with correct signal behavior.
+- Scan, label, test, and promote immutable images by digest.
 
 ## Real World Applications
-- **Industry use cases:** Deployment automation, infrastructure operations, and scalable production delivery.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Packaging web services and workers consistently across environments.
+- Creating reproducible test environments in CI.
+- Shipping immutable application artifacts to orchestrators.
 
 ## Core Concepts
 
-### Runtime Artifact
-- **Definition:** The main idea that gives docker with python its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Docker with Python model -> clear code`
+### Images, Layers, and Build Context
+- **Definition:** A Dockerfile creates content-addressed layers from a build context; stable dependency layers should precede frequently changing source layers.
+- **Visual explanation:** `context + Dockerfile → cached layers → immutable image digest`
 - **Practical example:**
 
 ```python
-apply_docker_with_python_label = "Docker with Python"
-print(apply_docker_with_python_label)
+from pathlib import Path
+
+required = {"Dockerfile", "pyproject.toml"}
+context_files = {path.name for path in Path(".").iterdir()}
+missing = required - context_files
+if missing:
+    print("missing build inputs", sorted(missing))
 ```
 
-### Deployment Target
-- **Definition:** The ordered steps Python follows when docker with python code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Multi-stage Python Build
+- **Definition:** A builder stage compiles wheels or installs dependencies, while the runtime stage copies only required artifacts and excludes compilers and caches.
+- **Visual explanation:** `builder dependencies → wheel/venv artifact → minimal runtime stage`
 - **Practical example:**
 
 ```python
-import platform
-print(platform.python_version())
+dockerfile = '''
+FROM python:3.12-slim AS builder
+WORKDIR /build
+COPY requirements.txt .
+RUN pip wheel --no-cache-dir --wheel-dir /wheels -r requirements.txt
+
+FROM python:3.12-slim AS runtime
+RUN useradd --create-home app
+COPY --from=builder /wheels /wheels
+RUN pip install --no-cache-dir /wheels/* && rm -rf /wheels
+USER app
+WORKDIR /app
+COPY --chown=app:app . .
+CMD ["python", "-m", "service"]
+'''
 ```
 
-### Operational Feedback
-- **Definition:** The reliability habit that keeps docker with python understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Container Runtime Contract
+- **Definition:** The application runs as PID 1, reads configuration from the environment, writes logs to standard streams, handles termination, and stores durable data externally.
+- **Visual explanation:** `image + env/secrets → foreground process → stdout/health → graceful stop`
 - **Practical example:**
 
 ```python
-import sys
+import signal
 
-if sys.version_info < (3, 12):
-    raise RuntimeError("Python 3.12 or newer is recommended")
-print("Python version is ready")
+stopping = False
+
+def request_stop(signum, frame) -> None:
+    global stopping
+    stopping = True
+
+signal.signal(signal.SIGTERM, request_stop)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Docker with Python belongs to the cloud and DevOps part of Python mastery. |
-| ⚡ Purpose | Help developers apply cloud and DevOps techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional cloud and DevOps decisions. |
-| 🎯 Use Cases | Deployment automation, infrastructure operations, and scalable production delivery. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Docker packages a Python application, interpreter, dependencies, and filesystem into an immutable image executed as an isolated container process. |
+| ⚡ Purpose | Secure, reproducible images use pinned lock data, multi-stage builds, a non-root runtime, small build contexts, health signals, and external configuration. |
+| 🔥 Benefits | Builds the ability to write cache-efficient multi-stage Dockerfiles for Python; it also helps practitioners run one foreground process as a non-root user with correct signal behavior. |
+| 🎯 Use Cases | Packaging web services and workers consistently across environments. Creating reproducible test environments in CI. |
+| 🚀 Best Practices | `.dockerignore` removes secrets, VCS data, caches, and local environments. |
+| ❌ Common Mistakes | Ignoring the guardrail “Never bake credentials or environment-specific config into image layers”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
-```dockerfile
-FROM python:3.12-slim
-WORKDIR /app
-COPY . .
-CMD ["python", "main.py"]
+```python
+from pathlib import Path
+
+ignore = Path(".dockerignore")
+patterns = {"__pycache__/", ".git/", ".venv/", ".env"}
 ```
 
 ### Standard Structure
 
 ```python
-def apply_docker_with_python(value):
-    """Apply the Docker with Python concept to one value."""
-    return value
+import os
 
-result = apply_docker_with_python("practice")
-print(result)
+port = int(os.environ.get("PORT", "8000"))
+environment = os.environ.get("APP_ENV", "development")
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Docker with Python problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+import json
+import subprocess
+
+def image_id(tag: str) -> str:
+    result = subprocess.run(
+        ["docker", "image", "inspect", tag, "--format", "{{json .Id}}"],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    return json.loads(result.stdout)
+```
+
+#### Deployment Artifact
+
+```Dockerfile
+FROM python:3.12-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+USER 1000:1000
+CMD ["python", "-m", "service"]
 ```
 
 ## Examples
@@ -100,42 +140,56 @@ print(result)
 ### Beginner Example
 
 ```python
-import platform
-print(platform.python_version())
+dockerfile = '''
+FROM python:3.12-slim
+WORKDIR /app
+COPY app.py .
+CMD ["python", "app.py"]
+'''
 ```
 
 ### Intermediate Example
 
 ```python
-import sys
+import subprocess
 
-if sys.version_info < (3, 12):
-    raise RuntimeError("Python 3.12 or newer is recommended")
-print("Python version is ready")
+subprocess.run(
+    ["docker", "build", "--tag", "learning-api:test", "."],
+    check=True,
+    timeout=600,
+)
 ```
 
 ### Advanced Example
 
 ```python
-from pathlib import Path
-import sys
+import subprocess
 
-project = Path.cwd()
-print({"python": sys.version.split()[0], "project": project.name})
+subprocess.run(
+    [
+        "docker", "run", "--rm",
+        "--read-only",
+        "--cap-drop=ALL",
+        "--user=1000:1000",
+        "--env", "APP_ENV=test",
+        "learning-api:test",
+        "python", "-m", "pytest", "-q",
+    ],
+    check=True,
+    timeout=300,
+)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Docker with Python Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Assemble minimal build context] --> B[Build and cache dependency layers]
+    B --> C[Create non-root runtime image]
+    C --> D[Scan and test container]
+    D --> E[Push immutable digest]
+    E -. feedback .-> A
 ```
-
-
----
 
 ---
 

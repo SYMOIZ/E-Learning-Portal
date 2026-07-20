@@ -5,64 +5,64 @@
 # Regular Expressions
 
 ## Overview
-- **What is it?** Regular Expressions is a Python knowledge area focused on professional Python patterns.
-- **Why is it important?** Help developers apply professional Python patterns techniques safely, clearly, and consistently.
-- **Where is it used?** Data exchange, observability, clean abstractions, and production utilities.
+- **What is it?** Regular Expressions is the intermediate Python topic of describing and extracting structured text with compiled patterns.
+- **Why is it important?** Regex is effective for local text grammars but should not replace a parser for deeply nested formats.
+- **Where is it used?** input validation, log extraction, search and redaction.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review regular expressions code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind regular expressions.
-- Expected outcome: you can use regular expressions in a small project and recognize when it belongs in production code.
+- Use raw strings, groups, and quantifiers.
+- Choose match, search, fullmatch, and finditer.
+- Control backtracking with precise patterns.
 
 ## Real World Applications
-- **Industry use cases:** Data exchange, observability, clean abstractions, and production utilities.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Input validation rely on this topic.
+- **Product work:** It supports log extraction.
+- **Operations:** It appears in search and redaction.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives regular expressions its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Regular Expressions model -> clear code`
-- **Practical example:**
-
-```python
-apply_regular_expressions_label = "Regular Expressions"
-print(apply_regular_expressions_label)
-```
-
-### Execution Flow
-- **Definition:** The ordered steps Python follows when regular expressions code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Pattern language
+- **Definition:** A regex combines literals, character classes, quantifiers, and anchors to describe matching text.
+- **Visual explanation:** ``text -> pattern engine -> match spans``
 - **Practical example:**
 
 ```python
 import re
-print(bool(re.search(r"python", "learn python")))
+print(bool(re.fullmatch(r"[A-Z]{2}-\d{4}", "GB-2048")))
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps regular expressions understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Groups and captures
+- **Definition:** Parentheses group expressions; named capturing groups expose meaningful substrings through a Match object.
+- **Visual explanation:** ``(?P<name>...) -> match.group('name')``
 - **Practical example:**
 
 ```python
 import re
+match = re.search(r"order=(?P<id>\d+)", "order=42")
+print(match.group("id") if match else None)
+```
 
-emails = re.findall(r"[\w.-]+@[\w.-]+", "Contact a@x.com and b@y.com")
-print(emails)
+### Compilation and boundaries
+- **Definition:** Compiled patterns reuse intent and flags; anchors or fullmatch prevent accepting an unintended substring.
+- **Visual explanation:** ``compile once -> fullmatch many inputs``
+- **Practical example:**
+
+```python
+import re
+slug = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
+print(bool(slug.fullmatch("python-patterns")))
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Regular Expressions belongs to the professional Python patterns part of Python mastery. |
-| ⚡ Purpose | Help developers apply professional Python patterns techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional professional Python patterns decisions. |
-| 🎯 Use Cases | Data exchange, observability, clean abstractions, and production utilities. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Pattern language, Groups and captures, Compilation and boundaries |
+| ⚡ Purpose | Regex is effective for local text grammars but should not replace a parser for deeply nested formats. |
+| 🔥 Benefits | Concise text validation, structured capture, and repeatable search or redaction rules. |
+| 🎯 Use Cases | input validation, log extraction, search and redaction |
+| 🚀 Best Practices | Use raw string literals and test valid, invalid, and adversarial inputs. |
+| ❌ Common Mistakes | Using .* greedily when a bounded character class expresses the grammar. |
 
 ## Syntax Guide
 
@@ -70,26 +70,29 @@ print(emails)
 
 ```python
 import re
-match = re.search(r"\d+", "Order 42")
+match = re.search(r"\d+", "invoice 204")
+if match:
+    print(match.group())
 ```
 
 ### Standard Structure
 
 ```python
-def apply_regular_expressions(value):
-    """Apply the Regular Expressions concept to one value."""
-    return value
+import re
 
-result = apply_regular_expressions("practice")
-print(result)
+DATE = re.compile(
+    r"(?P<year>\d{4})-(?P<month>0[1-9]|1[0-2])-(?P<day>\d{2})"
+)
+match = DATE.fullmatch("2026-07-20")
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Regular Expressions problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Define the accepted text grammar.
+# Anchor the match to the required boundary.
+# Capture only fields the program needs.
+# Handle the possibility of no match.
 ```
 
 ## Examples
@@ -98,7 +101,9 @@ print(result)
 
 ```python
 import re
-print(bool(re.search(r"python", "learn python")))
+
+words = re.findall(r"\bpy\w*", "Python powers pytests and pydantic", re.IGNORECASE)
+print(words)
 ```
 
 ### Intermediate Example
@@ -106,8 +111,14 @@ print(bool(re.search(r"python", "learn python")))
 ```python
 import re
 
-emails = re.findall(r"[\w.-]+@[\w.-]+", "Contact a@x.com and b@y.com")
-print(emails)
+LOG_LINE = re.compile(
+    r"^(?P<level>INFO|WARN|ERROR) "
+    r"(?P<code>[A-Z]\d{3}) "
+    r"(?P<message>.+)$"
+)
+match = LOG_LINE.fullmatch("ERROR E503 service unavailable")
+if match:
+    print(match.groupdict())
 ```
 
 ### Advanced Example
@@ -115,23 +126,29 @@ print(emails)
 ```python
 import re
 
-pattern = re.compile(r"(?P<status>\d{3}) (?P<path>/\S+)")
-match = pattern.search("200 /api/users")
-print(match.groupdict() if match else {})
+SECRET = re.compile(
+    r"(?P<prefix>api[_-]?key\s*[=:]\s*)"
+    r"(?P<value>[A-Za-z0-9_-]{8,})",
+    re.IGNORECASE,
+)
+
+def redact(text: str) -> str:
+    return SECRET.sub(lambda match: match["prefix"] + "***", text)
+
+line = "user=ada api_key=abcDEF123456 status=ok"
+print(redact(line))
+print([(m.start(), m.group("value")) for m in SECRET.finditer(line)])
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Regular Expressions Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Define text grammar] --> B[Compile pattern]
+    B --> C[Select matching operation]
+    C --> D[Inspect captures]
+    D --> E[Validate or transform result]
 ```
-
-
----
 
 ---
 

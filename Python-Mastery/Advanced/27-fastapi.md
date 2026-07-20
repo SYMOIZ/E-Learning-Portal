@@ -5,74 +5,90 @@
 # FastAPI
 
 ## Overview
-- **What is it?** FastAPI is a Python knowledge area focused on integration.
-- **Why is it important?** Help developers apply integration techniques safely, clearly, and consistently.
-- **Where is it used?** Web services, persistence layers, analytics backends, and business systems.
+- **What is it?** FastAPI is an ASGI framework that derives request validation and OpenAPI schemas from Python type annotations and Pydantic models.
+- **Why is it important?** Production APIs require explicit contracts, dependency lifetimes, exception mapping, async-safe I/O, authentication, and observability.
+- **Where is it used?** It is used for typed HTTP APIs, model-serving endpoints, internal services, and asynchronous integrations.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review fastapi code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind fastapi.
-- Expected outcome: you can use fastapi in a small project and recognize when it belongs in production code.
+- Define FastAPI routes with request, response, path, and dependency models.
+- Choose synchronous or asynchronous handlers according to downstream libraries.
+- Test contracts and map domain failures to stable HTTP responses.
 
 ## Real World Applications
-- **Industry use cases:** Web services, persistence layers, analytics backends, and business systems.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- JSON APIs with generated OpenAPI documentation and client schemas.
+- Async endpoints that coordinate databases and remote services.
+- Dependency-injected authorization, settings, and request-scoped resources.
 
 ## Core Concepts
 
-### Contract
-- **Definition:** The main idea that gives fastapi its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> FastAPI model -> clear code`
-- **Practical example:**
-
-```python
-apply_fastapi_label = "FastAPI"
-print(apply_fastapi_label)
-```
-
-### Connection Flow
-- **Definition:** The ordered steps Python follows when fastapi code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Typed API Contracts
+- **Definition:** FastAPI reads annotations and Pydantic models to parse inputs, report validation errors, serialize outputs, and generate OpenAPI.
+- **Visual explanation:** `HTTP request → validation model → handler → response model`
 - **Practical example:**
 
 ```python
 from fastapi import FastAPI
+from pydantic import BaseModel, Field
 
 app = FastAPI()
 
-@app.get("/")
-def root():
-    return {"message": "Hello API"}
+class ItemIn(BaseModel):
+    name: str = Field(min_length=1)
+    quantity: int = Field(gt=0)
+
+@app.post("/items", status_code=201)
+def create_item(item: ItemIn) -> ItemIn:
+    return item
 ```
 
-### Reliability Boundary
-- **Definition:** The reliability habit that keeps fastapi understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Dependencies and Lifetimes
+- **Definition:** `Depends` resolves a dependency graph per request and generator dependencies can safely release resources after the response.
+- **Visual explanation:** `route → dependency graph → handler → dependency cleanup`
 - **Practical example:**
 
 ```python
-from pydantic import BaseModel
+from collections.abc import Iterator
+from fastapi import Depends
 
-class UserIn(BaseModel):
-    email: str
+def database() -> Iterator[dict[str, str]]:
+    connection = {"state": "open"}
+    try:
+        yield connection
+    finally:
+        connection["state"] = "closed"
 
-def create_user(user: UserIn) -> dict[str, str]:
-    return {"email": user.email, "status": "created"}
+@app.get("/health")
+def health(connection = Depends(database)) -> dict[str, str]:
+    return {"database": connection["state"]}
+```
 
-print(create_user(UserIn(email="a@example.com")))
+### Async Boundaries and Errors
+- **Definition:** An async route should await nonblocking clients; blocking work belongs in synchronous dependencies or a worker, and domain errors need stable HTTP mapping.
+- **Visual explanation:** `request → async I/O or worker boundary → domain result → HTTP mapping`
+- **Practical example:**
+
+```python
+import asyncio
+from fastapi import HTTPException
+
+@app.get("/items/{item_id}")
+async def read_item(item_id: int) -> dict[str, int]:
+    await asyncio.sleep(0)
+    if item_id < 1:
+        raise HTTPException(status_code=404, detail="item not found")
+    return {"id": item_id}
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | FastAPI belongs to the integration part of Python mastery. |
-| ⚡ Purpose | Help developers apply integration techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional integration decisions. |
-| 🎯 Use Cases | Web services, persistence layers, analytics backends, and business systems. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | FastAPI is an ASGI framework that derives request validation and OpenAPI schemas from Python type annotations and Pydantic models. |
+| ⚡ Purpose | Production APIs require explicit contracts, dependency lifetimes, exception mapping, async-safe I/O, authentication, and observability. |
+| 🔥 Benefits | Builds the ability to define FastAPI routes with request, response, path, and dependency models; it also helps practitioners choose synchronous or asynchronous handlers according to downstream libraries. |
+| 🎯 Use Cases | JSON APIs with generated OpenAPI documentation and client schemas. Async endpoints that coordinate databases and remote services. |
+| 🚀 Best Practices | Response models prevent accidental field disclosure. |
+| ❌ Common Mistakes | Ignoring the guardrail “Do not call blocking SDKs directly inside async routes”. |
 
 ## Syntax Guide
 
@@ -80,30 +96,38 @@ print(create_user(UserIn(email="a@example.com")))
 
 ```python
 from fastapi import FastAPI
+
 app = FastAPI()
 
-@app.get("/health")
-def health():
-    return {"ok": True}
+@app.get("/")
+def root() -> dict[str, str]:
+    return {"status": "ready"}
 ```
 
 ### Standard Structure
 
 ```python
-def apply_fastapi(value):
-    """Apply the FastAPI concept to one value."""
-    return value
+from pydantic import BaseModel
 
-result = apply_fastapi("practice")
-print(result)
+class ItemOut(BaseModel):
+    id: int
+    name: str
+
+@app.get("/items/{item_id}", response_model=ItemOut)
+def item(item_id: int) -> ItemOut:
+    return ItemOut(id=item_id, name="book")
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the FastAPI problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+from typing import Annotated
+from fastapi import Depends, Header, HTTPException
+
+def require_token(x_token: Annotated[str | None, Header()] = None) -> str:
+    if x_token != "training-token":
+        raise HTTPException(status_code=401, detail="invalid token")
+    return x_token
 ```
 
 ## Examples
@@ -115,52 +139,51 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
-@app.get("/")
-def root():
-    return {"message": "Hello API"}
+@app.get("/greet/{name}")
+def greet(name: str) -> dict[str, str]:
+    return {"message": f"Hello, {name}"}
 ```
 
 ### Intermediate Example
 
 ```python
-from pydantic import BaseModel
+from fastapi.testclient import TestClient
 
-class UserIn(BaseModel):
-    email: str
-
-def create_user(user: UserIn) -> dict[str, str]:
-    return {"email": user.email, "status": "created"}
-
-print(create_user(UserIn(email="a@example.com")))
+client = TestClient(app)
+response = client.get("/greet/Ada")
+assert response.status_code == 200
+assert response.json() == {"message": "Hello, Ada"}
 ```
 
 ### Advanced Example
 
 ```python
-from fastapi import Depends, FastAPI
+from contextlib import asynccontextmanager
+from fastapi import FastAPI
 
-app = FastAPI()
+@asynccontextmanager
+async def lifespan(application: FastAPI):
+    application.state.ready = True
+    yield
+    application.state.ready = False
 
-def get_settings():
-    return {"debug": False}
+service = FastAPI(lifespan=lifespan)
 
-@app.get("/settings")
-def settings(settings = Depends(get_settings)):
-    return settings
+@service.get("/ready")
+async def ready() -> dict[str, bool]:
+    return {"ready": service.state.ready}
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify FastAPI Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Receive ASGI request] --> B[Resolve dependencies and validate]
+    B --> C[Execute sync or async domain work]
+    C --> D[Serialize response contract]
+    D --> E[Emit metrics and clean resources]
+    E -. feedback .-> A
 ```
-
-
----
 
 ---
 

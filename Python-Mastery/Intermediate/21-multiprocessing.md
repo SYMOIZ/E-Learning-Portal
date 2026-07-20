@@ -5,68 +5,70 @@
 # Multiprocessing
 
 ## Overview
-- **What is it?** Multiprocessing is a Python knowledge area focused on execution model.
-- **Why is it important?** Help developers apply execution model techniques safely, clearly, and consistently.
-- **Where is it used?** High-throughput services, background jobs, io workloads, and cpu-bound processing.
+- **What is it?** Multiprocessing is the intermediate Python topic of running CPU-bound Python work across separate processes.
+- **Why is it important?** Processes have independent interpreters and memory, bypassing the GIL at the cost of serialization and startup overhead.
+- **Where is it used?** image transforms, numeric batch calculations, CPU-heavy parsing.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review multiprocessing code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind multiprocessing.
-- Expected outcome: you can use multiprocessing in a small project and recognize when it belongs in production code.
+- Choose processes for coarse CPU-bound tasks.
+- Protect entry points for spawn compatibility.
+- Use pools and IPC without assuming shared memory.
 
 ## Real World Applications
-- **Industry use cases:** High-throughput services, background jobs, io workloads, and cpu-bound processing.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Image transforms rely on this topic.
+- **Product work:** It supports numeric batch calculations.
+- **Operations:** It appears in CPU-heavy parsing.
 
 ## Core Concepts
 
-### Task Unit
-- **Definition:** The main idea that gives multiprocessing its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Multiprocessing model -> clear code`
+### Process isolation
+- **Definition:** Each process owns its interpreter and address space; arguments and results are normally serialized between processes.
+- **Visual explanation:** ``parent --pickle--> worker process --pickle--> result``
 - **Practical example:**
 
 ```python
-apply_multiprocessing_label = "Multiprocessing"
-print(apply_multiprocessing_label)
+from multiprocessing import Process
+
+process = Process(target=print, args=("child",))
+process.start()
+process.join()
 ```
 
-### Scheduler or Worker
-- **Definition:** The ordered steps Python follows when multiprocessing code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Process pools
+- **Definition:** ProcessPoolExecutor keeps a bounded set of workers and maps independent CPU tasks onto them.
+- **Visual explanation:** ``CPU tasks -> process pool -> cores -> results``
 - **Practical example:**
 
 ```python
-from multiprocessing import cpu_count
-print(cpu_count())
+from concurrent.futures import ProcessPoolExecutor
+
+with ProcessPoolExecutor() as pool:
+    values = list(pool.map(abs, [-1, -2]))
 ```
 
-### Coordination Rule
-- **Definition:** The reliability habit that keeps multiprocessing understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Safe startup and IPC
+- **Definition:** The __main__ guard prevents recursive child creation under spawn; queues and pipes explicitly exchange messages.
+- **Visual explanation:** ``main guard -> spawn safely; Queue -> IPC``
 - **Practical example:**
 
 ```python
-from multiprocessing import Pool
-
-def square(value):
-    return value * value
+def main():
+    print("parent entry")
 
 if __name__ == "__main__":
-    with Pool(2) as pool:
-        print(pool.map(square, [1, 2, 3]))
+    main()
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Multiprocessing belongs to the execution model part of Python mastery. |
-| ⚡ Purpose | Help developers apply execution model techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional execution model decisions. |
-| 🎯 Use Cases | High-throughput services, background jobs, io workloads, and cpu-bound processing. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Process isolation, Process pools, Safe startup and IPC |
+| ⚡ Purpose | Processes have independent interpreters and memory, bypassing the GIL at the cost of serialization and startup overhead. |
+| 🔥 Benefits | Parallel CPU execution across cores, process isolation, and scalable batch computation. |
+| 🎯 Use Cases | image transforms, numeric batch calculations, CPU-heavy parsing |
+| 🚀 Best Practices | Send coarse, pickleable tasks and keep shared mutable state out of workers. |
+| ❌ Common Mistakes | Expecting child mutations of ordinary objects to appear in the parent. |
 
 ## Syntax Guide
 
@@ -74,26 +76,33 @@ if __name__ == "__main__":
 
 ```python
 from multiprocessing import Process
-process = Process(target=print, args=("hi",))
+
+if __name__ == "__main__":
+    process = Process(target=compute, args=(input_value,))
+    process.start()
+    process.join()
 ```
 
 ### Standard Structure
 
 ```python
-def apply_multiprocessing(value):
-    """Apply the Multiprocessing concept to one value."""
-    return value
+from concurrent.futures import ProcessPoolExecutor
 
-result = apply_multiprocessing("practice")
-print(result)
+def main():
+    with ProcessPoolExecutor() as pool:
+        return list(pool.map(cpu_heavy, inputs))
+
+if __name__ == "__main__":
+    print(main())
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Multiprocessing problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Confirm work is CPU-bound and independent.
+# Define a top-level pickleable worker.
+# Guard process creation with __main__.
+# Collect results and handle worker exceptions.
 ```
 
 ## Examples
@@ -101,48 +110,71 @@ print(result)
 ### Beginner Example
 
 ```python
-from multiprocessing import cpu_count
-print(cpu_count())
+from multiprocessing import Process
+
+def calculate_square(value):
+    print(value * value)
+
+if __name__ == "__main__":
+    process = Process(target=calculate_square, args=(12,))
+    process.start()
+    process.join()
+    if process.exitcode != 0:
+        raise RuntimeError("worker failed")
 ```
 
 ### Intermediate Example
 
 ```python
-from multiprocessing import Pool
+from concurrent.futures import ProcessPoolExecutor
 
-def square(value):
-    return value * value
+def count_primes(limit: int) -> int:
+    total = 0
+    for candidate in range(2, limit):
+        if all(candidate % divisor for divisor in range(2, int(candidate ** 0.5) + 1)):
+            total += 1
+    return total
+
+def main():
+    with ProcessPoolExecutor(max_workers=2) as pool:
+        return list(pool.map(count_primes, [5000, 6000, 7000]))
 
 if __name__ == "__main__":
-    with Pool(2) as pool:
-        print(pool.map(square, [1, 2, 3]))
+    print(main())
 ```
 
 ### Advanced Example
 
 ```python
-from concurrent.futures import ProcessPoolExecutor
+from concurrent.futures import ProcessPoolExecutor, as_completed
 
-def score(value):
-    return sum(i * i for i in range(value))
+def checksum(chunk: bytes) -> tuple[int, int]:
+    return len(chunk), sum(chunk) % 256
+
+def checksums(chunks):
+    with ProcessPoolExecutor(max_workers=3) as pool:
+        future_to_index = {
+            pool.submit(checksum, chunk): index
+            for index, chunk in enumerate(chunks)
+        }
+        ordered = [None] * len(chunks)
+        for future in as_completed(future_to_index):
+            ordered[future_to_index[future]] = future.result()
+        return ordered
 
 if __name__ == "__main__":
-    with ProcessPoolExecutor() as pool:
-        print(list(pool.map(score, [1000, 2000])))
+    print(checksums([b"alpha", b"beta", b"gamma"]))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Multiprocessing Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Identify CPU-bound chunks] --> B[Serialize task input]
+    B --> C[Run on worker processes]
+    C --> D[Serialize results]
+    D --> E[Join pool and combine]
 ```
-
-
----
 
 ---
 

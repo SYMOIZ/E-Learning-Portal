@@ -5,93 +5,120 @@
 # Scope
 
 ## Overview
-- **What is it?** Scope defines where names are visible and how they are resolved.
-- **Why is it important?** Prevent accidental name collisions and hidden state bugs.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** Scope determines where a name can be accessed; Python resolves names through local, enclosing, global, then built-in scopes.
+- **Why is it important?** Clear scope limits unintended coupling and prevents one function from silently changing unrelated state.
+- **Where is it used?** Every function, nested function, module, and comprehension creates or interacts with name-resolution boundaries.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review scope code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind scope.
-- Expected outcome: you can use scope in a small project and recognize when it belongs in production code.
+- Identify local, enclosing, global, and built-in names.
+- Explain shadowing and the lifetime of local names.
+- Use return values instead of `global`, and understand when `nonlocal` is appropriate.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Keep temporary calculations private to a function.
+- Create a closure that remembers configuration.
+- Share module constants without hiding mutable state changes.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives scope its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Scope model -> clear code`
+### Local and global names
+- **Definition:** Assignment inside a function creates a local name unless declared otherwise; module-level names are global to that module.
+- **Visual explanation:** `module global -> function call -> local namespace`
 - **Practical example:**
 
 ```python
-apply_scope_label = "Scope"
-print(apply_scope_label)
+course = "Python"
+
+def show_course():
+    message = course
+    print(message)
+
+show_course()
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when scope code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### LEGB lookup
+- **Definition:** A name reference searches Local, Enclosing, Global, and Built-in namespaces in that order.
+- **Visual explanation:** `L -> E -> G -> B -> NameError`
 - **Practical example:**
 
 ```python
-def greet(name):
-    print(f"Hello, {name}")
+label = "global"
 
-greet("Ada")
+def outer():
+    label = "enclosing"
+    def inner():
+        print(label)
+    inner()
+
+outer()
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps scope understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Controlled state changes
+- **Definition:** `nonlocal` rebinds a name in an enclosing function; returning new state is often clearer than mutating globals.
+- **Visual explanation:** `inner assignment -> declared enclosing binding`
 - **Practical example:**
 
 ```python
-def calculate_total(subtotal: float, tax_rate: float = 0.08) -> float:
-    return subtotal * (1 + tax_rate)
+def make_counter():
+    count = 0
+    def increment():
+        nonlocal count
+        count += 1
+        return count
+    return increment
 
-print(calculate_total(100))
+counter = make_counter()
+print(counter(), counter())
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Scope belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Prevent accidental name collisions and hidden state bugs. |
-| 🔥 Benefits | Reliable functions, modules, closures, and classes. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Scope determines where a name can be accessed; Python resolves names through local, enclosing, global, then built-in scopes. |
+| ⚡ Purpose | Control where names are visible and how Python resolves each reference. |
+| 🔥 Benefits | Clear scope limits unintended coupling and prevents one function from silently changing unrelated state. |
+| 🎯 Use Cases | Every function, nested function, module, and comprehension creates or interacts with name-resolution boundaries. |
+| 🚀 Best Practices | Pass dependencies as arguments and return results; reserve module globals for constants and `nonlocal` for deliberate closures. |
+| ❌ Common Mistakes | Assigning inside a function while expecting Python to update a same-named global automatically. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-def add(left, right):
-    return left + right
+topic = "scope"
+
+def display():
+    local_message = topic.upper()
+    print(local_message)
+
+display()
 ```
 
 ### Standard Structure
 
 ```python
-def apply_scope(value):
-    """Apply the Scope concept to one value."""
-    return value
+tax_rate = 0.08
 
-result = apply_scope("practice")
-print(result)
+def total_with_tax(subtotal):
+    tax = subtotal * tax_rate
+    return subtotal + tax
+
+print(total_with_tax(50))
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Scope problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+def make_multiplier(factor):
+    def multiply(value):
+        return value * factor
+    return multiply
+
+double = make_multiplier(2)
+triple = make_multiplier(3)
+print(double(5), triple(5))
 ```
 
 ## Examples
@@ -99,45 +126,54 @@ print(result)
 ### Beginner Example
 
 ```python
-def greet(name):
-    print(f"Hello, {name}")
+name = "global"
 
-greet("Ada")
+def show():
+    name = "local"
+    print(name)
+
+show()
+print(name)
 ```
 
 ### Intermediate Example
 
 ```python
-def calculate_total(subtotal: float, tax_rate: float = 0.08) -> float:
-    return subtotal * (1 + tax_rate)
-
-print(calculate_total(100))
+currency = "USD"
+def format_price(amount):
+    symbol = "$"
+    return f"{symbol}{amount:.2f} {currency}"
+print(format_price(9.5))
 ```
 
 ### Advanced Example
 
 ```python
-from functools import lru_cache
-
-@lru_cache(maxsize=128)
-def fibonacci(n: int) -> int:
-    return n if n < 2 else fibonacci(n - 1) + fibonacci(n - 2)
-
-print(fibonacci(10))
+def make_scoreboard():
+    scores = []
+    def add(score):
+        scores.append(score)
+        return sum(scores) / len(scores)
+    return add
+record = make_scoreboard()
+print(record(80))
+print(record(90))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Scope Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Reference a name]
+    B[Search local scope]
+    C[Search enclosing then global]
+    D[Fall back to built-ins]
+    E[Use binding or raise NameError]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
-
-
----
 
 ---
 

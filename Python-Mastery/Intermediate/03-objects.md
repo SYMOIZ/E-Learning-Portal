@@ -5,101 +5,95 @@
 # Objects
 
 ## Overview
-- **What is it?** Objects is a Python knowledge area focused on object-oriented design.
-- **Why is it important?** Help developers apply object-oriented design techniques safely, clearly, and consistently.
-- **Where is it used?** Domain modeling, application architecture, frameworks, and reusable components.
+- **What is it?** Objects is the intermediate Python topic of working with concrete runtime instances that have identity, type, state, and behavior.
+- **Why is it important?** Understanding identity and references prevents accidental aliasing and clarifies when equality differs from sameness.
+- **Where is it used?** stateful entities, in-memory object graphs, dependency collaboration.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review objects code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind objects.
-- Expected outcome: you can use objects in a small project and recognize when it belongs in production code.
+- Explain identity, type, and value.
+- Recognize aliasing of mutable objects.
+- Inspect and compare objects intentionally.
 
 ## Real World Applications
-- **Industry use cases:** Domain modeling, application architecture, frameworks, and reusable components.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Stateful entities rely on this topic.
+- **Product work:** It supports in-memory object graphs.
+- **Operations:** It appears in dependency collaboration.
 
 ## Core Concepts
 
-### Model
-- **Definition:** The main idea that gives objects its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Objects model -> clear code`
+### Identity and type
+- **Definition:** Every object has a stable identity during its lifetime and a type that determines its supported operations.
+- **Visual explanation:** ``reference -> object identity + type``
 - **Practical example:**
 
 ```python
-apply_objects_label = "Objects"
-print(apply_objects_label)
+item = {"sku": "A1"}
+alias = item
+print(alias is item, type(item).__name__)
 ```
 
-### Interface
-- **Definition:** The ordered steps Python follows when objects code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### State
+- **Definition:** Object state is the data currently stored in an instance; methods may read or transition that state.
+- **Visual explanation:** ``method call: state before -> state after``
 - **Practical example:**
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
+class Lamp:
+    def turn_on(self):
+        self.is_on = True
 
-print(Dog().speak())
+lamp = Lamp()
+lamp.turn_on()
 ```
 
-### Behavior Rule
-- **Definition:** The reliability habit that keeps objects understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Aliasing and equality
+- **Definition:** Two names may reference one object; is checks identity while == asks the type to compare values.
+- **Visual explanation:** ``a is b: same object | a == b: equivalent value``
 - **Practical example:**
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
-
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
-
-account = Account()
-account.deposit(50)
-print(account.balance)
+first = [1, 2]
+second = list(first)
+print(first == second, first is second)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Objects belongs to the object-oriented design part of Python mastery. |
-| ⚡ Purpose | Help developers apply object-oriented design techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional object-oriented design decisions. |
-| 🎯 Use Cases | Domain modeling, application architecture, frameworks, and reusable components. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Identity and type, State, Aliasing and equality |
+| ⚡ Purpose | Understanding identity and references prevents accidental aliasing and clarifies when equality differs from sameness. |
+| 🔥 Benefits | Predictable identity, controlled state transitions, and safer handling of mutable references. |
+| 🎯 Use Cases | stateful entities, in-memory object graphs, dependency collaboration |
+| 🚀 Best Practices | Use is for singleton checks such as None and == for value comparison. |
+| ❌ Common Mistakes | Assuming assignment copies a mutable object. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-class Customer:
-    def __init__(self, name):
-        self.name = name
+customer = Customer("Ada")  # instantiate an object
+print(type(customer))
+print(customer.name)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_objects(value):
-    """Apply the Objects concept to one value."""
-    return value
-
-result = apply_objects("practice")
-print(result)
+original = {"tags": ["python"]}
+alias = original
+copy = {"tags": list(original["tags"])}
+alias["tags"].append("oop")
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Objects problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# 1. Create or receive an object.
+# 2. Keep only the references that need it.
+# 3. Invoke behavior through its public interface.
+# 4. Compare identity and value for the right purpose.
 ```
 
 ## Examples
@@ -107,26 +101,28 @@ print(result)
 ### Beginner Example
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
+class Note:
+    pass
 
-print(Dog().speak())
+note = Note()
+note.text = "Learn object identity"
+print(note.text, type(note).__name__)
 ```
 
 ### Intermediate Example
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
+class Thermostat:
+    def __init__(self, target: float):
+        self.target = target
 
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
+    def adjust(self, change: float):
+        self.target += change
 
-account = Account()
-account.deposit(50)
-print(account.balance)
+hall = Thermostat(20)
+alias = hall
+alias.adjust(1.5)
+print(hall.target, alias is hall)
 ```
 
 ### Advanced Example
@@ -134,29 +130,29 @@ print(account.balance)
 ```python
 from dataclasses import dataclass
 
-@dataclass
-class Order:
-    id: int
-    total: float
+@dataclass(frozen=True)
+class Coordinate:
+    x: int
+    y: int
 
-    def is_large(self) -> bool:
-        return self.total >= 1000
-
-print(Order(1, 1200).is_large())
+first = Coordinate(2, 3)
+equal_value = Coordinate(2, 3)
+same_object = first
+print(first == equal_value)
+print(first is equal_value)
+print(first is same_object)
+print({first: "origin offset"})
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Objects Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Class defines type] --> B[Call creates object]
+    B --> C[Name stores reference]
+    C --> D[Method observes or changes state]
+    D --> E[Object eventually becomes unreachable]
 ```
-
-
----
 
 ---
 

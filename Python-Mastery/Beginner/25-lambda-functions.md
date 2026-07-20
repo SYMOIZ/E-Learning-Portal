@@ -5,89 +5,89 @@
 # Lambda Functions
 
 ## Overview
-- **What is it?** Lambda functions are small anonymous functions written as expressions.
-- **Why is it important?** Pass simple behavior into higher-order functions.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** A lambda expression creates a small anonymous function containing one expression.
+- **Why is it important?** Lambdas are useful when an operation is short, local, and passed directly to another function.
+- **Where is it used?** Sorting keys, simple transformations, and callback-style APIs frequently accept lambdas.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review lambda functions code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind lambda functions.
-- Expected outcome: you can use lambda functions in a small project and recognize when it belongs in production code.
+- Write and call a lambda expression.
+- Pass lambdas as `key` functions.
+- Choose a named `def` when logic, reuse, typing, or documentation grows.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Sort records by a selected field.
+- Transform items with `map` in APIs that require a callable.
+- Configure a one-line calculation at the call site.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives lambda functions its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Lambda Functions model -> clear code`
+### Expression function
+- **Definition:** The form `lambda parameters: expression` evaluates that one expression and returns its value.
+- **Visual explanation:** `arguments -> one expression -> result`
 - **Practical example:**
 
 ```python
-apply_lambda_functions_label = "Lambda Functions"
-print(apply_lambda_functions_label)
+double = lambda number: number * 2
+print(double(5))
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when lambda functions code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Callable as data
+- **Definition:** A lambda is a function object that can be stored or passed where another function expects behavior.
+- **Visual explanation:** `lambda -> callable argument -> host operation`
 - **Practical example:**
 
 ```python
-square = lambda number: number * number
-print(square(5))
+words = ["pear", "fig", "banana"]
+print(sorted(words, key=lambda word: len(word)))
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps lambda functions understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Readability boundary
+- **Definition:** A lambda cannot contain statements and becomes hard to read when it embeds multiple conditions or repeated logic.
+- **Visual explanation:** `simple local expression -> lambda; richer behavior -> def`
 - **Practical example:**
 
 ```python
-users = [{"name": "Ada", "score": 90}, {"name": "Lin", "score": 95}]
-print(sorted(users, key=lambda user: user["score"]))
+records = [{"name": "Bo", "score": 81}, {"name": "Ana", "score": 92}]
+ranked = sorted(records, key=lambda record: record["score"], reverse=True)
+print(ranked)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Lambda Functions belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Pass simple behavior into higher-order functions. |
-| 🔥 Benefits | Sorting keys, quick transformations, callbacks, and filters. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | A lambda expression creates a small anonymous function containing one expression. |
+| ⚡ Purpose | Provide a short one-expression callable where behavior is passed as data. |
+| 🔥 Benefits | Lambdas are useful when an operation is short, local, and passed directly to another function. |
+| 🎯 Use Cases | Sorting keys, simple transformations, and callback-style APIs frequently accept lambdas. |
+| 🚀 Best Practices | Use lambdas for obvious one-expression behavior, especially a `key`; give nontrivial logic a descriptive function name. |
+| ❌ Common Mistakes | Packing complex branching into a lambda merely to avoid writing `def`. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-double = lambda value: value * 2
-print(double(4))
+square = lambda value: value ** 2
+print(square(6))
 ```
 
 ### Standard Structure
 
 ```python
-def apply_lambda_functions(value):
-    """Apply the Lambda Functions concept to one value."""
-    return value
-
-result = apply_lambda_functions("practice")
-print(result)
+names = ["Zara", "amy", "MILO"]
+print(sorted(names, key=lambda name: name.lower()))
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Lambda Functions problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+products = [
+    {"name": "Pen", "price": 3.0},
+    {"name": "Book", "price": 8.0},
+]
+priced = sorted(products, key=lambda product: (product["price"], product["name"]))
+print(priced)
 ```
 
 ## Examples
@@ -95,38 +95,44 @@ print(result)
 ### Beginner Example
 
 ```python
-square = lambda number: number * number
-print(square(5))
+add_tax = lambda price: price * 1.08
+print(add_tax(20))
 ```
 
 ### Intermediate Example
 
 ```python
-users = [{"name": "Ada", "score": 90}, {"name": "Lin", "score": 95}]
-print(sorted(users, key=lambda user: user["score"]))
+points = [(2, 5), (1, 9), (4, 3)]
+by_y = sorted(points, key=lambda point: point[1])
+print(by_y)
 ```
 
 ### Advanced Example
 
 ```python
-from functools import reduce
-
-product = reduce(lambda left, right: left * right, [2, 3, 4])
-print(product)
+students = [
+    {"name": "Mia", "score": 88},
+    {"name": "Ali", "score": 88},
+    {"name": "Zoe", "score": 95},
+]
+ranked = sorted(students, key=lambda student: (-student["score"], student["name"]))
+print(ranked)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Lambda Functions Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Need short callable]
+    B[Confirm one clear expression]
+    C[Create lambda]
+    D[Pass to consuming function]
+    E[Replace with def if complexity grows]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
-
-
----
 
 ---
 

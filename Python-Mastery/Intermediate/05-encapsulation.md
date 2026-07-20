@@ -5,101 +5,108 @@
 # Encapsulation
 
 ## Overview
-- **What is it?** Encapsulation is a Python knowledge area focused on object-oriented design.
-- **Why is it important?** Help developers apply object-oriented design techniques safely, clearly, and consistently.
-- **Where is it used?** Domain modeling, application architecture, frameworks, and reusable components.
+- **What is it?** Encapsulation is the intermediate Python topic of protecting invariants behind a small public interface.
+- **Why is it important?** Python uses conventions, properties, and name mangling rather than absolute private access control.
+- **Where is it used?** validated account state, stable library APIs, replaceable implementations.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review encapsulation code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind encapsulation.
-- Expected outcome: you can use encapsulation in a small project and recognize when it belongs in production code.
+- Design public and non-public interfaces.
+- Use properties for controlled attribute access.
+- Explain why name mangling is not security.
 
 ## Real World Applications
-- **Industry use cases:** Domain modeling, application architecture, frameworks, and reusable components.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Validated account state rely on this topic.
+- **Product work:** It supports stable library APIs.
+- **Operations:** It appears in replaceable implementations.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives encapsulation its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Encapsulation model -> clear code`
+### Public interface
+- **Definition:** A public interface is the supported set of attributes and methods callers may depend on.
+- **Visual explanation:** ``caller -> public methods -> internal state``
 - **Practical example:**
 
 ```python
-apply_encapsulation_label = "Encapsulation"
-print(apply_encapsulation_label)
+class QueueDepth:
+    def __init__(self):
+        self._value = 0
+
+    def increment(self):
+        self._value += 1
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when encapsulation code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Properties
+- **Definition:** A property preserves attribute-style access while centralizing validation or computed behavior.
+- **Visual explanation:** ``assignment -> setter validation -> _stored value``
 - **Practical example:**
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
-
-print(Dog().speak())
+class Score:
+    @property
+    def value(self):
+        return self._value
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps encapsulation understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Underscores and mangling
+- **Definition:** A leading underscore signals non-public API; double-leading names are class-mangled mainly to avoid subclass collisions.
+- **Visual explanation:** ``_internal: convention | __name: _Class__name``
 - **Practical example:**
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
-
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
-
-account = Account()
-account.deposit(50)
-print(account.balance)
+class Base:
+    def __init__(self):
+        self.__version = 1
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Encapsulation belongs to the object-oriented design part of Python mastery. |
-| ⚡ Purpose | Help developers apply object-oriented design techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional object-oriented design decisions. |
-| 🎯 Use Cases | Domain modeling, application architecture, frameworks, and reusable components. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Public interface, Properties, Underscores and mangling |
+| ⚡ Purpose | Python uses conventions, properties, and name mangling rather than absolute private access control. |
+| 🔥 Benefits | Protected invariants, stable public APIs, and freedom to change internal representation. |
+| 🎯 Use Cases | validated account state, stable library APIs, replaceable implementations |
+| 🚀 Best Practices | Expose behavior that preserves invariants instead of mutable internal containers. |
+| ❌ Common Mistakes | Treating double underscores as a security boundary. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-class Customer:
-    def __init__(self, name):
-        self.name = name
+class Wallet:
+    def __init__(self):
+        self._balance = 0
+
+    def deposit(self, amount):
+        self._balance += amount
 ```
 
 ### Standard Structure
 
 ```python
-def apply_encapsulation(value):
-    """Apply the Encapsulation concept to one value."""
-    return value
+class Percentage:
+    def __init__(self, value: float):
+        self.value = value
 
-result = apply_encapsulation("practice")
-print(result)
+    @property
+    def value(self) -> float:
+        return self._value
+
+    @value.setter
+    def value(self, candidate: float):
+        if not 0 <= candidate <= 100:
+            raise ValueError("percentage out of range")
+        self._value = candidate
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Encapsulation problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Public method -> validate request
+# Internal state -> update atomically
+# Read-only property -> expose safe observation
+# Leading underscore -> mark implementation detail
 ```
 
 ## Examples
@@ -107,56 +114,75 @@ print(result)
 ### Beginner Example
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
+class Light:
+    def __init__(self):
+        self._is_on = False
 
-print(Dog().speak())
+    def switch_on(self):
+        self._is_on = True
+
+    def status(self):
+        return "on" if self._is_on else "off"
+
+light = Light()
+light.switch_on()
+print(light.status())
 ```
 
 ### Intermediate Example
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
+class BankAccount:
+    def __init__(self, opening_balance: float = 0):
+        if opening_balance < 0:
+            raise ValueError("negative opening balance")
+        self._balance = opening_balance
 
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
+    @property
+    def balance(self) -> float:
+        return self._balance
 
-account = Account()
-account.deposit(50)
+    def withdraw(self, amount: float):
+        if amount <= 0 or amount > self._balance:
+            raise ValueError("invalid withdrawal")
+        self._balance -= amount
+
+account = BankAccount(100)
+account.withdraw(25)
 print(account.balance)
 ```
 
 ### Advanced Example
 
 ```python
-from dataclasses import dataclass
+class Playlist:
+    def __init__(self, tracks=()):
+        self.__tracks = list(tracks)
 
-@dataclass
-class Order:
-    id: int
-    total: float
+    @property
+    def tracks(self) -> tuple[str, ...]:
+        return tuple(self.__tracks)
 
-    def is_large(self) -> bool:
-        return self.total >= 1000
+    def add(self, track: str):
+        if not track.strip():
+            raise ValueError("track title is required")
+        self.__tracks.append(track.strip())
 
-print(Order(1, 1200).is_large())
+playlist = Playlist(["Intro"])
+snapshot = playlist.tracks
+playlist.add("Finale")
+print(snapshot, playlist.tracks)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Encapsulation Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Caller uses public API] --> B[Validate operation]
+    B --> C[Protect invariant]
+    C --> D[Update internal state]
+    D --> E[Return safe view]
 ```
-
-
----
 
 ---
 

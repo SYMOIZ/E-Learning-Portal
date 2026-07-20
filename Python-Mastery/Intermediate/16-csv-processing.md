@@ -5,71 +5,68 @@
 # CSV Processing
 
 ## Overview
-- **What is it?** CSV Processing is a Python knowledge area focused on professional Python patterns.
-- **Why is it important?** Help developers apply professional Python patterns techniques safely, clearly, and consistently.
-- **Where is it used?** Data exchange, observability, clean abstractions, and production utilities.
+- **What is it?** CSV Processing is the intermediate Python topic of reading and writing delimited tabular text with the csv module.
+- **Why is it important?** The csv module handles quoting, delimiters, and embedded newlines that manual string splitting gets wrong.
+- **Where is it used?** spreadsheet exchange, bulk imports, report exports.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review csv processing code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind csv processing.
-- Expected outcome: you can use csv processing in a small project and recognize when it belongs in production code.
+- Use reader/writer and DictReader/DictWriter.
+- Open files with newline='' and explicit encoding.
+- Validate rows and stream large files.
 
 ## Real World Applications
-- **Industry use cases:** Data exchange, observability, clean abstractions, and production utilities.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Spreadsheet exchange rely on this topic.
+- **Product work:** It supports bulk imports.
+- **Operations:** It appears in report exports.
 
 ## Core Concepts
 
-### Task Unit
-- **Definition:** The main idea that gives csv processing its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> CSV Processing model -> clear code`
-- **Practical example:**
-
-```python
-apply_csv_processing_label = "CSV Processing"
-print(apply_csv_processing_label)
-```
-
-### Scheduler or Worker
-- **Definition:** The ordered steps Python follows when csv processing code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### CSV dialect
+- **Definition:** A dialect defines delimiter, quote, escape, and line-termination rules for a tabular text format.
+- **Visual explanation:** ``text + dialect -> fields and rows``
 - **Practical example:**
 
 ```python
 import csv
 from io import StringIO
-
-file = StringIO("name,score\nAda,95\n")
-print(list(csv.DictReader(file)))
+rows = list(csv.reader(StringIO('name,city\n"Ada","London"')))
+print(rows)
 ```
 
-### Coordination Rule
-- **Definition:** The reliability habit that keeps csv processing understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Dictionary rows
+- **Definition:** DictReader maps header names to field strings; DictWriter emits columns in an explicit order.
+- **Visual explanation:** ``header + row -> mapping[fieldname]``
 - **Practical example:**
 
 ```python
 import csv
 from io import StringIO
+reader = csv.DictReader(StringIO("name,score\nAda,91"))
+print(next(reader)["score"])
+```
 
-output = StringIO()
-writer = csv.DictWriter(output, fieldnames=["name", "score"])
-writer.writeheader()
-writer.writerow({"name": "Lin", "score": 98})
-print(output.getvalue())
+### Type conversion and validation
+- **Definition:** CSV has no native types, so every field starts as text and requires application-level conversion and validation.
+- **Visual explanation:** ``field text -> parse -> validate -> typed record``
+- **Practical example:**
+
+```python
+raw = "42"
+quantity = int(raw)
+if quantity < 0:
+    raise ValueError("negative quantity")
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | CSV Processing belongs to the professional Python patterns part of Python mastery. |
-| ⚡ Purpose | Help developers apply professional Python patterns techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional professional Python patterns decisions. |
-| 🎯 Use Cases | Data exchange, observability, clean abstractions, and production utilities. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | CSV dialect, Dictionary rows, Type conversion and validation |
+| ⚡ Purpose | The csv module handles quoting, delimiters, and embedded newlines that manual string splitting gets wrong. |
+| 🔥 Benefits | Correct quoting and delimiter handling, streaming imports, and stable tabular exchange. |
+| 🎯 Use Cases | spreadsheet exchange, bulk imports, report exports |
+| 🚀 Best Practices | Use newline='' for file handles and define a stable column contract. |
+| ❌ Common Mistakes | Splitting lines on commas, which breaks quoted commas and newlines. |
 
 ## Syntax Guide
 
@@ -77,26 +74,30 @@ print(output.getvalue())
 
 ```python
 import csv
-rows = list(csv.DictReader(open("data.csv", newline="")))
+
+with open("data.csv", newline="", encoding="utf-8") as file:
+    for row in csv.reader(file):
+        print(row)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_csv_processing(value):
-    """Apply the CSV Processing concept to one value."""
-    return value
+import csv
 
-result = apply_csv_processing("practice")
-print(result)
+with open("report.csv", "w", newline="", encoding="utf-8") as file:
+    writer = csv.DictWriter(file, fieldnames=["name", "score"])
+    writer.writeheader()
+    writer.writerow({"name": "Ada", "score": 91})
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the CSV Processing problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Open with newline="" and explicit encoding.
+# Parse according to the agreed dialect.
+# Convert and validate every field.
+# Report row numbers for invalid records.
 ```
 
 ## Examples
@@ -107,8 +108,9 @@ print(result)
 import csv
 from io import StringIO
 
-file = StringIO("name,score\nAda,95\n")
-print(list(csv.DictReader(file)))
+source = StringIO('name,city\nAda,"London, UK"\n')
+for row in csv.reader(source):
+    print(row)
 ```
 
 ### Intermediate Example
@@ -117,38 +119,48 @@ print(list(csv.DictReader(file)))
 import csv
 from io import StringIO
 
-output = StringIO()
-writer = csv.DictWriter(output, fieldnames=["name", "score"])
-writer.writeheader()
-writer.writerow({"name": "Lin", "score": 98})
-print(output.getvalue())
+source = StringIO("name,score\nAda,91\nLin,84\n")
+reader = csv.DictReader(source)
+scores = {row["name"]: int(row["score"]) for row in reader}
+print(scores)
 ```
 
 ### Advanced Example
 
 ```python
 import csv
+from dataclasses import dataclass
 from io import StringIO
 
-data = StringIO("dept,total\nSales,100\nSales,150\n")
-totals = {}
-for row in csv.DictReader(data):
-    totals[row["dept"]] = totals.get(row["dept"], 0) + int(row["total"])
-print(totals)
+@dataclass(frozen=True)
+class Sale:
+    product: str
+    quantity: int
+    unit_price: float
+
+def sales_from_csv(source):
+    for line_number, row in enumerate(csv.DictReader(source), start=2):
+        try:
+            sale = Sale(row["product"], int(row["quantity"]), float(row["unit_price"]))
+        except (KeyError, TypeError, ValueError) as error:
+            raise ValueError(f"invalid row {line_number}") from error
+        if sale.quantity < 0 or sale.unit_price < 0:
+            raise ValueError(f"negative value on row {line_number}")
+        yield sale
+
+data = StringIO("product,quantity,unit_price\nBook,2,12.50\n")
+print(list(sales_from_csv(data)))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify CSV Processing Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Open text stream] --> B[Apply CSV dialect]
+    B --> C[Map fields]
+    C --> D[Convert and validate types]
+    D --> E[Consume or write rows]
 ```
-
-
----
 
 ---
 

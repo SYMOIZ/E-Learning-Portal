@@ -5,101 +5,108 @@
 # Object Oriented Programming
 
 ## Overview
-- **What is it?** Object Oriented Programming is a Python knowledge area focused on object-oriented design.
-- **Why is it important?** Help developers apply object-oriented design techniques safely, clearly, and consistently.
-- **Where is it used?** Domain modeling, application architecture, frameworks, and reusable components.
+- **What is it?** Object Oriented Programming is the intermediate Python topic of organizing behavior and state around domain objects rather than unrelated procedures.
+- **Why is it important?** It provides a vocabulary for modeling changing state, responsibilities, and collaborations without turning every value into a class.
+- **Where is it used?** business domain models, GUI components, service layers and plugins.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review object oriented programming code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind object oriented programming.
-- Expected outcome: you can use object oriented programming in a small project and recognize when it belongs in production code.
+- Separate state, behavior, and collaboration responsibilities.
+- Choose composition or inheritance deliberately.
+- Keep object boundaries small enough to test.
 
 ## Real World Applications
-- **Industry use cases:** Domain modeling, application architecture, frameworks, and reusable components.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Business domain models rely on this topic.
+- **Product work:** It supports GUI components.
+- **Operations:** It appears in service layers and plugins.
 
 ## Core Concepts
 
-### Model
-- **Definition:** The main idea that gives object oriented programming its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Object Oriented Programming model -> clear code`
+### Objects and responsibilities
+- **Definition:** OOP assigns a cohesive responsibility to an object that owns state and the operations that protect it.
+- **Visual explanation:** ``request -> Cart object -> validated state change``
 - **Practical example:**
 
 ```python
-apply_object_oriented_programming_label = "Object Oriented Programming"
-print(apply_object_oriented_programming_label)
+class Cart:
+    def __init__(self):
+        self.items = []
+
+    def add(self, sku):
+        self.items.append(sku)
+
+cart = Cart()
+cart.add("BOOK-1")
 ```
 
-### Interface
-- **Definition:** The ordered steps Python follows when object oriented programming code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Composition
+- **Definition:** Composition builds behavior by storing collaborating objects, expressing a has-a relationship without coupling subclasses.
+- **Visual explanation:** ``Checkout has-a PriceCalculator -> total``
 - **Practical example:**
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
+class Checkout:
+    def __init__(self, calculator):
+        self.calculator = calculator
 
-print(Dog().speak())
+    def total(self, prices):
+        return self.calculator.sum(prices)
 ```
 
-### Behavior Rule
-- **Definition:** The reliability habit that keeps object oriented programming understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Cohesion and coupling
+- **Definition:** Cohesion keeps related behavior together; low coupling lets an object depend on a narrow collaborator contract.
+- **Visual explanation:** ``cohesive object + narrow boundary -> replaceable parts``
 - **Practical example:**
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
-
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
-
-account = Account()
-account.deposit(50)
-print(account.balance)
+class Notifier:
+    def send_receipt(self, order, sender):
+        sender(order.customer_email, order.receipt())
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Object Oriented Programming belongs to the object-oriented design part of Python mastery. |
-| ⚡ Purpose | Help developers apply object-oriented design techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional object-oriented design decisions. |
-| 🎯 Use Cases | Domain modeling, application architecture, frameworks, and reusable components. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Objects and responsibilities, Composition, Cohesion and coupling |
+| ⚡ Purpose | It provides a vocabulary for modeling changing state, responsibilities, and collaborations without turning every value into a class. |
+| 🔥 Benefits | Clear responsibility boundaries, replaceable collaborators, and behavior-focused tests. |
+| 🎯 Use Cases | business domain models, GUI components, service layers and plugins |
+| 🚀 Best Practices | Model a meaningful responsibility; prefer composition when the relationship is has-a. |
+| ❌ Common Mistakes | Creating data-only classes plus one oversized manager object. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-class Customer:
-    def __init__(self, name):
-        self.name = name
+class Temperature:
+    def __init__(self, celsius: float):
+        self.celsius = celsius
+
+    def fahrenheit(self) -> float:
+        return self.celsius * 9 / 5 + 32
 ```
 
 ### Standard Structure
 
 ```python
-def apply_object_oriented_programming(value):
-    """Apply the Object Oriented Programming concept to one value."""
-    return value
+class OrderService:
+    def __init__(self, repository, payment_gateway):
+        self.repository = repository
+        self.payment_gateway = payment_gateway
 
-result = apply_object_oriented_programming("practice")
-print(result)
+    def place(self, order):
+        self.payment_gateway.charge(order.total)
+        self.repository.save(order)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Object Oriented Programming problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# 1. Name the domain responsibility.
+# 2. Keep its invariants beside its state.
+# 3. Inject collaborators through a narrow interface.
+# 4. Test observable behavior, not internal attributes.
 ```
 
 ## Examples
@@ -107,56 +114,67 @@ print(result)
 ### Beginner Example
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
+class Counter:
+    def __init__(self):
+        self.value = 0
 
-print(Dog().speak())
+    def increment(self):
+        self.value += 1
+
+counter = Counter()
+counter.increment()
+print(counter.value)
 ```
 
 ### Intermediate Example
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
+class PercentageDiscount:
+    def __init__(self, rate: float):
+        if not 0 <= rate <= 1:
+            raise ValueError("rate must be between 0 and 1")
+        self.rate = rate
 
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
+    def apply(self, amount: float) -> float:
+        return amount * (1 - self.rate)
 
-account = Account()
-account.deposit(50)
-print(account.balance)
+print(PercentageDiscount(0.2).apply(50))
 ```
 
 ### Advanced Example
 
 ```python
 from dataclasses import dataclass
+from typing import Protocol
 
-@dataclass
+class TaxPolicy(Protocol):
+    def tax_for(self, subtotal: float) -> float: ...
+
+@dataclass(frozen=True)
 class Order:
-    id: int
-    total: float
+    subtotal: float
+    tax_policy: TaxPolicy
 
-    def is_large(self) -> bool:
-        return self.total >= 1000
+    @property
+    def total(self) -> float:
+        return self.subtotal + self.tax_policy.tax_for(self.subtotal)
 
-print(Order(1, 1200).is_large())
+class FlatTax:
+    def tax_for(self, subtotal: float) -> float:
+        return subtotal * 0.1
+
+print(Order(100, FlatTax()).total)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Object Oriented Programming Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Identify domain responsibility] --> B[Define state invariants]
+    B --> C[Compose collaborators]
+    C --> D[Send messages between objects]
+    D --> E[Test behavior]
 ```
-
-
----
 
 ---
 

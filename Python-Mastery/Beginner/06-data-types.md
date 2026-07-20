@@ -5,92 +5,97 @@
 # Data Types
 
 ## Overview
-- **What is it?** Data types classify values such as numbers, text, booleans, sequences, mappings, and None.
-- **Why is it important?** Choose operations that match the kind of value being processed.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** A data type defines a value's representation, supported operations, and behavior.
+- **Why is it important?** Choosing the right type prevents meaningless operations and models information accurately.
+- **Where is it used?** Programs use numbers, booleans, text, collections, mappings, and `None` for missing values.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review data types code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind data types.
-- Expected outcome: you can use data types in a small project and recognize when it belongs in production code.
+- Identify common built-in types with `type` and `isinstance`.
+- Select scalar or collection types that fit the data.
+- Explain mutability and why it affects updates and sharing.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Represent prices, labels, and yes/no flags.
+- Group records in lists, tuples, sets, or dictionaries.
+- Model an intentionally absent result with `None`.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives data types its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Data Types model -> clear code`
-- **Practical example:**
+### Scalar types
+- **Definition:** `int`, `float`, `bool`, and `NoneType` represent individual numeric, logical, or absent values.
+- **Visual explanation:** `value -> type -> allowed operations`
+- **Practical example:** Different literal forms create different types.
 
 ```python
-apply_data_types_label = "Data Types"
-print(apply_data_types_label)
+count = 3
+rate = 1.5
+active = True
+print(type(count), type(rate), type(active))
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when data types code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
-- **Practical example:**
+### Collection types
+- **Definition:** Lists and tuples are sequences, sets hold unique hashable values, and dictionaries map keys to values.
+- **Visual explanation:** `many values -> sequence, set, or mapping`
+- **Practical example:** One record uses a dictionary while tags use a set.
 
 ```python
-value = 42
-print(type(value).__name__)
+course = {"title": "Python", "lessons": 35}
+tags = {"beginner", "python"}
+print(course["title"], tags)
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps data types understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
-- **Practical example:**
+### Mutability
+- **Definition:** Mutable objects can change in place; immutable objects require a new value for any apparent update.
+- **Visual explanation:** `list -> mutate same object; string -> create new string`
+- **Practical example:** The list changes, while `upper` is a separate string.
 
 ```python
-profile = {"name": "Noor", "skills": ["Python", "SQL"], "active": True}
-print(profile["skills"][0])
+topics = ["syntax"]
+topics.append("types")
+name = "python"
+upper = name.upper()
+print(topics, name, upper)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Data Types belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Choose operations that match the kind of value being processed. |
-| 🔥 Benefits | Correct calculations, validation, serialization, and storage. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | A data type defines a value's representation, supported operations, and behavior. |
+| ⚡ Purpose | Represent each kind of information with the operations and behavior it requires. |
+| 🔥 Benefits | Choosing the right type prevents meaningless operations and models information accurately. |
+| 🎯 Use Cases | Programs use numbers, booleans, text, collections, mappings, and `None` for missing values. |
+| 🚀 Best Practices | Model meaning first, then select a type whose operations and mutability match that meaning. |
+| ❌ Common Mistakes | Using a string for every value and discovering too late that numeric or boolean operations are needed. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-age = 31
-price = 19.99
-name = "Python"
-is_active = True
-missing = None
+age = 21
+price = 9.99
+is_open = False
+name = "Kai"
 ```
 
 ### Standard Structure
 
 ```python
-def apply_data_types(value):
-    """Apply the Data Types concept to one value."""
-    return value
-
-result = apply_data_types("practice")
-print(result)
+values = [42, 3.5, "answer", True, None]
+for value in values:
+    print(value, type(value).__name__)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Data Types problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+profile = {
+    "name": "Kai",
+    "scores": [88, 92],
+    "skills": {"Python", "Git"},
+}
+print(isinstance(profile["scores"], list))
 ```
 
 ## Examples
@@ -98,42 +103,44 @@ print(result)
 ### Beginner Example
 
 ```python
-value = 42
-print(type(value).__name__)
+temperature = 23.5
+print(type(temperature).__name__)
 ```
 
 ### Intermediate Example
 
 ```python
-profile = {"name": "Noor", "skills": ["Python", "SQL"], "active": True}
-print(profile["skills"][0])
+inventory = {"pens": 12, "notebooks": 5}
+in_stock = inventory["pens"] > 0
+print(in_stock)
 ```
 
 ### Advanced Example
 
 ```python
-from typing import TypedDict
-
-class User(TypedDict):
-    id: int
-    email: str
-
-user: User = {"id": 1, "email": "dev@example.com"}
-print(user)
+readings = [18.2, 19.1, 18.7]
+summary = {
+    "minimum": min(readings),
+    "maximum": max(readings),
+    "count": len(readings),
+}
+print(summary)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Data Types Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Observe real-world value]
+    B[Identify needed operations]
+    C[Choose matching type]
+    D[Store and process value]
+    E[Validate type assumptions]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
-
-
----
 
 ---
 

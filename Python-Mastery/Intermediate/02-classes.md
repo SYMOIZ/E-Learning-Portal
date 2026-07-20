@@ -5,101 +5,106 @@
 # Classes
 
 ## Overview
-- **What is it?** Classes is a Python knowledge area focused on object-oriented design.
-- **Why is it important?** Help developers apply object-oriented design techniques safely, clearly, and consistently.
-- **Where is it used?** Domain modeling, application architecture, frameworks, and reusable components.
+- **What is it?** Classes is the intermediate Python topic of defining reusable types that describe the data and behavior shared by their instances.
+- **Why is it important?** A class is the blueprint and namespace; it is not an individual runtime object.
+- **Where is it used?** validated domain types, framework models, reusable adapters.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review classes code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind classes.
-- Expected outcome: you can use classes in a small project and recognize when it belongs in production code.
+- Define instance, class, and static methods correctly.
+- Distinguish class attributes from instance attributes.
+- Use class methods as named alternative constructors.
 
 ## Real World Applications
-- **Industry use cases:** Domain modeling, application architecture, frameworks, and reusable components.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Validated domain types rely on this topic.
+- **Product work:** It supports framework models.
+- **Operations:** It appears in reusable adapters.
 
 ## Core Concepts
 
-### Model
-- **Definition:** The main idea that gives classes its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Classes model -> clear code`
+### Class body and namespace
+- **Definition:** Executing a class statement creates a namespace and then a class object whose attributes come from that namespace.
+- **Visual explanation:** ``class statement -> namespace -> class object``
 - **Practical example:**
 
 ```python
-apply_classes_label = "Classes"
-print(apply_classes_label)
+class Plan:
+    currency = "USD"
+
+print(Plan.currency)
 ```
 
-### Interface
-- **Definition:** The ordered steps Python follows when classes code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Instance methods
+- **Definition:** An instance method is a function descriptor that binds the receiving instance to its first parameter, conventionally self.
+- **Visual explanation:** ``plan.price() -> Plan.price(plan)``
 - **Practical example:**
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
+class Plan:
+    def label(self):
+        return f"{self.name} plan"
 
-print(Dog().speak())
+plan = Plan()
+plan.name = "Pro"
+print(plan.label())
 ```
 
-### Behavior Rule
-- **Definition:** The reliability habit that keeps classes understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Class and static methods
+- **Definition:** A class method receives the class and supports polymorphic factories; a static method is namespaced utility code with no implicit receiver.
+- **Visual explanation:** ``cls factory | static utility``
 - **Practical example:**
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
+class User:
+    @classmethod
+    def guest(cls):
+        return cls("guest")
 
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
-
-account = Account()
-account.deposit(50)
-print(account.balance)
+    def __init__(self, name):
+        self.name = name
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Classes belongs to the object-oriented design part of Python mastery. |
-| ⚡ Purpose | Help developers apply object-oriented design techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional object-oriented design decisions. |
-| 🎯 Use Cases | Domain modeling, application architecture, frameworks, and reusable components. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Class body and namespace, Instance methods, Class and static methods |
+| ⚡ Purpose | A class is the blueprint and namespace; it is not an individual runtime object. |
+| 🔥 Benefits | Reusable type definitions, shared behavior, and expressive construction APIs. |
+| 🎯 Use Cases | validated domain types, framework models, reusable adapters |
+| 🚀 Best Practices | Put shared constants on the class and per-object mutable state on each instance. |
+| ❌ Common Mistakes | Using a mutable class attribute as if every instance owned a separate value. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-class Customer:
-    def __init__(self, name):
-        self.name = name
+class Product:
+    category = "book"
+
+    def title_line(self):
+        return self.title.upper()
 ```
 
 ### Standard Structure
 
 ```python
-def apply_classes(value):
-    """Apply the Classes concept to one value."""
-    return value
+class Distance:
+    def __init__(self, meters: float):
+        self.meters = meters
 
-result = apply_classes("practice")
-print(result)
+    @classmethod
+    def from_kilometers(cls, kilometers: float):
+        return cls(kilometers * 1000)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Classes problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Class attribute: shared definition-level data
+# Instance attribute: state unique to one object
+# Instance method: behavior using self
+# Class method: factory using cls
 ```
 
 ## Examples
@@ -107,56 +112,61 @@ print(result)
 ### Beginner Example
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
+class Greeter:
+    greeting = "Hello"
 
-print(Dog().speak())
+    def greet(self, name):
+        return f"{self.greeting}, {name}"
+
+print(Greeter().greet("Ada"))
 ```
 
 ### Intermediate Example
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
+class InventoryItem:
+    tax_rate = 0.2
 
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
+    def __init__(self, name: str, net_price: float):
+        self.name = name
+        self.net_price = net_price
 
-account = Account()
-account.deposit(50)
-print(account.balance)
+    def gross_price(self) -> float:
+        return self.net_price * (1 + self.tax_rate)
+
+print(InventoryItem("Keyboard", 50).gross_price())
 ```
 
 ### Advanced Example
 
 ```python
-from dataclasses import dataclass
+class Color:
+    def __init__(self, red: int, green: int, blue: int):
+        self.red, self.green, self.blue = red, green, blue
 
-@dataclass
-class Order:
-    id: int
-    total: float
+    @classmethod
+    def from_hex(cls, value: str):
+        value = value.removeprefix("#")
+        if len(value) != 6:
+            raise ValueError("expected six hexadecimal digits")
+        return cls(*(int(value[index:index + 2], 16) for index in (0, 2, 4)))
 
-    def is_large(self) -> bool:
-        return self.total >= 1000
+    @staticmethod
+    def channel_is_valid(channel: int) -> bool:
+        return 0 <= channel <= 255
 
-print(Order(1, 1200).is_large())
+print(vars(Color.from_hex("#336699")))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Classes Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Execute class body] --> B[Create class object]
+    B --> C[Call class]
+    C --> D[Bind methods to instance]
+    D --> E[Run behavior]
 ```
-
-
----
 
 ---
 

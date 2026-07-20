@@ -5,91 +5,105 @@
 # Debugging Basics
 
 ## Overview
-- **What is it?** Debugging is the process of finding, understanding, and fixing defects.
-- **Why is it important?** Use evidence instead of guesses when code behaves unexpectedly.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** Debugging is an evidence-driven process for reproducing, locating, explaining, fixing, and preventing defects.
+- **Why is it important?** A disciplined workflow replaces guesses with observations from tracebacks, tests, logging, and debugger state.
+- **Where is it used?** Every development role debugs incorrect results, exceptions, integrations, and environment differences.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review debugging basics code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind debugging basics.
-- Expected outcome: you can use debugging basics in a small project and recognize when it belongs in production code.
+- Reproduce a defect with the smallest reliable input.
+- Read a traceback from the final exception upward through relevant frames.
+- Form a hypothesis, inspect state, apply one fix, and add a regression check.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Find an off-by-one calculation.
+- Trace malformed data to its source.
+- Compare expected and actual state at a breakpoint.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives debugging basics its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Debugging Basics model -> clear code`
+### Reliable reproduction
+- **Definition:** A reproducible case records the input, environment, steps, expected result, and actual result.
+- **Visual explanation:** `known setup + input -> repeatable failure`
 - **Practical example:**
 
 ```python
-apply_debugging_basics_label = "Debugging Basics"
-print(apply_debugging_basics_label)
+def last_item(items):
+    return items[-1]
+
+sample = ["a", "b"]
+print(last_item(sample))
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when debugging basics code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Tracebacks and state
+- **Definition:** A traceback identifies exception type, message, and active call frames; inspected values explain how execution reached the failure.
+- **Visual explanation:** `exception -> traceback frames -> relevant variables`
 - **Practical example:**
 
 ```python
-topic = "Debugging Basics"
-print(f"Learning {topic}")
+def ratio(total, count):
+    assert count > 0, "count must be positive"
+    return total / count
+
+print(ratio(12, 3))
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps debugging basics understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Hypothesis and regression
+- **Definition:** Change one suspected cause, rerun the reproduction, then preserve the case as an automated assertion.
+- **Visual explanation:** `failure -> hypothesis -> focused fix -> regression test`
 - **Practical example:**
 
 ```python
-def summarize_debugging_basics(items: list[str]) -> dict[str, int]:
-    return {"topic_count": len(items), "unique_count": len(set(items))}
+def inclusive_count(start, stop):
+    return stop - start + 1
 
-print(summarize_debugging_basics(["learn", "practice", "learn"]))
+assert inclusive_count(3, 5) == 3
+print("Regression check passed")
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Debugging Basics belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Use evidence instead of guesses when code behaves unexpectedly. |
-| 🔥 Benefits | Faster issue resolution, better tests, and reliable delivery. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Debugging is an evidence-driven process for reproducing, locating, explaining, fixing, and preventing defects. |
+| ⚡ Purpose | Locate and explain a defect through reproducible evidence before correcting it. |
+| 🔥 Benefits | A disciplined workflow replaces guesses with observations from tracebacks, tests, logging, and debugger state. |
+| 🎯 Use Cases | Every development role debugs incorrect results, exceptions, integrations, and environment differences. |
+| 🚀 Best Practices | Record expected versus actual behavior, inspect values near the first wrong state, and keep a test for every fixed bug. |
+| ❌ Common Mistakes | Changing several lines before reproducing the bug, making it impossible to know which change mattered. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-topic_name = "Debugging Basics"
-print(topic_name)
+values = [2, 4, 6]
+print("count:", len(values), "values:", values)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_debugging_basics(value):
-    """Apply the Debugging Basics concept to one value."""
-    return value
+def average(total, count):
+    print(f"DEBUG {total=} {count=}")
+    return total / count
 
-result = apply_debugging_basics("practice")
-print(result)
+result = average(18, 3)
+assert result == 6
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Debugging Basics problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+def calculate_discount(price, percent):
+    if not 0 <= percent <= 100:
+        raise ValueError("percent must be from 0 to 100")
+    return price * (1 - percent / 100)
+
+cases = [(100, 20, 80), (50, 0, 50), (50, 100, 0)]
+for price, percent, expected in cases:
+    actual = calculate_discount(price, percent)
+    assert actual == expected, (price, percent, expected, actual)
+print("All regression cases passed")
 ```
 
 ## Examples
@@ -97,45 +111,51 @@ print(result)
 ### Beginner Example
 
 ```python
-topic = "Debugging Basics"
-print(f"Learning {topic}")
+expected = 10
+actual = 4 + 6
+print({"expected": expected, "actual": actual})
+assert actual == expected
 ```
 
 ### Intermediate Example
 
 ```python
-def summarize_debugging_basics(items: list[str]) -> dict[str, int]:
-    return {"topic_count": len(items), "unique_count": len(set(items))}
+def lookup(items, index):
+    print(f"DEBUG {len(items)=} {index=}")
+    return items[index]
 
-print(summarize_debugging_basics(["learn", "practice", "learn"]))
+assert lookup(["a", "b", "c"], 2) == "c"
 ```
 
 ### Advanced Example
 
 ```python
-from dataclasses import dataclass
+def calculate_pages(total_items, page_size):
+    if page_size <= 0:
+        raise ValueError("page_size must be positive")
+    return (total_items + page_size - 1) // page_size
 
-@dataclass(frozen=True)
-class DebuggingBasicsOutcome:
-    topic: str
-    evidence: str
-
-outcome = DebuggingBasicsOutcome("Debugging Basics", "production-ready understanding")
-print(outcome)
+tests = [(0, 10, 0), (1, 10, 1), (10, 10, 1), (11, 10, 2)]
+for total, size, expected in tests:
+    actual = calculate_pages(total, size)
+    assert actual == expected, f"{total=}, {size=}, {actual=}"
+print("Pagination regression tests passed")
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Debugging Basics Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Capture expected and actual behavior]
+    B[Reproduce smallest failing case]
+    C[Read traceback and inspect state]
+    D[Test one root-cause hypothesis]
+    E[Fix and retain regression check]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
-
-
----
 
 ---
 

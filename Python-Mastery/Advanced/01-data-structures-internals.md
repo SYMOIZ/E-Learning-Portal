@@ -5,90 +5,111 @@
 # Data Structures Internals
 
 ## Overview
-- **What is it?** Data Structures Internals is a Python knowledge area focused on advanced language engineering.
-- **Why is it important?** Help developers apply advanced language engineering techniques safely, clearly, and consistently.
-- **Where is it used?** Performance-sensitive systems, frameworks, libraries, and technical interviews.
+- **What is it?** Python containers are implemented with specialized memory layouts and algorithms: dynamic arrays for `list`, open-addressed hash tables for `dict` and `set`, and compact immutable records for `tuple`.
+- **Why is it important?** Knowing those internals explains amortized complexity, ordering, memory cost, hash requirements, and surprising mutation behavior.
+- **Where is it used?** Use this knowledge when selecting containers, reviewing hot paths, designing cache keys, or diagnosing memory growth.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review data structures internals code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind data structures internals.
-- Expected outcome: you can use data structures internals in a small project and recognize when it belongs in production code.
+- Relate list growth and dictionary hashing to observed time and space complexity.
+- Choose containers from workload characteristics rather than surface syntax.
+- Recognize hash, equality, aliasing, and mutation hazards in production code.
 
 ## Real World Applications
-- **Industry use cases:** Performance-sensitive systems, frameworks, libraries, and technical interviews.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Low-latency queues, indexes, caches, deduplication sets, and graph adjacency maps.
+- Capacity planning for large in-memory datasets and object-heavy services.
+- Technical design reviews where asymptotic and constant-factor costs both matter.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives data structures internals its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Data Structures Internals model -> clear code`
+### Dynamic Arrays and Amortization
+- **Definition:** A Python list stores references in a contiguous pointer array and over-allocates when it grows, making most appends O(1) amortized while middle insertion remains O(n).
+- **Visual explanation:** `logical items → spare pointer slots → occasional resize-and-copy`
 - **Practical example:**
 
 ```python
-apply_data_structures_internals_label = "Data Structures Internals"
-print(apply_data_structures_internals_label)
+import sys
+
+values: list[int] = []
+sizes = []
+for number in range(20):
+    before = sys.getsizeof(values)
+    values.append(number)
+    if sys.getsizeof(values) != before:
+        sizes.append((len(values), sys.getsizeof(values)))
+print(sizes)
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when data structures internals code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Hash Tables and Key Contracts
+- **Definition:** Dictionaries locate entries from a key hash and resolve collisions by probing; keys must keep compatible, stable `__hash__` and `__eq__` behavior while stored.
+- **Visual explanation:** `hash(key) → probe sequence → equality check → value slot`
 - **Practical example:**
 
 ```python
-profile = {"name": "Lin", "age": 29}
-print(profile["name"])
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class Coordinate:
+    x: int
+    y: int
+
+cache = {Coordinate(2, 5): "occupied"}
+print(cache[Coordinate(2, 5)])
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps data structures internals understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Views, Aliasing, and Copies
+- **Definition:** Assignment aliases a container, shallow copies duplicate only the outer container, and dictionary views remain connected to the source mapping.
+- **Visual explanation:** `mapping → live view; shallow copy → shared nested objects`
 - **Practical example:**
 
 ```python
-inventory = {"laptop": 3, "mouse": 10}
-inventory["laptop"] -= 1
-print(inventory)
+original = {"roles": ["reader"]}
+clone = original.copy()
+keys = original.keys()
+clone["roles"].append("editor")
+original["active"] = True
+print(original, list(keys))
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Data Structures Internals belongs to the advanced language engineering part of Python mastery. |
-| ⚡ Purpose | Help developers apply advanced language engineering techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional advanced language engineering decisions. |
-| 🎯 Use Cases | Performance-sensitive systems, frameworks, libraries, and technical interviews. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Python containers are implemented with specialized memory layouts and algorithms: dynamic arrays for `list`, open-addressed hash tables for `dict` and `set`, and compact immutable records for `tuple`. |
+| ⚡ Purpose | Knowing those internals explains amortized complexity, ordering, memory cost, hash requirements, and surprising mutation behavior. |
+| 🔥 Benefits | Builds the ability to relate list growth and dictionary hashing to observed time and space complexity; it also helps practitioners choose containers from workload characteristics rather than surface syntax. |
+| 🎯 Use Cases | Low-latency queues, indexes, caches, deduplication sets, and graph adjacency maps. Capacity planning for large in-memory datasets and object-heavy services. |
+| 🚀 Best Practices | Prefer `deque` for frequent operations at both ends. |
+| ❌ Common Mistakes | Ignoring the guardrail “Never mutate state that participates in a stored key's hash”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-user = {"name": "Ada", "role": "admin"}
-print(user["name"])
+from collections import deque
+
+pending = deque(["a", "b"])
+pending.appendleft("urgent")
+next_item = pending.popleft()
 ```
 
 ### Standard Structure
 
 ```python
-def apply_data_structures_internals(value):
-    """Apply the Data Structures Internals concept to one value."""
-    return value
+from collections import defaultdict
 
-result = apply_data_structures_internals("practice")
-print(result)
+index: defaultdict[str, list[int]] = defaultdict(list)
+for position, word in enumerate(["red", "blue", "red"]):
+    index[word].append(position)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Data Structures Internals problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+from collections.abc import Iterable
+
+def unique_in_order(items: Iterable[str]) -> list[str]:
+    return list(dict.fromkeys(items))
 ```
 
 ## Examples
@@ -96,41 +117,50 @@ print(result)
 ### Beginner Example
 
 ```python
-profile = {"name": "Lin", "age": 29}
-print(profile["name"])
+values = [8, 3, 8, 1]
+unique = set(values)
+ordered_unique = list(dict.fromkeys(values))
+print(unique, ordered_unique)
 ```
 
 ### Intermediate Example
 
 ```python
-inventory = {"laptop": 3, "mouse": 10}
-inventory["laptop"] -= 1
-print(inventory)
+from collections import Counter
+
+words = "hash tables reward stable hash keys".split()
+frequencies = Counter(words)
+most_common = frequencies.most_common(2)
+print(most_common)
 ```
 
 ### Advanced Example
 
 ```python
-from collections import defaultdict
+from collections import deque
 
-counts = defaultdict(int)
-for word in ["api", "db", "api"]:
-    counts[word] += 1
-print(dict(counts))
+graph = {"api": ["cache", "db"], "cache": [], "db": ["disk"], "disk": []}
+frontier = deque(["api"])
+visited = {"api"}
+while frontier:
+    node = frontier.popleft()
+    for neighbor in graph[node]:
+        if neighbor not in visited:
+            visited.add(neighbor)
+            frontier.append(neighbor)
+print(visited)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Data Structures Internals Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Characterize access pattern] --> B[Estimate time and memory]
+    B --> C[Select container]
+    C --> D[Measure workload]
+    D --> E[Revisit choice]
+    E -. feedback .-> A
 ```
-
-
----
 
 ---
 

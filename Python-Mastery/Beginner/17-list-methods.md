@@ -5,91 +5,93 @@
 # List Methods
 
 ## Overview
-- **What is it?** List methods mutate, query, sort, and manage list contents.
-- **Why is it important?** Maintain ordered collections efficiently.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** List methods are operations attached to lists for adding, removing, locating, ordering, and copying elements.
+- **Why is it important?** They expose list mutation directly and make collection maintenance concise.
+- **Where is it used?** Task managers, carts, rankings, and processing queues use these methods to update state.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review list methods code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind list methods.
-- Expected outcome: you can use list methods in a small project and recognize when it belongs in production code.
+- Use append, extend, insert, remove, and pop intentionally.
+- Sort in place and distinguish `list.sort` from `sorted`.
+- Copy a list and inspect method return values correctly.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Add or remove cart items.
+- Reorder scores or names.
+- Consume queued work while retaining the removed item.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives list methods its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> List Methods model -> clear code`
+### Adding items
+- **Definition:** `append` adds one object, `extend` adds each item from an iterable, and `insert` adds at an index.
+- **Visual explanation:** `list -> append one or extend many -> mutated list`
 - **Practical example:**
 
 ```python
-apply_list_methods_label = "List Methods"
-print(apply_list_methods_label)
+topics = ["syntax"]
+topics.append("lists")
+topics.extend(["tuples", "sets"])
+print(topics)
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when list methods code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Removing items
+- **Definition:** `remove` deletes the first equal value, while `pop` deletes and returns an item by index.
+- **Visual explanation:** `list -> remove by value or pop by position`
 - **Practical example:**
 
 ```python
-tasks = ["read", "practice", "review"]
-print(tasks)
+queue = ["first", "second"]
+served = queue.pop(0)
+print(served, queue)
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps list methods understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Ordering and copying
+- **Definition:** `sort` mutates and returns `None`; `sorted` returns a new list, and `copy` makes a shallow list copy.
+- **Visual explanation:** `source -> sorted copy; source.sort -> source reordered`
 - **Practical example:**
 
 ```python
-scores = [88, 92, 79]
-passed = [score for score in scores if score >= 80]
-print(passed)
+scores = [82, 95, 74]
+ranked = sorted(scores, reverse=True)
+print(scores, ranked)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | List Methods belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Maintain ordered collections efficiently. |
-| 🔥 Benefits | Task lists, carts, processing queues, and transformations. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | List methods are operations attached to lists for adding, removing, locating, ordering, and copying elements. |
+| ⚡ Purpose | Add, remove, locate, copy, and reorder elements in mutable lists. |
+| 🔥 Benefits | They expose list mutation directly and make collection maintenance concise. |
+| 🎯 Use Cases | Task managers, carts, rankings, and processing queues use these methods to update state. |
+| 🚀 Best Practices | Check whether mutation is intended, and never assign the result of a method such as `append` or `sort`. |
+| ❌ Common Mistakes | Writing `items = items.append(value)`, which replaces the list name with `None`. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-items = ["alpha", "beta"]
-items.append("gamma")
-print(items[0])
+tasks = ["read"]
+tasks.append("practice")
+print(tasks)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_list_methods(value):
-    """Apply the List Methods concept to one value."""
-    return value
-
-result = apply_list_methods("practice")
-print(result)
+names = ["Zoe", "ana", "Mika"]
+names.sort(key=str.lower)
+print(names)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the List Methods problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+history = ["login", "view", "logout"]
+working = history.copy()
+last_event = working.pop()
+working.insert(0, "session-start")
+print(last_event, working, history)
 ```
 
 ## Examples
@@ -97,40 +99,46 @@ print(result)
 ### Beginner Example
 
 ```python
-tasks = ["read", "practice", "review"]
-print(tasks)
+colors = ["red"]
+colors.extend(["green", "blue"])
+print(colors)
 ```
 
 ### Intermediate Example
 
 ```python
-scores = [88, 92, 79]
-passed = [score for score in scores if score >= 80]
-print(passed)
+inventory = ["pen", "book", "pen"]
+inventory.remove("pen")
+removed = inventory.pop()
+print(inventory, removed)
 ```
 
 ### Advanced Example
 
 ```python
-from bisect import insort
-
-rankings = [10, 20, 40]
-insort(rankings, 30)
-print(rankings)
+records = [
+    {"name": "Ari", "score": 78},
+    {"name": "Bea", "score": 91},
+]
+records.append({"name": "Chen", "score": 84})
+records.sort(key=lambda record: record["score"], reverse=True)
+print(records)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify List Methods Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Identify desired mutation]
+    B[Choose list method]
+    C[Call method on list]
+    D[Capture returned item if any]
+    E[Inspect updated list]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
-
-
----
 
 ---
 

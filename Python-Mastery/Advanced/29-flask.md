@@ -5,105 +5,116 @@
 # Flask
 
 ## Overview
-- **What is it?** Flask is a Python knowledge area focused on web application engineering.
-- **Why is it important?** Help developers apply web application engineering techniques safely, clearly, and consistently.
-- **Where is it used?** Apis, saas platforms, internal tools, and microservice ecosystems.
+- **What is it?** Flask is a focused WSGI web framework that provides routing, request and application contexts, response handling, templates, and extension integration.
+- **Why is it important?** Larger Flask systems use an application factory, blueprints, explicit configuration, and scoped resources to avoid global import-time coupling.
+- **Where is it used?** It is used for HTTP APIs, server-rendered sites, internal tools, webhooks, and small-to-medium services.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review flask code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind flask.
-- Expected outcome: you can use flask in a small project and recognize when it belongs in production code.
+- Build Flask routes, responses, error handlers, and request validation.
+- Structure applications with factories, blueprints, and context-scoped resources.
+- Test behavior with Flask's test client and isolate configuration.
 
 ## Real World Applications
-- **Industry use cases:** Apis, saas platforms, internal tools, and microservice ecosystems.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Compact APIs and webhook receivers with explicit composition.
+- Server-rendered internal tools using Jinja templates.
+- Modular services assembled from blueprints and extensions.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives flask its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Flask model -> clear code`
+### Application and Request Contexts
+- **Definition:** Flask proxies such as `request`, `current_app`, and `g` resolve to context-local objects during an active request or application context.
+- **Visual explanation:** `WSGI request → push contexts → view → teardown → pop contexts`
 - **Practical example:**
 
 ```python
-apply_flask_label = "Flask"
-print(apply_flask_label)
+from flask import Flask, current_app
+
+app = Flask(__name__)
+
+@app.get("/name")
+def name():
+    return {"application": current_app.name}
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when flask code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Application Factory and Blueprints
+- **Definition:** A factory builds a configured app instance and registers blueprints, enabling isolated tests and multiple deployments without import-time singleton state.
+- **Visual explanation:** `configuration → app factory → extensions + blueprints → WSGI app`
 - **Practical example:**
 
 ```python
-from fastapi import FastAPI
+from flask import Blueprint, Flask
 
-app = FastAPI()
+api = Blueprint("api", __name__, url_prefix="/api")
 
-@app.get("/")
-def root():
-    return {"message": "Hello API"}
+@api.get("/health")
+def health():
+    return {"status": "ready"}
+
+def create_app() -> Flask:
+    application = Flask(__name__)
+    application.register_blueprint(api)
+    return application
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps flask understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Validation and Error Responses
+- **Definition:** Flask leaves schema choices explicit, so handlers should reject malformed inputs and centralize stable JSON error mappings.
+- **Visual explanation:** `request payload → schema validation → domain action → response/error handler`
 - **Practical example:**
 
 ```python
-from pydantic import BaseModel
+from flask import request
 
-class UserIn(BaseModel):
-    email: str
-
-def create_user(user: UserIn) -> dict[str, str]:
-    return {"email": user.email, "status": "created"}
-
-print(create_user(UserIn(email="a@example.com")))
+@api.post("/items")
+def create_item():
+    payload = request.get_json(silent=False)
+    if not isinstance(payload, dict) or not payload.get("name"):
+        return {"error": "name is required"}, 400
+    return {"name": payload["name"]}, 201
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Flask belongs to the web application engineering part of Python mastery. |
-| ⚡ Purpose | Help developers apply web application engineering techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional web application engineering decisions. |
-| 🎯 Use Cases | Apis, saas platforms, internal tools, and microservice ecosystems. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Flask is a focused WSGI web framework that provides routing, request and application contexts, response handling, templates, and extension integration. |
+| ⚡ Purpose | Larger Flask systems use an application factory, blueprints, explicit configuration, and scoped resources to avoid global import-time coupling. |
+| 🔥 Benefits | Builds the ability to build Flask routes, responses, error handlers, and request validation; it also helps practitioners structure applications with factories, blueprints, and context-scoped resources. |
+| 🎯 Use Cases | Compact APIs and webhook receivers with explicit composition. Server-rendered internal tools using Jinja templates. |
+| 🚀 Best Practices | Teardown handlers release request-scoped resources. |
+| ❌ Common Mistakes | Ignoring the guardrail “Validate JSON shape before passing values to domain code”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-from fastapi import FastAPI
-app = FastAPI()
+from flask import Flask
 
-@app.get("/health")
-def health():
-    return {"ok": True}
+app = Flask(__name__)
+
+@app.get("/")
+def index():
+    return {"status": "ready"}
 ```
 
 ### Standard Structure
 
 ```python
-def apply_flask(value):
-    """Apply the Flask concept to one value."""
-    return value
+from flask import abort
 
-result = apply_flask("practice")
-print(result)
+@app.get("/items/<int:item_id>")
+def item(item_id: int):
+    if item_id < 1:
+        abort(404)
+    return {"id": item_id}
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Flask problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+@app.errorhandler(404)
+def not_found(error):
+    return {"error": "not found"}, 404
 ```
 
 ## Examples
@@ -111,56 +122,54 @@ print(result)
 ### Beginner Example
 
 ```python
-from fastapi import FastAPI
+from flask import Flask
 
-app = FastAPI()
+app = Flask(__name__)
 
-@app.get("/")
-def root():
-    return {"message": "Hello API"}
+@app.get("/greet/<name>")
+def greet(name: str):
+    return {"message": f"Hello, {name}"}
 ```
 
 ### Intermediate Example
 
 ```python
-from pydantic import BaseModel
-
-class UserIn(BaseModel):
-    email: str
-
-def create_user(user: UserIn) -> dict[str, str]:
-    return {"email": user.email, "status": "created"}
-
-print(create_user(UserIn(email="a@example.com")))
+with app.test_client() as client:
+    response = client.get("/greet/Ada")
+    assert response.status_code == 200
+    assert response.get_json()["message"] == "Hello, Ada"
 ```
 
 ### Advanced Example
 
 ```python
-from fastapi import Depends, FastAPI
+from flask import Flask, g
 
-app = FastAPI()
+def create_app(testing: bool = False) -> Flask:
+    application = Flask(__name__)
+    application.config["TESTING"] = testing
 
-def get_settings():
-    return {"debug": False}
+    @application.before_request
+    def begin_request() -> None:
+        g.request_state = {"opened": True}
 
-@app.get("/settings")
-def settings(settings = Depends(get_settings)):
-    return settings
+    @application.teardown_request
+    def end_request(error: BaseException | None) -> None:
+        g.pop("request_state", None)
+
+    return application
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Flask Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Create configured app] --> B[Receive WSGI request and contexts]
+    B --> C[Match blueprint route]
+    C --> D[Validate and execute handler]
+    D --> E[Build response and teardown]
+    E -. feedback .-> A
 ```
-
-
----
 
 ---
 

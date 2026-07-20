@@ -5,97 +5,96 @@
 # Generators
 
 ## Overview
-- **What is it?** Generators is a Python knowledge area focused on professional Python patterns.
-- **Why is it important?** Help developers apply professional Python patterns techniques safely, clearly, and consistently.
-- **Where is it used?** Data exchange, observability, clean abstractions, and production utilities.
+- **What is it?** Generators is the intermediate Python topic of writing lazy iterators with yield and generator expressions.
+- **Why is it important?** A generator suspends its frame between values, providing iterator behavior without a manual state-machine class.
+- **Where is it used?** large-file pipelines, event streams, incremental transformations.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review generators code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind generators.
-- Expected outcome: you can use generators in a small project and recognize when it belongs in production code.
+- Explain yield suspension.
+- Contrast generator functions with ordinary functions.
+- Compose lazy pipelines without retaining all data.
 
 ## Real World Applications
-- **Industry use cases:** Data exchange, observability, clean abstractions, and production utilities.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Large-file pipelines rely on this topic.
+- **Product work:** It supports event streams.
+- **Operations:** It appears in incremental transformations.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives generators its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Generators model -> clear code`
+### Generator functions
+- **Definition:** Calling a function containing yield returns a generator immediately; its body runs only as values are requested.
+- **Visual explanation:** ``call -> generator; next -> run until yield -> suspend``
 - **Practical example:**
 
 ```python
-apply_generators_label = "Generators"
-print(apply_generators_label)
+def ids():
+    yield 1
+    yield 2
+
+print(list(ids()))
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when generators code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Generator state
+- **Definition:** Local variables and the instruction position remain stored in the suspended generator frame.
+- **Visual explanation:** ``yield value + preserve locals -> resume later``
 - **Practical example:**
 
 ```python
-def countdown(start):
-    while start > 0:
-        yield start
-        start -= 1
-
-print(list(countdown(3)))
+def countdown(n):
+    while n:
+        yield n
+        n -= 1
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps generators understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Lazy composition
+- **Definition:** Generator expressions and yield from connect stages so only demanded items move through the pipeline.
+- **Visual explanation:** ``source -> lazy filter -> lazy map -> consumer``
 - **Practical example:**
 
 ```python
-def read_batches(rows, size):
-    for index in range(0, len(rows), size):
-        yield rows[index:index + size]
-
-print(list(read_batches([1, 2, 3, 4], 2)))
+squares = (n * n for n in range(5))
+print(next(squares))
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Generators belongs to the professional Python patterns part of Python mastery. |
-| ⚡ Purpose | Help developers apply professional Python patterns techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional professional Python patterns decisions. |
-| 🎯 Use Cases | Data exchange, observability, clean abstractions, and production utilities. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Generator functions, Generator state, Lazy composition |
+| ⚡ Purpose | A generator suspends its frame between values, providing iterator behavior without a manual state-machine class. |
+| 🔥 Benefits | Lazy production, low memory use, and readable streaming pipelines without manual iterator classes. |
+| 🎯 Use Cases | large-file pipelines, event streams, incremental transformations |
+| 🚀 Best Practices | Use generators for single-pass streams and document whether iteration has side effects. |
+| ❌ Common Mistakes | Converting a generator to a list before streaming benefits are needed. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-def numbers():
-    yield 1
-    yield 2
+def even_numbers(limit):
+    for number in range(limit):
+        if number % 2 == 0:
+            yield number
 ```
 
 ### Standard Structure
 
 ```python
-def apply_generators(value):
-    """Apply the Generators concept to one value."""
-    return value
-
-result = apply_generators("practice")
-print(result)
+def normalized(lines):
+    for line in lines:
+        text = line.strip()
+        if text:
+            yield text.casefold()
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Generators problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Read one source item.
+# Transform or filter it.
+# yield one result and suspend.
+# Resume only when the consumer asks.
 ```
 
 ## Examples
@@ -103,45 +102,61 @@ print(result)
 ### Beginner Example
 
 ```python
-def countdown(start):
+def countdown(start: int):
     while start > 0:
         yield start
         start -= 1
 
-print(list(countdown(3)))
+for number in countdown(3):
+    print(number)
 ```
 
 ### Intermediate Example
 
 ```python
-def read_batches(rows, size):
-    for index in range(0, len(rows), size):
-        yield rows[index:index + size]
+def parsed_scores(lines):
+    for line in lines:
+        name, raw_score = line.split(",")
+        yield name, int(raw_score)
 
-print(list(read_batches([1, 2, 3, 4], 2)))
+passing = (
+    name
+    for name, score in parsed_scores(["Ada,91", "Lin,58", "Sam,84"])
+    if score >= 60
+)
+print(list(passing))
 ```
 
 ### Advanced Example
 
 ```python
-def pipeline(values):
-    yield from (value * value for value in values if value % 2 == 0)
+def read_chunks(text: str, size: int):
+    for start in range(0, len(text), size):
+        yield text[start:start + size]
 
-print(list(pipeline(range(10))))
+def nonblank(chunks):
+    for chunk in chunks:
+        cleaned = chunk.strip()
+        if cleaned:
+            yield cleaned
+
+def stream_document(text: str):
+    yield from nonblank(read_chunks(text, 5))
+
+stream = stream_document("alpha beta gamma")
+print(next(stream))
+print(list(stream))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Generators Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Call generator function] --> B[Receive suspended generator]
+    B --> C[Consumer calls next]
+    C --> D[Run to yield and suspend]
+    D --> E[Finish with StopIteration]
 ```
-
-
----
 
 ---
 

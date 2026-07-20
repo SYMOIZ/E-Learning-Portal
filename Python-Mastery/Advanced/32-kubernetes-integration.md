@@ -5,94 +5,145 @@
 # Kubernetes Integration
 
 ## Overview
-- **What is it?** Kubernetes Integration is a Python knowledge area focused on cloud and DevOps.
-- **Why is it important?** Help developers apply cloud and DevOps techniques safely, clearly, and consistently.
-- **Where is it used?** Deployment automation, infrastructure operations, and scalable production delivery.
+- **What is it?** Kubernetes reconciles declared workload state through APIs and controllers, while the Python client can inspect or modify resources using the same authenticated API.
+- **Why is it important?** Reliable integrations use declarative manifests, namespaces, least-privilege service accounts, idempotent patching, watches, and conflict-aware retries.
+- **Where is it used?** It is used for deploying Python services, writing operators, automating jobs, and integrating platform workflows.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review kubernetes integration code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind kubernetes integration.
-- Expected outcome: you can use kubernetes integration in a small project and recognize when it belongs in production code.
+- Describe Pods, Deployments, Services, ConfigMaps, Secrets, and reconciliation.
+- Use Kubernetes Python client configuration and typed APIs.
+- Create safe manifests with probes, resources, security context, and rolling updates.
 
 ## Real World Applications
-- **Industry use cases:** Deployment automation, infrastructure operations, and scalable production delivery.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Deploying replicated Python HTTP services and background workers.
+- Creating Jobs or inspecting rollout state from automation.
+- Building controllers that converge custom resources toward desired state.
 
 ## Core Concepts
 
-### Runtime Artifact
-- **Definition:** The main idea that gives kubernetes integration its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Kubernetes Integration model -> clear code`
+### Declarative Reconciliation
+- **Definition:** Clients submit desired objects to the API server and controllers repeatedly compare observed state with desired state until they converge.
+- **Visual explanation:** `manifest → API server → controller reconcile loop → Pods/status`
 - **Practical example:**
 
 ```python
-apply_kubernetes_integration_label = "Kubernetes Integration"
-print(apply_kubernetes_integration_label)
+from kubernetes import client, config
+
+config.load_kube_config()
+apps = client.AppsV1Api()
+deployments = apps.list_namespaced_deployment(namespace="default")
+print([item.metadata.name for item in deployments.items])
 ```
 
-### Deployment Target
-- **Definition:** The ordered steps Python follows when kubernetes integration code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Workload Runtime Contract
+- **Definition:** A Deployment manages ReplicaSets and Pods; readiness gates traffic, liveness requests restarts, and resource requests inform scheduling.
+- **Visual explanation:** `Deployment → ReplicaSet → Pods → readiness → Service endpoints`
 - **Practical example:**
 
 ```python
-import json
-print(json.dumps({"language": "Python"}))
+deployment = client.V1Deployment(
+    metadata=client.V1ObjectMeta(name="api"),
+    spec=client.V1DeploymentSpec(
+        replicas=2,
+        selector=client.V1LabelSelector(match_labels={"app": "api"}),
+        template=client.V1PodTemplateSpec(
+            metadata=client.V1ObjectMeta(labels={"app": "api"}),
+            spec=client.V1PodSpec(containers=[
+                client.V1Container(name="api", image="example/api@sha256:digest")
+            ]),
+        ),
+    ),
+)
 ```
 
-### Operational Feedback
-- **Definition:** The reliability habit that keeps kubernetes integration understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### API Safety and Watches
+- **Definition:** Automation should scope namespace and RBAC, handle resource-version conflicts, watch from a known version, and make repeated actions converge.
+- **Visual explanation:** `authenticate → read resourceVersion → patch desired fields → watch status`
 - **Practical example:**
 
 ```python
-import json
+from kubernetes import client, config, watch
 
-raw = "{\"items\": [1, 2, 3]}"
-payload = json.loads(raw)
-print(sum(payload["items"]))
+config.load_kube_config()
+core = client.CoreV1Api()
+stream = watch.Watch().stream(
+    core.list_namespaced_pod,
+    namespace="default",
+    timeout_seconds=30,
+)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Kubernetes Integration belongs to the cloud and DevOps part of Python mastery. |
-| ⚡ Purpose | Help developers apply cloud and DevOps techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional cloud and DevOps decisions. |
-| 🎯 Use Cases | Deployment automation, infrastructure operations, and scalable production delivery. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Kubernetes reconciles declared workload state through APIs and controllers, while the Python client can inspect or modify resources using the same authenticated API. |
+| ⚡ Purpose | Reliable integrations use declarative manifests, namespaces, least-privilege service accounts, idempotent patching, watches, and conflict-aware retries. |
+| 🔥 Benefits | Builds the ability to describe Pods, Deployments, Services, ConfigMaps, Secrets, and reconciliation; it also helps practitioners use Kubernetes Python client configuration and typed APIs. |
+| 🎯 Use Cases | Deploying replicated Python HTTP services and background workers. Creating Jobs or inspecting rollout state from automation. |
+| 🚀 Best Practices | RBAC grants verbs on named resource scopes. |
+| ❌ Common Mistakes | Ignoring the guardrail “Avoid broad cluster-admin credentials and mutable image tags”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
-```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: python-api
+```python
+from kubernetes import client, config
+
+config.load_incluster_config()
+core = client.CoreV1Api()
+pods = core.list_namespaced_pod("default")
 ```
 
 ### Standard Structure
 
 ```python
-def apply_kubernetes_integration(value):
-    """Apply the Kubernetes Integration concept to one value."""
-    return value
-
-result = apply_kubernetes_integration("practice")
-print(result)
+job = client.V1Job(
+    metadata=client.V1ObjectMeta(name="report"),
+    spec=client.V1JobSpec(
+        template=client.V1PodTemplateSpec(
+            spec=client.V1PodSpec(
+                restart_policy="Never",
+                containers=[client.V1Container(name="report", image="example/report:1.0")],
+            )
+        )
+    ),
+)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Kubernetes Integration problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+def scale(name: str, replicas: int, namespace: str = "default") -> None:
+    api = client.AppsV1Api()
+    body = {"spec": {"replicas": replicas}}
+    api.patch_namespaced_deployment_scale(name, namespace, body)
+```
+
+#### Deployment Artifact
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: learning-api
+spec:
+  selector:
+    matchLabels:
+      app: learning-api
+  template:
+    metadata:
+      labels:
+        app: learning-api
+    spec:
+      containers:
+        - name: api
+          image: example/learning-api:1.0
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: 8000
 ```
 
 ## Examples
@@ -100,46 +151,49 @@ print(result)
 ### Beginner Example
 
 ```python
-import json
-print(json.dumps({"language": "Python"}))
+from kubernetes import client
+
+metadata = client.V1ObjectMeta(
+    name="lesson",
+    labels={"app.kubernetes.io/name": "lesson"},
+)
 ```
 
 ### Intermediate Example
 
 ```python
-import json
+from kubernetes import client, config
 
-raw = "{\"items\": [1, 2, 3]}"
-payload = json.loads(raw)
-print(sum(payload["items"]))
+config.load_kube_config()
+batch = client.BatchV1Api()
+created = batch.create_namespaced_job(namespace="default", body=job)
+print(created.metadata.name)
 ```
 
 ### Advanced Example
 
 ```python
-import json
-from dataclasses import asdict, dataclass
+from kubernetes import client, config
 
-@dataclass
-class Event:
-    name: str
-    count: int
-
-print(json.dumps(asdict(Event("login", 3))))
+config.load_kube_config()
+apps = client.AppsV1Api()
+status = apps.read_namespaced_deployment_status("api", "default").status
+available = status.available_replicas or 0
+desired = status.replicas or 0
+if available < desired:
+    raise RuntimeError(f"rollout incomplete: {available}/{desired}")
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Kubernetes Integration Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Authenticate to API] --> B[Submit desired manifest]
+    B --> C[Controller creates workload]
+    C --> D[Probes establish availability]
+    D --> E[Watch status and reconcile drift]
+    E -. feedback .-> A
 ```
-
-
----
 
 ---
 

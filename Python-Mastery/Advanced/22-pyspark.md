@@ -5,93 +5,110 @@
 # PySpark
 
 ## Overview
-- **What is it?** PySpark is a Python knowledge area focused on data engineering and analytics.
-- **Why is it important?** Help developers apply data engineering and analytics techniques safely, clearly, and consistently.
-- **Where is it used?** Pipelines, dashboards, feature engineering, and large-scale data platforms.
+- **What is it?** PySpark exposes Apache Spark's distributed DataFrame and SQL engine from Python for partitioned, fault-tolerant data processing.
+- **Why is it important?** Spark builds lazy logical plans, optimizes them, and executes stages across workers; shuffles, skew, serialization, and partition size dominate performance.
+- **Where is it used?** It is used for lakehouse ETL, large aggregations, feature pipelines, and distributed batch or streaming analytics.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review pyspark code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind pyspark.
-- Expected outcome: you can use pyspark in a small project and recognize when it belongs in production code.
+- Construct SparkSession and DataFrame transformations with explicit schemas.
+- Read execution plans and identify narrow operations, shuffles, and skew.
+- Use built-in SQL functions before Python UDFs and validate distributed outputs.
 
 ## Real World Applications
-- **Industry use cases:** Pipelines, dashboards, feature engineering, and large-scale data platforms.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Joining and aggregating datasets larger than one machine's memory.
+- Processing partitioned Parquet tables in data lakes.
+- Building restartable batch and Structured Streaming pipelines.
 
 ## Core Concepts
 
-### Dataset Representation
-- **Definition:** The main idea that gives pyspark its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> PySpark model -> clear code`
+### Lazy DataFrame Plans
+- **Definition:** Transformations build an immutable logical plan; an action triggers optimization, stage construction, and distributed execution.
+- **Visual explanation:** `DataFrame transformations → optimized plan → stages/tasks → action result`
 - **Practical example:**
 
 ```python
-apply_pyspark_label = "PySpark"
-print(apply_pyspark_label)
+from pyspark.sql import SparkSession, functions as F
+
+spark = SparkSession.builder.appName("lesson").getOrCreate()
+events = spark.createDataFrame([("A", 2), ("B", 3)], ["key", "value"])
+plan = events.where(F.col("value") > 1).groupBy("key").sum("value")
+plan.explain()
 ```
 
-### Transformation Pipeline
-- **Definition:** The ordered steps Python follows when pyspark code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Partitions and Shuffles
+- **Definition:** Partitions are units of parallel work; joins and aggregations often redistribute records by key, creating expensive network and disk shuffles.
+- **Visual explanation:** `input partitions → exchange by key → reduce partitions`
 - **Practical example:**
 
 ```python
-import pandas as pd
+from pyspark.sql import functions as F
 
-df = pd.DataFrame({"name": ["Ada", "Lin"], "score": [95, 98]})
-print(df)
+totals = (
+    events.repartition("key")
+    .groupBy("key")
+    .agg(F.sum("value").alias("total"))
+)
 ```
 
-### Validation Signal
-- **Definition:** The reliability habit that keeps pyspark understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Schema and Built-in Expressions
+- **Definition:** Explicit schemas avoid inference surprises, and Spark SQL expressions stay in the optimized JVM plan unlike ordinary Python-row UDF execution.
+- **Visual explanation:** `typed columns → Catalyst expressions → optimized physical operators`
 - **Practical example:**
 
 ```python
-import pandas as pd
+from pyspark.sql import Row, functions as F, types as T
 
-df = pd.DataFrame({"team": ["A", "A", "B"], "sales": [10, 15, 7]})
-print(df.groupby("team")["sales"].sum())
+schema = T.StructType([
+    T.StructField("id", T.StringType(), False),
+    T.StructField("amount", T.DoubleType(), False),
+])
+frame = spark.createDataFrame([Row(id="A", amount=4.5)], schema)
+normalized = frame.withColumn("amount_cents", F.round(F.col("amount") * 100))
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | PySpark belongs to the data engineering and analytics part of Python mastery. |
-| ⚡ Purpose | Help developers apply data engineering and analytics techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional data engineering and analytics decisions. |
-| 🎯 Use Cases | Pipelines, dashboards, feature engineering, and large-scale data platforms. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | PySpark exposes Apache Spark's distributed DataFrame and SQL engine from Python for partitioned, fault-tolerant data processing. |
+| ⚡ Purpose | Spark builds lazy logical plans, optimizes them, and executes stages across workers; shuffles, skew, serialization, and partition size dominate performance. |
+| 🔥 Benefits | Builds the ability to construct SparkSession and DataFrame transformations with explicit schemas; it also helps practitioners read execution plans and identify narrow operations, shuffles, and skew. |
+| 🎯 Use Cases | Joining and aggregating datasets larger than one machine's memory. Processing partitioned Parquet tables in data lakes. |
+| 🚀 Best Practices | Use Parquet projection and predicate pushdown. |
+| ❌ Common Mistakes | Ignoring the guardrail “Inspect plans and skew before adding clusters or caching everything”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import pandas as pd
-df = pd.DataFrame({"value": [1, 2, 3]})
+from pyspark.sql import SparkSession
+
+spark = SparkSession.builder.appName("analytics").getOrCreate()
+frame = spark.read.parquet("s3://bucket/events/")
 ```
 
 ### Standard Structure
 
 ```python
-def apply_pyspark(value):
-    """Apply the PySpark concept to one value."""
-    return value
+from pyspark.sql import functions as F
 
-result = apply_pyspark("practice")
-print(result)
+daily = (
+    frame.where(F.col("status") == "complete")
+    .groupBy(F.to_date("created_at").alias("date"))
+    .agg(F.count("*").alias("orders"))
+)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the PySpark problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+def validate_unique(frame, key: str) -> None:
+    from pyspark.sql import functions as F
+
+    duplicate = frame.groupBy(key).count().where(F.col("count") > 1).limit(1)
+    if duplicate.count():
+        raise ValueError(f"duplicate key: {key}")
 ```
 
 ## Examples
@@ -99,43 +116,54 @@ print(result)
 ### Beginner Example
 
 ```python
-import pandas as pd
+from pyspark.sql import SparkSession
 
-df = pd.DataFrame({"name": ["Ada", "Lin"], "score": [95, 98]})
-print(df)
+spark = SparkSession.builder.master("local[*]").appName("example").getOrCreate()
+numbers = spark.range(5)
+numbers.show()
 ```
 
 ### Intermediate Example
 
 ```python
-import pandas as pd
+from pyspark.sql import functions as F
 
-df = pd.DataFrame({"team": ["A", "A", "B"], "sales": [10, 15, 7]})
-print(df.groupby("team")["sales"].sum())
+orders = spark.createDataFrame(
+    [("A", 10.0), ("A", 15.0), ("B", 7.0)],
+    ["customer", "amount"],
+)
+summary = orders.groupBy("customer").agg(F.sum("amount").alias("total"))
+summary.orderBy(F.desc("total")).show()
 ```
 
 ### Advanced Example
 
 ```python
-import pandas as pd
+from pyspark.sql import functions as F
 
-orders = pd.DataFrame({"user_id": [1, 2], "total": [50, 75]})
-users = pd.DataFrame({"user_id": [1, 2], "name": ["Ada", "Lin"]})
-print(orders.merge(users, on="user_id"))
+customers = spark.createDataFrame([("A", "gold"), ("B", "silver")], ["customer", "tier"])
+enriched = (
+    orders.join(F.broadcast(customers), "customer", "left")
+    .withColumn("event_date", F.current_date())
+    .select("event_date", "customer", "tier", "amount")
+)
+(
+    enriched.write.mode("overwrite")
+    .partitionBy("event_date")
+    .parquet("/tmp/enriched-orders")
+)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify PySpark Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Read partitioned data] --> B[Build lazy DataFrame plan]
+    B --> C[Inspect optimized exchanges]
+    C --> D[Execute distributed action]
+    D --> E[Validate counts and write partitions]
+    E -. feedback .-> A
 ```
-
-
----
 
 ---
 

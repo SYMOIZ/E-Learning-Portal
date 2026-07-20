@@ -5,93 +5,111 @@
 # Basic Project Structure
 
 ## Overview
-- **What is it?** Basic project structure organizes source code, tests, docs, and configuration into predictable folders.
-- **Why is it important?** Make projects easier to navigate, test, and maintain.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** Basic project structure gives source code, tests, configuration, documentation, and generated files predictable locations.
+- **Why is it important?** A clear layout makes imports, commands, collaboration, testing, and packaging easier to understand.
+- **Where is it used?** Even small scripts benefit when they grow into maintained applications or reusable packages.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review basic project structure code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind basic project structure.
-- Expected outcome: you can use basic project structure in a small project and recognize when it belongs in production code.
+- Separate importable source from tests and project documentation.
+- Add an entry point guarded by `__name__ == '__main__'`.
+- Keep generated environments, caches, secrets, and build output out of version control.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Onboard contributors with an obvious starting point.
+- Run tests against importable application code.
+- Package or deploy without mixing source and local artifacts.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives basic project structure its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Basic Project Structure model -> clear code`
+### Source and test boundaries
+- **Definition:** Application modules belong in a package, while tests import and exercise that package from a separate directory.
+- **Visual explanation:** `project -> src package + tests`
 - **Practical example:**
 
 ```python
-apply_basic_project_structure_label = "Basic Project Structure"
-print(apply_basic_project_structure_label)
+from pathlib import PurePath
+source = PurePath("src") / "academy" / "courses.py"
+test = PurePath("tests") / "test_courses.py"
+print(source, test)
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when basic project structure code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Project metadata
+- **Definition:** `pyproject.toml` can describe build settings, project metadata, dependencies, and tool configuration.
+- **Visual explanation:** `pyproject.toml -> tools and build backend`
 - **Practical example:**
 
 ```python
-message = "Run this file from your IDE"
-print(message)
+from pathlib import PurePath
+files = [PurePath("pyproject.toml"), PurePath("README.md"), PurePath(".gitignore")]
+print([file.name for file in files])
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps basic project structure understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Entry point and clean repository
+- **Definition:** A small entry module calls application functions; ignored runtime artifacts remain outside the tracked source tree.
+- **Visual explanation:** `command -> entry point -> package logic; artifacts -> ignored`
 - **Practical example:**
 
 ```python
-def format_name(first: str, last: str) -> str:
-    return f"{first.title()} {last.title()}"
+def main():
+    print("Academy application")
 
-print(format_name("ada", "lovelace"))
+if __name__ == "__main__":
+    main()
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Basic Project Structure belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Make projects easier to navigate, test, and maintain. |
-| 🔥 Benefits | Team collaboration, onboarding, packaging, and scaling. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Basic project structure gives source code, tests, configuration, documentation, and generated files predictable locations. |
+| ⚡ Purpose | Give source, tests, metadata, documentation, and generated artifacts clear locations. |
+| 🔥 Benefits | A clear layout makes imports, commands, collaboration, testing, and packaging easier to understand. |
+| 🎯 Use Cases | Even small scripts benefit when they grow into maintained applications or reusable packages. |
+| 🚀 Best Practices | Start with the smallest structure that separates source and tests, document the run command, and ignore generated artifacts. |
+| ❌ Common Mistakes | Creating many empty architectural folders before the project has responsibilities that justify them. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-def add(left: int, right: int) -> int:
-    return left + right
-
-print(add(2, 3))
+from pathlib import PurePath
+project_files = [PurePath("README.md"), PurePath("app.py"), PurePath("tests/test_app.py")]
+for file in project_files:
+    print(file)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_basic_project_structure(value):
-    """Apply the Basic Project Structure concept to one value."""
-    return value
+def project_tree(name):
+    return [
+        f"{name}/README.md",
+        f"{name}/src/{name}/__init__.py",
+        f"{name}/tests/test_core.py",
+        f"{name}/pyproject.toml",
+    ]
 
-result = apply_basic_project_structure("practice")
-print(result)
+print(*project_tree("academy"), sep="\n")
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Basic Project Structure problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+from pathlib import PurePath
+
+def classify(path_text):
+    path = PurePath(path_text)
+    if "tests" in path.parts:
+        return "test"
+    if "src" in path.parts:
+        return "source"
+    if path.name.startswith("."):
+        return "configuration"
+    return "project metadata"
+
+for item in ["src/academy/core.py", "tests/test_core.py", ".gitignore", "README.md"]:
+    print(item, "->", classify(item))
 ```
 
 ## Examples
@@ -99,48 +117,52 @@ print(result)
 ### Beginner Example
 
 ```python
-message = "Run this file from your IDE"
-print(message)
+from pathlib import PurePath
+root = PurePath("academy")
+print(root / "README.md")
 ```
 
 ### Intermediate Example
 
 ```python
-def format_name(first: str, last: str) -> str:
-    return f"{first.title()} {last.title()}"
-
-print(format_name("ada", "lovelace"))
+from pathlib import PurePath
+paths = {
+    "source": PurePath("src/academy"),
+    "tests": PurePath("tests"),
+    "metadata": PurePath("pyproject.toml"),
+}
+for role, path in paths.items():
+    print(role, path)
 ```
 
 ### Advanced Example
 
 ```python
-import pdb
+from pathlib import PurePath
 
-values = [1, 2, 3]
-total = sum(values)
-# pdb.set_trace()
-print(total)
+def validate_layout(paths):
+    parts = {PurePath(path).parts[0] for path in paths}
+    required = {"src", "tests"}
+    return {"missing": sorted(required - parts), "valid": required <= parts}
+
+layout = ["src/academy/__init__.py", "src/academy/cli.py", "tests/test_cli.py"]
+print(validate_layout(layout))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Basic Project Structure Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Name project responsibility]
+    B[Create source package]
+    C[Add separate tests]
+    D[Document metadata and commands]
+    E[Ignore generated files and run checks]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
-
-
----
-
----
-
-## Level 2: Intermediate
-
-Develop professional engineering habits for larger projects, integration work, testing, and maintainability.
 
 ---
 

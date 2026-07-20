@@ -5,93 +5,91 @@
 # Packages
 
 ## Overview
-- **What is it?** Packages are directories of modules organized with package metadata.
-- **Why is it important?** Group related code into distributable namespaces.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** A package is an importable directory that groups related modules under a shared namespace.
+- **Why is it important?** Packages scale organization beyond one file and support explicit public interfaces and distribution.
+- **Where is it used?** Libraries and applications group models, services, utilities, and subfeatures into packages.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review packages code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind packages.
-- Expected outcome: you can use packages in a small project and recognize when it belongs in production code.
+- Distinguish a module file from a package directory.
+- Use absolute and relative imports within a package.
+- Understand the role of `__init__.py` and running package code with `-m`.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Organize a multi-feature application.
+- Publish a reusable library namespace.
+- Avoid collisions between similarly named modules.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives packages its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Packages model -> clear code`
+### Package layout
+- **Definition:** A regular package is a directory containing `__init__.py` plus modules or subpackages.
+- **Visual explanation:** `shop package -> __init__.py + pricing.py + reports.py`
 - **Practical example:**
 
 ```python
-apply_packages_label = "Packages"
-print(apply_packages_label)
+from pathlib import PurePath
+package_file = PurePath("shop") / "__init__.py"
+print(package_file)
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when packages code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Qualified imports
+- **Definition:** Absolute imports start from the top-level package; relative imports use dots from the current package.
+- **Visual explanation:** `shop.reports -> import shop.pricing`
 - **Practical example:**
 
 ```python
-import platform
-print(platform.python_version())
+import importlib
+json_package = importlib.import_module("json")
+print(json_package.__package__)
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps packages understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Package execution
+- **Definition:** `python -m package.module` resolves imports using the package context, unlike executing an internal file path directly.
+- **Visual explanation:** `project root -> -m package.module -> package-aware execution`
 - **Practical example:**
 
 ```python
-import sys
-
-if sys.version_info < (3, 12):
-    raise RuntimeError("Python 3.12 or newer is recommended")
-print("Python version is ready")
+import runpy
+module_data = runpy.run_module("json.tool", run_name="lesson_probe")
+print("__name__" in module_data)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Packages belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Group related code into distributable namespaces. |
-| 🔥 Benefits | SDKs, applications, plugins, and shared internal libraries. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | A package is an importable directory that groups related modules under a shared namespace. |
+| ⚡ Purpose | Group related modules beneath a shared importable directory namespace. |
+| 🔥 Benefits | Packages scale organization beyond one file and support explicit public interfaces and distribution. |
+| 🎯 Use Cases | Libraries and applications group models, services, utilities, and subfeatures into packages. |
+| 🚀 Best Practices | Run package entry points from the project root with `python -m ...` and expose only intentional names from `__init__.py`. |
+| ❌ Common Mistakes | Executing an internal package file directly and then patching broken imports with ad hoc path changes. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import sys
-print(sys.version)
-print(sys.executable)
+import email
+print(email.__package__)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_packages(value):
-    """Apply the Packages concept to one value."""
-    return value
-
-result = apply_packages("practice")
-print(result)
+from urllib import parse
+address = parse.urlparse("https://example.com/learn")
+print(address.netloc, address.path)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Packages problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+import importlib
+
+modules = ["json.decoder", "json.encoder"]
+loaded = [importlib.import_module(name).__name__ for name in modules]
+print(loaded)
 ```
 
 ## Examples
@@ -99,42 +97,52 @@ print(result)
 ### Beginner Example
 
 ```python
-import platform
-print(platform.python_version())
+import collections
+print(collections.__package__)
 ```
 
 ### Intermediate Example
 
 ```python
-import sys
-
-if sys.version_info < (3, 12):
-    raise RuntimeError("Python 3.12 or newer is recommended")
-print("Python version is ready")
+from pathlib import Path
+layout = [
+    Path("academy/__init__.py"),
+    Path("academy/courses.py"),
+    Path("academy/cli.py"),
+]
+for path in layout:
+    print(path)
 ```
 
 ### Advanced Example
 
 ```python
-from pathlib import Path
-import sys
+import importlib
 
-project = Path.cwd()
-print({"python": sys.version.split()[0], "project": project.name})
+def load_components(package_name, module_names):
+    return [
+        importlib.import_module(f"{package_name}.{name}")
+        for name in module_names
+    ]
+
+components = load_components("json", ["decoder", "encoder"])
+print([component.__name__ for component in components])
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Packages Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Start from project root]
+    B[Resolve top-level package]
+    C[Initialize package namespace]
+    D[Load requested submodule]
+    E[Use qualified public name]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
-
-
----
 
 ---
 

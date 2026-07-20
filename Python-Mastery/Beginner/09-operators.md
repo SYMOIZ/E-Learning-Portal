@@ -5,92 +5,96 @@
 # Operators
 
 ## Overview
-- **What is it?** Operators are symbols and keywords that combine, compare, and transform values.
-- **Why is it important?** Build expressions for calculations and decisions.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** Operators are symbols or keywords that perform arithmetic, comparison, logical, assignment, membership, and identity operations.
+- **Why is it important?** Operator families form expressions that calculate values and decide which code paths apply.
+- **Where is it used?** Pricing, filtering, validation, search, and state updates all depend on operators.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review operators code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind operators.
-- Expected outcome: you can use operators in a small project and recognize when it belongs in production code.
+- Use arithmetic and assignment operators correctly.
+- Combine comparison, logical, and membership operators into conditions.
+- Distinguish equality `==` from identity `is` and apply precedence deliberately.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Calculate totals, remainders, and powers.
+- Check ranges and combine eligibility rules.
+- Test collection membership or whether a value is `None`.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives operators its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Operators model -> clear code`
+### Arithmetic and assignment
+- **Definition:** Arithmetic operators compute numbers; assignment forms such as `+=` bind the updated result to a name.
+- **Visual explanation:** `operands -> + - * / // % ** -> result`
 - **Practical example:**
 
 ```python
-apply_operators_label = "Operators"
-print(apply_operators_label)
+subtotal = 17 * 3
+remainder = 17 % 3
+subtotal += 5
+print(subtotal, remainder)
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when operators code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Comparison and logic
+- **Definition:** Comparisons produce booleans; `and`, `or`, and `not` combine or invert truth conditions.
+- **Visual explanation:** `comparisons -> booleans -> logical result`
 - **Practical example:**
 
 ```python
-score = 10
-print(score)
+age = 20
+has_ticket = True
+can_enter = age >= 18 and has_ticket
+print(can_enter)
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps operators understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Membership and identity
+- **Definition:** `in` searches for membership, while `is` checks whether two references point to the same object.
+- **Visual explanation:** `value in container; name is singleton`
 - **Practical example:**
 
 ```python
-price = 120
-discount_rate = 0.15
-final_price = price * (1 - discount_rate)
-print(final_price)
+roles = {"editor", "viewer"}
+role = "editor"
+selection = None
+print(role in roles, selection is None)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Operators belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Build expressions for calculations and decisions. |
-| 🔥 Benefits | Concise business rules, filters, and computations. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Operators are symbols or keywords that perform arithmetic, comparison, logical, assignment, membership, and identity operations. |
+| ⚡ Purpose | Build expressions that calculate, compare, combine, assign, and test values. |
+| 🔥 Benefits | Operator families form expressions that calculate values and decide which code paths apply. |
+| 🎯 Use Cases | Pricing, filtering, validation, search, and state updates all depend on operators. |
+| 🚀 Best Practices | Use parentheses when mixed operator precedence could make the intended grouping unclear. |
+| ❌ Common Mistakes | Using `is` for value equality; use `==` for equal values and reserve `is` for identity, especially `None`. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-customer_name = "Amina"
-order_total = 149.50
-is_paid = False
+a = 11
+b = 4
+print(a + b, a - b, a * b, a / b, a // b, a % b, a ** 2)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_operators(value):
-    """Apply the Operators concept to one value."""
-    return value
-
-result = apply_operators("practice")
-print(result)
+score = 84
+passed = score >= 60
+honors = passed and score >= 90
+print(passed, honors)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Operators problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+allowed_roles = {"admin", "editor"}
+user_role = "editor"
+account_active = True
+authorized = account_active and user_role in allowed_roles
+print(authorized)
 ```
 
 ## Examples
@@ -98,45 +102,44 @@ print(result)
 ### Beginner Example
 
 ```python
-score = 10
-print(score)
+price = 15
+quantity = 3
+print(price * quantity)
 ```
 
 ### Intermediate Example
 
 ```python
-price = 120
-discount_rate = 0.15
-final_price = price * (1 - discount_rate)
-print(final_price)
+temperature = 24
+comfortable = 18 <= temperature <= 26
+print("Comfortable:", comfortable)
 ```
 
 ### Advanced Example
 
 ```python
-from dataclasses import dataclass
-
-@dataclass(frozen=True)
-class Metric:
-    name: str
-    value: float
-
-conversion_rate = Metric("conversion_rate", 0.084)
-print(conversion_rate)
+cart_total = 82
+is_member = False
+coupon = "SAVE10"
+discounted = (cart_total >= 75 or is_member) and coupon == "SAVE10"
+final_total = cart_total * 0.9 if discounted else cart_total
+print(f"${final_total:.2f}")
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Operators Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Identify operands]
+    B[Choose operator family]
+    C[Evaluate precedence]
+    D[Produce value or boolean]
+    E[Use result in program]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
-
-
----
 
 ---
 

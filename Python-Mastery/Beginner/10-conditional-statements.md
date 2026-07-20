@@ -5,95 +5,110 @@
 # Conditional Statements
 
 ## Overview
-- **What is it?** Conditional statements run different code paths based on boolean conditions.
-- **Why is it important?** Represent decisions and branching business rules.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** Conditional statements select a code block according to boolean conditions using `if`, `elif`, and `else`.
+- **Why is it important?** Branching translates rules and alternative outcomes into executable control flow.
+- **Where is it used?** Programs use conditions for permissions, grading, validation, pricing, and status messages.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review conditional statements code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind conditional statements.
-- Expected outcome: you can use conditional statements in a small project and recognize when it belongs in production code.
+- Write mutually exclusive `if`/`elif`/`else` branches.
+- Order conditions from specific to general.
+- Use truth values without unnecessary comparisons to `True`.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Classify a score or measurement.
+- Allow or reject an action based on policy.
+- Choose discounts, shipping tiers, or status labels.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives conditional statements its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Conditional Statements model -> clear code`
+### Boolean branch
+- **Definition:** An `if` suite runs only when its condition is truthy.
+- **Visual explanation:** `condition true -> run suite; false -> skip`
 - **Practical example:**
 
 ```python
-apply_conditional_statements_label = "Conditional Statements"
-print(apply_conditional_statements_label)
+balance = 40
+if balance > 0:
+    print("Funds available")
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when conditional statements code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Exclusive chain
+- **Definition:** In an `if`/`elif`/`else` chain, Python runs the first true branch and skips the rest.
+- **Visual explanation:** `test top to bottom -> first match -> exit chain`
 - **Practical example:**
 
 ```python
-score = 82
-if score >= 60:
-    print("Pass")
+score = 78
+if score >= 90:
+    grade = "A"
+elif score >= 70:
+    grade = "B"
+else:
+    grade = "C"
+print(grade)
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps conditional statements understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Guard condition
+- **Definition:** A guard handles an invalid or exceptional case early so the normal path stays simple.
+- **Visual explanation:** `invalid? -> reject; otherwise -> continue`
 - **Practical example:**
 
 ```python
-role = "admin"
-can_delete = role in {"admin", "owner"}
-print(can_delete)
+def safe_average(total, count):
+    if count == 0:
+        return None
+    return total / count
+
+print(safe_average(42, 6))
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Conditional Statements belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Represent decisions and branching business rules. |
-| 🔥 Benefits | Validation, authorization, routing, and error handling. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Conditional statements select a code block according to boolean conditions using `if`, `elif`, and `else`. |
+| ⚡ Purpose | Select exactly which block should run for the current conditions. |
+| 🔥 Benefits | Branching translates rules and alternative outcomes into executable control flow. |
+| 🎯 Use Cases | Programs use conditions for permissions, grading, validation, pricing, and status messages. |
+| 🚀 Best Practices | Make branches exhaustive when every input needs an outcome, and test values at each boundary. |
+| ❌ Common Mistakes | Placing a broad condition before a more specific one, making the later branch unreachable. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-if temperature > 30:
-    print("Hot")
-elif temperature > 20:
-    print("Warm")
-else:
-    print("Cool")
+temperature = 12
+if temperature < 15:
+    print("Wear a coat")
 ```
 
 ### Standard Structure
 
 ```python
-def apply_conditional_statements(value):
-    """Apply the Conditional Statements concept to one value."""
-    return value
-
-result = apply_conditional_statements("practice")
-print(result)
+hours = 17
+if hours < 12:
+    greeting = "Good morning"
+elif hours < 18:
+    greeting = "Good afternoon"
+else:
+    greeting = "Good evening"
+print(greeting)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Conditional Statements problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+def shipping_band(weight, express):
+    if weight <= 0:
+        return "invalid"
+    if express and weight <= 5:
+        return "express-small"
+    if weight <= 20:
+        return "standard"
+    return "freight"
+
+print(shipping_band(4, True))
 ```
 
 ## Examples
@@ -101,46 +116,53 @@ print(result)
 ### Beginner Example
 
 ```python
-score = 82
-if score >= 60:
-    print("Pass")
+logged_in = True
+if logged_in:
+    print("Dashboard ready")
 ```
 
 ### Intermediate Example
 
 ```python
-role = "admin"
-can_delete = role in {"admin", "owner"}
-print(can_delete)
+purchase = 120
+if purchase >= 100:
+    discount = 0.15
+elif purchase >= 50:
+    discount = 0.05
+else:
+    discount = 0
+print(purchase * (1 - discount))
 ```
 
 ### Advanced Example
 
 ```python
-def classify_order(total: float, is_priority: bool) -> str:
-    match (total >= 500, is_priority):
-        case (True, True):
-            return "vip-priority"
-        case (True, False):
-            return "vip"
-        case _:
-            return "standard"
+def access_level(age, verified, suspended):
+    if suspended:
+        return "blocked"
+    if not verified:
+        return "verify account"
+    if age >= 18:
+        return "full access"
+    return "limited access"
 
-print(classify_order(700, True))
+print(access_level(20, True, False))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Conditional Statements Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Evaluate first condition]
+    B[Run first matching suite]
+    C[Skip remaining branches]
+    D[Continue after conditional]
+    E[Test boundary cases]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
-
-
----
 
 ---
 

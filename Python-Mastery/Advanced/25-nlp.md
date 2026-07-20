@@ -5,91 +5,116 @@
 # NLP
 
 ## Overview
-- **What is it?** NLP is a Python knowledge area focused on AI engineering.
-- **Why is it important?** Help developers apply AI engineering techniques safely, clearly, and consistently.
-- **Where is it used?** Predictive products, language systems, vision applications, and model-powered automation.
+- **What is it?** Natural language processing represents, analyzes, and generates human language using linguistic pipelines, statistical models, and pretrained transformers.
+- **Why is it important?** Robust NLP keeps tokenization and model versions aligned, handles language and domain variation, and evaluates task-specific errors rather than demos alone.
+- **Where is it used?** It supports search, extraction, classification, moderation, summarization, translation, and conversational systems.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review nlp code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind nlp.
-- Expected outcome: you can use nlp in a small project and recognize when it belongs in production code.
+- Use spaCy-style pipelines for tokenization, entities, and custom components.
+- Use Hugging Face tokenizer/model patterns with truncation and batching.
+- Evaluate NLP systems for domain shift, label ambiguity, and harmful bias.
 
 ## Real World Applications
-- **Industry use cases:** Predictive products, language systems, vision applications, and model-powered automation.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Extracting entities and relationships from documents.
+- Classifying support requests and routing them to workflows.
+- Semantic search and summarization with documented human review.
 
 ## Core Concepts
 
-### Dataset Representation
-- **Definition:** The main idea that gives nlp its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> NLP model -> clear code`
+### Linguistic Pipelines
+- **Definition:** An NLP pipeline tokenizes text into a document and applies ordered components such as tagging, parsing, entity recognition, or custom rules.
+- **Visual explanation:** `text → tokenizer → ordered components → annotated document`
 - **Practical example:**
 
 ```python
-apply_nlp_label = "NLP"
-print(apply_nlp_label)
+import spacy
+
+nlp = spacy.blank("en")
+ruler = nlp.add_pipe("entity_ruler")
+ruler.add_patterns([{"label": "LANGUAGE", "pattern": "Python"}])
+document = nlp("Python powers this curriculum.")
+entities = [(entity.text, entity.label_) for entity in document.ents]
 ```
 
-### Transformation Pipeline
-- **Definition:** The ordered steps Python follows when nlp code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Transformer Inputs
+- **Definition:** A pretrained tokenizer converts text to bounded token IDs and attention masks that must match the model checkpoint and batch shape.
+- **Visual explanation:** `texts → checkpoint tokenizer → padded tensors → transformer logits`
 - **Practical example:**
 
 ```python
-import re
-print(bool(re.search(r"python", "learn python")))
+from transformers import AutoTokenizer
+
+tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased")
+batch = tokenizer(
+    ["clear documentation", "ambiguous requirement"],
+    padding=True,
+    truncation=True,
+    return_tensors="pt",
+)
 ```
 
-### Validation Signal
-- **Definition:** The reliability habit that keeps nlp understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Task Evaluation
+- **Definition:** Evaluation uses label-aware metrics, representative slices, and error review because token overlap or aggregate accuracy can hide systematic failures.
+- **Visual explanation:** `held-out examples → predictions → per-label metrics → qualitative error slices`
 - **Practical example:**
 
 ```python
-import re
+from sklearn.metrics import classification_report
 
-emails = re.findall(r"[\w.-]+@[\w.-]+", "Contact a@x.com and b@y.com")
-print(emails)
+expected = ["billing", "technical", "billing"]
+predicted = ["billing", "billing", "billing"]
+report = classification_report(expected, predicted, zero_division=0)
+print(report)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | NLP belongs to the AI engineering part of Python mastery. |
-| ⚡ Purpose | Help developers apply AI engineering techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional AI engineering decisions. |
-| 🎯 Use Cases | Predictive products, language systems, vision applications, and model-powered automation. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Natural language processing represents, analyzes, and generates human language using linguistic pipelines, statistical models, and pretrained transformers. |
+| ⚡ Purpose | Robust NLP keeps tokenization and model versions aligned, handles language and domain variation, and evaluates task-specific errors rather than demos alone. |
+| 🔥 Benefits | Builds the ability to use spaCy-style pipelines for tokenization, entities, and custom components; it also helps practitioners use Hugging Face tokenizer/model patterns with truncation and batching. |
+| 🎯 Use Cases | Extracting entities and relationships from documents. Classifying support requests and routing them to workflows. |
+| 🚀 Best Practices | Report per-label precision, recall, and representative error slices. |
+| ❌ Common Mistakes | Ignoring the guardrail “Review privacy, bias, prompt injection, and human escalation needs”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import re
-match = re.search(r"\d+", "Order 42")
+import spacy
+
+nlp = spacy.blank("en")
+doc = nlp("Tokenize this sentence.")
+tokens = [token.text for token in doc]
 ```
 
 ### Standard Structure
 
 ```python
-def apply_nlp(value):
-    """Apply the NLP concept to one value."""
-    return value
+from transformers import pipeline
 
-result = apply_nlp("practice")
-print(result)
+classifier = pipeline(
+    "sentiment-analysis",
+    model="distilbert/distilbert-base-uncased-finetuned-sst-2-english",
+)
+result = classifier("The API is reliable.")
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the NLP problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+import spacy
+from spacy.language import Language
+
+@Language.component("character_count")
+def character_count(doc):
+    doc.user_data["characters"] = len(doc.text)
+    return doc
+
+nlp = spacy.blank("en")
+nlp.add_pipe("character_count")
 ```
 
 ## Examples
@@ -98,40 +123,47 @@ print(result)
 
 ```python
 import re
-print(bool(re.search(r"python", "learn python")))
+
+words = re.findall(r"\b[\w'-]+\b", "Python's tokenizer baseline.", flags=re.UNICODE)
+print(words)
 ```
 
 ### Intermediate Example
 
 ```python
-import re
+import spacy
 
-emails = re.findall(r"[\w.-]+@[\w.-]+", "Contact a@x.com and b@y.com")
-print(emails)
+nlp = spacy.blank("en")
+ruler = nlp.add_pipe("sentencizer")
+doc = nlp("First sentence. Second sentence.")
+print([sentence.text for sentence in doc.sents])
 ```
 
 ### Advanced Example
 
 ```python
-import re
+import torch
+from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
-pattern = re.compile(r"(?P<status>\d{3}) (?P<path>/\S+)")
-match = pattern.search("200 /api/users")
-print(match.groupdict() if match else {})
+checkpoint = "distilbert/distilbert-base-uncased-finetuned-sst-2-english"
+tokenizer = AutoTokenizer.from_pretrained(checkpoint)
+model = AutoModelForSequenceClassification.from_pretrained(checkpoint)
+encoded = tokenizer(["reliable", "broken"], padding=True, return_tensors="pt")
+with torch.inference_mode():
+    probabilities = model(**encoded).logits.softmax(dim=-1)
+print(probabilities)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify NLP Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Define language task and labels] --> B[Version tokenizer and pipeline]
+    B --> C[Train or configure model]
+    C --> D[Evaluate metrics and slices]
+    D --> E[Monitor drift and human escalations]
+    E -. feedback .-> A
 ```
-
-
----
 
 ---
 

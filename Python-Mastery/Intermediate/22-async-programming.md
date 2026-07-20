@@ -5,74 +5,74 @@
 # Async Programming
 
 ## Overview
-- **What is it?** Async Programming is a Python knowledge area focused on execution model.
-- **Why is it important?** Help developers apply execution model techniques safely, clearly, and consistently.
-- **Where is it used?** High-throughput services, background jobs, io workloads, and cpu-bound processing.
+- **What is it?** Async Programming is the intermediate Python topic of cooperatively overlapping many non-blocking I/O operations on an event loop.
+- **Why is it important?** asyncio scales I/O concurrency with tasks that yield control at await points; it does not make CPU work parallel.
+- **Where is it used?** many network connections, concurrent service calls, event-driven workers.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review async programming code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind async programming.
-- Expected outcome: you can use async programming in a small project and recognize when it belongs in production code.
+- Explain coroutine, task, and event-loop roles.
+- Use await, gather, TaskGroup, and timeouts.
+- Keep blocking and CPU-heavy work off the event loop.
 
 ## Real World Applications
-- **Industry use cases:** High-throughput services, background jobs, io workloads, and cpu-bound processing.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Many network connections rely on this topic.
+- **Product work:** It supports concurrent service calls.
+- **Operations:** It appears in event-driven workers.
 
 ## Core Concepts
 
-### Task Unit
-- **Definition:** The main idea that gives async programming its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Async Programming model -> clear code`
-- **Practical example:**
-
-```python
-apply_async_programming_label = "Async Programming"
-print(apply_async_programming_label)
-```
-
-### Scheduler or Worker
-- **Definition:** The ordered steps Python follows when async programming code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Coroutines and await
+- **Definition:** Calling async def creates a coroutine; await suspends the current task until the awaited operation is ready.
+- **Visual explanation:** ``coroutine -> await I/O -> suspend -> resume``
 - **Practical example:**
 
 ```python
 import asyncio
 
-async def greet():
-    return "hello"
-
-print(asyncio.run(greet()))
-```
-
-### Coordination Rule
-- **Definition:** The reliability habit that keeps async programming understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
-- **Practical example:**
-
-```python
-import asyncio
-
-async def fetch(number):
+async def pause():
     await asyncio.sleep(0)
-    return number * 2
+
+asyncio.run(pause())
+```
+
+### Tasks and structured concurrency
+- **Definition:** A Task schedules a coroutine; TaskGroup scopes sibling lifetimes and propagates failures as a group.
+- **Visual explanation:** ``TaskGroup -> child tasks -> wait/cancel together``
+- **Practical example:**
+
+```python
+import asyncio
 
 async def main():
-    print(await asyncio.gather(fetch(1), fetch(2)))
+    async with asyncio.TaskGroup() as group:
+        group.create_task(asyncio.sleep(0))
 
 asyncio.run(main())
 ```
 
+### Blocking boundaries
+- **Definition:** Blocking calls freeze the loop; use asynchronous libraries, asyncio.to_thread for blocking I/O, or processes for CPU-bound work.
+- **Visual explanation:** ``event loop -> async I/O | to_thread blocking I/O | process CPU``
+- **Practical example:**
+
+```python
+import asyncio
+from pathlib import Path
+
+async def read_text(path):
+    return await asyncio.to_thread(Path(path).read_text)
+```
+
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Async Programming belongs to the execution model part of Python mastery. |
-| ⚡ Purpose | Help developers apply execution model techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional execution model decisions. |
-| 🎯 Use Cases | High-throughput services, background jobs, io workloads, and cpu-bound processing. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Coroutines and await, Tasks and structured concurrency, Blocking boundaries |
+| ⚡ Purpose | asyncio scales I/O concurrency with tasks that yield control at await points; it does not make CPU work parallel. |
+| 🔥 Benefits | High I/O concurrency, efficient task scheduling, and structured cancellation and timeout handling. |
+| 🎯 Use Cases | many network connections, concurrent service calls, event-driven workers |
+| 🚀 Best Practices | Create concurrency explicitly and bound fan-out with semaphores or worker pools. |
+| ❌ Common Mistakes | Calling time.sleep or synchronous HTTP clients inside a coroutine. |
 
 ## Syntax Guide
 
@@ -82,7 +82,7 @@ asyncio.run(main())
 import asyncio
 
 async def main():
-    await asyncio.sleep(0)
+    await asyncio.sleep(0.1)
 
 asyncio.run(main())
 ```
@@ -90,20 +90,21 @@ asyncio.run(main())
 ### Standard Structure
 
 ```python
-def apply_async_programming(value):
-    """Apply the Async Programming concept to one value."""
-    return value
+import asyncio
 
-result = apply_async_programming("practice")
-print(result)
+async def fetch_all(urls):
+    async with asyncio.TaskGroup() as group:
+        tasks = [group.create_task(fetch(url)) for url in urls]
+    return [task.result() for task in tasks]
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Async Programming problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Start one top-level event loop.
+# Schedule independent I/O as bounded tasks.
+# await operations that can suspend.
+# Cancel, time out, and collect failures explicitly.
 ```
 
 ## Examples
@@ -113,10 +114,14 @@ print(result)
 ```python
 import asyncio
 
-async def greet():
-    return "hello"
+async def greet_after(delay: float, name: str):
+    await asyncio.sleep(delay)
+    return f"Hello, {name}"
 
-print(asyncio.run(greet()))
+async def main():
+    print(await greet_after(0.01, "Ada"))
+
+asyncio.run(main())
 ```
 
 ### Intermediate Example
@@ -124,12 +129,13 @@ print(asyncio.run(greet()))
 ```python
 import asyncio
 
-async def fetch(number):
-    await asyncio.sleep(0)
-    return number * 2
+async def request(identifier: int) -> str:
+    await asyncio.sleep(0.01)  # represents non-blocking network I/O
+    return f"item-{identifier}"
 
 async def main():
-    print(await asyncio.gather(fetch(1), fetch(2)))
+    results = await asyncio.gather(*(request(i) for i in range(4)))
+    print(results)
 
 asyncio.run(main())
 ```
@@ -139,17 +145,17 @@ asyncio.run(main())
 ```python
 import asyncio
 
-async def worker(name, queue):
-    while not queue.empty():
-        item = await queue.get()
-        print(name, item)
-        queue.task_done()
+async def bounded_call(identifier: int, limit: asyncio.Semaphore):
+    async with limit:
+        async with asyncio.timeout(1):
+            await asyncio.sleep(0.01)
+            return f"result-{identifier}"
 
 async def main():
-    queue = asyncio.Queue()
-    for item in range(3):
-        await queue.put(item)
-    await asyncio.gather(worker("w1", queue), worker("w2", queue))
+    limit = asyncio.Semaphore(3)
+    async with asyncio.TaskGroup() as group:
+        tasks = [group.create_task(bounded_call(i, limit)) for i in range(8)]
+    print([task.result() for task in tasks])
 
 asyncio.run(main())
 ```
@@ -158,14 +164,11 @@ asyncio.run(main())
 
 ```mermaid
 flowchart LR
-    A[Identify Async Programming Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Create event loop] --> B[Schedule coroutines as tasks]
+    B --> C[Task awaits I/O]
+    C --> D[Loop runs another ready task]
+    D --> E[Resume and collect results]
 ```
-
-
----
 
 ---
 

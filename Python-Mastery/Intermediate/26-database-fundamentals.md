@@ -5,96 +5,104 @@
 # Database Fundamentals
 
 ## Overview
-- **What is it?** Database Fundamentals is a Python knowledge area focused on integration.
-- **Why is it important?** Help developers apply integration techniques safely, clearly, and consistently.
-- **Where is it used?** Web services, persistence layers, analytics backends, and business systems.
+- **What is it?** Database Fundamentals is the intermediate Python topic of using relational data, SQL, transactions, and DB-API concepts correctly.
+- **Why is it important?** Database fundamentals explain schemas and consistency independently of a specific driver or ORM.
+- **Where is it used?** transactional applications, reporting stores, durable service state.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review database fundamentals code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind database fundamentals.
-- Expected outcome: you can use database fundamentals in a small project and recognize when it belongs in production code.
+- Model tables, keys, and relationships.
+- Use parameterized SQL and transactions.
+- Understand connections, cursors, commits, and rollbacks.
 
 ## Real World Applications
-- **Industry use cases:** Web services, persistence layers, analytics backends, and business systems.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Transactional applications rely on this topic.
+- **Product work:** It supports reporting stores.
+- **Operations:** It appears in durable service state.
 
 ## Core Concepts
 
-### Contract
-- **Definition:** The main idea that gives database fundamentals its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Database Fundamentals model -> clear code`
+### Relational schema
+- **Definition:** A schema defines tables, typed columns, keys, constraints, and relationships that preserve data meaning.
+- **Visual explanation:** ``entity -> table; identity -> primary key; relation -> foreign key``
 - **Practical example:**
 
 ```python
-apply_database_fundamentals_label = "Database Fundamentals"
-print(apply_database_fundamentals_label)
+schema = '''
+CREATE TABLE customer (
+    id INTEGER PRIMARY KEY,
+    email TEXT NOT NULL UNIQUE
+)
+'''
 ```
 
-### Connection Flow
-- **Definition:** The ordered steps Python follows when database fundamentals code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Parameterized SQL
+- **Definition:** Parameters send values separately from SQL structure, preserving types and preventing injection through data.
+- **Visual explanation:** ``SQL template + bound values -> driver -> database``
 - **Practical example:**
 
 ```python
-import sqlite3
-connection = sqlite3.connect(":memory:")
-connection.execute("CREATE TABLE users (name TEXT)")
-connection.execute("INSERT INTO users VALUES (?)", ("Ada",))
-print(connection.execute("SELECT name FROM users").fetchone()[0])
+cursor.execute(
+    "SELECT id FROM customer WHERE email = ?",
+    ("ada@example.com",),
+)
 ```
 
-### Reliability Boundary
-- **Definition:** The reliability habit that keeps database fundamentals understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Transactions
+- **Definition:** A transaction groups statements into an atomic unit that commits entirely or rolls back on failure.
+- **Visual explanation:** ``BEGIN -> statements -> COMMIT | ROLLBACK``
 - **Practical example:**
 
 ```python
-import sqlite3
-
-with sqlite3.connect(":memory:") as connection:
-    connection.execute("CREATE TABLE metrics (name TEXT, value REAL)")
-    connection.executemany("INSERT INTO metrics VALUES (?, ?)", [("latency", 120.5)])
-    print(connection.execute("SELECT COUNT(*) FROM metrics").fetchone()[0])
+try:
+    connection.execute("UPDATE account SET balance = balance - ?", (10,))
+    connection.commit()
+except Exception:
+    connection.rollback()
+    raise
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Database Fundamentals belongs to the integration part of Python mastery. |
-| ⚡ Purpose | Help developers apply integration techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional integration decisions. |
-| 🎯 Use Cases | Web services, persistence layers, analytics backends, and business systems. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Relational schema, Parameterized SQL, Transactions |
+| ⚡ Purpose | Database fundamentals explain schemas and consistency independently of a specific driver or ORM. |
+| 🔥 Benefits | Durable relational state, injection-safe queries, and atomic consistency through transactions. |
+| 🎯 Use Cases | transactional applications, reporting stores, durable service state |
+| 🚀 Best Practices | Enforce invariants with database constraints as well as application validation. |
+| ❌ Common Mistakes | Interpolating values into SQL with f-strings. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import sqlite3
-connection = sqlite3.connect(":memory:")
+cursor.execute(
+    "SELECT name FROM users WHERE id = ?",
+    (user_id,),
+)
+row = cursor.fetchone()
 ```
 
 ### Standard Structure
 
 ```python
-def apply_database_fundamentals(value):
-    """Apply the Database Fundamentals concept to one value."""
-    return value
-
-result = apply_database_fundamentals("practice")
-print(result)
+try:
+    cursor.execute(debit_sql, (amount, source_id))
+    cursor.execute(credit_sql, (amount, target_id))
+    connection.commit()
+except Exception:
+    connection.rollback()
+    raise
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Database Fundamentals problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Acquire a connection from a pool.
+# Execute parameterized statements.
+# Fetch only required columns and rows.
+# Commit the unit or roll back every change.
 ```
 
 ## Examples
@@ -103,10 +111,12 @@ print(result)
 
 ```python
 import sqlite3
+
 connection = sqlite3.connect(":memory:")
-connection.execute("CREATE TABLE users (name TEXT)")
-connection.execute("INSERT INTO users VALUES (?)", ("Ada",))
-print(connection.execute("SELECT name FROM users").fetchone()[0])
+connection.execute("CREATE TABLE users (id INTEGER PRIMARY KEY, name TEXT NOT NULL)")
+connection.execute("INSERT INTO users (name) VALUES (?)", ("Ada",))
+print(connection.execute("SELECT id, name FROM users").fetchall())
+connection.close()
 ```
 
 ### Intermediate Example
@@ -115,9 +125,16 @@ print(connection.execute("SELECT name FROM users").fetchone()[0])
 import sqlite3
 
 with sqlite3.connect(":memory:") as connection:
-    connection.execute("CREATE TABLE metrics (name TEXT, value REAL)")
-    connection.executemany("INSERT INTO metrics VALUES (?, ?)", [("latency", 120.5)])
-    print(connection.execute("SELECT COUNT(*) FROM metrics").fetchone()[0])
+    connection.execute(
+        "CREATE TABLE account (id INTEGER PRIMARY KEY, balance INTEGER CHECK (balance >= 0))"
+    )
+    connection.executemany(
+        "INSERT INTO account VALUES (?, ?)",
+        [(1, 100), (2, 20)],
+    )
+    connection.execute("UPDATE account SET balance = balance - ? WHERE id = ?", (25, 1))
+    connection.execute("UPDATE account SET balance = balance + ? WHERE id = ?", (25, 2))
+    print(connection.execute("SELECT * FROM account ORDER BY id").fetchall())
 ```
 
 ### Advanced Example
@@ -125,26 +142,34 @@ with sqlite3.connect(":memory:") as connection:
 ```python
 import sqlite3
 
-connection = sqlite3.connect(":memory:")
-connection.row_factory = sqlite3.Row
-connection.execute("CREATE TABLE users (id INTEGER, email TEXT)")
-connection.execute("INSERT INTO users VALUES (?, ?)", (1, "a@example.com"))
-row = connection.execute("SELECT * FROM users").fetchone()
-print(dict(row))
+def transfer(connection, source_id: int, target_id: int, amount: int):
+    if amount <= 0:
+        raise ValueError("amount must be positive")
+    with connection:
+        debit = connection.execute(
+            "UPDATE account SET balance = balance - ? "
+            "WHERE id = ? AND balance >= ?",
+            (amount, source_id, amount),
+        )
+        if debit.rowcount != 1:
+            raise ValueError("source missing or insufficient funds")
+        credit = connection.execute(
+            "UPDATE account SET balance = balance + ? WHERE id = ?",
+            (amount, target_id),
+        )
+        if credit.rowcount != 1:
+            raise ValueError("target account missing")
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Database Fundamentals Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Model schema and constraints] --> B[Open transaction]
+    B --> C[Bind SQL parameters]
+    C --> D[Check affected rows]
+    D --> E[Commit or roll back]
 ```
-
-
----
 
 ---
 

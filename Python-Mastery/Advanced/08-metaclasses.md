@@ -5,101 +5,111 @@
 # Metaclasses
 
 ## Overview
-- **What is it?** Metaclasses is a Python knowledge area focused on object-oriented design.
-- **Why is it important?** Help developers apply object-oriented design techniques safely, clearly, and consistently.
-- **Where is it used?** Domain modeling, application architecture, frameworks, and reusable components.
+- **What is it?** A metaclass is the callable responsible for creating a class object; ordinary classes are instances of `type`.
+- **Why is it important?** Metaclasses can validate namespaces, register subclasses, or synthesize class-level behavior when `__init_subclass__` and decorators are insufficient.
+- **Where is it used?** They appear in ORMs, schema frameworks, abstract interfaces, plugin systems, and declarative APIs.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review metaclasses code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind metaclasses.
-- Expected outcome: you can use metaclasses in a small project and recognize when it belongs in production code.
+- Explain class creation from namespace preparation through metaclass construction.
+- Implement registration and declaration validation with `type` hooks.
+- Choose simpler class decorators or `__init_subclass__` when full metaclass control is unnecessary.
 
 ## Real World Applications
-- **Industry use cases:** Domain modeling, application architecture, frameworks, and reusable components.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Collecting declarative fields into ORM or validation schemas.
+- Registering concrete plugins at class-definition time.
+- Enforcing class-level contracts before instances can be created.
 
 ## Core Concepts
 
-### Model
-- **Definition:** The main idea that gives metaclasses its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Metaclasses model -> clear code`
+### Classes Are Runtime Objects
+- **Definition:** `type(name, bases, namespace)` creates a class dynamically; the class then creates instances through its own call protocol.
+- **Visual explanation:** `namespace + bases → metaclass → class object → instances`
 - **Practical example:**
 
 ```python
-apply_metaclasses_label = "Metaclasses"
-print(apply_metaclasses_label)
+def speak(self) -> str:
+    return "ready"
+
+Worker = type("Worker", (), {"speak": speak})
+worker = Worker()
+print(type(Worker), worker.speak())
 ```
 
-### Interface
-- **Definition:** The ordered steps Python follows when metaclasses code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Class Creation Hooks
+- **Definition:** Python resolves the metaclass, calls `__prepare__`, executes the class body into that namespace, and invokes metaclass `__new__` then `__init__`.
+- **Visual explanation:** `resolve metaclass → prepare namespace → execute body → construct class`
 - **Practical example:**
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
+class RequiredName(type):
+    def __new__(mcls, name, bases, namespace):
+        if bases and "plugin_name" not in namespace:
+            raise TypeError("plugin_name is required")
+        return super().__new__(mcls, name, bases, namespace)
 
-print(Dog().speak())
+class Plugin(metaclass=RequiredName):
+    pass
 ```
 
-### Behavior Rule
-- **Definition:** The reliability habit that keeps metaclasses understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Metaclass Registries
+- **Definition:** A registry metaclass records concrete classes at definition time, enabling configured lookup while keeping construction centralized.
+- **Visual explanation:** `class statement → metaclass validation → registry entry`
 - **Practical example:**
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
+class Registered(type):
+    plugins: dict[str, type] = {}
 
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
-
-account = Account()
-account.deposit(50)
-print(account.balance)
+    def __new__(mcls, name, bases, namespace):
+        cls = super().__new__(mcls, name, bases, namespace)
+        if key := namespace.get("plugin_name"):
+            mcls.plugins[key] = cls
+        return cls
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Metaclasses belongs to the object-oriented design part of Python mastery. |
-| ⚡ Purpose | Help developers apply object-oriented design techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional object-oriented design decisions. |
-| 🎯 Use Cases | Domain modeling, application architecture, frameworks, and reusable components. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | A metaclass is the callable responsible for creating a class object; ordinary classes are instances of `type`. |
+| ⚡ Purpose | Metaclasses can validate namespaces, register subclasses, or synthesize class-level behavior when `__init_subclass__` and decorators are insufficient. |
+| 🔥 Benefits | Builds the ability to explain class creation from namespace preparation through metaclass construction; it also helps practitioners implement registration and declaration validation with `type` hooks. |
+| 🎯 Use Cases | Collecting declarative fields into ORM or validation schemas. Registering concrete plugins at class-definition time. |
+| 🚀 Best Practices | Prefer `__init_subclass__` for local subclass registration. |
+| ❌ Common Mistakes | Ignoring the guardrail “Reserve metaclasses for class-creation policies shared across hierarchies”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-class Customer:
-    def __init__(self, name):
-        self.name = name
+class Traced(type):
+    def __new__(mcls, name, bases, namespace):
+        namespace["created_by"] = mcls.__name__
+        return super().__new__(mcls, name, bases, namespace)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_metaclasses(value):
-    """Apply the Metaclasses concept to one value."""
-    return value
+class Service(metaclass=Traced):
+    pass
 
-result = apply_metaclasses("practice")
-print(result)
+assert Service.created_by == "Traced"
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Metaclasses problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+class OrderedMeta(type):
+    @classmethod
+    def __prepare__(mcls, name, bases):
+        return {}
+
+    def __new__(mcls, name, bases, namespace):
+        cls = super().__new__(mcls, name, bases, namespace)
+        cls.declared_names = tuple(namespace)
+        return cls
 ```
 
 ## Examples
@@ -107,56 +117,54 @@ print(result)
 ### Beginner Example
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
-
-print(Dog().speak())
+DynamicRecord = type("DynamicRecord", (), {"kind": "event"})
+record = DynamicRecord()
+print(record.kind)
 ```
 
 ### Intermediate Example
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
+class Command:
+    registry: dict[str, type["Command"]] = {}
 
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
+    def __init_subclass__(cls, *, name: str, **kwargs) -> None:
+        super().__init_subclass__(**kwargs)
+        cls.registry[name] = cls
 
-account = Account()
-account.deposit(50)
-print(account.balance)
+class Start(Command, name="start"):
+    pass
+
+assert Command.registry["start"] is Start
 ```
 
 ### Advanced Example
 
 ```python
-from dataclasses import dataclass
+class SchemaMeta(type):
+    def __new__(mcls, name, bases, namespace):
+        annotations = namespace.get("__annotations__", {})
+        cls = super().__new__(mcls, name, bases, namespace)
+        cls.fields = tuple(annotations)
+        return cls
 
-@dataclass
-class Order:
-    id: int
-    total: float
+class UserSchema(metaclass=SchemaMeta):
+    name: str
+    active: bool
 
-    def is_large(self) -> bool:
-        return self.total >= 1000
-
-print(Order(1, 1200).is_large())
+assert UserSchema.fields == ("name", "active")
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Metaclasses Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Resolve metaclass] --> B[Prepare namespace]
+    B --> C[Execute class body]
+    C --> D[Validate and create class]
+    D --> E[Instantiate under class policy]
+    E -. feedback .-> A
 ```
-
-
----
 
 ---
 

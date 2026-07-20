@@ -5,94 +5,100 @@
 # API Consumption
 
 ## Overview
-- **What is it?** API Consumption is a Python knowledge area focused on integration.
-- **Why is it important?** Help developers apply integration techniques safely, clearly, and consistently.
-- **Where is it used?** Web services, persistence layers, analytics backends, and business systems.
+- **What is it?** API Consumption is the intermediate Python topic of integrating with remote APIs as a reliable client, independent of a particular HTTP library.
+- **Why is it important?** API consumption is the broader discipline of understanding contracts, authentication, pagination, rate limits, and failure modes.
+- **Where is it used?** third-party integrations, data synchronization, service-to-service calls.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review api consumption code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind api consumption.
-- Expected outcome: you can use api consumption in a small project and recognize when it belongs in production code.
+- Read API contracts and encode parameters.
+- Classify transport, HTTP, and payload failures.
+- Implement pagination, authentication, and idempotent retries.
 
 ## Real World Applications
-- **Industry use cases:** Web services, persistence layers, analytics backends, and business systems.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Third-party integrations rely on this topic.
+- **Product work:** It supports data synchronization.
+- **Operations:** It appears in service-to-service calls.
 
 ## Core Concepts
 
-### Contract
-- **Definition:** The main idea that gives api consumption its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> API Consumption model -> clear code`
+### Contract consumption
+- **Definition:** A client must honor the provider's method, URL, headers, parameter encoding, and response schema.
+- **Visual explanation:** ``client request -> API contract -> validated representation``
 - **Practical example:**
 
 ```python
-apply_api_consumption_label = "API Consumption"
-print(apply_api_consumption_label)
+from urllib.parse import urlencode
+query = urlencode({"page": 2, "limit": 50})
+url = f"https://api.example.test/items?{query}"
 ```
 
-### Connection Flow
-- **Definition:** The ordered steps Python follows when api consumption code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Failure layers
+- **Definition:** DNS/TLS/timeouts are transport failures, non-success statuses are HTTP failures, and invalid bodies are representation failures.
+- **Visual explanation:** ``transport -> status -> content-type -> schema``
 - **Practical example:**
 
 ```python
-import requests
-
-response = requests.get("https://example.com", timeout=10)
-print(response.status_code)
+def require_success(status: int):
+    if not 200 <= status < 300:
+        raise RuntimeError(f"HTTP {status}")
 ```
 
-### Reliability Boundary
-- **Definition:** The reliability habit that keeps api consumption understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Pagination and resilience
+- **Definition:** Consumers follow provider pagination tokens and retry only safe operations with limits, backoff, and rate-limit awareness.
+- **Visual explanation:** ``page -> next token -> page ... -> complete``
 - **Practical example:**
 
 ```python
-import requests
-
-with requests.Session() as session:
-    response = session.get("https://api.github.com", timeout=10)
-    print(response.headers.get("content-type"))
+def pages(fetch):
+    token = None
+    while True:
+        payload = fetch(token)
+        yield from payload["items"]
+        token = payload.get("next")
+        if token is None:
+            return
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | API Consumption belongs to the integration part of Python mastery. |
-| ⚡ Purpose | Help developers apply integration techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional integration decisions. |
-| 🎯 Use Cases | Web services, persistence layers, analytics backends, and business systems. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Contract consumption, Failure layers, Pagination and resilience |
+| ⚡ Purpose | API consumption is the broader discipline of understanding contracts, authentication, pagination, rate limits, and failure modes. |
+| 🔥 Benefits | Reliable integrations, explicit failure classification, and safe pagination and retry behavior. |
+| 🎯 Use Cases | third-party integrations, data synchronization, service-to-service calls |
+| 🚀 Best Practices | Wrap the remote contract in a small client and validate every response before business use. |
+| ❌ Common Mistakes | Retrying every failed POST automatically, risking duplicate side effects. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import requests
-response = requests.get("https://example.com", timeout=10)
+from urllib.request import urlopen
+import json
+
+with urlopen(url, timeout=5) as response:
+    payload = json.load(response)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_api_consumption(value):
-    """Apply the API Consumption concept to one value."""
-    return value
-
-result = apply_api_consumption("practice")
-print(result)
+def fetch_page(client, token=None):
+    payload = client.get_items(page_token=token)
+    if not isinstance(payload.get("items"), list):
+        raise ValueError("items must be a list")
+    return payload
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the API Consumption problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Build request from the published contract.
+# Set authentication and a finite timeout.
+# Check transport, status, and payload shape.
+# Follow pagination and retry policy deliberately.
 ```
 
 ## Examples
@@ -100,46 +106,68 @@ print(result)
 ### Beginner Example
 
 ```python
-import requests
+from urllib.parse import urlencode
 
-response = requests.get("https://example.com", timeout=10)
-print(response.status_code)
+parameters = urlencode({"query": "python api", "limit": 10})
+url = f"https://api.example.test/search?{parameters}"
+print(url)
 ```
 
 ### Intermediate Example
 
 ```python
-import requests
+import json
+from urllib.error import HTTPError, URLError
+from urllib.request import Request, urlopen
 
-with requests.Session() as session:
-    response = session.get("https://api.github.com", timeout=10)
-    print(response.headers.get("content-type"))
+def get_json(url: str, token: str) -> dict:
+    request = Request(url, headers={"Authorization": f"Bearer {token}"})
+    try:
+        with urlopen(request, timeout=5) as response:
+            if response.headers.get_content_type() != "application/json":
+                raise ValueError("expected JSON response")
+            return json.load(response)
+    except HTTPError as error:
+        raise RuntimeError(f"API returned {error.code}") from error
+    except URLError as error:
+        raise ConnectionError("API unavailable") from error
 ```
 
 ### Advanced Example
 
 ```python
-import requests
-from requests.adapters import HTTPAdapter
+def iter_resources(fetch_page):
+    token = None
+    seen_tokens = set()
+    while True:
+        payload = fetch_page(token)
+        items = payload.get("items")
+        if not isinstance(items, list):
+            raise ValueError("response.items must be a list")
+        yield from items
+        token = payload.get("next_page_token")
+        if token is None:
+            return
+        if token in seen_tokens:
+            raise RuntimeError("pagination token repeated")
+        seen_tokens.add(token)
 
-session = requests.Session()
-session.mount("https://", HTTPAdapter(max_retries=3))
-response = session.get("https://example.com", timeout=(3, 10))
-print(response.ok)
+responses = {
+    None: {"items": [1, 2], "next_page_token": "p2"},
+    "p2": {"items": [3], "next_page_token": None},
+}
+print(list(iter_resources(responses.__getitem__)))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify API Consumption Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Read provider contract] --> B[Build authenticated request]
+    B --> C[Send with timeout]
+    C --> D[Validate status and schema]
+    D --> E[Paginate or apply retry policy]
 ```
-
-
----
 
 ---
 

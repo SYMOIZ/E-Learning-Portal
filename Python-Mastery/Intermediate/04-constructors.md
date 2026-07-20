@@ -5,101 +5,98 @@
 # Constructors
 
 ## Overview
-- **What is it?** Constructors is a Python knowledge area focused on object-oriented design.
-- **Why is it important?** Help developers apply object-oriented design techniques safely, clearly, and consistently.
-- **Where is it used?** Domain modeling, application architecture, frameworks, and reusable components.
+- **What is it?** Constructors is the intermediate Python topic of establishing valid instance state during object creation.
+- **Why is it important?** Python separates allocation in __new__ from initialization in __init__; most application classes customize only __init__.
+- **Where is it used?** validated value objects, dependency injection, alternative factories.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review constructors code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind constructors.
-- Expected outcome: you can use constructors in a small project and recognize when it belongs in production code.
+- Explain __new__ versus __init__.
+- Establish invariants before an instance is used.
+- Design keyword-only and alternative constructors.
 
 ## Real World Applications
-- **Industry use cases:** Domain modeling, application architecture, frameworks, and reusable components.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Validated value objects rely on this topic.
+- **Product work:** It supports dependency injection.
+- **Operations:** It appears in alternative factories.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives constructors its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Constructors model -> clear code`
+### Allocation and initialization
+- **Definition:** __new__ allocates and returns an instance; __init__ initializes the already-created instance and must return None.
+- **Visual explanation:** ``Class(args) -> __new__ -> instance -> __init__``
 - **Practical example:**
 
 ```python
-apply_constructors_label = "Constructors"
-print(apply_constructors_label)
+class Token:
+    def __init__(self, value):
+        self.value = value.strip()
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when constructors code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Constructor invariants
+- **Definition:** A constructor invariant is a condition guaranteed for every successfully initialized instance.
+- **Visual explanation:** ``raw arguments -> validation -> valid object``
 - **Practical example:**
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
-
-print(Dog().speak())
+class Quantity:
+    def __init__(self, value):
+        if value < 0:
+            raise ValueError("quantity cannot be negative")
+        self.value = value
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps constructors understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Alternative constructors
+- **Definition:** A class method can translate another representation and delegate final initialization to cls.
+- **Visual explanation:** ``external form -> @classmethod -> cls(...)``
 - **Practical example:**
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
-
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
-
-account = Account()
-account.deposit(50)
-print(account.balance)
+class DateKey:
+    @classmethod
+    def parse(cls, text):
+        year, month = map(int, text.split("-"))
+        return cls(year, month)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Constructors belongs to the object-oriented design part of Python mastery. |
-| ⚡ Purpose | Help developers apply object-oriented design techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional object-oriented design decisions. |
-| 🎯 Use Cases | Domain modeling, application architecture, frameworks, and reusable components. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Allocation and initialization, Constructor invariants, Alternative constructors |
+| ⚡ Purpose | Python separates allocation in __new__ from initialization in __init__; most application classes customize only __init__. |
+| 🔥 Benefits | Valid objects from creation time, centralized normalization, and readable alternative factories. |
+| 🎯 Use Cases | validated value objects, dependency injection, alternative factories |
+| 🚀 Best Practices | Validate required state once and make optional arguments explicit. |
+| ❌ Common Mistakes | Performing network or database work in __init__, making construction slow and failure-prone. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-class Customer:
-    def __init__(self, name):
-        self.name = name
+class User:
+    def __init__(self, username: str):
+        self.username = username
 ```
 
 ### Standard Structure
 
 ```python
-def apply_constructors(value):
-    """Apply the Constructors concept to one value."""
-    return value
-
-result = apply_constructors("practice")
-print(result)
+class Report:
+    def __init__(self, title: str, *, include_details: bool = False):
+        if not title.strip():
+            raise ValueError("title is required")
+        self.title = title.strip()
+        self.include_details = include_details
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Constructors problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# 1. Accept the minimum required inputs.
+# 2. Normalize and validate them.
+# 3. Assign every invariant-bearing attribute.
+# 4. Move alternate input formats to class methods.
 ```
 
 ## Examples
@@ -107,56 +104,58 @@ print(result)
 ### Beginner Example
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
+class Point:
+    def __init__(self, x: float, y: float):
+        self.x = x
+        self.y = y
 
-print(Dog().speak())
+print(vars(Point(2, 4)))
 ```
 
 ### Intermediate Example
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
+class EmailAddress:
+    def __init__(self, value: str):
+        normalized = value.strip().lower()
+        if normalized.count("@") != 1:
+            raise ValueError("invalid email address")
+        self.value = normalized
 
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
-
-account = Account()
-account.deposit(50)
-print(account.balance)
+print(EmailAddress(" ADA@EXAMPLE.COM ").value)
 ```
 
 ### Advanced Example
 
 ```python
-from dataclasses import dataclass
+class Money:
+    def __new__(cls, amount, currency="USD"):
+        if amount == 0:
+            return ZERO_USD if currency == "USD" and "ZERO_USD" in globals() else super().__new__(cls)
+        return super().__new__(cls)
 
-@dataclass
-class Order:
-    id: int
-    total: float
+    def __init__(self, amount, currency="USD"):
+        self.amount = amount
+        self.currency = currency
 
-    def is_large(self) -> bool:
-        return self.total >= 1000
+    @classmethod
+    def parse(cls, text: str):
+        currency, amount = text.split()
+        return cls(float(amount), currency)
 
-print(Order(1, 1200).is_large())
+ZERO_USD = Money(0)
+print(Money.parse("EUR 19.95").currency)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Constructors Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Call class] --> B[__new__ allocates]
+    B --> C[__init__ validates]
+    C --> D[Store invariant state]
+    D --> E[Return initialized instance]
 ```
-
-
----
 
 ---
 

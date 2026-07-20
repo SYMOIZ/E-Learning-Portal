@@ -5,101 +5,118 @@
 # DevOps Automation
 
 ## Overview
-- **What is it?** DevOps Automation is a Python knowledge area focused on cloud and DevOps.
-- **Why is it important?** Help developers apply cloud and DevOps techniques safely, clearly, and consistently.
-- **Where is it used?** Deployment automation, infrastructure operations, and scalable production delivery.
+- **What is it?** DevOps automation turns build, infrastructure, release, and operational procedures into versioned, repeatable, observable workflows.
+- **Why is it important?** Safe automation is idempotent, least-privileged, reviewable, bounded by timeouts, and able to report partial failure without hiding it.
+- **Where is it used?** It supports environment checks, release orchestration, configuration generation, fleet inventory, and incident runbooks.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review devops automation code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind devops automation.
-- Expected outcome: you can use devops automation in a small project and recognize when it belongs in production code.
+- Implement safe filesystem and subprocess operations with explicit plans.
+- Make automation idempotent, resumable, and structured for CI or operators.
+- Add dry-run, audit events, concurrency bounds, and rollback criteria.
 
 ## Real World Applications
-- **Industry use cases:** Deployment automation, infrastructure operations, and scalable production delivery.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Validating repositories and packaging release artifacts.
+- Generating configuration from typed inputs without embedding secrets.
+- Executing approved maintenance across a bounded host or service inventory.
 
 ## Core Concepts
 
-### Runtime Artifact
-- **Definition:** The main idea that gives devops automation its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> DevOps Automation model -> clear code`
+### Desired State and Idempotency
+- **Definition:** Automation should compare observed state with desired state and change only the difference, so repeating a successful run converges.
+- **Visual explanation:** `desired state + observed state → plan delta → apply → verify`
 - **Practical example:**
 
 ```python
-apply_devops_automation_label = "DevOps Automation"
-print(apply_devops_automation_label)
+from pathlib import Path
+
+def ensure_text(path: Path, desired: str, dry_run: bool = False) -> bool:
+    current = path.read_text() if path.exists() else None
+    if current == desired:
+        return False
+    if not dry_run:
+        path.write_text(desired)
+    return True
 ```
 
-### Deployment Target
-- **Definition:** The ordered steps Python follows when devops automation code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Bounded Command Execution
+- **Definition:** Commands use explicit argument vectors, known working directories, scrubbed environments, checked status, captured evidence, and deadlines.
+- **Visual explanation:** `validated argv/env → subprocess → status/stdout/stderr → structured result`
 - **Practical example:**
 
 ```python
-import argparse
+import subprocess
 
-parser = argparse.ArgumentParser()
-parser.add_argument("--name", default="Python")
-args = parser.parse_args([])
-print(args.name)
+def run_check(arguments: list[str]) -> str:
+    result = subprocess.run(
+        arguments,
+        check=True,
+        capture_output=True,
+        text=True,
+        timeout=120,
+    )
+    return result.stdout
 ```
 
-### Operational Feedback
-- **Definition:** The reliability habit that keeps devops automation understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Plans, Rollouts, and Verification
+- **Definition:** High-impact automation separates planning from application, limits blast radius in batches, verifies health, and stops before expanding a failed rollout.
+- **Visual explanation:** `inventory → plan → canary batch → health gate → progressive rollout`
 - **Practical example:**
 
 ```python
-import argparse
+from collections.abc import Callable
 
-def build_parser():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("count", type=int)
-    return parser
-
-args = build_parser().parse_args(["3"])
-print(args.count * 2)
+def rollout(targets: list[str], deploy: Callable[[str], None], healthy: Callable[[str], bool]) -> None:
+    for target in targets:
+        deploy(target)
+        if not healthy(target):
+            raise RuntimeError(f"health gate failed: {target}")
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | DevOps Automation belongs to the cloud and DevOps part of Python mastery. |
-| ⚡ Purpose | Help developers apply cloud and DevOps techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional cloud and DevOps decisions. |
-| 🎯 Use Cases | Deployment automation, infrastructure operations, and scalable production delivery. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | DevOps automation turns build, infrastructure, release, and operational procedures into versioned, repeatable, observable workflows. |
+| ⚡ Purpose | Safe automation is idempotent, least-privileged, reviewable, bounded by timeouts, and able to report partial failure without hiding it. |
+| 🔥 Benefits | Builds the ability to implement safe filesystem and subprocess operations with explicit plans; it also helps practitioners make automation idempotent, resumable, and structured for CI or operators. |
+| 🎯 Use Cases | Validating repositories and packaging release artifacts. Generating configuration from typed inputs without embedding secrets. |
+| 🚀 Best Practices | Structured logs connect target, change, actor, duration, and result. |
+| ❌ Common Mistakes | Ignoring the guardrail “Never use `shell=True` with untrusted or interpolated input”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import argparse
-parser = argparse.ArgumentParser()
-parser.add_argument("name")
+from pathlib import Path
+
+files = sorted(Path("config").glob("*.toml"))
 ```
 
 ### Standard Structure
 
 ```python
-def apply_devops_automation(value):
-    """Apply the DevOps Automation concept to one value."""
-    return value
+import subprocess
 
-result = apply_devops_automation("practice")
-print(result)
+revision = subprocess.run(
+    ["git", "rev-parse", "--verify", "HEAD"],
+    check=True,
+    capture_output=True,
+    text=True,
+    timeout=10,
+).stdout.strip()
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the DevOps Automation problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class Change:
+    target: str
+    before: str | None
+    after: str
 ```
 
 ## Examples
@@ -107,52 +124,52 @@ print(result)
 ### Beginner Example
 
 ```python
-import argparse
+from pathlib import Path
 
-parser = argparse.ArgumentParser()
-parser.add_argument("--name", default="Python")
-args = parser.parse_args([])
-print(args.name)
+changed = ensure_text(Path("service.conf"), "workers=4\n", dry_run=True)
+print({"would_change": changed})
 ```
 
 ### Intermediate Example
 
 ```python
-import argparse
+import json
+from pathlib import Path
 
-def build_parser():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("count", type=int)
-    return parser
-
-args = build_parser().parse_args(["3"])
-print(args.count * 2)
+def write_json(path: Path, payload: dict) -> None:
+    temporary = path.with_suffix(path.suffix + ".tmp")
+    temporary.write_text(json.dumps(payload, indent=2) + "\n")
+    temporary.replace(path)
 ```
 
 ### Advanced Example
 
 ```python
-import argparse
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
-parser = argparse.ArgumentParser(prog="portal")
-subcommands = parser.add_subparsers(dest="command", required=True)
-run = subcommands.add_parser("run")
-run.add_argument("--dry-run", action="store_true")
-print(parser.parse_args(["run", "--dry-run"]))
+def bounded_checks(targets: list[str], check) -> dict[str, bool]:
+    results = {}
+    with ThreadPoolExecutor(max_workers=8) as executor:
+        futures = {executor.submit(check, target): target for target in targets}
+        for future in as_completed(futures):
+            target = futures[future]
+            try:
+                results[target] = bool(future.result())
+            except Exception:
+                results[target] = False
+    return results
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify DevOps Automation Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Discover observed state] --> B[Build reviewable change plan]
+    B --> C[Dry-run and approve]
+    C --> D[Apply canary with bounds]
+    D --> E[Verify health and continue or stop]
+    E -. feedback .-> A
 ```
-
-
----
 
 ---
 

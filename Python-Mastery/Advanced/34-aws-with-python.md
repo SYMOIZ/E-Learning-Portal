@@ -5,94 +5,114 @@
 # AWS with Python
 
 ## Overview
-- **What is it?** AWS with Python is a Python knowledge area focused on cloud and DevOps.
-- **Why is it important?** Help developers apply cloud and DevOps techniques safely, clearly, and consistently.
-- **Where is it used?** Deployment automation, infrastructure operations, and scalable production delivery.
+- **What is it?** boto3 is the AWS SDK for Python, exposing service clients and higher-level resources configured through the standard credential and region provider chains.
+- **Why is it important?** Reliable AWS code uses IAM least privilege, pagination, waiters, retries, idempotency, and service-specific error inspection.
+- **Where is it used?** It is used to automate S3, DynamoDB, SQS, Lambda, infrastructure operations, and observability workflows.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review aws with python code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind aws with python.
-- Expected outcome: you can use aws with python in a small project and recognize when it belongs in production code.
+- Create boto3 sessions and clients without embedding credentials.
+- Use paginators, waiters, conditional writes, and SDK error codes.
+- Design idempotent operations with bounded concurrency and auditability.
 
 ## Real World Applications
-- **Industry use cases:** Deployment automation, infrastructure operations, and scalable production delivery.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Managing versioned objects and lifecycle-aware data in Amazon S3.
+- Publishing queue messages and operating event-driven workers.
+- Automating inventory, tagging, backup, and deployment checks.
 
 ## Core Concepts
 
-### Runtime Artifact
-- **Definition:** The main idea that gives aws with python its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> AWS with Python model -> clear code`
+### Sessions and Credential Resolution
+- **Definition:** A boto3 Session resolves region and short-lived credentials through explicit configuration, profiles, environment, containers, or instance roles.
+- **Visual explanation:** `provider chain → signed request → regional AWS endpoint`
 - **Practical example:**
 
 ```python
-apply_aws_with_python_label = "AWS with Python"
-print(apply_aws_with_python_label)
+import boto3
+
+session = boto3.Session(region_name="us-east-1")
+s3 = session.client("s3")
+print(session.region_name)
 ```
 
-### Deployment Target
-- **Definition:** The ordered steps Python follows when aws with python code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Pagination and Waiters
+- **Definition:** List APIs return bounded pages and continuation tokens; paginators iterate all pages, while waiters poll modeled resource states.
+- **Visual explanation:** `API page + token → paginator → complete stream; create → waiter → ready`
 - **Practical example:**
 
 ```python
-import requests
+import boto3
 
-response = requests.get("https://example.com", timeout=10)
-print(response.status_code)
+s3 = boto3.client("s3")
+paginator = s3.get_paginator("list_objects_v2")
+for page in paginator.paginate(Bucket="example-bucket", Prefix="reports/"):
+    for item in page.get("Contents", []):
+        print(item["Key"])
 ```
 
-### Operational Feedback
-- **Definition:** The reliability habit that keeps aws with python understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Errors and Conditional Effects
+- **Definition:** botocore exposes structured service error codes; callers should distinguish expected conflicts and throttling from authorization or validation failures.
+- **Visual explanation:** `ClientError → service code → recover, retry, or fail permanently`
 - **Practical example:**
 
 ```python
-import requests
+import boto3
+from botocore.exceptions import ClientError
 
-with requests.Session() as session:
-    response = session.get("https://api.github.com", timeout=10)
-    print(response.headers.get("content-type"))
+table = boto3.resource("dynamodb").Table("jobs")
+try:
+    table.put_item(
+        Item={"job_id": "J-7", "state": "new"},
+        ConditionExpression="attribute_not_exists(job_id)",
+    )
+except ClientError as error:
+    if error.response["Error"]["Code"] != "ConditionalCheckFailedException":
+        raise
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | AWS with Python belongs to the cloud and DevOps part of Python mastery. |
-| ⚡ Purpose | Help developers apply cloud and DevOps techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional cloud and DevOps decisions. |
-| 🎯 Use Cases | Deployment automation, infrastructure operations, and scalable production delivery. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | boto3 is the AWS SDK for Python, exposing service clients and higher-level resources configured through the standard credential and region provider chains. |
+| ⚡ Purpose | Reliable AWS code uses IAM least privilege, pagination, waiters, retries, idempotency, and service-specific error inspection. |
+| 🔥 Benefits | Builds the ability to create boto3 sessions and clients without embedding credentials; it also helps practitioners use paginators, waiters, conditional writes, and SDK error codes. |
+| 🎯 Use Cases | Managing versioned objects and lifecycle-aware data in Amazon S3. Publishing queue messages and operating event-driven workers. |
+| 🚀 Best Practices | DynamoDB condition expressions make writes concurrency-safe. |
+| ❌ Common Mistakes | Ignoring the guardrail “Never hard-code access keys or assume one API response contains every item”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import requests
-response = requests.get("https://example.com", timeout=10)
+import boto3
+
+s3 = boto3.client("s3", region_name="us-east-1")
+response = s3.get_object(Bucket="example-bucket", Key="data/report.json")
+body = response["Body"].read()
 ```
 
 ### Standard Structure
 
 ```python
-def apply_aws_with_python(value):
-    """Apply the AWS with Python concept to one value."""
-    return value
-
-result = apply_aws_with_python("practice")
-print(result)
+sqs = boto3.client("sqs")
+result = sqs.send_message(
+    QueueUrl="https://sqs.us-east-1.amazonaws.com/123/jobs",
+    MessageBody='{"job_id":"J-7"}',
+)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the AWS with Python problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+from botocore.config import Config
+
+config = Config(
+    retries={"mode": "adaptive", "max_attempts": 5},
+    connect_timeout=2,
+    read_timeout=10,
+)
+client = boto3.client("s3", config=config)
 ```
 
 ## Examples
@@ -100,46 +120,59 @@ print(result)
 ### Beginner Example
 
 ```python
-import requests
+import boto3
 
-response = requests.get("https://example.com", timeout=10)
-print(response.status_code)
+sts = boto3.client("sts")
+identity = sts.get_caller_identity()
+print(identity["Arn"])
 ```
 
 ### Intermediate Example
 
 ```python
-import requests
+import json
+import boto3
 
-with requests.Session() as session:
-    response = session.get("https://api.github.com", timeout=10)
-    print(response.headers.get("content-type"))
+s3 = boto3.client("s3")
+payload = json.dumps({"status": "ready"}).encode()
+s3.put_object(
+    Bucket="example-bucket",
+    Key="status/current.json",
+    Body=payload,
+    ContentType="application/json",
+)
 ```
 
 ### Advanced Example
 
 ```python
-import requests
-from requests.adapters import HTTPAdapter
+import boto3
 
-session = requests.Session()
-session.mount("https://", HTTPAdapter(max_retries=3))
-response = session.get("https://example.com", timeout=(3, 10))
-print(response.ok)
+sqs = boto3.client("sqs")
+response = sqs.receive_message(
+    QueueUrl="https://sqs.us-east-1.amazonaws.com/123/jobs",
+    MaxNumberOfMessages=10,
+    WaitTimeSeconds=20,
+    VisibilityTimeout=60,
+)
+for message in response.get("Messages", []):
+    process(message["Body"])
+    sqs.delete_message(
+        QueueUrl="https://sqs.us-east-1.amazonaws.com/123/jobs",
+        ReceiptHandle=message["ReceiptHandle"],
+    )
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify AWS with Python Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Resolve role and region] --> B[Create boto3 client]
+    B --> C[Call paginated/idempotent API]
+    C --> D[Classify service response]
+    D --> E[Wait or emit audit result]
+    E -. feedback .-> A
 ```
-
-
----
 
 ---
 

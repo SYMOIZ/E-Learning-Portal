@@ -5,70 +5,66 @@
 # Mocking
 
 ## Overview
-- **What is it?** Mocking is a Python knowledge area focused on delivery quality.
-- **Why is it important?** Help developers apply delivery quality techniques safely, clearly, and consistently.
-- **Where is it used?** Reliable releases, automation tools, reusable packages, and developer productivity.
+- **What is it?** Mocking is the intermediate Python topic of replacing collaborators at test boundaries with controlled test doubles.
+- **Why is it important?** unittest.mock isolates nondeterministic or external behavior, but excessive mocking couples tests to implementation.
+- **Where is it used?** network failure simulation, time and randomness control, interaction verification.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review mocking code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind mocking.
-- Expected outcome: you can use mocking in a small project and recognize when it belongs in production code.
+- Use Mock, patch, autospec, and side_effect.
+- Patch where a name is looked up.
+- Choose fakes or real collaborators when behavior matters.
 
 ## Real World Applications
-- **Industry use cases:** Reliable releases, automation tools, reusable packages, and developer productivity.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Network failure simulation rely on this topic.
+- **Product work:** It supports time and randomness control.
+- **Operations:** It appears in interaction verification.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives mocking its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Mocking model -> clear code`
-- **Practical example:**
-
-```python
-apply_mocking_label = "Mocking"
-print(apply_mocking_label)
-```
-
-### Execution Flow
-- **Definition:** The ordered steps Python follows when mocking code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Test doubles
+- **Definition:** A mock records calls and returns configured values; stubs provide answers, while fakes provide a lightweight working implementation.
+- **Visual explanation:** ``unit -> test double instead of external collaborator``
 - **Practical example:**
 
 ```python
 from unittest.mock import Mock
-notify = Mock()
-notify("sent")
-notify.assert_called_once_with("sent")
+gateway = Mock()
+gateway.charge.return_value = "paid"
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps mocking understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Patching lookup names
+- **Definition:** patch temporarily rebinds the name used by code under test, which may differ from where the object was originally defined.
+- **Visual explanation:** ``module_under_test.name -> patched object during scope``
 - **Practical example:**
 
 ```python
 from unittest.mock import patch
 
-def get_clock():
-    import time
-    return time.time()
+with patch("service.clock") as clock:
+    clock.return_value = 100
+```
 
-with patch("time.time", return_value=123.0):
-    print(get_clock())
+### Specifications and side effects
+- **Definition:** autospec constrains a mock to a real callable signature; side_effect can raise or produce sequential outcomes.
+- **Visual explanation:** ``spec -> valid interface; side_effect -> result/error sequence``
+- **Practical example:**
+
+```python
+from unittest.mock import Mock
+client = Mock()
+client.fetch.side_effect = [TimeoutError, {"ok": True}]
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Mocking belongs to the delivery quality part of Python mastery. |
-| ⚡ Purpose | Help developers apply delivery quality techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional delivery quality decisions. |
-| 🎯 Use Cases | Reliable releases, automation tools, reusable packages, and developer productivity. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Test doubles, Patching lookup names, Specifications and side effects |
+| ⚡ Purpose | unittest.mock isolates nondeterministic or external behavior, but excessive mocking couples tests to implementation. |
+| 🔥 Benefits | Deterministic boundary tests, reproducible failures, and precise collaborator interaction checks. |
+| 🎯 Use Cases | network failure simulation, time and randomness control, interaction verification |
+| 🚀 Best Practices | Mock narrow external boundaries and assert the business outcome first. |
+| ❌ Common Mistakes | Patching the definition module when the code under test imported the name elsewhere. |
 
 ## Syntax Guide
 
@@ -76,26 +72,29 @@ with patch("time.time", return_value=123.0):
 
 ```python
 from unittest.mock import Mock
-service = Mock(return_value="ok")
+
+mailer = Mock()
+mailer.send.return_value = "queued"
+result = mailer.send("ada@example.com")
 ```
 
 ### Standard Structure
 
 ```python
-def apply_mocking(value):
-    """Apply the Mocking concept to one value."""
-    return value
+from unittest.mock import patch
 
-result = apply_mocking("practice")
-print(result)
+with patch("orders.requests.get", autospec=True) as get:
+    get.return_value.json.return_value = {"status": "ok"}
+    result = orders.fetch_status()
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Mocking problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Identify the external or nondeterministic boundary.
+# Replace the name where the unit looks it up.
+# Configure realistic result or failure.
+# Assert outcome and only meaningful interactions.
 ```
 
 ## Examples
@@ -104,50 +103,62 @@ print(result)
 
 ```python
 from unittest.mock import Mock
-notify = Mock()
-notify("sent")
-notify.assert_called_once_with("sent")
+
+notifier = Mock()
+notifier.send.return_value = "message-7"
+message_id = notifier.send("Build complete")
+assert message_id == "message-7"
+notifier.send.assert_called_once_with("Build complete")
 ```
 
 ### Intermediate Example
 
 ```python
-from unittest.mock import patch
+from unittest.mock import Mock
 
-def get_clock():
-    import time
-    return time.time()
+def deliver(client, payload):
+    response = client.post(payload)
+    if response["status"] != "accepted":
+        raise RuntimeError("delivery rejected")
+    return response["id"]
 
-with patch("time.time", return_value=123.0):
-    print(get_clock())
+client = Mock()
+client.post.return_value = {"status": "accepted", "id": "evt-1"}
+assert deliver(client, {"value": 4}) == "evt-1"
+client.post.assert_called_once_with({"value": 4})
 ```
 
 ### Advanced Example
 
 ```python
-from unittest.mock import create_autospec
+from unittest.mock import create_autospec, patch
 
-class Gateway:
-    def charge(self, amount: float) -> str:
-        return "approved"
+class Clock:
+    def now(self) -> float:
+        return 0.0
 
-gateway = create_autospec(Gateway)
-gateway.charge.return_value = "approved"
-print(gateway.charge(10.0))
+def issue_token(clock: Clock) -> dict:
+    return {"issued_at": clock.now()}
+
+clock = create_autospec(Clock, instance=True)
+clock.now.side_effect = [100.0, 101.0]
+assert issue_token(clock)["issued_at"] == 100.0
+assert issue_token(clock)["issued_at"] == 101.0
+
+with patch("time.sleep", autospec=True) as sleep:
+    sleep(0.5)
+    sleep.assert_called_once_with(0.5)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Mocking Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Locate collaborator boundary] --> B[Create spec-constrained double]
+    B --> C[Patch lookup or inject double]
+    C --> D[Exercise unit]
+    D --> E[Assert outcome and calls]
 ```
-
-
----
 
 ---
 

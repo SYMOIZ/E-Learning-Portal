@@ -5,101 +5,121 @@
 # Design Patterns
 
 ## Overview
-- **What is it?** Design Patterns is a Python knowledge area focused on advanced language engineering.
-- **Why is it important?** Help developers apply advanced language engineering techniques safely, clearly, and consistently.
-- **Where is it used?** Performance-sensitive systems, frameworks, libraries, and technical interviews.
+- **What is it?** Design patterns are named, reusable arrangements of responsibilities and object collaboration, not code templates to copy mechanically.
+- **Why is it important?** In Python, functions, protocols, decorators, context managers, and modules often express patterns more directly than class-heavy translations.
+- **Where is it used?** Patterns help evolve libraries, integrations, and business workflows while keeping variation behind stable boundaries.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review design patterns code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind design patterns.
-- Expected outcome: you can use design patterns in a small project and recognize when it belongs in production code.
+- Recognize Strategy, Factory, Observer, Adapter, and dependency-injection structures.
+- Use Python's first-class functions and structural typing to keep patterns lightweight.
+- Distinguish justified extensibility from speculative abstraction.
 
 ## Real World Applications
-- **Industry use cases:** Performance-sensitive systems, frameworks, libraries, and technical interviews.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Pluggable payment rules, serializers, notification channels, and storage adapters.
+- Framework extension points whose callers depend on stable contracts.
+- Testing systems by substituting collaborators at explicit boundaries.
 
 ## Core Concepts
 
-### Model
-- **Definition:** The main idea that gives design patterns its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Design Patterns model -> clear code`
+### Strategy as Behavior
+- **Definition:** Strategy moves a varying algorithm behind a common callable contract so clients select behavior without branching on concrete types.
+- **Visual explanation:** `client → strategy contract → interchangeable algorithm`
 - **Practical example:**
 
 ```python
-apply_design_patterns_label = "Design Patterns"
-print(apply_design_patterns_label)
+from collections.abc import Callable
+
+Discount = Callable[[float], float]
+
+def checkout(total: float, discount: Discount) -> float:
+    return discount(total)
+
+print(checkout(100.0, lambda amount: amount * 0.9))
 ```
 
-### Interface
-- **Definition:** The ordered steps Python follows when design patterns code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Factory and Registration
+- **Definition:** A factory centralizes construction while a registry lets new implementations be added without modifying every caller.
+- **Visual explanation:** `configuration → registry lookup → constructed implementation`
 - **Practical example:**
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
+exporters: dict[str, type] = {}
 
-print(Dog().speak())
+def register(name: str):
+    def decorate(cls: type) -> type:
+        exporters[name] = cls
+        return cls
+    return decorate
+
+@register("json")
+class JsonExporter:
+    pass
 ```
 
-### Behavior Rule
-- **Definition:** The reliability habit that keeps design patterns understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Adapter Boundaries
+- **Definition:** An adapter translates a third-party or legacy interface into the application-owned protocol, containing change and simplifying tests.
+- **Visual explanation:** `domain call → adapter → external API shape`
 - **Practical example:**
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
+from typing import Protocol
 
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
+class Sender(Protocol):
+    def send(self, message: str) -> None: ...
 
-account = Account()
-account.deposit(50)
-print(account.balance)
+class LegacyAdapter:
+    def __init__(self, legacy_client: object) -> None:
+        self.client = legacy_client
+
+    def send(self, message: str) -> None:
+        getattr(self.client, "deliver")(payload=message)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Design Patterns belongs to the advanced language engineering part of Python mastery. |
-| ⚡ Purpose | Help developers apply advanced language engineering techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional advanced language engineering decisions. |
-| 🎯 Use Cases | Performance-sensitive systems, frameworks, libraries, and technical interviews. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Design patterns are named, reusable arrangements of responsibilities and object collaboration, not code templates to copy mechanically. |
+| ⚡ Purpose | In Python, functions, protocols, decorators, context managers, and modules often express patterns more directly than class-heavy translations. |
+| 🔥 Benefits | Builds the ability to recognize Strategy, Factory, Observer, Adapter, and dependency-injection structures; it also helps practitioners use Python's first-class functions and structural typing to keep patterns lightweight. |
+| 🎯 Use Cases | Pluggable payment rules, serializers, notification channels, and storage adapters. Framework extension points whose callers depend on stable contracts. |
+| 🚀 Best Practices | Protocol-based contracts reduce unnecessary inheritance. |
+| ❌ Common Mistakes | Ignoring the guardrail “Introduce a pattern only when it removes observed coupling”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-class Customer:
-    def __init__(self, name):
-        self.name = name
+from typing import Protocol
+
+class Formatter(Protocol):
+    def format(self, value: object) -> str: ...
 ```
 
 ### Standard Structure
 
 ```python
-def apply_design_patterns(value):
-    """Apply the Design Patterns concept to one value."""
-    return value
+class Service:
+    def __init__(self, formatter: "Formatter") -> None:
+        self.formatter = formatter
 
-result = apply_design_patterns("practice")
-print(result)
+    def render(self, value: object) -> str:
+        return self.formatter.format(value)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Design Patterns problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+from collections.abc import Callable
+
+handlers: dict[str, Callable[[object], None]] = {}
+
+def handler(event: str):
+    def register(function: Callable[[object], None]) -> Callable[[object], None]:
+        handlers[event] = function
+        return function
+    return register
 ```
 
 ## Examples
@@ -107,56 +127,56 @@ print(result)
 ### Beginner Example
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
+def upper(value: str) -> str:
+    return value.upper()
 
-print(Dog().speak())
+transform = upper
+print(transform("pattern"))
 ```
 
 ### Intermediate Example
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
+class CsvFormatter:
+    def format(self, value: object) -> str:
+        return f'"{value}"'
 
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
-
-account = Account()
-account.deposit(50)
-print(account.balance)
+service = Service(CsvFormatter())
+print(service.render("Ada"))
 ```
 
 ### Advanced Example
 
 ```python
-from dataclasses import dataclass
+from collections import defaultdict
+from collections.abc import Callable
 
-@dataclass
-class Order:
-    id: int
-    total: float
+class EventBus:
+    def __init__(self) -> None:
+        self._subscribers: defaultdict[str, list[Callable[[object], None]]] = defaultdict(list)
 
-    def is_large(self) -> bool:
-        return self.total >= 1000
+    def subscribe(self, event: str, callback: Callable[[object], None]) -> None:
+        self._subscribers[event].append(callback)
 
-print(Order(1, 1200).is_large())
+    def publish(self, event: str, payload: object) -> None:
+        for callback in tuple(self._subscribers[event]):
+            callback(payload)
+
+bus = EventBus()
+bus.subscribe("created", lambda payload: print("audit", payload))
+bus.publish("created", {"id": 7})
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Design Patterns Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Locate changing responsibility] --> B[Define owned contract]
+    B --> C[Select minimal pattern]
+    C --> D[Inject implementation]
+    D --> E[Test substitution]
+    E -. feedback .-> A
 ```
-
-
----
 
 ---
 

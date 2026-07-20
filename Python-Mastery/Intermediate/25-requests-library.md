@@ -5,67 +5,64 @@
 # Requests Library
 
 ## Overview
-- **What is it?** Requests Library is a Python knowledge area focused on integration.
-- **Why is it important?** Help developers apply integration techniques safely, clearly, and consistently.
-- **Where is it used?** Web services, persistence layers, analytics backends, and business systems.
+- **What is it?** Requests Library is the intermediate Python topic of sending HTTP requests with the third-party requests library.
+- **Why is it important?** Requests provides ergonomic sessions, parameter encoding, response decoding, exceptions, and adapter-based retry configuration.
+- **Where is it used?** REST clients, webhook delivery, service health checks.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review requests library code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind requests library.
-- Expected outcome: you can use requests library in a small project and recognize when it belongs in production code.
+- Use params, json, headers, timeout, and raise_for_status.
+- Reuse connections with Session.
+- Configure narrow retries with urllib3 Retry.
 
 ## Real World Applications
-- **Industry use cases:** Web services, persistence layers, analytics backends, and business systems.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Rest clients rely on this topic.
+- **Product work:** It supports webhook delivery.
+- **Operations:** It appears in service health checks.
 
 ## Core Concepts
 
-### Contract
-- **Definition:** The main idea that gives requests library its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Requests Library model -> clear code`
-- **Practical example:**
-
-```python
-apply_requests_library_label = "Requests Library"
-print(apply_requests_library_label)
-```
-
-### Connection Flow
-- **Definition:** The ordered steps Python follows when requests library code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Request and response
+- **Definition:** requests builds an HTTP request from method arguments and returns a Response with status, headers, bytes, text, and JSON helpers.
+- **Visual explanation:** ``requests.get -> Response -> status/content``
 - **Practical example:**
 
 ```python
 import requests
-
-response = requests.get("https://example.com", timeout=10)
-print(response.status_code)
+response = requests.get("https://example.com", timeout=5)
+response.raise_for_status()
 ```
 
-### Reliability Boundary
-- **Definition:** The reliability habit that keeps requests library understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Sessions
+- **Definition:** A Session persists headers, cookies, and connection pools across calls, reducing setup overhead and centralizing policy.
+- **Visual explanation:** ``Session policy + connection pool -> many requests``
 - **Practical example:**
 
 ```python
 import requests
+session = requests.Session()
+session.headers["User-Agent"] = "lesson-client/1.0"
+```
 
-with requests.Session() as session:
-    response = session.get("https://api.github.com", timeout=10)
-    print(response.headers.get("content-type"))
+### Timeouts and retries
+- **Definition:** A timeout bounds connection and read waits; retries should target transient failures and idempotent methods.
+- **Visual explanation:** ``request -> finite timeout -> selected retry/backoff -> failure``
+- **Practical example:**
+
+```python
+import requests
+response = requests.get("https://example.com", timeout=(2, 10))
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Requests Library belongs to the integration part of Python mastery. |
-| ⚡ Purpose | Help developers apply integration techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional integration decisions. |
-| 🎯 Use Cases | Web services, persistence layers, analytics backends, and business systems. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Request and response, Sessions, Timeouts and retries |
+| ⚡ Purpose | Requests provides ergonomic sessions, parameter encoding, response decoding, exceptions, and adapter-based retry configuration. |
+| 🔥 Benefits | Concise HTTP clients, pooled connections, and centralized timeout, status, and retry policy. |
+| 🎯 Use Cases | REST clients, webhook delivery, service health checks |
+| 🚀 Best Practices | Always set a finite timeout and call raise_for_status before trusting the body. |
+| ❌ Common Mistakes | Using response.json() as proof that the status was successful or the schema is valid. |
 
 ## Syntax Guide
 
@@ -73,26 +70,37 @@ with requests.Session() as session:
 
 ```python
 import requests
-response = requests.get("https://example.com", timeout=10)
+
+response = requests.get(
+    "https://api.example.test/items",
+    params={"limit": 10},
+    timeout=5,
+)
+response.raise_for_status()
 ```
 
 ### Standard Structure
 
 ```python
-def apply_requests_library(value):
-    """Apply the Requests Library concept to one value."""
-    return value
+import requests
 
-result = apply_requests_library("practice")
-print(result)
+with requests.Session() as session:
+    session.headers.update({"Accept": "application/json"})
+    response = session.post(
+        "https://api.example.test/jobs",
+        json={"task": "index"},
+        timeout=(2, 10),
+    )
+    response.raise_for_status()
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Requests Library problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Reuse a configured Session.
+# Encode query with params or body with json.
+# Set connect/read timeout.
+# raise_for_status, decode, then validate schema.
 ```
 
 ## Examples
@@ -102,8 +110,13 @@ print(result)
 ```python
 import requests
 
-response = requests.get("https://example.com", timeout=10)
-print(response.status_code)
+response = requests.get(
+    "https://httpbin.org/get",
+    params={"topic": "python"},
+    timeout=5,
+)
+response.raise_for_status()
+print(response.json()["args"])
 ```
 
 ### Intermediate Example
@@ -111,9 +124,18 @@ print(response.status_code)
 ```python
 import requests
 
-with requests.Session() as session:
-    response = session.get("https://api.github.com", timeout=10)
-    print(response.headers.get("content-type"))
+def create_job(session: requests.Session, task: str) -> dict:
+    response = session.post(
+        "https://api.example.test/jobs",
+        json={"task": task},
+        headers={"Idempotency-Key": f"job-{task}"},
+        timeout=(2, 10),
+    )
+    response.raise_for_status()
+    payload = response.json()
+    if not isinstance(payload.get("id"), str):
+        raise ValueError("response requires string id")
+    return payload
 ```
 
 ### Advanced Example
@@ -121,25 +143,36 @@ with requests.Session() as session:
 ```python
 import requests
 from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 
-session = requests.Session()
-session.mount("https://", HTTPAdapter(max_retries=3))
-response = session.get("https://example.com", timeout=(3, 10))
-print(response.ok)
+retry = Retry(
+    total=3,
+    backoff_factor=0.5,
+    status_forcelist=(429, 502, 503, 504),
+    allowed_methods=frozenset({"GET", "HEAD"}),
+    respect_retry_after_header=True,
+)
+
+with requests.Session() as session:
+    session.mount("https://", HTTPAdapter(max_retries=retry))
+    session.headers["User-Agent"] = "catalog-client/1.0"
+    response = session.get(
+        "https://api.example.test/catalog",
+        timeout=(2, 10),
+    )
+    response.raise_for_status()
+    catalog = response.json()
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Requests Library Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Configure Session] --> B[Build method parameters]
+    B --> C[Send with timeout]
+    C --> D[Raise for bad status]
+    D --> E[Decode and validate payload]
 ```
-
-
----
 
 ---
 

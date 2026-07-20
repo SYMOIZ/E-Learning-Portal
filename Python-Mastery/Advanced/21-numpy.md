@@ -5,66 +5,72 @@
 # NumPy
 
 ## Overview
-- **What is it?** NumPy is a Python knowledge area focused on data engineering and analytics.
-- **Why is it important?** Help developers apply data engineering and analytics techniques safely, clearly, and consistently.
-- **Where is it used?** Pipelines, dashboards, feature engineering, and large-scale data platforms.
+- **What is it?** NumPy arrays store homogeneous values in strided memory and execute vectorized numerical kernels without Python-level loops.
+- **Why is it important?** Shape, dtype, broadcasting, views, memory order, and numerical stability determine both correctness and performance.
+- **Where is it used?** NumPy underpins scientific computing, image processing, simulation, and most Python machine-learning libraries.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review numpy code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind numpy.
-- Expected outcome: you can use numpy in a small project and recognize when it belongs in production code.
+- Reason about shape, axes, dtype, strides, views, and copies.
+- Use broadcasting and vectorized reductions correctly.
+- Apply stable numerical comparisons and avoid accidental temporary arrays.
 
 ## Real World Applications
-- **Industry use cases:** Pipelines, dashboards, feature engineering, and large-scale data platforms.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Vector and matrix computation, simulation, signals, and image tensors.
+- Compact feature preparation for scientific and machine-learning workloads.
+- Interchange of contiguous numerical buffers with compiled libraries.
 
 ## Core Concepts
 
-### Dataset Representation
-- **Definition:** The main idea that gives numpy its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> NumPy model -> clear code`
-- **Practical example:**
-
-```python
-apply_numpy_label = "NumPy"
-print(apply_numpy_label)
-```
-
-### Transformation Pipeline
-- **Definition:** The ordered steps Python follows when numpy code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Shape, Dtype, and Strides
+- **Definition:** An ndarray combines a data buffer with shape, dtype, and byte strides that map indices to memory locations.
+- **Visual explanation:** `index tuple × strides + base pointer → typed element`
 - **Practical example:**
 
 ```python
 import numpy as np
 
-values = np.array([1, 2, 3])
-print(values.mean())
+matrix = np.arange(12, dtype=np.float64).reshape(3, 4)
+print(matrix.shape, matrix.dtype, matrix.strides)
 ```
 
-### Validation Signal
-- **Definition:** The reliability habit that keeps numpy understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Broadcasting
+- **Definition:** Broadcasting compares dimensions from the right and virtually expands size-one axes without copying data.
+- **Visual explanation:** `(rows, columns) + (columns,) → aligned virtual expansion`
 - **Practical example:**
 
 ```python
 import numpy as np
 
-matrix = np.array([[1, 2], [3, 4]])
-print(matrix.T)
+samples = np.array([[1.0, 2.0], [3.0, 4.0]])
+means = samples.mean(axis=0)
+centered = samples - means
+```
+
+### Views and Numerical Stability
+- **Definition:** Basic slicing usually returns a view that shares memory; stable algorithms avoid overflow, cancellation, and exact floating-point equality.
+- **Visual explanation:** `slice → shared buffer; stable transform → bounded numeric error`
+- **Practical example:**
+
+```python
+import numpy as np
+
+values = np.arange(6.0)
+view = values[::2]
+view += 10
+assert np.shares_memory(values, view)
+assert np.allclose(values[::2], [10, 12, 14])
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | NumPy belongs to the data engineering and analytics part of Python mastery. |
-| ⚡ Purpose | Help developers apply data engineering and analytics techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional data engineering and analytics decisions. |
-| 🎯 Use Cases | Pipelines, dashboards, feature engineering, and large-scale data platforms. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | NumPy arrays store homogeneous values in strided memory and execute vectorized numerical kernels without Python-level loops. |
+| ⚡ Purpose | Shape, dtype, broadcasting, views, memory order, and numerical stability determine both correctness and performance. |
+| 🔥 Benefits | Builds the ability to reason about shape, axes, dtype, strides, views, and copies; it also helps practitioners use broadcasting and vectorized reductions correctly. |
+| 🎯 Use Cases | Vector and matrix computation, simulation, signals, and image tensors. Compact feature preparation for scientific and machine-learning workloads. |
+| 🚀 Best Practices | Use `allclose`, not exact equality, for computed floats. |
+| ❌ Common Mistakes | Ignoring the guardrail “Profile allocations when chained expressions create large temporaries”. |
 
 ## Syntax Guide
 
@@ -72,26 +78,31 @@ print(matrix.T)
 
 ```python
 import numpy as np
-array = np.array([1, 2, 3])
+
+values = np.array([1, 2, 3], dtype=np.float64)
+doubled = values * 2
 ```
 
 ### Standard Structure
 
 ```python
-def apply_numpy(value):
-    """Apply the NumPy concept to one value."""
-    return value
-
-result = apply_numpy("practice")
-print(result)
+matrix = np.arange(12).reshape(3, 4)
+column_totals = matrix.sum(axis=0)
+row_means = matrix.mean(axis=1)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the NumPy problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+def standardize(values: "np.ndarray") -> "np.ndarray":
+    means = values.mean(axis=0, keepdims=True)
+    deviations = values.std(axis=0, keepdims=True)
+    return np.divide(
+        values - means,
+        deviations,
+        out=np.zeros_like(values, dtype=float),
+        where=deviations != 0,
+    )
 ```
 
 ## Examples
@@ -101,8 +112,9 @@ print(result)
 ```python
 import numpy as np
 
-values = np.array([1, 2, 3])
-print(values.mean())
+values = np.array([3, 7, 2, 9])
+selected = values[values >= 7]
+print(selected)
 ```
 
 ### Intermediate Example
@@ -110,8 +122,9 @@ print(values.mean())
 ```python
 import numpy as np
 
-matrix = np.array([[1, 2], [3, 4]])
-print(matrix.T)
+points = np.array([[0.0, 0.0], [3.0, 4.0], [6.0, 8.0]])
+distances = np.linalg.norm(points - points[0], axis=1)
+assert np.allclose(distances, [0.0, 5.0, 10.0])
 ```
 
 ### Advanced Example
@@ -119,23 +132,24 @@ print(matrix.T)
 ```python
 import numpy as np
 
-features = np.array([[1.0, 2.0], [3.0, 4.0]])
-weights = np.array([0.25, 0.75])
-print(features @ weights)
+rng = np.random.default_rng(42)
+samples = rng.normal(size=(10_000, 3))
+covariance = np.cov(samples, rowvar=False)
+eigenvalues, eigenvectors = np.linalg.eigh(covariance)
+principal_axis = eigenvectors[:, np.argmax(eigenvalues)]
+assert principal_axis.shape == (3,)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify NumPy Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Define shape and dtype] --> B[Align axes and broadcasting]
+    B --> C[Run vectorized kernel]
+    C --> D[Check stability and memory sharing]
+    D --> E[Benchmark representative arrays]
+    E -. feedback .-> A
 ```
-
-
----
 
 ---
 

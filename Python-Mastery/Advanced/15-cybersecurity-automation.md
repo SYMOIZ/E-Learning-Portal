@@ -5,91 +5,115 @@
 # Cybersecurity Automation
 
 ## Overview
-- **What is it?** Cybersecurity Automation is a Python knowledge area focused on systems automation.
-- **Why is it important?** Help developers apply systems automation techniques safely, clearly, and consistently.
-- **Where is it used?** Network services, security operations, scraping pipelines, and orchestration.
+- **What is it?** Cybersecurity automation uses Python to collect evidence, validate configurations, verify integrity, enrich alerts, and orchestrate approved defensive actions.
+- **Why is it important?** Automation must preserve audit trails, minimize privileges, validate untrusted inputs, and fail safely because a mistaken action can widen an incident.
+- **Where is it used?** It supports security operations, vulnerability management, compliance checks, incident response, and secrets hygiene.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review cybersecurity automation code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind cybersecurity automation.
-- Expected outcome: you can use cybersecurity automation in a small project and recognize when it belongs in production code.
+- Use cryptographic primitives through safe standard-library interfaces.
+- Parse indicators and invoke system tools without shell injection.
+- Design dry-run, approval, least-privilege, and tamper-evident audit controls.
 
 ## Real World Applications
-- **Industry use cases:** Network services, security operations, scraping pipelines, and orchestration.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Verifying downloaded artifacts and signed webhook payloads.
+- Normalizing IP indicators and enriching authorized incident records.
+- Scanning configuration baselines and producing reproducible evidence.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives cybersecurity automation its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Cybersecurity Automation model -> clear code`
+### Integrity and Authentication
+- **Definition:** A cryptographic hash detects changes, while an HMAC also authenticates data with a shared secret and should be compared in constant time.
+- **Visual explanation:** `message + secret → HMAC → constant-time verification`
 - **Practical example:**
 
 ```python
-apply_cybersecurity_automation_label = "Cybersecurity Automation"
-print(apply_cybersecurity_automation_label)
+import hashlib
+import hmac
+
+secret = b"training-key"
+body = b'{"event":"login"}'
+signature = hmac.new(secret, body, hashlib.sha256).hexdigest()
+assert hmac.compare_digest(signature, signature)
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when cybersecurity automation code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Safe Input and Process Boundaries
+- **Definition:** Treat indicators and command arguments as data: parse them with strict libraries and pass argument lists without invoking a shell.
+- **Visual explanation:** `untrusted text → parser/allowlist → argument vector → bounded subprocess`
 - **Practical example:**
 
 ```python
-import re
-print(bool(re.search(r"python", "learn python")))
+import ipaddress
+import subprocess
+
+address = ipaddress.ip_address("192.0.2.10")
+result = subprocess.run(
+    ["printf", "%s", str(address)],
+    check=True,
+    capture_output=True,
+    text=True,
+    timeout=2,
+)
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps cybersecurity automation understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Controlled Remediation
+- **Definition:** Defensive actions should support dry runs, scoped credentials, idempotency, human approval for destructive steps, and structured audit events.
+- **Visual explanation:** `alert → validate scope → plan/dry-run → approve → act → audit`
 - **Practical example:**
 
 ```python
-import re
+from dataclasses import dataclass
 
-emails = re.findall(r"[\w.-]+@[\w.-]+", "Contact a@x.com and b@y.com")
-print(emails)
+@dataclass(frozen=True)
+class Action:
+    target: str
+    reason: str
+
+def quarantine(action: Action, *, execute: bool = False) -> str:
+    mode = "executed" if execute else "planned"
+    return f"{mode}:{action.target}:{action.reason}"
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Cybersecurity Automation belongs to the systems automation part of Python mastery. |
-| ⚡ Purpose | Help developers apply systems automation techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional systems automation decisions. |
-| 🎯 Use Cases | Network services, security operations, scraping pipelines, and orchestration. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Cybersecurity automation uses Python to collect evidence, validate configurations, verify integrity, enrich alerts, and orchestrate approved defensive actions. |
+| ⚡ Purpose | Automation must preserve audit trails, minimize privileges, validate untrusted inputs, and fail safely because a mistaken action can widen an incident. |
+| 🔥 Benefits | Builds the ability to use cryptographic primitives through safe standard-library interfaces; it also helps practitioners parse indicators and invoke system tools without shell injection. |
+| 🎯 Use Cases | Verifying downloaded artifacts and signed webhook payloads. Normalizing IP indicators and enriching authorized incident records. |
+| 🚀 Best Practices | Dry-run and approval gates protect high-impact remediation. |
+| ❌ Common Mistakes | Ignoring the guardrail “Never log tokens, private keys, passwords, or full sensitive payloads”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import re
-match = re.search(r"\d+", "Order 42")
+import hashlib
+from pathlib import Path
+
+with Path("artifact.bin").open("rb") as stream:
+    checksum = hashlib.file_digest(stream, "sha256").hexdigest()
 ```
 
 ### Standard Structure
 
 ```python
-def apply_cybersecurity_automation(value):
-    """Apply the Cybersecurity Automation concept to one value."""
-    return value
+import ipaddress
 
-result = apply_cybersecurity_automation("practice")
-print(result)
+def is_public(value: str) -> bool:
+    address = ipaddress.ip_address(value)
+    return address.is_global
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Cybersecurity Automation problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+import json
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logging.info(json.dumps({"action": "scan", "status": "complete"}))
 ```
 
 ## Examples
@@ -97,41 +121,54 @@ print(result)
 ### Beginner Example
 
 ```python
-import re
-print(bool(re.search(r"python", "learn python")))
+import secrets
+
+incident_id = secrets.token_urlsafe(16)
+print(incident_id)
 ```
 
 ### Intermediate Example
 
 ```python
-import re
+import hashlib
+import secrets
+from pathlib import Path
 
-emails = re.findall(r"[\w.-]+@[\w.-]+", "Contact a@x.com and b@y.com")
-print(emails)
+def verify(path: Path, expected: str) -> bool:
+    with path.open("rb") as stream:
+        actual = hashlib.file_digest(stream, "sha256").hexdigest()
+    return secrets.compare_digest(actual, expected)
 ```
 
 ### Advanced Example
 
 ```python
-import re
+import ipaddress
+from dataclasses import asdict, dataclass
 
-pattern = re.compile(r"(?P<status>\d{3}) (?P<path>/\S+)")
-match = pattern.search("200 /api/users")
-print(match.groupdict() if match else {})
+@dataclass(frozen=True)
+class Finding:
+    indicator: str
+    category: str
+    approved: bool = False
+
+def normalize_indicator(value: str) -> str:
+    return str(ipaddress.ip_address(value))
+
+finding = Finding(normalize_indicator("2001:db8::1"), "documentation-range")
+print(asdict(finding))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Cybersecurity Automation Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Collect authorized evidence] --> B[Validate and normalize]
+    B --> C[Assess scope and risk]
+    C --> D[Dry-run or approve action]
+    D --> E[Execute and audit]
+    E -. feedback .-> A
 ```
-
-
----
 
 ---
 

@@ -5,101 +5,98 @@
 # Abstraction
 
 ## Overview
-- **What is it?** Abstraction is a Python knowledge area focused on object-oriented design.
-- **Why is it important?** Help developers apply object-oriented design techniques safely, clearly, and consistently.
-- **Where is it used?** Domain modeling, application architecture, frameworks, and reusable components.
+- **What is it?** Abstraction is the intermediate Python topic of exposing essential operations while hiding implementation details.
+- **Why is it important?** Abstraction controls what callers must know; Python supports informal interfaces, Protocol, and abstract base classes.
+- **Where is it used?** storage ports, plugin contracts, service boundaries.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review abstraction code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind abstraction.
-- Expected outcome: you can use abstraction in a small project and recognize when it belongs in production code.
+- Separate interface from implementation.
+- Use ABC when runtime enforcement is useful.
+- Avoid abstractions with only one speculative use.
 
 ## Real World Applications
-- **Industry use cases:** Domain modeling, application architecture, frameworks, and reusable components.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Storage ports rely on this topic.
+- **Product work:** It supports plugin contracts.
+- **Operations:** It appears in service boundaries.
 
 ## Core Concepts
 
-### Model
-- **Definition:** The main idea that gives abstraction its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Abstraction model -> clear code`
+### Interface boundary
+- **Definition:** An abstraction names the capability a caller needs without exposing how a concrete provider performs it.
+- **Visual explanation:** ``caller -> capability -> hidden implementation``
 - **Practical example:**
 
 ```python
-apply_abstraction_label = "Abstraction"
-print(apply_abstraction_label)
+def publish(message, channel):
+    channel.send(message)
 ```
 
-### Interface
-- **Definition:** The ordered steps Python follows when abstraction code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Abstract base classes
+- **Definition:** An ABC can prevent instantiation until subclasses implement methods marked abstractmethod.
+- **Visual explanation:** ``ABC contract -> concrete subclass -> instance``
 - **Practical example:**
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
+from abc import ABC, abstractmethod
 
-print(Dog().speak())
+class Store(ABC):
+    @abstractmethod
+    def get(self, key): ...
 ```
 
-### Behavior Rule
-- **Definition:** The reliability habit that keeps abstraction understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Dependency inversion
+- **Definition:** High-level policy depends on an abstraction supplied from outside rather than constructing low-level infrastructure.
+- **Visual explanation:** ``business policy -> port <- database adapter``
 - **Practical example:**
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
-
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
-
-account = Account()
-account.deposit(50)
-print(account.balance)
+class Catalog:
+    def __init__(self, repository):
+        self.repository = repository
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Abstraction belongs to the object-oriented design part of Python mastery. |
-| ⚡ Purpose | Help developers apply object-oriented design techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional object-oriented design decisions. |
-| 🎯 Use Cases | Domain modeling, application architecture, frameworks, and reusable components. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Interface boundary, Abstract base classes, Dependency inversion |
+| ⚡ Purpose | Abstraction controls what callers must know; Python supports informal interfaces, Protocol, and abstract base classes. |
+| 🔥 Benefits | Lower coupling, testable high-level policy, and replaceable infrastructure adapters. |
+| 🎯 Use Cases | storage ports, plugin contracts, service boundaries |
+| 🚀 Best Practices | Abstract around a stable capability at a real change boundary. |
+| ❌ Common Mistakes | Adding layers that merely rename one concrete method. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-class Customer:
-    def __init__(self, name):
-        self.name = name
+from abc import ABC, abstractmethod
+
+class Exporter(ABC):
+    @abstractmethod
+    def export(self, rows):
+        raise NotImplementedError
 ```
 
 ### Standard Structure
 
 ```python
-def apply_abstraction(value):
-    """Apply the Abstraction concept to one value."""
-    return value
+class BillingService:
+    def __init__(self, gateway):
+        self.gateway = gateway
 
-result = apply_abstraction("practice")
-print(result)
+    def bill(self, customer, cents):
+        return self.gateway.charge(customer, cents)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Abstraction problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# High-level code states the needed capability.
+# Concrete adapter implements that capability.
+# Composition root selects the adapter.
+# Tests supply a small in-memory implementation.
 ```
 
 ## Examples
@@ -107,56 +104,85 @@ print(result)
 ### Beginner Example
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
+from abc import ABC, abstractmethod
 
-print(Dog().speak())
+class Shape(ABC):
+    @abstractmethod
+    def area(self) -> float:
+        raise NotImplementedError
+
+class Square(Shape):
+    def __init__(self, side: float):
+        self.side = side
+
+    def area(self) -> float:
+        return self.side ** 2
+
+print(Square(4).area())
 ```
 
 ### Intermediate Example
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
+class MemoryRepository:
+    def __init__(self):
+        self.records = {}
 
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
+    def save(self, key, value):
+        self.records[key] = value
 
-account = Account()
-account.deposit(50)
-print(account.balance)
+class Registration:
+    def __init__(self, repository):
+        self.repository = repository
+
+    def register(self, username):
+        self.repository.save(username, {"active": True})
+
+repository = MemoryRepository()
+Registration(repository).register("ada")
+print(repository.records)
 ```
 
 ### Advanced Example
 
 ```python
-from dataclasses import dataclass
+from typing import Protocol
 
-@dataclass
-class Order:
-    id: int
-    total: float
+class KeyValueStore(Protocol):
+    def read(self, key: str) -> str | None: ...
+    def write(self, key: str, value: str) -> None: ...
 
-    def is_large(self) -> bool:
-        return self.total >= 1000
+class FeatureFlags:
+    def __init__(self, store: KeyValueStore):
+        self.store = store
 
-print(Order(1, 1200).is_large())
+    def enabled(self, name: str) -> bool:
+        return self.store.read(name) == "on"
+
+class DictStore:
+    def __init__(self):
+        self.data: dict[str, str] = {}
+
+    def read(self, key):
+        return self.data.get(key)
+
+    def write(self, key, value):
+        self.data[key] = value
+
+store = DictStore()
+store.write("search-v2", "on")
+print(FeatureFlags(store).enabled("search-v2"))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Abstraction Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Find changing detail] --> B[Name required capability]
+    B --> C[Define abstraction]
+    C --> D[Implement adapter]
+    D --> E[Inject into policy]
 ```
-
-
----
 
 ---
 

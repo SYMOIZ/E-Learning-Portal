@@ -5,93 +5,90 @@
 # IDE Setup
 
 ## Overview
-- **What is it?** IDE setup configures an editor with Python extensions, interpreter selection, linting, formatting, debugging, and terminal access.
-- **Why is it important?** Shorten the feedback loop while writing, running, and inspecting Python programs.
-- **Where is it used?** Learning labs, team onboarding, automation, and product engineering.
+- **What is it?** IDE setup connects an editor to a chosen Python interpreter, terminal, formatter, linter, and debugger.
+- **Why is it important?** Correct configuration shortens the write-run-inspect cycle and exposes mistakes early.
+- **Where is it used?** The same workflow supports lessons, scripts, team projects, and remote development.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review ide setup code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind ide setup.
-- Expected outcome: you can use ide setup in a small project and recognize when it belongs in production code.
+- Select the intended interpreter for a workspace.
+- Run a file and pause execution with a breakpoint.
+- Separate editor assistance from behavior enforced by Python itself.
 
 ## Real World Applications
-- **Industry use cases:** Learning labs, team onboarding, automation, and product engineering.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Navigate and edit multi-file projects.
+- Inspect variables while troubleshooting.
+- Apply consistent formatting and diagnostics across a team.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives ide setup its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> IDE Setup model -> clear code`
-- **Practical example:**
+### Interpreter selection
+- **Definition:** The IDE must launch the same Python environment that owns the project's dependencies.
+- **Visual explanation:** `workspace -> selected interpreter -> run and debug`
+- **Practical example:** The running file can display the selected executable.
 
 ```python
-apply_ide_setup_label = "IDE Setup"
-print(apply_ide_setup_label)
+import sys
+print(sys.executable)
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when ide setup code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
-- **Practical example:**
+### Feedback tools
+- **Definition:** A formatter changes layout, while a linter reports suspicious or inconsistent code.
+- **Visual explanation:** `source -> formatter and linter -> clearer source`
+- **Practical example:** Type annotations give IDEs useful information without forcing runtime types.
 
 ```python
-message = "Run this file from your IDE"
-print(message)
+def total(items: list[float]) -> float:
+    return sum(items)
+
+print(total([2.5, 3.0]))
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps ide setup understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
-- **Practical example:**
+### Debugger state
+- **Definition:** A debugger pauses at a breakpoint so the current call stack and variable values can be inspected.
+- **Visual explanation:** `breakpoint -> paused frame -> inspect -> step or continue`
+- **Practical example:** This loop provides changing state worth stepping through.
 
 ```python
-def format_name(first: str, last: str) -> str:
-    return f"{first.title()} {last.title()}"
-
-print(format_name("ada", "lovelace"))
+running_total = 0
+for amount in [4, 7, 2]:
+    running_total += amount
+print(running_total)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | IDE Setup belongs to the fundamental Python practice part of Python mastery. |
-| ⚡ Purpose | Shorten the feedback loop while writing, running, and inspecting Python programs. |
-| 🔥 Benefits | Fewer syntax errors, easier navigation, integrated debugging, and professional workflow habits. |
-| 🎯 Use Cases | Learning labs, team onboarding, automation, and product engineering. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | IDE setup connects an editor to a chosen Python interpreter, terminal, formatter, linter, and debugger. |
+| ⚡ Purpose | Connect an editor to the project interpreter and tools used to run, inspect, and debug code. |
+| 🔥 Benefits | Correct configuration shortens the write-run-inspect cycle and exposes mistakes early. |
+| 🎯 Use Cases | The same workflow supports lessons, scripts, team projects, and remote development. |
+| 🚀 Best Practices | Open the project folder, select its interpreter, and run a known file before installing optional editor extensions. |
+| ❌ Common Mistakes | Trusting an IDE's default interpreter when the terminal or project uses a different one. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-def add(left: int, right: int) -> int:
-    return left + right
-
-print(add(2, 3))
+print("IDE run configuration works")
 ```
 
 ### Standard Structure
 
 ```python
-def apply_ide_setup(value):
-    """Apply the IDE Setup concept to one value."""
-    return value
-
-result = apply_ide_setup("practice")
-print(result)
+import sys
+print({"python": sys.executable, "debug": __debug__})
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the IDE Setup problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+def average(values: list[int]) -> float:
+    return sum(values) / len(values)
+
+scores = [80, 92, 88]
+print(average(scores))
 ```
 
 ## Examples
@@ -99,42 +96,45 @@ print(result)
 ### Beginner Example
 
 ```python
-message = "Run this file from your IDE"
+message = "Set a breakpoint here"
 print(message)
 ```
 
 ### Intermediate Example
 
 ```python
-def format_name(first: str, last: str) -> str:
-    return f"{first.title()} {last.title()}"
-
-print(format_name("ada", "lovelace"))
+subtotal = 0
+for price in [12, 8, 5]:
+    subtotal += price
+print(subtotal)
 ```
 
 ### Advanced Example
 
 ```python
-import pdb
+def find_first_even(numbers):
+    for index, number in enumerate(numbers):
+        if number % 2 == 0:
+            return index, number
+    return None
 
-values = [1, 2, 3]
-total = sum(values)
-# pdb.set_trace()
-print(total)
+print(find_first_even([3, 9, 12, 15]))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify IDE Setup Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Open project folder]
+    B[Select project interpreter]
+    C[Run known file]
+    D[Review diagnostics]
+    E[Debug with breakpoint]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
-
-
----
 
 ---
 

@@ -30,231 +30,97 @@ This guide is written for students, instructors, technical writers, curriculum a
 
 ## Complete Topic Index
 
-### Level 1: Beginner
-
-1. [Introduction to Python](#introduction-to-python)
-2. [Installing Python](#installing-python)
-3. [IDE Setup](#ide-setup)
-4. [Python Syntax](#python-syntax)
-5. [Variables](#variables)
-6. [Data Types](#data-types)
-7. [Type Casting](#type-casting)
-8. [Input and Output](#input-and-output)
-9. [Operators](#operators)
-10. [Conditional Statements](#conditional-statements)
-11. [Loops](#loops)
-12. [Nested Loops](#nested-loops)
-13. [Break Continue Pass](#break-continue-pass)
-14. [Strings](#strings)
-15. [String Methods](#string-methods)
-16. [Lists](#lists)
-17. [List Methods](#list-methods)
-18. [Tuples](#tuples)
-19. [Sets](#sets)
-20. [Dictionaries](#dictionaries)
-21. [Functions](#functions)
-22. [Arguments and Parameters](#arguments-and-parameters)
-23. [Return Statements](#return-statements)
-24. [Scope](#scope)
-25. [Lambda Functions](#lambda-functions)
-26. [Modules](#modules)
-27. [Packages](#packages)
-28. [Date and Time](#date-and-time)
-29. [Math Module](#math-module)
-30. [Random Module](#random-module)
-31. [File Handling](#file-handling)
-32. [Exception Handling](#exception-handling)
-33. [Debugging Basics](#debugging-basics)
-34. [Virtual Environments](#virtual-environments)
-35. [Basic Project Structure](#basic-project-structure)
-
-### Level 2: Intermediate
-
-1. [Object Oriented Programming](#object-oriented-programming)
-2. [Classes](#classes)
-3. [Objects](#objects)
-4. [Constructors](#constructors)
-5. [Encapsulation](#encapsulation)
-6. [Inheritance](#inheritance)
-7. [Polymorphism](#polymorphism)
-8. [Abstraction](#abstraction)
-9. [Magic Methods](#magic-methods)
-10. [Iterators](#iterators)
-11. [Generators](#generators)
-12. [Decorators](#decorators)
-13. [Context Managers](#context-managers)
-14. [Regular Expressions](#regular-expressions)
-15. [JSON Processing](#json-processing)
-16. [CSV Processing](#csv-processing)
-17. [XML Processing](#xml-processing)
-18. [Logging](#logging)
-19. [Configuration Management](#configuration-management)
-20. [Multithreading](#multithreading)
-21. [Multiprocessing](#multiprocessing)
-22. [Async Programming](#async-programming)
-23. [API Development](#api-development)
-24. [API Consumption](#api-consumption)
-25. [Requests Library](#requests-library)
-26. [Database Fundamentals](#database-fundamentals)
-27. [SQLite](#sqlite)
-28. [MySQL Integration](#mysql-integration)
-29. [PostgreSQL Integration](#postgresql-integration)
-30. [SQLAlchemy ORM](#sqlalchemy-orm)
-31. [Unit Testing](#unit-testing)
-32. [Pytest](#pytest)
-33. [Mocking](#mocking)
-34. [Packaging Python Projects](#packaging-python-projects)
-35. [CLI Applications](#cli-applications)
-
-### Level 3: Advanced
-
-1. [Data Structures Internals](#data-structures-internals)
-2. [Algorithms in Python](#algorithms-in-python)
-3. [Design Patterns](#design-patterns)
-4. [SOLID Principles](#solid-principles)
-5. [Memory Management](#memory-management)
-6. [Garbage Collection](#garbage-collection)
-7. [Python Internals](#python-internals)
-8. [Metaclasses](#metaclasses)
-9. [Descriptors](#descriptors)
-10. [Concurrency](#concurrency)
-11. [Parallel Computing](#parallel-computing)
-12. [Distributed Systems](#distributed-systems)
-13. [Network Programming](#network-programming)
-14. [Socket Programming](#socket-programming)
-15. [Cybersecurity Automation](#cybersecurity-automation)
-16. [Web Scraping](#web-scraping)
-17. [Automation Frameworks](#automation-frameworks)
-18. [ETL Development](#etl-development)
-19. [Data Engineering](#data-engineering)
-20. [Pandas](#pandas)
-21. [NumPy](#numpy)
-22. [PySpark](#pyspark)
-23. [Machine Learning](#machine-learning)
-24. [Deep Learning](#deep-learning)
-25. [NLP](#nlp)
-26. [Computer Vision](#computer-vision)
-27. [FastAPI](#fastapi)
-28. [Django](#django)
-29. [Flask](#flask)
-30. [Microservices](#microservices)
-31. [Docker with Python](#docker-with-python)
-32. [Kubernetes Integration](#kubernetes-integration)
-33. [Cloud Development](#cloud-development)
-34. [AWS with Python](#aws-with-python)
-35. [Azure with Python](#azure-with-python)
-36. [GCP with Python](#gcp-with-python)
-37. [DevOps Automation](#devops-automation)
-38. [CI/CD Pipelines](#ci-cd-pipelines)
-39. [Performance Optimization](#performance-optimization)
-40. [System Design with Python](#system-design-with-python)
-
-## Master Roadmap Diagram
-
-```mermaid
-flowchart TD
-    A[Level 1 Beginner] --> B[Level 2 Intermediate]
-    B --> C[Level 3 Advanced]
-    A --> A1[Syntax, Data, Control Flow, Functions]
-    B --> B1[OOP, APIs, Databases, Testing, Packaging]
-    C --> C1[Architecture, AI, Cloud, Performance, Security]
-    C1 --> D[Career Specialization]
-```
-
----
+#
 
 ## Level 1: Beginner
 
-Build the mental model and syntax confidence needed to write correct small programs.
+---
 
 # Introduction to Python
 
 ## Overview
-- **What is it?** Python is a high-level, readable, general-purpose programming language used to build scripts, applications, data workflows, automation, and AI systems.
-- **Why is it important?** Turn human-readable ideas into executable instructions quickly while keeping code maintainable.
-- **Where is it used?** Learning labs, team onboarding, automation, and product engineering.
+- **What is it?** Python is a high-level, general-purpose language whose readable source code is executed by a Python interpreter.
+- **Why is it important?** Its small syntax and large standard library let beginners turn ideas into working programs quickly.
+- **Where is it used?** Python powers automation, web services, data analysis, testing, education, and machine learning.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review introduction to python code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind introduction to python.
-- Expected outcome: you can use introduction to python in a small project and recognize when it belongs in production code.
+- Distinguish source code, the interpreter, and program output.
+- Run a Python statement and read a simple traceback.
+- Recognize Python's strengths and the trade-off of choosing a general-purpose language.
 
 ## Real World Applications
-- **Industry use cases:** Learning labs, team onboarding, automation, and product engineering.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Automate repetitive file or reporting tasks.
+- Prototype web, data, and scientific ideas.
+- Write readable utilities that teams can maintain.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives introduction to python its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Introduction to Python model -> clear code`
-- **Practical example:**
+### Interpreter and source
+- **Definition:** A `.py` file contains text; the interpreter parses and executes that text as instructions.
+- **Visual explanation:** `program.py -> Python interpreter -> effects and output`
+- **Practical example:** A first statement sends text to standard output.
 
 ```python
-apply_introduction_to_python_label = "Introduction to Python"
-print(apply_introduction_to_python_label)
+print("Hello, Python!")
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when introduction to python code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
-- **Practical example:**
+### Values and operations
+- **Definition:** Python programs create values and combine them with operations such as addition or function calls.
+- **Visual explanation:** `values -> expression -> new value`
+- **Practical example:** A numeric expression is evaluated before it is printed.
 
 ```python
-topic = "Introduction to Python"
-print(f"Learning {topic}")
+minutes = 2 * 60
+print(minutes)
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps introduction to python understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
-- **Practical example:**
+### Readable composition
+- **Definition:** Larger programs combine named data, decisions, repetition, and reusable functions.
+- **Visual explanation:** `data + control flow + functions -> program`
+- **Practical example:** A function turns a name into a reusable greeting.
 
 ```python
-def summarize_introduction_to_python(items: list[str]) -> dict[str, int]:
-    return {"topic_count": len(items), "unique_count": len(set(items))}
+def greet(name):
+    return f"Welcome, {name}!"
 
-print(summarize_introduction_to_python(["learn", "practice", "learn"]))
+print(greet("Mina"))
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Introduction to Python belongs to the fundamental Python practice part of Python mastery. |
-| ⚡ Purpose | Turn human-readable ideas into executable instructions quickly while keeping code maintainable. |
-| 🔥 Benefits | Readable syntax, strong ecosystem, cross-platform support, and fast learning curve. |
-| 🎯 Use Cases | Learning labs, team onboarding, automation, and product engineering. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Python is a high-level, general-purpose language whose readable source code is executed by a Python interpreter. |
+| ⚡ Purpose | Turn readable source code into executable instructions and useful program output. |
+| 🔥 Benefits | Its small syntax and large standard library let beginners turn ideas into working programs quickly. |
+| 🎯 Use Cases | Python powers automation, web services, data analysis, testing, education, and machine learning. |
+| 🚀 Best Practices | Start with a small runnable program, then change one thing and observe the result. |
+| ❌ Common Mistakes | Treating Python as only a calculator instead of learning how values and statements compose. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-topic_name = "Introduction to Python"
-print(topic_name)
+print("Python is running")
 ```
 
 ### Standard Structure
 
 ```python
-def apply_introduction_to_python(value):
-    """Apply the Introduction to Python concept to one value."""
-    return value
-
-result = apply_introduction_to_python("practice")
-print(result)
+language = "Python"
+version = 3
+print(f"{language} {version}")
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Introduction to Python problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+def describe(topic):
+    message = f"Learning {topic}"
+    return message
+
+print(describe("Python"))
 ```
 
 ## Examples
@@ -262,110 +128,107 @@ print(result)
 ### Beginner Example
 
 ```python
-topic = "Introduction to Python"
-print(f"Learning {topic}")
+print("Hello, world!")
 ```
 
 ### Intermediate Example
 
 ```python
-def summarize_introduction_to_python(items: list[str]) -> dict[str, int]:
-    return {"topic_count": len(items), "unique_count": len(set(items))}
-
-print(summarize_introduction_to_python(["learn", "practice", "learn"]))
+name = "Ari"
+hours = 3
+print(f"{name} practiced Python for {hours} hours.")
 ```
 
 ### Advanced Example
 
 ```python
-from dataclasses import dataclass
+def progress_report(name, completed, total):
+    percent = completed / total * 100
+    return f"{name}: {percent:.0f}% complete"
 
-@dataclass(frozen=True)
-class IntroductionToPythonOutcome:
-    topic: str
-    evidence: str
-
-outcome = IntroductionToPythonOutcome("Introduction to Python", "production-ready understanding")
-print(outcome)
+print(progress_report("Ari", 7, 10))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Introduction to Python Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Write source code]
+    B[Interpreter parses code]
+    C[Python executes statements]
+    D[Program produces output]
+    E[Edit and run again]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
 
-[Back to topic index](#introduction-to-python)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Installing Python
 
 ## Overview
-- **What is it?** Installing Python means placing the interpreter, package tools, and command-line entry points on your computer so Python code can run.
-- **Why is it important?** Create a reliable local runtime for scripts, projects, notebooks, and tooling.
-- **Where is it used?** Learning labs, team onboarding, automation, and product engineering.
+- **What is it?** Installing Python provides the interpreter, standard library, and package installer needed to run local programs.
+- **Why is it important?** A verified installation prevents command, version, and path problems before coding begins.
+- **Where is it used?** Developers install Python on workstations, build servers, classrooms, and automation hosts.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review installing python code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind installing python.
-- Expected outcome: you can use installing python in a small project and recognize when it belongs in production code.
+- Choose a supported Python 3 release from a trusted source.
+- Verify the interpreter and pip through the same Python executable.
+- Diagnose a missing command or unexpected executable path.
 
 ## Real World Applications
-- **Industry use cases:** Learning labs, team onboarding, automation, and product engineering.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Prepare a laptop for coursework.
+- Match a team's supported runtime version.
+- Confirm which interpreter a deployment or script uses.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives installing python its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Installing Python model -> clear code`
-- **Practical example:**
-
-```python
-apply_installing_python_label = "Installing Python"
-print(apply_installing_python_label)
-```
-
-### Execution Flow
-- **Definition:** The ordered steps Python follows when installing python code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
-- **Practical example:**
+### Interpreter installation
+- **Definition:** The installation places a Python executable and its standard library on the system.
+- **Visual explanation:** `installer -> executable + standard library`
+- **Practical example:** Python can report its own runtime version.
 
 ```python
 import platform
 print(platform.python_version())
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps installing python understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
-- **Practical example:**
+### Command resolution
+- **Definition:** The shell searches its `PATH` to decide which executable a command name starts.
+- **Visual explanation:** `python command -> PATH search -> executable`
+- **Practical example:** The `sys.executable` path identifies the running interpreter.
 
 ```python
 import sys
+print(sys.executable)
+```
 
-if sys.version_info < (3, 12):
-    raise RuntimeError("Python 3.12 or newer is recommended")
-print("Python version is ready")
+### Installer verification
+- **Definition:** `python -m pip` runs pip with the selected interpreter, avoiding a mismatched standalone pip command.
+- **Visual explanation:** `selected Python -> -m pip -> matching site-packages`
+- **Practical example:** Python can invoke pip's version check as a subprocess.
+
+```python
+import subprocess
+import sys
+
+subprocess.run([sys.executable, "-m", "pip", "--version"], check=True)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Installing Python belongs to the fundamental Python practice part of Python mastery. |
-| ⚡ Purpose | Create a reliable local runtime for scripts, projects, notebooks, and tooling. |
-| 🔥 Benefits | Repeatable execution, access to pip packages, and compatibility with editors and CI systems. |
-| 🎯 Use Cases | Learning labs, team onboarding, automation, and product engineering. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Installing Python provides the interpreter, standard library, and package installer needed to run local programs. |
+| ⚡ Purpose | Provide a verified interpreter, standard library, and package installer for local Python work. |
+| 🔥 Benefits | A verified installation prevents command, version, and path problems before coding begins. |
+| 🎯 Use Cases | Developers install Python on workstations, build servers, classrooms, and automation hosts. |
+| 🚀 Best Practices | Use the official installer or operating-system package manager and verify both version and executable path. |
+| ❌ Common Mistakes | Running `pip` and `python` from different installations without checking which interpreter owns the packages. |
 
 ## Syntax Guide
 
@@ -374,26 +237,24 @@ print("Python version is ready")
 ```python
 import sys
 print(sys.version)
-print(sys.executable)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_installing_python(value):
-    """Apply the Installing Python concept to one value."""
-    return value
-
-result = apply_installing_python("practice")
-print(result)
+import sys
+print(f"Executable: {sys.executable}")
+print(f"Version: {sys.version_info.major}.{sys.version_info.minor}")
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Installing Python problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+import shutil
+import sys
+
+command = shutil.which("python3") or shutil.which("python")
+print({"running": sys.executable, "shell_command": command})
 ```
 
 ## Examples
@@ -409,127 +270,131 @@ print(platform.python_version())
 
 ```python
 import sys
-
-if sys.version_info < (3, 12):
-    raise RuntimeError("Python 3.12 or newer is recommended")
-print("Python version is ready")
+minimum = (3, 10)
+print("Supported:", sys.version_info >= minimum)
 ```
 
 ### Advanced Example
 
 ```python
-from pathlib import Path
+import subprocess
 import sys
 
-project = Path.cwd()
-print({"python": sys.version.split()[0], "project": project.name})
+result = subprocess.run(
+    [sys.executable, "-c", "print(6 * 7)"],
+    capture_output=True,
+    text=True,
+    check=True,
+)
+print(result.stdout.strip())
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Installing Python Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Choose trusted installer]
+    B[Install Python 3]
+    C[Open a new terminal]
+    D[Verify version and path]
+    E[Run a test program]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
 
-[Back to topic index](#installing-python)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # IDE Setup
 
 ## Overview
-- **What is it?** IDE setup configures an editor with Python extensions, interpreter selection, linting, formatting, debugging, and terminal access.
-- **Why is it important?** Shorten the feedback loop while writing, running, and inspecting Python programs.
-- **Where is it used?** Learning labs, team onboarding, automation, and product engineering.
+- **What is it?** IDE setup connects an editor to a chosen Python interpreter, terminal, formatter, linter, and debugger.
+- **Why is it important?** Correct configuration shortens the write-run-inspect cycle and exposes mistakes early.
+- **Where is it used?** The same workflow supports lessons, scripts, team projects, and remote development.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review ide setup code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind ide setup.
-- Expected outcome: you can use ide setup in a small project and recognize when it belongs in production code.
+- Select the intended interpreter for a workspace.
+- Run a file and pause execution with a breakpoint.
+- Separate editor assistance from behavior enforced by Python itself.
 
 ## Real World Applications
-- **Industry use cases:** Learning labs, team onboarding, automation, and product engineering.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Navigate and edit multi-file projects.
+- Inspect variables while troubleshooting.
+- Apply consistent formatting and diagnostics across a team.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives ide setup its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> IDE Setup model -> clear code`
-- **Practical example:**
+### Interpreter selection
+- **Definition:** The IDE must launch the same Python environment that owns the project's dependencies.
+- **Visual explanation:** `workspace -> selected interpreter -> run and debug`
+- **Practical example:** The running file can display the selected executable.
 
 ```python
-apply_ide_setup_label = "IDE Setup"
-print(apply_ide_setup_label)
+import sys
+print(sys.executable)
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when ide setup code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
-- **Practical example:**
+### Feedback tools
+- **Definition:** A formatter changes layout, while a linter reports suspicious or inconsistent code.
+- **Visual explanation:** `source -> formatter and linter -> clearer source`
+- **Practical example:** Type annotations give IDEs useful information without forcing runtime types.
 
 ```python
-message = "Run this file from your IDE"
-print(message)
+def total(items: list[float]) -> float:
+    return sum(items)
+
+print(total([2.5, 3.0]))
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps ide setup understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
-- **Practical example:**
+### Debugger state
+- **Definition:** A debugger pauses at a breakpoint so the current call stack and variable values can be inspected.
+- **Visual explanation:** `breakpoint -> paused frame -> inspect -> step or continue`
+- **Practical example:** This loop provides changing state worth stepping through.
 
 ```python
-def format_name(first: str, last: str) -> str:
-    return f"{first.title()} {last.title()}"
-
-print(format_name("ada", "lovelace"))
+running_total = 0
+for amount in [4, 7, 2]:
+    running_total += amount
+print(running_total)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | IDE Setup belongs to the fundamental Python practice part of Python mastery. |
-| ⚡ Purpose | Shorten the feedback loop while writing, running, and inspecting Python programs. |
-| 🔥 Benefits | Fewer syntax errors, easier navigation, integrated debugging, and professional workflow habits. |
-| 🎯 Use Cases | Learning labs, team onboarding, automation, and product engineering. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | IDE setup connects an editor to a chosen Python interpreter, terminal, formatter, linter, and debugger. |
+| ⚡ Purpose | Connect an editor to the project interpreter and tools used to run, inspect, and debug code. |
+| 🔥 Benefits | Correct configuration shortens the write-run-inspect cycle and exposes mistakes early. |
+| 🎯 Use Cases | The same workflow supports lessons, scripts, team projects, and remote development. |
+| 🚀 Best Practices | Open the project folder, select its interpreter, and run a known file before installing optional editor extensions. |
+| ❌ Common Mistakes | Trusting an IDE's default interpreter when the terminal or project uses a different one. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-def add(left: int, right: int) -> int:
-    return left + right
-
-print(add(2, 3))
+print("IDE run configuration works")
 ```
 
 ### Standard Structure
 
 ```python
-def apply_ide_setup(value):
-    """Apply the IDE Setup concept to one value."""
-    return value
-
-result = apply_ide_setup("practice")
-print(result)
+import sys
+print({"python": sys.executable, "debug": __debug__})
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the IDE Setup problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+def average(values: list[int]) -> float:
+    return sum(values) / len(values)
+
+scores = [80, 92, 88]
+print(average(scores))
 ```
 
 ## Examples
@@ -537,134 +402,142 @@ print(result)
 ### Beginner Example
 
 ```python
-message = "Run this file from your IDE"
+message = "Set a breakpoint here"
 print(message)
 ```
 
 ### Intermediate Example
 
 ```python
-def format_name(first: str, last: str) -> str:
-    return f"{first.title()} {last.title()}"
-
-print(format_name("ada", "lovelace"))
+subtotal = 0
+for price in [12, 8, 5]:
+    subtotal += price
+print(subtotal)
 ```
 
 ### Advanced Example
 
 ```python
-import pdb
+def find_first_even(numbers):
+    for index, number in enumerate(numbers):
+        if number % 2 == 0:
+            return index, number
+    return None
 
-values = [1, 2, 3]
-total = sum(values)
-# pdb.set_trace()
-print(total)
+print(find_first_even([3, 9, 12, 15]))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify IDE Setup Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Open project folder]
+    B[Select project interpreter]
+    C[Run known file]
+    D[Review diagnostics]
+    E[Debug with breakpoint]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
 
-[Back to topic index](#ide-setup)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Python Syntax
 
 ## Overview
-- **What is it?** Python syntax is the set of grammar rules for indentation, expressions, statements, comments, imports, functions, and blocks.
-- **Why is it important?** Make code understandable to both Python and other developers.
-- **Where is it used?** Learning labs, team onboarding, automation, and product engineering.
+- **What is it?** Python syntax is the grammar that defines valid tokens, expressions, statements, indentation, and code blocks.
+- **Why is it important?** Syntax determines how Python groups instructions; invalid grammar stops before the program can run.
+- **Where is it used?** Every Python file, interactive command, function, class, and control-flow block follows these rules.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review python syntax code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind python syntax.
-- Expected outcome: you can use python syntax in a small project and recognize when it belongs in production code.
+- Use indentation and colons to form blocks.
+- Distinguish expressions, statements, comments, and identifiers.
+- Interpret a `SyntaxError` location and correct the grammar.
 
 ## Real World Applications
-- **Industry use cases:** Learning labs, team onboarding, automation, and product engineering.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Express business rules as readable blocks.
+- Review code structure before runtime behavior.
+- Create scripts that tools can parse consistently.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives python syntax its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Python Syntax model -> clear code`
-- **Practical example:**
+### Statements and expressions
+- **Definition:** An expression produces a value; a statement performs an action such as assignment or import.
+- **Visual explanation:** `tokens -> expression or statement -> parsed instruction`
+- **Practical example:** The right side is an expression inside an assignment statement.
 
 ```python
-apply_python_syntax_label = "Python Syntax"
-print(apply_python_syntax_label)
+total = 4 + 6
+print(total)
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when python syntax code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
-- **Practical example:**
+### Indented blocks
+- **Definition:** A colon starts a suite whose consistently indented statements belong to the preceding construct.
+- **Visual explanation:** `header with colon -> indented suite -> next outer statement`
+- **Practical example:** Only the indented print belongs to the `if` block.
 
 ```python
-score = 10
-print(score)
+ready = True
+if ready:
+    print("Starting")
+print("Finished")
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps python syntax understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
-- **Practical example:**
+### Names and comments
+- **Definition:** Identifiers name program elements; comments begin with `#` and are ignored by the parser.
+- **Visual explanation:** `identifier = expression  # explanation`
+- **Practical example:** Valid snake_case names make statement roles visible.
 
 ```python
-price = 120
-discount_rate = 0.15
-final_price = price * (1 - discount_rate)
-print(final_price)
+# Calculate the price after a discount.
+base_price = 50
+discounted_price = base_price * 0.8
+print(discounted_price)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Python Syntax belongs to the fundamental Python practice part of Python mastery. |
-| ⚡ Purpose | Make code understandable to both Python and other developers. |
-| 🔥 Benefits | Readable structure, fewer parser errors, and consistent team conventions. |
-| 🎯 Use Cases | Learning labs, team onboarding, automation, and product engineering. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Python syntax is the grammar that defines valid tokens, expressions, statements, indentation, and code blocks. |
+| ⚡ Purpose | Define the valid grammar and block structure that the Python interpreter can parse. |
+| 🔥 Benefits | Syntax determines how Python groups instructions; invalid grammar stops before the program can run. |
+| 🎯 Use Cases | Every Python file, interactive command, function, class, and control-flow block follows these rules. |
+| 🚀 Best Practices | Indent with four spaces, close delimiters, and read syntax errors from the indicated line plus the line before it. |
+| ❌ Common Mistakes | Confusing syntax rules with variable design: syntax permits `x`, but clear naming determines whether `x` communicates meaning. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-customer_name = "Amina"
-order_total = 149.50
-is_paid = False
+course = "Python"
+print(course)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_python_syntax(value):
-    """Apply the Python Syntax concept to one value."""
-    return value
-
-result = apply_python_syntax("practice")
-print(result)
+temperature = 18
+if temperature < 20:
+    print("Bring a jacket")
+else:
+    print("Light clothing is enough")
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Python Syntax problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+def label_score(score):
+    if score >= 90:
+        return "excellent"
+    return "developing"
+
+print(label_score(94))
 ```
 
 ## Examples
@@ -672,137 +545,136 @@ print(result)
 ### Beginner Example
 
 ```python
-score = 10
-print(score)
+message = "Valid Python syntax"
+print(message)
 ```
 
 ### Intermediate Example
 
 ```python
-price = 120
-discount_rate = 0.15
-final_price = price * (1 - discount_rate)
-print(final_price)
+for number in range(3):
+    square = number ** 2
+    print(number, square)
 ```
 
 ### Advanced Example
 
 ```python
-from dataclasses import dataclass
+def shipping_cost(total, member=False):
+    if member or total >= 75:
+        return 0
+    return 8
 
-@dataclass(frozen=True)
-class Metric:
-    name: str
-    value: float
-
-conversion_rate = Metric("conversion_rate", 0.084)
-print(conversion_rate)
+print(shipping_cost(54, member=True))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Python Syntax Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Read tokens]
+    B[Parse statement structure]
+    C[Validate indentation and delimiters]
+    D[Execute valid syntax]
+    E[Report SyntaxError if invalid]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
 
-[Back to topic index](#python-syntax)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Variables
 
 ## Overview
-- **What is it?** Variables are names that reference objects in memory.
-- **Why is it important?** Represent facts and state clearly.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** A variable is a name bound to a Python object; assignment changes which object that name references.
+- **Why is it important?** Meaningful names let programs retain and update state without repeating literal values.
+- **Where is it used?** Variables represent measurements, configuration, user state, counters, and intermediate results.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review variables code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind variables.
-- Expected outcome: you can use variables in a small project and recognize when it belongs in production code.
+- Create and reassign names with `=`.
+- Choose descriptive snake_case identifiers and constants by convention.
+- Explain aliasing when two names refer to the same mutable object.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Track an order total or game score.
+- Store configuration used by several statements.
+- Name intermediate calculations for review and debugging.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives variables its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Variables model -> clear code`
-- **Practical example:**
+### Name binding
+- **Definition:** Assignment evaluates the right side, then binds the resulting object to the name on the left.
+- **Visual explanation:** `expression -> object <- variable name`
+- **Practical example:** The name describes the value used later.
 
 ```python
-apply_variables_label = "Variables"
-print(apply_variables_label)
+lesson_count = 35
+print(lesson_count)
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when variables code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
-- **Practical example:**
+### Reassignment
+- **Definition:** Reassignment points an existing name at a new object; it does not edit the old immutable value.
+- **Visual explanation:** `score -> 10, then score -> 15`
+- **Practical example:** A counter is rebound after addition.
 
 ```python
 score = 10
+score = score + 5
 print(score)
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps variables understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
-- **Practical example:**
+### Aliasing mutable data
+- **Definition:** Assigning one list name to another copies the reference, so mutation through either name affects one list.
+- **Visual explanation:** `first -> list object <- second`
+- **Practical example:** Appending through the alias changes the shared object.
 
 ```python
-price = 120
-discount_rate = 0.15
-final_price = price * (1 - discount_rate)
-print(final_price)
+primary = ["red", "blue"]
+alias = primary
+alias.append("green")
+print(primary)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Variables belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Represent facts and state clearly. |
-| 🔥 Benefits | Readable business logic and reusable values. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | A variable is a name bound to a Python object; assignment changes which object that name references. |
+| ⚡ Purpose | Bind meaningful names to values so program state can be read, reused, and updated. |
+| 🔥 Benefits | Meaningful names let programs retain and update state without repeating literal values. |
+| 🎯 Use Cases | Variables represent measurements, configuration, user state, counters, and intermediate results. |
+| 🚀 Best Practices | Name values by purpose, initialize them near first use, and copy mutable data when independent state is required. |
+| ❌ Common Mistakes | Assuming `alias = original` creates an independent copy of a list. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-customer_name = "Amina"
-order_total = 149.50
-is_paid = False
+student_name = "Noor"
+completed_lessons = 4
 ```
 
 ### Standard Structure
 
 ```python
-def apply_variables(value):
-    """Apply the Variables concept to one value."""
-    return value
-
-result = apply_variables("practice")
-print(result)
+unit_price = 12.50
+quantity = 3
+subtotal = unit_price * quantity
+print(subtotal)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Variables problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+items = ["book", "pen"]
+backup = items.copy()
+items.append("paper")
+print(items, backup)
 ```
 
 ## Examples
@@ -810,137 +682,142 @@ print(result)
 ### Beginner Example
 
 ```python
-score = 10
-print(score)
+city = "Lagos"
+print(city)
 ```
 
 ### Intermediate Example
 
 ```python
-price = 120
-discount_rate = 0.15
-final_price = price * (1 - discount_rate)
-print(final_price)
+balance = 100
+withdrawal = 35
+balance -= withdrawal
+print(balance)
 ```
 
 ### Advanced Example
 
 ```python
-from dataclasses import dataclass
-
-@dataclass(frozen=True)
-class Metric:
-    name: str
-    value: float
-
-conversion_rate = Metric("conversion_rate", 0.084)
-print(conversion_rate)
+cart = {"items": 3, "subtotal": 48.0}
+tax_rate = 0.075
+tax = cart["subtotal"] * tax_rate
+grand_total = cart["subtotal"] + tax
+print(f"${grand_total:.2f}")
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Variables Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Evaluate right side]
+    B[Create value object]
+    C[Bind descriptive name]
+    D[Use or reassign name]
+    E[Inspect current state]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
 
-[Back to topic index](#variables)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Data Types
 
 ## Overview
-- **What is it?** Data types classify values such as numbers, text, booleans, sequences, mappings, and None.
-- **Why is it important?** Choose operations that match the kind of value being processed.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** A data type defines a value's representation, supported operations, and behavior.
+- **Why is it important?** Choosing the right type prevents meaningless operations and models information accurately.
+- **Where is it used?** Programs use numbers, booleans, text, collections, mappings, and `None` for missing values.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review data types code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind data types.
-- Expected outcome: you can use data types in a small project and recognize when it belongs in production code.
+- Identify common built-in types with `type` and `isinstance`.
+- Select scalar or collection types that fit the data.
+- Explain mutability and why it affects updates and sharing.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Represent prices, labels, and yes/no flags.
+- Group records in lists, tuples, sets, or dictionaries.
+- Model an intentionally absent result with `None`.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives data types its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Data Types model -> clear code`
-- **Practical example:**
+### Scalar types
+- **Definition:** `int`, `float`, `bool`, and `NoneType` represent individual numeric, logical, or absent values.
+- **Visual explanation:** `value -> type -> allowed operations`
+- **Practical example:** Different literal forms create different types.
 
 ```python
-apply_data_types_label = "Data Types"
-print(apply_data_types_label)
+count = 3
+rate = 1.5
+active = True
+print(type(count), type(rate), type(active))
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when data types code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
-- **Practical example:**
+### Collection types
+- **Definition:** Lists and tuples are sequences, sets hold unique hashable values, and dictionaries map keys to values.
+- **Visual explanation:** `many values -> sequence, set, or mapping`
+- **Practical example:** One record uses a dictionary while tags use a set.
 
 ```python
-value = 42
-print(type(value).__name__)
+course = {"title": "Python", "lessons": 35}
+tags = {"beginner", "python"}
+print(course["title"], tags)
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps data types understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
-- **Practical example:**
+### Mutability
+- **Definition:** Mutable objects can change in place; immutable objects require a new value for any apparent update.
+- **Visual explanation:** `list -> mutate same object; string -> create new string`
+- **Practical example:** The list changes, while `upper` is a separate string.
 
 ```python
-profile = {"name": "Noor", "skills": ["Python", "SQL"], "active": True}
-print(profile["skills"][0])
+topics = ["syntax"]
+topics.append("types")
+name = "python"
+upper = name.upper()
+print(topics, name, upper)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Data Types belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Choose operations that match the kind of value being processed. |
-| 🔥 Benefits | Correct calculations, validation, serialization, and storage. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | A data type defines a value's representation, supported operations, and behavior. |
+| ⚡ Purpose | Represent each kind of information with the operations and behavior it requires. |
+| 🔥 Benefits | Choosing the right type prevents meaningless operations and models information accurately. |
+| 🎯 Use Cases | Programs use numbers, booleans, text, collections, mappings, and `None` for missing values. |
+| 🚀 Best Practices | Model meaning first, then select a type whose operations and mutability match that meaning. |
+| ❌ Common Mistakes | Using a string for every value and discovering too late that numeric or boolean operations are needed. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-age = 31
-price = 19.99
-name = "Python"
-is_active = True
-missing = None
+age = 21
+price = 9.99
+is_open = False
+name = "Kai"
 ```
 
 ### Standard Structure
 
 ```python
-def apply_data_types(value):
-    """Apply the Data Types concept to one value."""
-    return value
-
-result = apply_data_types("practice")
-print(result)
+values = [42, 3.5, "answer", True, None]
+for value in values:
+    print(value, type(value).__name__)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Data Types problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+profile = {
+    "name": "Kai",
+    "scores": [88, 92],
+    "skills": {"Python", "Git"},
+}
+print(isinstance(profile["scores"], list))
 ```
 
 ## Examples
@@ -948,134 +825,147 @@ print(result)
 ### Beginner Example
 
 ```python
-value = 42
-print(type(value).__name__)
+temperature = 23.5
+print(type(temperature).__name__)
 ```
 
 ### Intermediate Example
 
 ```python
-profile = {"name": "Noor", "skills": ["Python", "SQL"], "active": True}
-print(profile["skills"][0])
+inventory = {"pens": 12, "notebooks": 5}
+in_stock = inventory["pens"] > 0
+print(in_stock)
 ```
 
 ### Advanced Example
 
 ```python
-from typing import TypedDict
-
-class User(TypedDict):
-    id: int
-    email: str
-
-user: User = {"id": 1, "email": "dev@example.com"}
-print(user)
+readings = [18.2, 19.1, 18.7]
+summary = {
+    "minimum": min(readings),
+    "maximum": max(readings),
+    "count": len(readings),
+}
+print(summary)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Data Types Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Observe real-world value]
+    B[Identify needed operations]
+    C[Choose matching type]
+    D[Store and process value]
+    E[Validate type assumptions]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
 
-[Back to topic index](#data-types)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Type Casting
 
 ## Overview
-- **What is it?** Type casting converts values from one type to another, such as text to numbers.
-- **Why is it important?** Normalize input before calculations, comparisons, or storage.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** Type casting explicitly converts a value to another type by calling constructors such as `int`, `float`, or `str`.
+- **Why is it important?** Conversion turns text input and external data into forms suitable for calculation, comparison, or display.
+- **Where is it used?** Forms, files, environment settings, and APIs commonly deliver values that need conversion.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review type casting code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind type casting.
-- Expected outcome: you can use type casting in a small project and recognize when it belongs in production code.
+- Convert between compatible strings, numbers, and booleans.
+- Recognize lossy conversions such as `int(3.9)`.
+- Validate text before or while handling a failed conversion.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Turn an entered quantity into an integer.
+- Format numeric identifiers or totals as text.
+- Normalize imported measurements before analysis.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives type casting its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Type Casting model -> clear code`
-- **Practical example:**
+### Constructor conversion
+- **Definition:** Calling a built-in type creates a value of that type when the source representation is valid.
+- **Visual explanation:** `"42" -> int -> 42`
+- **Practical example:** Text representations become numeric values.
 
 ```python
-apply_type_casting_label = "Type Casting"
-print(apply_type_casting_label)
+whole = int("42")
+price = float("7.50")
+print(whole, price)
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when type casting code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
-- **Practical example:**
+### Loss and representation
+- **Definition:** Some conversions discard information or use formatting rules, so the target may not preserve the source exactly.
+- **Visual explanation:** `3.9 -> int -> 3, not rounded 4`
+- **Practical example:** Integer conversion truncates toward zero.
 
 ```python
-age_text = "21"
-age = int(age_text)
-print(age + 1)
+measurement = 3.9
+truncated = int(measurement)
+print(truncated)
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps type casting understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
-- **Practical example:**
+### Conversion failure
+- **Definition:** Invalid representations raise `ValueError`; reliable programs catch it or reject the input.
+- **Visual explanation:** `"many" -> int -> ValueError`
+- **Practical example:** A helper returns `None` when text is not an integer.
 
 ```python
-raw_values = ["10", "20", "30"]
-values = [int(value) for value in raw_values]
-print(sum(values))
+def parse_count(text):
+    try:
+        return int(text)
+    except ValueError:
+        return None
+
+print(parse_count("12"), parse_count("many"))
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Type Casting belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Normalize input before calculations, comparisons, or storage. |
-| 🔥 Benefits | Safer forms, APIs, CLI tools, and data imports. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Type casting explicitly converts a value to another type by calling constructors such as `int`, `float`, or `str`. |
+| ⚡ Purpose | Convert values at data boundaries into the types required by calculations and comparisons. |
+| 🔥 Benefits | Conversion turns text input and external data into forms suitable for calculation, comparison, or display. |
+| 🎯 Use Cases | Forms, files, environment settings, and APIs commonly deliver values that need conversion. |
+| 🚀 Best Practices | Convert at the system boundary, keep internal values typed consistently, and make failure behavior explicit. |
+| ❌ Common Mistakes | Using `bool('False')` expecting `False`; every non-empty string is truthy. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-quantity = int("12")
-price = float("9.99")
-label = str(quantity)
+count = int("8")
+ratio = float("0.75")
+label = str(2026)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_type_casting(value):
-    """Apply the Type Casting concept to one value."""
-    return value
-
-result = apply_type_casting("practice")
-print(result)
+raw_price = "19.95"
+quantity = 2
+total = float(raw_price) * quantity
+print(f"${total:.2f}")
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Type Casting problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+def parse_yes_no(text):
+    normalized = text.strip().lower()
+    if normalized in {"yes", "y"}:
+        return True
+    if normalized in {"no", "n"}:
+        return False
+    raise ValueError("Enter yes or no")
+
+print(parse_yes_no(" Yes "))
 ```
 
 ## Examples
@@ -1083,132 +973,142 @@ print(result)
 ### Beginner Example
 
 ```python
-age_text = "21"
-age = int(age_text)
-print(age + 1)
+year = int("2026")
+print(year + 1)
 ```
 
 ### Intermediate Example
 
 ```python
-raw_values = ["10", "20", "30"]
-values = [int(value) for value in raw_values]
-print(sum(values))
+values = ["4", "7", "11"]
+numbers = [int(value) for value in values]
+print(sum(numbers))
 ```
 
 ### Advanced Example
 
 ```python
-from decimal import Decimal
+def convert_temperature(text):
+    try:
+        celsius = float(text)
+    except ValueError:
+        return "Invalid temperature"
+    fahrenheit = celsius * 9 / 5 + 32
+    return f"{fahrenheit:.1f} F"
 
-amount = Decimal("19.99")
-tax = Decimal("0.08")
-print((amount * (1 + tax)).quantize(Decimal("0.01")))
+print(convert_temperature("21.5"))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Type Casting Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Receive source value]
+    B[Check expected representation]
+    C[Call target type]
+    D[Handle conversion error]
+    E[Use converted value]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
 
-[Back to topic index](#type-casting)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Input and Output
 
 ## Overview
-- **What is it?** Input and output move data into and out of programs through keyboards, files, streams, APIs, and terminals.
-- **Why is it important?** Let programs interact with users and external systems.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** Input and output move information between a program and users or external streams; `input()` reads terminal text and `print()` writes display text.
+- **Why is it important?** Interaction makes a program responsive, but entered text must be converted and validated before use.
+- **Where is it used?** Command-line tools, questionnaires, games, and administrative scripts all use terminal I/O.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review input and output code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind input and output.
-- Expected outcome: you can use input and output in a small project and recognize when it belongs in production code.
+- Read text with `input` and display values with `print`.
+- Convert and validate user input before calculation.
+- Separate interaction from calculation so logic remains testable.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Collect a user's name or menu choice.
+- Display a formatted receipt or progress report.
+- Build a small command-line calculator or questionnaire.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives input and output its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Input and Output model -> clear code`
+### Reading input
+- **Definition:** `input(prompt)` displays a prompt, waits for a line, removes the trailing newline, and always returns a string.
+- **Visual explanation:** `keyboard text -> input -> str`
 - **Practical example:**
 
 ```python
-apply_input_and_output_label = "Input and Output"
-print(apply_input_and_output_label)
+name = input("Name: ")
+print(f"Hello, {name}!")
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when input and output code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Producing output
+- **Definition:** `print` converts objects to text and writes them to standard output with configurable separators and endings.
+- **Visual explanation:** `values -> string conversion -> stdout`
 - **Practical example:**
 
 ```python
-name = "Learner"
-print(f"Welcome, {name}!")
+item = "notebook"
+price = 4.5
+print(item, price, sep=": $")
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps input and output understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Boundary validation
+- **Definition:** Interactive text should be normalized, converted, and checked before business logic consumes it.
+- **Visual explanation:** `raw input -> strip -> convert -> validate -> calculate`
 - **Practical example:**
 
 ```python
-def render_invoice(customer: str, total: float) -> str:
-    return f"Invoice for {customer}: ${total:.2f}"
-
-print(render_invoice("Ada", 125.5))
+raw = input("Quantity: ")
+try:
+    quantity = int(raw)
+    print("Accepted:", quantity) if quantity > 0 else print("Must be positive")
+except ValueError:
+    print("Enter a whole number")
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Input and Output belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Let programs interact with users and external systems. |
-| 🔥 Benefits | Useful scripts, reports, automation, and command-line tools. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Input and output move information between a program and users or external streams; `input()` reads terminal text and `print()` writes display text. |
+| ⚡ Purpose | Exchange text with users through prompts and clearly formatted terminal output. |
+| 🔥 Benefits | Interaction makes a program responsive, but entered text must be converted and validated before use. |
+| 🎯 Use Cases | Command-line tools, questionnaires, games, and administrative scripts all use terminal I/O. |
+| 🚀 Best Practices | Keep `input` and `print` at the edge of the program; pass clean values into functions that compute results. |
+| ❌ Common Mistakes | Performing arithmetic directly on `input()` results without converting the returned strings. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-name = input("Name: ")
-print(f"Hello, {name}")
+answer = input("Favorite color: ")
+print("You chose", answer)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_input_and_output(value):
-    """Apply the Input and Output concept to one value."""
-    return value
-
-result = apply_input_and_output("practice")
-print(result)
+name = input("Name: ").strip()
+age = int(input("Age: "))
+print(f"{name} will be {age + 1} next year.")
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Input and Output problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+def calculate_total(price, quantity):
+    return price * quantity
+
+price = float(input("Unit price: "))
+quantity = int(input("Quantity: "))
+print(f"Total: ${calculate_total(price, quantity):.2f}")
 ```
 
 ## Examples
@@ -1216,132 +1116,152 @@ print(result)
 ### Beginner Example
 
 ```python
-name = "Learner"
-print(f"Welcome, {name}!")
+city = input("City: ")
+print(f"Weather lookup requested for {city}.")
 ```
 
 ### Intermediate Example
 
 ```python
-def render_invoice(customer: str, total: float) -> str:
-    return f"Invoice for {customer}: ${total:.2f}"
-
-print(render_invoice("Ada", 125.5))
+raw_score = input("Score from 0 to 100: ")
+score = int(raw_score)
+if 0 <= score <= 100:
+    print(f"Recorded: {score}")
+else:
+    print("Score out of range")
 ```
 
 ### Advanced Example
 
 ```python
-import sys
+def prompt_positive_integer(prompt):
+    while True:
+        raw = input(prompt).strip()
+        try:
+            value = int(raw)
+        except ValueError:
+            print("Use digits only.")
+            continue
+        if value > 0:
+            return value
+        print("Value must be positive.")
 
-sys.stdout.write("streamed output\n")
-sys.stderr.write("diagnostic output\n")
+seats = prompt_positive_integer("Seats: ")
+print(f"Reserved {seats} seat(s).")
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Input and Output Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Display clear prompt]
+    B[Read string with input]
+    C[Normalize and convert]
+    D[Validate value]
+    E[Compute and print result]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
 
-[Back to topic index](#input-and-output)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Operators
 
 ## Overview
-- **What is it?** Operators are symbols and keywords that combine, compare, and transform values.
-- **Why is it important?** Build expressions for calculations and decisions.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** Operators are symbols or keywords that perform arithmetic, comparison, logical, assignment, membership, and identity operations.
+- **Why is it important?** Operator families form expressions that calculate values and decide which code paths apply.
+- **Where is it used?** Pricing, filtering, validation, search, and state updates all depend on operators.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review operators code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind operators.
-- Expected outcome: you can use operators in a small project and recognize when it belongs in production code.
+- Use arithmetic and assignment operators correctly.
+- Combine comparison, logical, and membership operators into conditions.
+- Distinguish equality `==` from identity `is` and apply precedence deliberately.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Calculate totals, remainders, and powers.
+- Check ranges and combine eligibility rules.
+- Test collection membership or whether a value is `None`.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives operators its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Operators model -> clear code`
+### Arithmetic and assignment
+- **Definition:** Arithmetic operators compute numbers; assignment forms such as `+=` bind the updated result to a name.
+- **Visual explanation:** `operands -> + - * / // % ** -> result`
 - **Practical example:**
 
 ```python
-apply_operators_label = "Operators"
-print(apply_operators_label)
+subtotal = 17 * 3
+remainder = 17 % 3
+subtotal += 5
+print(subtotal, remainder)
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when operators code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Comparison and logic
+- **Definition:** Comparisons produce booleans; `and`, `or`, and `not` combine or invert truth conditions.
+- **Visual explanation:** `comparisons -> booleans -> logical result`
 - **Practical example:**
 
 ```python
-score = 10
-print(score)
+age = 20
+has_ticket = True
+can_enter = age >= 18 and has_ticket
+print(can_enter)
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps operators understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Membership and identity
+- **Definition:** `in` searches for membership, while `is` checks whether two references point to the same object.
+- **Visual explanation:** `value in container; name is singleton`
 - **Practical example:**
 
 ```python
-price = 120
-discount_rate = 0.15
-final_price = price * (1 - discount_rate)
-print(final_price)
+roles = {"editor", "viewer"}
+role = "editor"
+selection = None
+print(role in roles, selection is None)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Operators belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Build expressions for calculations and decisions. |
-| 🔥 Benefits | Concise business rules, filters, and computations. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Operators are symbols or keywords that perform arithmetic, comparison, logical, assignment, membership, and identity operations. |
+| ⚡ Purpose | Build expressions that calculate, compare, combine, assign, and test values. |
+| 🔥 Benefits | Operator families form expressions that calculate values and decide which code paths apply. |
+| 🎯 Use Cases | Pricing, filtering, validation, search, and state updates all depend on operators. |
+| 🚀 Best Practices | Use parentheses when mixed operator precedence could make the intended grouping unclear. |
+| ❌ Common Mistakes | Using `is` for value equality; use `==` for equal values and reserve `is` for identity, especially `None`. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-customer_name = "Amina"
-order_total = 149.50
-is_paid = False
+a = 11
+b = 4
+print(a + b, a - b, a * b, a / b, a // b, a % b, a ** 2)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_operators(value):
-    """Apply the Operators concept to one value."""
-    return value
-
-result = apply_operators("practice")
-print(result)
+score = 84
+passed = score >= 60
+honors = passed and score >= 90
+print(passed, honors)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Operators problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+allowed_roles = {"admin", "editor"}
+user_role = "editor"
+account_active = True
+authorized = account_active and user_role in allowed_roles
+print(authorized)
 ```
 
 ## Examples
@@ -1349,140 +1269,156 @@ print(result)
 ### Beginner Example
 
 ```python
-score = 10
-print(score)
+price = 15
+quantity = 3
+print(price * quantity)
 ```
 
 ### Intermediate Example
 
 ```python
-price = 120
-discount_rate = 0.15
-final_price = price * (1 - discount_rate)
-print(final_price)
+temperature = 24
+comfortable = 18 <= temperature <= 26
+print("Comfortable:", comfortable)
 ```
 
 ### Advanced Example
 
 ```python
-from dataclasses import dataclass
-
-@dataclass(frozen=True)
-class Metric:
-    name: str
-    value: float
-
-conversion_rate = Metric("conversion_rate", 0.084)
-print(conversion_rate)
+cart_total = 82
+is_member = False
+coupon = "SAVE10"
+discounted = (cart_total >= 75 or is_member) and coupon == "SAVE10"
+final_total = cart_total * 0.9 if discounted else cart_total
+print(f"${final_total:.2f}")
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Operators Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Identify operands]
+    B[Choose operator family]
+    C[Evaluate precedence]
+    D[Produce value or boolean]
+    E[Use result in program]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
 
-[Back to topic index](#operators)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Conditional Statements
 
 ## Overview
-- **What is it?** Conditional statements run different code paths based on boolean conditions.
-- **Why is it important?** Represent decisions and branching business rules.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** Conditional statements select a code block according to boolean conditions using `if`, `elif`, and `else`.
+- **Why is it important?** Branching translates rules and alternative outcomes into executable control flow.
+- **Where is it used?** Programs use conditions for permissions, grading, validation, pricing, and status messages.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review conditional statements code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind conditional statements.
-- Expected outcome: you can use conditional statements in a small project and recognize when it belongs in production code.
+- Write mutually exclusive `if`/`elif`/`else` branches.
+- Order conditions from specific to general.
+- Use truth values without unnecessary comparisons to `True`.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Classify a score or measurement.
+- Allow or reject an action based on policy.
+- Choose discounts, shipping tiers, or status labels.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives conditional statements its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Conditional Statements model -> clear code`
+### Boolean branch
+- **Definition:** An `if` suite runs only when its condition is truthy.
+- **Visual explanation:** `condition true -> run suite; false -> skip`
 - **Practical example:**
 
 ```python
-apply_conditional_statements_label = "Conditional Statements"
-print(apply_conditional_statements_label)
+balance = 40
+if balance > 0:
+    print("Funds available")
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when conditional statements code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Exclusive chain
+- **Definition:** In an `if`/`elif`/`else` chain, Python runs the first true branch and skips the rest.
+- **Visual explanation:** `test top to bottom -> first match -> exit chain`
 - **Practical example:**
 
 ```python
-score = 82
-if score >= 60:
-    print("Pass")
+score = 78
+if score >= 90:
+    grade = "A"
+elif score >= 70:
+    grade = "B"
+else:
+    grade = "C"
+print(grade)
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps conditional statements understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Guard condition
+- **Definition:** A guard handles an invalid or exceptional case early so the normal path stays simple.
+- **Visual explanation:** `invalid? -> reject; otherwise -> continue`
 - **Practical example:**
 
 ```python
-role = "admin"
-can_delete = role in {"admin", "owner"}
-print(can_delete)
+def safe_average(total, count):
+    if count == 0:
+        return None
+    return total / count
+
+print(safe_average(42, 6))
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Conditional Statements belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Represent decisions and branching business rules. |
-| 🔥 Benefits | Validation, authorization, routing, and error handling. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Conditional statements select a code block according to boolean conditions using `if`, `elif`, and `else`. |
+| ⚡ Purpose | Select exactly which block should run for the current conditions. |
+| 🔥 Benefits | Branching translates rules and alternative outcomes into executable control flow. |
+| 🎯 Use Cases | Programs use conditions for permissions, grading, validation, pricing, and status messages. |
+| 🚀 Best Practices | Make branches exhaustive when every input needs an outcome, and test values at each boundary. |
+| ❌ Common Mistakes | Placing a broad condition before a more specific one, making the later branch unreachable. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-if temperature > 30:
-    print("Hot")
-elif temperature > 20:
-    print("Warm")
-else:
-    print("Cool")
+temperature = 12
+if temperature < 15:
+    print("Wear a coat")
 ```
 
 ### Standard Structure
 
 ```python
-def apply_conditional_statements(value):
-    """Apply the Conditional Statements concept to one value."""
-    return value
-
-result = apply_conditional_statements("practice")
-print(result)
+hours = 17
+if hours < 12:
+    greeting = "Good morning"
+elif hours < 18:
+    greeting = "Good afternoon"
+else:
+    greeting = "Good evening"
+print(greeting)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Conditional Statements problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+def shipping_band(weight, express):
+    if weight <= 0:
+        return "invalid"
+    if express and weight <= 5:
+        return "express-small"
+    if weight <= 20:
+        return "standard"
+    return "freight"
+
+print(shipping_band(4, True))
 ```
 
 ## Examples
@@ -1490,141 +1426,152 @@ print(result)
 ### Beginner Example
 
 ```python
-score = 82
-if score >= 60:
-    print("Pass")
+logged_in = True
+if logged_in:
+    print("Dashboard ready")
 ```
 
 ### Intermediate Example
 
 ```python
-role = "admin"
-can_delete = role in {"admin", "owner"}
-print(can_delete)
+purchase = 120
+if purchase >= 100:
+    discount = 0.15
+elif purchase >= 50:
+    discount = 0.05
+else:
+    discount = 0
+print(purchase * (1 - discount))
 ```
 
 ### Advanced Example
 
 ```python
-def classify_order(total: float, is_priority: bool) -> str:
-    match (total >= 500, is_priority):
-        case (True, True):
-            return "vip-priority"
-        case (True, False):
-            return "vip"
-        case _:
-            return "standard"
+def access_level(age, verified, suspended):
+    if suspended:
+        return "blocked"
+    if not verified:
+        return "verify account"
+    if age >= 18:
+        return "full access"
+    return "limited access"
 
-print(classify_order(700, True))
+print(access_level(20, True, False))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Conditional Statements Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Evaluate first condition]
+    B[Run first matching suite]
+    C[Skip remaining branches]
+    D[Continue after conditional]
+    E[Test boundary cases]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
 
-[Back to topic index](#conditional-statements)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Loops
 
 ## Overview
-- **What is it?** Loops repeat work over collections, ranges, streams, or conditions.
-- **Why is it important?** Automate repetitive tasks without duplicating code.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** Loops repeat a block: `for` consumes items from an iterable, while `while` repeats while a condition remains true.
+- **Why is it important?** Iteration processes collections and repeated state changes without copied statements.
+- **Where is it used?** Loops drive batch processing, searches, counters, polling, and report generation.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review loops code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind loops.
-- Expected outcome: you can use loops in a small project and recognize when it belongs in production code.
+- Iterate over sequences and numeric ranges with `for`.
+- Write a terminating `while` loop with an explicit state update.
+- Use `enumerate`, accumulators, and loop `else` where appropriate.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Calculate totals from many records.
+- Repeat prompts until input is valid.
+- Transform or inspect every item in a collection.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives loops its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Loops model -> clear code`
+### For iteration
+- **Definition:** A `for` loop requests each item from an iterable and binds it to the loop variable.
+- **Visual explanation:** `iterable -> next item -> suite -> next item`
 - **Practical example:**
 
 ```python
-apply_loops_label = "Loops"
-print(apply_loops_label)
+for language in ["Python", "SQL", "Git"]:
+    print(language)
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when loops code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### While repetition
+- **Definition:** A `while` loop checks its condition before every iteration and stops when it becomes false.
+- **Visual explanation:** `check condition -> suite -> update -> check again`
 - **Practical example:**
 
 ```python
-for number in range(3):
-    print(number)
+countdown = 3
+while countdown > 0:
+    print(countdown)
+    countdown -= 1
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps loops understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Accumulation
+- **Definition:** An accumulator starts with an identity value and is updated once per item.
+- **Visual explanation:** `initial total -> add item repeatedly -> final total`
 - **Practical example:**
 
 ```python
-orders = [42, 75, 120]
 total = 0
-for order in orders:
-    total += order
+for amount in [12, 7, 9]:
+    total += amount
 print(total)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Loops belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Automate repetitive tasks without duplicating code. |
-| 🔥 Benefits | Batch processing, reporting, scraping, and simulations. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Loops repeat a block: `for` consumes items from an iterable, while `while` repeats while a condition remains true. |
+| ⚡ Purpose | Repeat work across an iterable or while a condition remains true. |
+| 🔥 Benefits | Iteration processes collections and repeated state changes without copied statements. |
+| 🎯 Use Cases | Loops drive batch processing, searches, counters, polling, and report generation. |
+| 🚀 Best Practices | Choose `for` for a finite iterable and `while` for condition-driven repetition; prove how the loop terminates. |
+| ❌ Common Mistakes | Writing a `while` condition whose controlling value never changes, creating an accidental infinite loop. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-for item in items:
-    print(item)
-
-while queue:
-    queue.pop(0)
+for number in range(1, 4):
+    print(number)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_loops(value):
-    """Apply the Loops concept to one value."""
-    return value
-
-result = apply_loops("practice")
-print(result)
+total = 0
+for price in [5.0, 2.5, 8.0]:
+    total += price
+print(f"${total:.2f}")
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Loops problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+attempts = 3
+while attempts > 0:
+    password = "demo" if attempts == 1 else "wrong"
+    if password == "demo":
+        print("Access granted")
+        break
+    attempts -= 1
+else:
+    print("Locked out")
 ```
 
 ## Examples
@@ -1632,76 +1579,70 @@ print(result)
 ### Beginner Example
 
 ```python
-for number in range(3):
-    print(number)
+for letter in "Python":
+    print(letter)
 ```
 
 ### Intermediate Example
 
 ```python
-orders = [42, 75, 120]
-total = 0
-for order in orders:
-    total += order
-print(total)
+scores = [72, 95, 81]
+for position, score in enumerate(scores, start=1):
+    print(position, score)
 ```
 
 ### Advanced Example
 
 ```python
-from itertools import accumulate
-
-values = [5, 10, 15]
-print(list(accumulate(values)))
+transactions = [25, -8, 13, -4]
+balance = 0
+for transaction in transactions:
+    balance += transaction
+    status = "credit" if transaction >= 0 else "debit"
+    print(status, transaction, balance)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Loops Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Select iterable or condition]
+    B[Initialize loop state]
+    C[Run body for current item]
+    D[Advance item or state]
+    E[Stop and use result]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
 
-[Back to topic index](#loops)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Nested Loops
 
 ## Overview
-- **What is it?** Nested loops place one loop inside another to process grids, combinations, and hierarchical data.
-- **Why is it important?** Traverse multi-dimensional or related datasets.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** A nested loop places one loop inside another so every outer item can be paired with or traversed across inner items.
+- **Why is it important?** This structure represents grids, tables, combinations, and grouped records.
+- **Where is it used?** Nested iteration appears in seating charts, matrices, schedules, and comparison tasks.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review nested loops code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind nested loops.
-- Expected outcome: you can use nested loops in a small project and recognize when it belongs in production code.
+- Trace outer and inner loop execution order.
+- Generate coordinates or pairwise combinations.
+- Estimate total iterations and avoid unnecessary quadratic work.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Process each cell in a table.
+- Create combinations of colors and sizes.
+- Render rows and columns of a board.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives nested loops its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Nested Loops model -> clear code`
-- **Practical example:**
-
-```python
-apply_nested_loops_label = "Nested Loops"
-print(apply_nested_loops_label)
-```
-
-### Execution Flow
-- **Definition:** The ordered steps Python follows when nested loops code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Outer and inner cycles
+- **Definition:** The inner loop completes all its iterations for each single outer-loop item.
+- **Visual explanation:** `outer item -> all inner items -> next outer item`
 - **Practical example:**
 
 ```python
@@ -1710,58 +1651,74 @@ for row in range(2):
         print(row, column)
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps nested loops understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Two-dimensional data
+- **Definition:** Rows can be iterables whose elements are visited by an inner loop.
+- **Visual explanation:** `matrix -> row -> cell`
 - **Practical example:**
 
 ```python
-matrix = [[1, 2], [3, 4]]
-flattened = []
-for row in matrix:
-    for value in row:
-        flattened.append(value)
-print(flattened)
+grid = [[1, 2], [3, 4]]
+for row in grid:
+    for cell in row:
+        print(cell)
+```
+
+### Cost of nesting
+- **Definition:** If outer and inner loops each visit `n` items, the body may execute `n²` times.
+- **Visual explanation:** `n outer x n inner = n squared pairs`
+- **Practical example:**
+
+```python
+items = ["A", "B", "C"]
+pairs = 0
+for left in items:
+    for right in items:
+        pairs += 1
+print(pairs)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Nested Loops belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Traverse multi-dimensional or related datasets. |
-| 🔥 Benefits | Tables, matrices, schedules, inventory variants, and reports. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | A nested loop places one loop inside another so every outer item can be paired with or traversed across inner items. |
+| ⚡ Purpose | Traverse grids, grouped data, and combinations across two or more dimensions. |
+| 🔥 Benefits | This structure represents grids, tables, combinations, and grouped records. |
+| 🎯 Use Cases | Nested iteration appears in seating charts, matrices, schedules, and comparison tasks. |
+| 🚀 Best Practices | Name loop variables by dimension and calculate the expected body executions before processing large inputs. |
+| ❌ Common Mistakes | Using nested loops for a membership lookup that a set could perform directly. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-for row in grid:
-    for cell in row:
-        print(cell)
+for row in range(2):
+    for column in range(2):
+        print(f"({row}, {column})")
 ```
 
 ### Standard Structure
 
 ```python
-def apply_nested_loops(value):
-    """Apply the Nested Loops concept to one value."""
-    return value
-
-result = apply_nested_loops("practice")
-print(result)
+colors = ["red", "blue"]
+sizes = ["S", "M", "L"]
+for color in colors:
+    for size in sizes:
+        print(color, size)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Nested Loops problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+matrix = [[3, 5, 7], [2, 4, 6]]
+row_totals = []
+for row in matrix:
+    total = 0
+    for value in row:
+        total += value
+    row_totals.append(total)
+print(row_totals)
 ```
 
 ## Examples
@@ -1769,139 +1726,152 @@ print(result)
 ### Beginner Example
 
 ```python
-for row in range(2):
-    for column in range(3):
+for row in range(3):
+    for column in range(2):
         print(row, column)
 ```
 
 ### Intermediate Example
 
 ```python
-matrix = [[1, 2], [3, 4]]
-flattened = []
-for row in matrix:
-    for value in row:
-        flattened.append(value)
-print(flattened)
+teams = ["North", "South", "West"]
+for index, home in enumerate(teams):
+    for away in teams[index + 1:]:
+        print(home, "vs", away)
 ```
 
 ### Advanced Example
 
 ```python
-pairs = [(x, y) for x in range(3) for y in range(3) if x != y]
-print(pairs)
+sales = [[12, 9], [8, 14], [10, 11]]
+grand_total = 0
+for day_index, day in enumerate(sales, start=1):
+    day_total = 0
+    for amount in day:
+        day_total += amount
+    grand_total += day_total
+    print(f"Day {day_index}: {day_total}")
+print("All days:", grand_total)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Nested Loops Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Choose outer collection]
+    B[Take one outer item]
+    C[Traverse all inner items]
+    D[Store pair or cell result]
+    E[Repeat for next outer item]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
 
-[Back to topic index](#nested-loops)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Break Continue Pass
 
 ## Overview
-- **What is it?** break, continue, and pass control loop flow and placeholder behavior.
-- **Why is it important?** Exit early, skip work, or reserve structure intentionally.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** `break` exits the nearest loop, `continue` skips to its next iteration, and `pass` is a statement that intentionally does nothing.
+- **Why is it important?** These statements express early exit, selective skipping, and temporarily empty suites.
+- **Where is it used?** Searches, input filters, parsers, and staged implementations use these controls.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review break continue pass code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind break continue pass.
-- Expected outcome: you can use break continue pass in a small project and recognize when it belongs in production code.
+- Exit a search as soon as a match is found.
+- Skip invalid items without skipping the entire loop.
+- Use `pass` only where Python requires a suite and no behavior is intended yet.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Stop reading after a sentinel value.
+- Ignore malformed or irrelevant records.
+- Sketch a function or class body before implementation.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives break continue pass its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Break Continue Pass model -> clear code`
+### Break
+- **Definition:** `break` immediately terminates only the innermost enclosing `for` or `while` loop.
+- **Visual explanation:** `loop -> match -> break -> after loop`
 - **Practical example:**
 
 ```python
-apply_break_continue_pass_label = "Break Continue Pass"
-print(apply_break_continue_pass_label)
-```
-
-### Execution Flow
-- **Definition:** The ordered steps Python follows when break continue pass code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
-- **Practical example:**
-
-```python
-for number in range(5):
-    if number == 3:
+for number in [3, 8, 11]:
+    if number % 2 == 0:
+        print(number)
         break
-    print(number)
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps break continue pass understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Continue
+- **Definition:** `continue` abandons the rest of the current iteration and requests the next item.
+- **Visual explanation:** `item -> reject -> continue -> next item`
 - **Practical example:**
 
 ```python
-values = [10, None, 25, 0]
-for value in values:
-    if value is None:
+for value in [4, -1, 7]:
+    if value < 0:
         continue
     print(value)
 ```
 
+### Pass
+- **Definition:** `pass` satisfies Python's requirement for a statement but has no runtime effect.
+- **Visual explanation:** `required suite -> pass -> continue normally`
+- **Practical example:**
+
+```python
+def planned_feature():
+    pass
+
+print(planned_feature())
+```
+
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Break Continue Pass belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Exit early, skip work, or reserve structure intentionally. |
-| 🔥 Benefits | Cleaner loops, guard clauses, and progressive implementation. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | `break` exits the nearest loop, `continue` skips to its next iteration, and `pass` is a statement that intentionally does nothing. |
+| ⚡ Purpose | Exit, skip, or intentionally leave empty parts of a control-flow structure. |
+| 🔥 Benefits | These statements express early exit, selective skipping, and temporarily empty suites. |
+| 🎯 Use Cases | Searches, input filters, parsers, and staged implementations use these controls. |
+| 🚀 Best Practices | Prefer clear loop conditions; use `break` and `continue` when they make exceptional paths easier to read. |
+| ❌ Common Mistakes | Expecting `break` in an inner loop to exit every enclosing loop. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-for item in items:
-    if item is None:
-        continue
-    if item == "stop":
+for number in range(10):
+    if number == 3:
         break
-    pass
+    print(number)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_break_continue_pass(value):
-    """Apply the Break Continue Pass concept to one value."""
-    return value
-
-result = apply_break_continue_pass("practice")
-print(result)
+for text in ["12", "bad", "7"]:
+    if not text.isdigit():
+        continue
+    print(int(text) * 2)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Break Continue Pass problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+def find_user(records, target_id):
+    for record in records:
+        if "id" not in record:
+            continue
+        if record["id"] == target_id:
+            return record
+    return None
+
+users = [{}, {"id": 2, "name": "Ada"}]
+print(find_user(users, 2))
 ```
 
 ## Examples
@@ -1909,134 +1879,146 @@ print(result)
 ### Beginner Example
 
 ```python
-for number in range(5):
-    if number == 3:
+for letter in "code":
+    if letter == "d":
         break
-    print(number)
+    print(letter)
 ```
 
 ### Intermediate Example
 
 ```python
-values = [10, None, 25, 0]
-for value in values:
-    if value is None:
+valid_scores = []
+for score in [88, -5, 104, 73]:
+    if not 0 <= score <= 100:
         continue
-    print(value)
+    valid_scores.append(score)
+print(valid_scores)
 ```
 
 ### Advanced Example
 
 ```python
-class FutureValidator:
-    def validate(self, value):
-        pass
-
-print(FutureValidator().validate("draft"))
+commands = ["status", "", "quit", "ignored"]
+for command in commands:
+    if not command:
+        continue
+    if command == "quit":
+        print("Stopping")
+        break
+    print("Running", command)
+else:
+    print("All commands completed")
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Break Continue Pass Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Begin loop iteration]
+    B[Evaluate exceptional condition]
+    C[Break exit or continue skip]
+    D[Otherwise finish body]
+    E[Proceed after loop]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
 
-[Back to topic index](#break-continue-pass)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Strings
 
 ## Overview
-- **What is it?** Strings are immutable text sequences.
-- **Why is it important?** Store, inspect, format, and transform text.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** A string is an immutable sequence of Unicode characters written with quotes.
+- **Why is it important?** Strings model human-readable text and support indexing, slicing, concatenation, and interpolation.
+- **Where is it used?** Names, messages, identifiers, file content, and serialized data are commonly represented as strings.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review strings code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind strings.
-- Expected outcome: you can use strings in a small project and recognize when it belongs in production code.
+- Create strings with appropriate quoting and escape sequences.
+- Access characters and substrings by index or slice.
+- Build readable output with f-strings while respecting immutability.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Display personalized messages.
+- Extract parts of codes or filenames.
+- Compose labels, logs, and reports from data.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives strings its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Strings model -> clear code`
+### Unicode text sequence
+- **Definition:** Each string contains an ordered sequence of characters and has a measurable length.
+- **Visual explanation:** `text -> character at index 0, 1, 2 ...`
 - **Practical example:**
 
 ```python
-apply_strings_label = "Strings"
-print(apply_strings_label)
+word = "Python"
+print(len(word), word[0], word[-1])
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when strings code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Slicing
+- **Definition:** A slice returns a new string from a start index up to, but not including, a stop index.
+- **Visual explanation:** `text[start:stop:step] -> new text`
 - **Practical example:**
 
 ```python
-greeting = "Hello"
-print(greeting + " Python")
+code = "PY-2026-BEGIN"
+print(code[:2], code[3:7])
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps strings understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Immutability and formatting
+- **Definition:** Characters cannot be assigned in place; operations and f-strings create new strings.
+- **Visual explanation:** `original string -> operation -> new string`
 - **Practical example:**
 
 ```python
-template = "{product}: ${price:.2f}"
-print(template.format(product="Book", price=29.99))
+name = "Sam"
+lessons = 5
+message = f"{name} completed {lessons} lessons."
+print(message)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Strings belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Store, inspect, format, and transform text. |
-| 🔥 Benefits | User messages, logs, APIs, documents, and identifiers. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | A string is an immutable sequence of Unicode characters written with quotes. |
+| ⚡ Purpose | Represent and compose immutable Unicode text. |
+| 🔥 Benefits | Strings model human-readable text and support indexing, slicing, concatenation, and interpolation. |
+| 🎯 Use Cases | Names, messages, identifiers, file content, and serialized data are commonly represented as strings. |
+| 🚀 Best Practices | Use f-strings for interpolation, explicit encodings for files, and slices whose boundaries are easy to explain. |
+| ❌ Common Mistakes | Trying to assign `text[0] = 'X'`; strings are immutable, so construct a new string instead. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-name = "Python"
-print(name[0])
-print(name.lower())
+single = "Python"
+multiline = """First line
+Second line"""
+print(single, multiline)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_strings(value):
-    """Apply the Strings concept to one value."""
-    return value
-
-result = apply_strings("practice")
-print(result)
+language = "Python"
+print(language[0])
+print(language[1:4])
+print(language[::-1])
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Strings problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+customer = "Rina"
+subtotal = 47.5
+receipt = f"Customer: {customer}\nTotal: ${subtotal:,.2f}"
+print(receipt)
 ```
 
 ## Examples
@@ -2051,121 +2033,131 @@ print(greeting + " Python")
 ### Intermediate Example
 
 ```python
-template = "{product}: ${price:.2f}"
-print(template.format(product="Book", price=29.99))
+filename = "report.csv"
+stem = filename[:-4]
+extension = filename[-3:]
+print(stem, extension)
 ```
 
 ### Advanced Example
 
 ```python
-from string import Template
-
-template = Template("Hello, $name")
-print(template.safe_substitute(name="Grace"))
+product = "Notebook"
+quantity = 3
+unit_price = 4.25
+line = f"{product:<12} {quantity:>2} x ${unit_price:>5.2f} = ${quantity * unit_price:>6.2f}"
+print(line)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Strings Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Create Unicode string]
+    B[Index slice or combine]
+    C[Create new string value]
+    D[Format for audience]
+    E[Output or store text]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
 
-[Back to topic index](#strings)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # String Methods
 
 ## Overview
-- **What is it?** String methods are built-in operations for searching, cleaning, splitting, joining, and formatting text.
-- **Why is it important?** Make text processing reliable and expressive.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** String methods are built-in operations that inspect or return transformed versions of immutable strings.
+- **Why is it important?** They provide dependable tools for normalization, searching, splitting, replacing, and joining text.
+- **Where is it used?** Text cleaning, parsing, validation, and presentation rely on method chains.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review string methods code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind string methods.
-- Expected outcome: you can use string methods in a small project and recognize when it belongs in production code.
+- Normalize whitespace and case with methods.
+- Split text into pieces and join pieces into a string.
+- Choose predicate and search methods without confusing returned values.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Clean names and email addresses from forms.
+- Parse comma-separated labels.
+- Search and replace controlled pieces of text.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives string methods its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> String Methods model -> clear code`
+### Non-mutating transformations
+- **Definition:** Methods such as `strip`, `lower`, and `replace` return new strings because the original cannot change.
+- **Visual explanation:** `original text -> method -> transformed copy`
 - **Practical example:**
 
 ```python
-apply_string_methods_label = "String Methods"
-print(apply_string_methods_label)
+raw = "  Python Basics  "
+clean = raw.strip().lower()
+print(clean, raw)
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when string methods code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Split and join
+- **Definition:** `split` produces a list of substrings; `separator.join(iterable)` combines strings with that separator.
+- **Visual explanation:** `string -> split -> list -> join -> string`
 - **Practical example:**
 
 ```python
-greeting = "Hello"
-print(greeting + " Python")
+line = "red,green,blue"
+colors = line.split(",")
+print(" | ".join(colors))
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps string methods understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Search and predicates
+- **Definition:** Methods such as `find`, `startswith`, and `isdigit` report positions or boolean facts about text.
+- **Visual explanation:** `text -> inspection method -> index or bool`
 - **Practical example:**
 
 ```python
-template = "{product}: ${price:.2f}"
-print(template.format(product="Book", price=29.99))
+filename = "lesson_15.md"
+print(filename.startswith("lesson_"), filename.endswith(".md"))
+print("15".isdigit())
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | String Methods belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Make text processing reliable and expressive. |
-| 🔥 Benefits | Data cleaning, validation, parsing, search, and reporting. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | String methods are built-in operations that inspect or return transformed versions of immutable strings. |
+| ⚡ Purpose | Inspect, normalize, search, split, and combine text with built-in operations. |
+| 🔥 Benefits | They provide dependable tools for normalization, searching, splitting, replacing, and joining text. |
+| 🎯 Use Cases | Text cleaning, parsing, validation, and presentation rely on method chains. |
+| 🚀 Best Practices | Store the returned string, and prefer explicit method sequences over dense chains when intermediate states matter. |
+| ❌ Common Mistakes | Calling a method such as `strip()` without using its return value and expecting the original string to change. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-name = "Python"
-print(name[0])
-print(name.lower())
+name = "  ADA lovelace  "
+print(name.strip().title())
 ```
 
 ### Standard Structure
 
 ```python
-def apply_string_methods(value):
-    """Apply the String Methods concept to one value."""
-    return value
-
-result = apply_string_methods("practice")
-print(result)
+tags = "python, beginner, methods"
+clean_tags = [tag.strip() for tag in tags.split(",")]
+print("-".join(clean_tags))
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the String Methods problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+def normalize_username(text):
+    cleaned = text.strip().lower().replace(" ", "_")
+    if not cleaned.replace("_", "").isalnum():
+        raise ValueError("Use letters, numbers, or spaces")
+    return cleaned
+
+print(normalize_username("  Ada Learns  "))
 ```
 
 ## Examples
@@ -2173,129 +2165,136 @@ print(result)
 ### Beginner Example
 
 ```python
-greeting = "Hello"
-print(greeting + " Python")
+message = "hello python"
+print(message.upper())
 ```
 
 ### Intermediate Example
 
 ```python
-template = "{product}: ${price:.2f}"
-print(template.format(product="Book", price=29.99))
+record = "  alice@example.com | active  "
+email, status = [part.strip() for part in record.split("|")]
+print(email.lower(), status)
 ```
 
 ### Advanced Example
 
 ```python
-from string import Template
+def title_from_slug(slug):
+    words = slug.removesuffix(".md").split("-")
+    return " ".join(words).title()
 
-template = Template("Hello, $name")
-print(template.safe_substitute(name="Grace"))
+files = ["python-syntax.md", "list-methods.md"]
+for filename in files:
+    print(title_from_slug(filename))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify String Methods Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Receive raw text]
+    B[Normalize whitespace and case]
+    C[Split search or replace]
+    D[Validate transformed text]
+    E[Return or join result]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
 
-[Back to topic index](#string-methods)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Lists
 
 ## Overview
-- **What is it?** Lists are ordered, mutable collections.
-- **Why is it important?** Store and update sequences of related items.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** A list is an ordered, mutable collection whose elements can have any Python type.
+- **Why is it important?** Lists model sequences that need indexing, iteration, growth, replacement, or removal.
+- **Where is it used?** Shopping carts, task queues, readings, and search results are often stored in lists.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review lists code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind lists.
-- Expected outcome: you can use lists in a small project and recognize when it belongs in production code.
+- Create, index, slice, and update lists.
+- Explain mutable list state and shallow copying.
+- Use list comprehensions for clear one-to-one transformations.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Track an ordered set of tasks.
+- Collect measurements for later aggregation.
+- Build a transformed result from source records.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives lists its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Lists model -> clear code`
+### Order and indexing
+- **Definition:** A list preserves insertion order and exposes zero-based positive and negative indexes.
+- **Visual explanation:** `list -> index 0, 1, 2 ...`
 - **Practical example:**
 
 ```python
-apply_lists_label = "Lists"
-print(apply_lists_label)
+cities = ["Accra", "Lima", "Oslo"]
+print(cities[0], cities[-1])
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when lists code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Mutable elements
+- **Definition:** Index assignment changes a list element in place while preserving the list object's identity.
+- **Visual explanation:** `list before -> assign index -> same list after`
 - **Practical example:**
 
 ```python
-tasks = ["read", "practice", "review"]
-print(tasks)
+statuses = ["new", "new"]
+statuses[1] = "done"
+print(statuses)
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps lists understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Slices and comprehensions
+- **Definition:** A slice copies a range; a comprehension constructs a new list by transforming or filtering an iterable.
+- **Visual explanation:** `source -> expression for item if condition -> new list`
 - **Practical example:**
 
 ```python
-scores = [88, 92, 79]
-passed = [score for score in scores if score >= 80]
-print(passed)
+numbers = [1, 2, 3, 4]
+squares = [number ** 2 for number in numbers if number % 2 == 0]
+print(squares)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Lists belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Store and update sequences of related items. |
-| 🔥 Benefits | Queues, records, batches, UI options, and data processing. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | A list is an ordered, mutable collection whose elements can have any Python type. |
+| ⚡ Purpose | Store and update an ordered sequence of related values. |
+| 🔥 Benefits | Lists model sequences that need indexing, iteration, growth, replacement, or removal. |
+| 🎯 Use Cases | Shopping carts, task queues, readings, and search results are often stored in lists. |
+| 🚀 Best Practices | Keep list elements conceptually consistent and copy before mutation when another part of the program needs the original. |
+| ❌ Common Mistakes | Modifying a list while iterating over it, which can skip or unexpectedly revisit elements. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-items = ["alpha", "beta"]
-items.append("gamma")
-print(items[0])
+tasks = ["read", "practice", "review"]
+print(tasks[0], len(tasks))
 ```
 
 ### Standard Structure
 
 ```python
-def apply_lists(value):
-    """Apply the Lists concept to one value."""
-    return value
-
-result = apply_lists("practice")
-print(result)
+scores = [72, 81, 90]
+scores[0] = 75
+first_two = scores[:2]
+print(scores, first_two)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Lists problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+temperatures = [18.5, 21.0, 16.8, 23.2]
+warm = [value for value in temperatures if value >= 20]
+average = sum(temperatures) / len(temperatures)
+print(warm, average)
 ```
 
 ## Examples
@@ -2303,131 +2302,139 @@ print(result)
 ### Beginner Example
 
 ```python
-tasks = ["read", "practice", "review"]
-print(tasks)
+fruits = ["apple", "pear", "mango"]
+print(fruits[1])
 ```
 
 ### Intermediate Example
 
 ```python
-scores = [88, 92, 79]
-passed = [score for score in scores if score >= 80]
-print(passed)
+prices = [3.5, 8.0, 2.25]
+with_tax = [round(price * 1.1, 2) for price in prices]
+print(with_tax)
 ```
 
 ### Advanced Example
 
 ```python
-from bisect import insort
-
-rankings = [10, 20, 40]
-insort(rankings, 30)
-print(rankings)
+orders = [
+    {"id": 1, "total": 25},
+    {"id": 2, "total": 80},
+    {"id": 3, "total": 55},
+]
+large_order_ids = [order["id"] for order in orders if order["total"] >= 50]
+print(large_order_ids)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Lists Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Create ordered collection]
+    B[Access or iterate items]
+    C[Transform or update as needed]
+    D[Preserve original when required]
+    E[Use resulting list]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
 
-[Back to topic index](#lists)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # List Methods
 
 ## Overview
-- **What is it?** List methods mutate, query, sort, and manage list contents.
-- **Why is it important?** Maintain ordered collections efficiently.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** List methods are operations attached to lists for adding, removing, locating, ordering, and copying elements.
+- **Why is it important?** They expose list mutation directly and make collection maintenance concise.
+- **Where is it used?** Task managers, carts, rankings, and processing queues use these methods to update state.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review list methods code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind list methods.
-- Expected outcome: you can use list methods in a small project and recognize when it belongs in production code.
+- Use append, extend, insert, remove, and pop intentionally.
+- Sort in place and distinguish `list.sort` from `sorted`.
+- Copy a list and inspect method return values correctly.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Add or remove cart items.
+- Reorder scores or names.
+- Consume queued work while retaining the removed item.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives list methods its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> List Methods model -> clear code`
+### Adding items
+- **Definition:** `append` adds one object, `extend` adds each item from an iterable, and `insert` adds at an index.
+- **Visual explanation:** `list -> append one or extend many -> mutated list`
 - **Practical example:**
 
 ```python
-apply_list_methods_label = "List Methods"
-print(apply_list_methods_label)
+topics = ["syntax"]
+topics.append("lists")
+topics.extend(["tuples", "sets"])
+print(topics)
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when list methods code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Removing items
+- **Definition:** `remove` deletes the first equal value, while `pop` deletes and returns an item by index.
+- **Visual explanation:** `list -> remove by value or pop by position`
 - **Practical example:**
 
 ```python
-tasks = ["read", "practice", "review"]
-print(tasks)
+queue = ["first", "second"]
+served = queue.pop(0)
+print(served, queue)
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps list methods understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Ordering and copying
+- **Definition:** `sort` mutates and returns `None`; `sorted` returns a new list, and `copy` makes a shallow list copy.
+- **Visual explanation:** `source -> sorted copy; source.sort -> source reordered`
 - **Practical example:**
 
 ```python
-scores = [88, 92, 79]
-passed = [score for score in scores if score >= 80]
-print(passed)
+scores = [82, 95, 74]
+ranked = sorted(scores, reverse=True)
+print(scores, ranked)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | List Methods belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Maintain ordered collections efficiently. |
-| 🔥 Benefits | Task lists, carts, processing queues, and transformations. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | List methods are operations attached to lists for adding, removing, locating, ordering, and copying elements. |
+| ⚡ Purpose | Add, remove, locate, copy, and reorder elements in mutable lists. |
+| 🔥 Benefits | They expose list mutation directly and make collection maintenance concise. |
+| 🎯 Use Cases | Task managers, carts, rankings, and processing queues use these methods to update state. |
+| 🚀 Best Practices | Check whether mutation is intended, and never assign the result of a method such as `append` or `sort`. |
+| ❌ Common Mistakes | Writing `items = items.append(value)`, which replaces the list name with `None`. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-items = ["alpha", "beta"]
-items.append("gamma")
-print(items[0])
+tasks = ["read"]
+tasks.append("practice")
+print(tasks)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_list_methods(value):
-    """Apply the List Methods concept to one value."""
-    return value
-
-result = apply_list_methods("practice")
-print(result)
+names = ["Zoe", "ana", "Mika"]
+names.sort(key=str.lower)
+print(names)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the List Methods problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+history = ["login", "view", "logout"]
+working = history.copy()
+last_event = working.pop()
+working.insert(0, "session-start")
+print(last_event, working, history)
 ```
 
 ## Examples
@@ -2435,132 +2442,138 @@ print(result)
 ### Beginner Example
 
 ```python
-tasks = ["read", "practice", "review"]
-print(tasks)
+colors = ["red"]
+colors.extend(["green", "blue"])
+print(colors)
 ```
 
 ### Intermediate Example
 
 ```python
-scores = [88, 92, 79]
-passed = [score for score in scores if score >= 80]
-print(passed)
+inventory = ["pen", "book", "pen"]
+inventory.remove("pen")
+removed = inventory.pop()
+print(inventory, removed)
 ```
 
 ### Advanced Example
 
 ```python
-from bisect import insort
-
-rankings = [10, 20, 40]
-insort(rankings, 30)
-print(rankings)
+records = [
+    {"name": "Ari", "score": 78},
+    {"name": "Bea", "score": 91},
+]
+records.append({"name": "Chen", "score": 84})
+records.sort(key=lambda record: record["score"], reverse=True)
+print(records)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify List Methods Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Identify desired mutation]
+    B[Choose list method]
+    C[Call method on list]
+    D[Capture returned item if any]
+    E[Inspect updated list]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
 
-[Back to topic index](#list-methods)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Tuples
 
 ## Overview
-- **What is it?** Tuples are ordered, immutable collections.
-- **Why is it important?** Represent fixed records and safe grouped values.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** A tuple is an ordered, immutable collection commonly used for fixed groups of values.
+- **Why is it important?** Its immutability communicates that the collection's positions and membership should not change.
+- **Where is it used?** Coordinates, database rows, configuration pairs, and multi-value returns often use tuples.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review tuples code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind tuples.
-- Expected outcome: you can use tuples in a small project and recognize when it belongs in production code.
+- Create single- and multi-item tuples.
+- Index, unpack, and compare tuple values.
+- Choose a tuple over a list when a fixed record is intended.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Represent latitude and longitude.
+- Return a minimum and maximum together.
+- Use immutable composite keys in dictionaries.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives tuples its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Tuples model -> clear code`
+### Tuple construction
+- **Definition:** Commas create tuples; parentheses improve grouping, and a one-item tuple requires a trailing comma.
+- **Visual explanation:** `value, value -> tuple`
 - **Practical example:**
 
 ```python
-apply_tuples_label = "Tuples"
-print(apply_tuples_label)
+point = (4, 7)
+single = ("only",)
+print(point, single)
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when tuples code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Unpacking
+- **Definition:** Iterable unpacking binds tuple elements to matching names in one assignment.
+- **Visual explanation:** `(x, y) -> x and y names`
 - **Practical example:**
 
 ```python
-coordinates = (4, 8)
-print(coordinates[0])
+location = ("Nairobi", "Kenya")
+city, country = location
+print(city, country)
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps tuples understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Immutable records
+- **Definition:** Tuple elements cannot be replaced, though a mutable object stored inside a tuple can still change.
+- **Visual explanation:** `fixed tuple positions -> safe record shape`
 - **Practical example:**
 
 ```python
-def min_max(values):
-    return min(values), max(values)
-
-low, high = min_max([3, 9, 1])
-print(low, high)
+rgb = (120, 80, 200)
+red, green, blue = rgb
+print(max(rgb), red + green + blue)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Tuples belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Represent fixed records and safe grouped values. |
-| 🔥 Benefits | Coordinates, database rows, function returns, and dictionary keys. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | A tuple is an ordered, immutable collection commonly used for fixed groups of values. |
+| ⚡ Purpose | Group a fixed ordered set of values into one immutable record. |
+| 🔥 Benefits | Its immutability communicates that the collection's positions and membership should not change. |
+| 🎯 Use Cases | Coordinates, database rows, configuration pairs, and multi-value returns often use tuples. |
+| 🚀 Best Practices | Use tuples for small fixed-shape records and unpack them into descriptive names instead of relying on unexplained indexes. |
+| ❌ Common Mistakes | Forgetting the comma in `(value,)`, which creates a parenthesized value rather than a tuple. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-point = (10, 20)
-x, y = point
+dimensions = (1920, 1080)
+print(dimensions[0])
 ```
 
 ### Standard Structure
 
 ```python
-def apply_tuples(value):
-    """Apply the Tuples concept to one value."""
-    return value
-
-result = apply_tuples("practice")
-print(result)
+name, score = ("Mia", 92)
+print(f"{name}: {score}")
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Tuples problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+def bounds(values):
+    return min(values), max(values)
+
+low, high = bounds([5, 2, 9, 4])
+print({"low": low, "high": high})
 ```
 
 ## Examples
@@ -2568,134 +2581,136 @@ print(result)
 ### Beginner Example
 
 ```python
-coordinates = (4, 8)
-print(coordinates[0])
+months = ("Jan", "Feb", "Mar")
+print(months[-1])
 ```
 
 ### Intermediate Example
 
 ```python
-def min_max(values):
-    return min(values), max(values)
-
-low, high = min_max([3, 9, 1])
-print(low, high)
+coordinate = (12.4, -8.1)
+latitude, longitude = coordinate
+print(f"{latitude=}, {longitude=}")
 ```
 
 ### Advanced Example
 
 ```python
-from typing import NamedTuple
-
-class Point(NamedTuple):
-    x: int
-    y: int
-
-print(Point(2, 5))
+routes = {
+    ("Lagos", "Accra"): 460,
+    ("Accra", "Kumasi"): 250,
+}
+journey = ("Lagos", "Accra")
+print(routes[journey])
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Tuples Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Group fixed values]
+    B[Create comma-separated tuple]
+    C[Index compare or unpack]
+    D[Keep record unchanged]
+    E[Pass or return tuple]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
 
-[Back to topic index](#tuples)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Sets
 
 ## Overview
-- **What is it?** Sets are unordered collections of unique values.
-- **Why is it important?** Remove duplicates and perform membership or mathematical set operations.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** A set is a mutable, unordered collection of unique hashable elements.
+- **Why is it important?** Sets remove duplicates and provide fast membership plus union, intersection, and difference operations.
+- **Where is it used?** Permissions, tags, unique identifiers, and comparisons between groups are natural set use cases.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review sets code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind sets.
-- Expected outcome: you can use sets in a small project and recognize when it belongs in production code.
+- Create non-empty and empty sets correctly.
+- Add, remove, and test unique elements.
+- Apply union, intersection, difference, and subset operations.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Deduplicate imported labels.
+- Find shared skills or missing permissions.
+- Track identifiers already processed.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives sets its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Sets model -> clear code`
+### Uniqueness and membership
+- **Definition:** Adding an equal element has no effect, and membership does not depend on a visible position.
+- **Visual explanation:** `many repeated values -> set -> unique values`
 - **Practical example:**
 
 ```python
-apply_sets_label = "Sets"
-print(apply_sets_label)
+tags = {"python", "beginner", "python"}
+print(len(tags), "python" in tags)
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when sets code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Set algebra
+- **Definition:** Union combines members, intersection keeps shared members, and difference keeps members found only on the left.
+- **Visual explanation:** `A | B union; A & B shared; A - B left only`
 - **Practical example:**
 
 ```python
-names = {"Ada", "Ada", "Lin"}
-print(names)
+team_a = {"Ana", "Bo"}
+team_b = {"Bo", "Cy"}
+print(team_a | team_b, team_a & team_b, team_a - team_b)
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps sets understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Hashable elements
+- **Definition:** Set members must have stable hashes, so immutable values such as strings and tuples work but lists do not.
+- **Visual explanation:** `hashable value -> set member`
 - **Practical example:**
 
 ```python
-required = {"python", "git"}
-known = {"python", "sql", "git"}
-print(required <= known)
+visited = {("row1", 2), ("row2", 4)}
+visited.add(("row3", 1))
+print(visited)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Sets belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Remove duplicates and perform membership or mathematical set operations. |
-| 🔥 Benefits | Access checks, tag comparisons, deduplication, and matching. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | A set is a mutable, unordered collection of unique hashable elements. |
+| ⚡ Purpose | Represent unique values and compare groups with membership and set algebra. |
+| 🔥 Benefits | Sets remove duplicates and provide fast membership plus union, intersection, and difference operations. |
+| 🎯 Use Cases | Permissions, tags, unique identifiers, and comparisons between groups are natural set use cases. |
+| 🚀 Best Practices | Use `set()` for an empty set and sort only when presentation requires deterministic order. |
+| ❌ Common Mistakes | Writing `{}` for an empty set; that literal creates an empty dictionary. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-skills = {"python", "sql"}
-skills.add("git")
+unique_scores = set([80, 90, 80, 75])
+print(unique_scores)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_sets(value):
-    """Apply the Sets concept to one value."""
-    return value
-
-result = apply_sets("practice")
-print(result)
+required = {"read", "write"}
+granted = {"read", "share"}
+missing = required - granted
+print(missing)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Sets problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+enrolled = {"Ada", "Ben", "Chao"}
+completed = {"Ada", "Chao", "Dina"}
+print("Completed and enrolled:", enrolled & completed)
+print("Still pending:", enrolled - completed)
+print("All known learners:", enrolled | completed)
 ```
 
 ## Examples
@@ -2703,128 +2718,137 @@ print(result)
 ### Beginner Example
 
 ```python
-names = {"Ada", "Ada", "Lin"}
-print(names)
+colors = {"red", "blue"}
+colors.add("green")
+print("green" in colors)
 ```
 
 ### Intermediate Example
 
 ```python
-required = {"python", "git"}
-known = {"python", "sql", "git"}
-print(required <= known)
+raw_ids = [101, 102, 101, 103]
+unique_ids = set(raw_ids)
+print(len(raw_ids) - len(unique_ids), "duplicate(s)")
 ```
 
 ### Advanced Example
 
 ```python
-active_users = {1, 2, 3}
-paid_users = {2, 3, 4}
-print(active_users & paid_users)
+required_skills = {"python", "git", "sql"}
+candidate_skills = {"python", "git", "linux"}
+coverage = required_skills & candidate_skills
+gaps = required_skills - candidate_skills
+qualified = required_skills <= candidate_skills
+print(coverage, gaps, qualified)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Sets Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Collect candidate values]
+    B[Create set of unique members]
+    C[Test membership or compare sets]
+    D[Apply algebra operation]
+    E[Present ordered result if needed]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
 
-[Back to topic index](#sets)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Dictionaries
 
 ## Overview
-- **What is it?** Dictionaries map keys to values.
-- **Why is it important?** Represent structured records and fast lookups.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** A dictionary is a mutable mapping from unique hashable keys to values.
+- **Why is it important?** Key-based access models named fields and provides direct lookup without searching every item.
+- **Where is it used?** Profiles, configuration, counters, indexes, and structured records commonly use dictionaries.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review dictionaries code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind dictionaries.
-- Expected outcome: you can use dictionaries in a small project and recognize when it belongs in production code.
+- Create, read, add, update, and delete key-value pairs.
+- Use `get`, membership, and iteration safely.
+- Build counters and nested records with clear key choices.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Represent a user or product record.
+- Count occurrences by category.
+- Look up configuration or inventory by name.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives dictionaries its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Dictionaries model -> clear code`
+### Key-value mapping
+- **Definition:** Each unique key maps to one value; assigning an existing key replaces its value.
+- **Visual explanation:** `key -> value, key -> value`
 - **Practical example:**
 
 ```python
-apply_dictionaries_label = "Dictionaries"
-print(apply_dictionaries_label)
+student = {"name": "Ivy", "score": 88}
+student["score"] = 91
+print(student["name"], student["score"])
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when dictionaries code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Safe lookup
+- **Definition:** `key in mapping` tests existence, while `get` returns a default instead of raising `KeyError` for a missing key.
+- **Visual explanation:** `requested key -> found value or chosen default`
 - **Practical example:**
 
 ```python
-profile = {"name": "Lin", "age": 29}
-print(profile["name"])
+stock = {"pens": 12}
+print(stock.get("books", 0))
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps dictionaries understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Dictionary iteration
+- **Definition:** Iteration can expose keys, values, or key-value pairs through `keys`, `values`, or `items`.
+- **Visual explanation:** `mapping.items -> key value pairs`
 - **Practical example:**
 
 ```python
-inventory = {"laptop": 3, "mouse": 10}
-inventory["laptop"] -= 1
-print(inventory)
+prices = {"tea": 2.5, "cake": 4.0}
+for item, price in prices.items():
+    print(item, price)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Dictionaries belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Represent structured records and fast lookups. |
-| 🔥 Benefits | JSON-like data, caches, configurations, indexes, and API payloads. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | A dictionary is a mutable mapping from unique hashable keys to values. |
+| ⚡ Purpose | Associate unique keys with values for structured records and direct lookup. |
+| 🔥 Benefits | Key-based access models named fields and provides direct lookup without searching every item. |
+| 🎯 Use Cases | Profiles, configuration, counters, indexes, and structured records commonly use dictionaries. |
+| 🚀 Best Practices | Use stable meaningful keys, test optional keys explicitly, and avoid deeply nested records when a class would be clearer. |
+| ❌ Common Mistakes | Indexing an optional key directly and allowing a preventable `KeyError`. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-user = {"name": "Ada", "role": "admin"}
-print(user["name"])
+book = {"title": "Python 101", "pages": 240}
+print(book["title"])
 ```
 
 ### Standard Structure
 
 ```python
-def apply_dictionaries(value):
-    """Apply the Dictionaries concept to one value."""
-    return value
-
-result = apply_dictionaries("practice")
-print(result)
+inventory = {"pen": 10}
+inventory["book"] = 4
+inventory["pen"] -= 1
+print(inventory.get("eraser", 0), inventory)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Dictionaries problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+words = ["red", "blue", "red", "green", "blue", "red"]
+counts = {}
+for word in words:
+    counts[word] = counts.get(word, 0) + 1
+print(counts)
 ```
 
 ## Examples
@@ -2832,134 +2856,151 @@ print(result)
 ### Beginner Example
 
 ```python
-profile = {"name": "Lin", "age": 29}
+profile = {"name": "Luz", "active": True}
 print(profile["name"])
 ```
 
 ### Intermediate Example
 
 ```python
-inventory = {"laptop": 3, "mouse": 10}
-inventory["laptop"] -= 1
-print(inventory)
+settings = {"theme": "dark", "notifications": True}
+for key, value in settings.items():
+    print(f"{key}={value}")
 ```
 
 ### Advanced Example
 
 ```python
-from collections import defaultdict
-
-counts = defaultdict(int)
-for word in ["api", "db", "api"]:
-    counts[word] += 1
-print(dict(counts))
+orders = [
+    {"product": "pen", "quantity": 2},
+    {"product": "book", "quantity": 1},
+    {"product": "pen", "quantity": 3},
+]
+totals = {}
+for order in orders:
+    product = order["product"]
+    totals[product] = totals.get(product, 0) + order["quantity"]
+print(totals)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Dictionaries Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Choose hashable keys]
+    B[Create mapping]
+    C[Read or update by key]
+    D[Handle missing keys]
+    E[Iterate items or return record]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
 
-[Back to topic index](#dictionaries)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Functions
 
 ## Overview
-- **What is it?** Functions package reusable behavior behind a name.
-- **Why is it important?** Reduce duplication and make programs easier to test.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** A function is a named reusable block defined with `def` and executed when it is called.
+- **Why is it important?** Functions isolate responsibilities, reduce duplication, and make behavior easier to test.
+- **Where is it used?** Programs organize calculations, validation, transformations, and workflows into functions.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review functions code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind functions.
-- Expected outcome: you can use functions in a small project and recognize when it belongs in production code.
+- Define and call a function.
+- Separate a function's interface from its implementation.
+- Keep functions focused and document behavior with names and docstrings.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Reuse a price calculation in several places.
+- Hide validation details behind a clear operation.
+- Test a unit of behavior independently.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives functions its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Functions model -> clear code`
+### Definition and call
+- **Definition:** A `def` statement creates a function object; a call expression runs its body.
+- **Visual explanation:** `def -> function object; name() -> execute body`
 - **Practical example:**
 
 ```python
-apply_functions_label = "Functions"
-print(apply_functions_label)
+def say_hello():
+    print("Hello")
+
+say_hello()
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when functions code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Function interface
+- **Definition:** The name, parameters, and returned result form an interface callers can use without knowing each internal step.
+- **Visual explanation:** `arguments -> function boundary -> result`
 - **Practical example:**
 
 ```python
-def greet(name):
-    print(f"Hello, {name}")
+def area(width, height):
+    return width * height
 
-greet("Ada")
+print(area(4, 3))
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps functions understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Single responsibility
+- **Definition:** A focused function performs one coherent task, making naming, testing, and reuse straightforward.
+- **Visual explanation:** `one purpose -> small function -> predictable behavior`
 - **Practical example:**
 
 ```python
-def calculate_total(subtotal: float, tax_rate: float = 0.08) -> float:
-    return subtotal * (1 + tax_rate)
+def is_valid_score(score):
+    return 0 <= score <= 100
 
-print(calculate_total(100))
+print(is_valid_score(84))
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Functions belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Reduce duplication and make programs easier to test. |
-| 🔥 Benefits | Business rules, utilities, service layers, and libraries. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | A function is a named reusable block defined with `def` and executed when it is called. |
+| ⚡ Purpose | Package one focused behavior behind a reusable name and interface. |
+| 🔥 Benefits | Functions isolate responsibilities, reduce duplication, and make behavior easier to test. |
+| 🎯 Use Cases | Programs organize calculations, validation, transformations, and workflows into functions. |
+| 🚀 Best Practices | Use verb-based names, keep side effects visible, and split a function when its description needs the word 'and'. |
+| ❌ Common Mistakes | Defining a function but forgetting to call it, or mixing input, calculation, and printing into every function. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-def add(left, right):
-    return left + right
+def greet():
+    print("Welcome!")
+
+greet()
 ```
 
 ### Standard Structure
 
 ```python
-def apply_functions(value):
-    """Apply the Functions concept to one value."""
-    return value
+def rectangle_area(width, height):
+    return width * height
 
-result = apply_functions("practice")
-print(result)
+area = rectangle_area(5, 8)
+print(area)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Functions problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+def summarize_scores(scores):
+    if not scores:
+        return {"count": 0, "average": None}
+    return {
+        "count": len(scores),
+        "average": sum(scores) / len(scores),
+    }
+
+print(summarize_scores([75, 88, 92]))
 ```
 
 ## Examples
@@ -2967,80 +3008,76 @@ print(result)
 ### Beginner Example
 
 ```python
-def greet(name):
-    print(f"Hello, {name}")
+def announce():
+    print("Lesson started")
 
-greet("Ada")
+announce()
 ```
 
 ### Intermediate Example
 
 ```python
-def calculate_total(subtotal: float, tax_rate: float = 0.08) -> float:
+def final_price(subtotal, tax_rate=0.08):
     return subtotal * (1 + tax_rate)
 
-print(calculate_total(100))
+print(f"${final_price(50):.2f}")
 ```
 
 ### Advanced Example
 
 ```python
-from functools import lru_cache
+def partition_even(numbers):
+    even = []
+    odd = []
+    for number in numbers:
+        target = even if number % 2 == 0 else odd
+        target.append(number)
+    return even, odd
 
-@lru_cache(maxsize=128)
-def fibonacci(n: int) -> int:
-    return n if n < 2 else fibonacci(n - 1) + fibonacci(n - 2)
-
-print(fibonacci(10))
+print(partition_even([1, 2, 3, 4, 5]))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Functions Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Identify one responsibility]
+    B[Define function interface]
+    C[Implement focused body]
+    D[Call with data]
+    E[Test returned behavior]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
 
-[Back to topic index](#functions)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Arguments and Parameters
 
 ## Overview
-- **What is it?** Parameters define function inputs; arguments are values passed at call time.
-- **Why is it important?** Make functions flexible and reusable.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** Parameters are names in a function definition; arguments are the actual values supplied in a function call.
+- **Why is it important?** They let one function operate on different data while expressing required, optional, and named inputs.
+- **Where is it used?** APIs, calculations, formatting helpers, and reusable business rules all depend on clear function inputs.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review arguments and parameters code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind arguments and parameters.
-- Expected outcome: you can use arguments and parameters in a small project and recognize when it belongs in production code.
+- Distinguish parameters from arguments.
+- Use positional, keyword, and default arguments.
+- Collect variable positional and keyword arguments only when the interface benefits.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Configure a reusable notification function.
+- Pass records into validation and calculation functions.
+- Offer optional formatting without duplicating behavior.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives arguments and parameters its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Arguments and Parameters model -> clear code`
-- **Practical example:**
-
-```python
-apply_arguments_and_parameters_label = "Arguments and Parameters"
-print(apply_arguments_and_parameters_label)
-```
-
-### Execution Flow
-- **Definition:** The ordered steps Python follows when arguments and parameters code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Parameters versus arguments
+- **Definition:** A parameter receives a value inside the function; an argument is the expression supplied by the caller.
+- **Visual explanation:** `call argument -> definition parameter -> function body`
 - **Practical example:**
 
 ```python
@@ -3050,28 +3087,40 @@ def greet(name):
 greet("Ada")
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps arguments and parameters understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Positional keyword and defaults
+- **Definition:** Positional arguments match by order, keyword arguments match by name, and defaults fill omitted optional values.
+- **Visual explanation:** `call bindings -> named parameters -> body`
 - **Practical example:**
 
 ```python
-def calculate_total(subtotal: float, tax_rate: float = 0.08) -> float:
-    return subtotal * (1 + tax_rate)
+def power(base, exponent=2):
+    return base ** exponent
 
-print(calculate_total(100))
+print(power(3), power(base=2, exponent=5))
+```
+
+### Variable argument collections
+- **Definition:** `*args` gathers extra positional arguments into a tuple; `**kwargs` gathers extra keywords into a dictionary.
+- **Visual explanation:** `many call inputs -> args tuple + kwargs dict`
+- **Practical example:**
+
+```python
+def describe(*items, **details):
+    return {"items": items, "details": details}
+
+print(describe("pen", "book", owner="Mira"))
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Arguments and Parameters belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Make functions flexible and reusable. |
-| 🔥 Benefits | APIs, callbacks, configuration, and reusable calculations. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Parameters are names in a function definition; arguments are the actual values supplied in a function call. |
+| ⚡ Purpose | Supply required and optional inputs to reusable functions. |
+| 🔥 Benefits | They let one function operate on different data while expressing required, optional, and named inputs. |
+| 🎯 Use Cases | APIs, calculations, formatting helpers, and reusable business rules all depend on clear function inputs. |
+| 🚀 Best Practices | Keep required parameters first, use keyword calls for meaning, and avoid mutable objects as default values. |
+| ❌ Common Mistakes | Using a list or dictionary as a default parameter and unintentionally sharing it across calls. |
 
 ## Syntax Guide
 
@@ -3080,25 +3129,32 @@ print(calculate_total(100))
 ```python
 def add(left, right):
     return left + right
+
+print(add(4, 6))
 ```
 
 ### Standard Structure
 
 ```python
-def apply_arguments_and_parameters(value):
-    """Apply the Arguments and Parameters concept to one value."""
-    return value
+def label(name, prefix="Student"):
+    return f"{prefix}: {name}"
 
-result = apply_arguments_and_parameters("practice")
-print(result)
+print(label("Nia"))
+print(label("Omar", prefix="Mentor"))
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Arguments and Parameters problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+def build_profile(name, *skills, active=True, **details):
+    return {
+        "name": name,
+        "skills": list(skills),
+        "active": active,
+        "details": details,
+    }
+
+print(build_profile("Nia", "Python", "SQL", city="Accra"))
 ```
 
 ## Examples
@@ -3106,138 +3162,156 @@ print(result)
 ### Beginner Example
 
 ```python
-def greet(name):
-    print(f"Hello, {name}")
+def multiply(a, b):
+    return a * b
 
-greet("Ada")
+print(multiply(3, 7))
 ```
 
 ### Intermediate Example
 
 ```python
-def calculate_total(subtotal: float, tax_rate: float = 0.08) -> float:
-    return subtotal * (1 + tax_rate)
+def create_email(user, domain="example.com"):
+    return f"{user}@{domain}"
 
-print(calculate_total(100))
+print(create_email("learner"))
+print(create_email(user="admin", domain="school.org"))
 ```
 
 ### Advanced Example
 
 ```python
-from functools import lru_cache
+def total_cost(*prices, discount=0):
+    subtotal = sum(prices)
+    return subtotal * (1 - discount)
 
-@lru_cache(maxsize=128)
-def fibonacci(n: int) -> int:
-    return n if n < 2 else fibonacci(n - 1) + fibonacci(n - 2)
-
-print(fibonacci(10))
+print(total_cost(12.0, 8.5, 4.0, discount=0.10))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Arguments and Parameters Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Define parameter contract]
+    B[Caller supplies arguments]
+    C[Bind by position or keyword]
+    D[Apply defaults and collect extras]
+    E[Execute with bound names]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
 
-[Back to topic index](#arguments-and-parameters)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Return Statements
 
 ## Overview
-- **What is it?** Return statements send results back from functions.
-- **Why is it important?** Separate computation from output and side effects.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** A `return` statement ends a function call and sends a result object back to its caller.
+- **Why is it important?** Returning data separates computation from display and lets callers compose, store, or test results.
+- **Where is it used?** Calculators, parsers, searches, and transformations return values for later decisions.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review return statements code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind return statements.
-- Expected outcome: you can use return statements in a small project and recognize when it belongs in production code.
+- Return a computed value and capture it at the call site.
+- Use early returns for guard cases.
+- Explain implicit `None` and tuple packing for multiple results.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Compute a subtotal for a receipt.
+- Return a matching record from a search.
+- Report both minimum and maximum values.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives return statements its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Return Statements model -> clear code`
+### Result transfer
+- **Definition:** `return expression` evaluates the expression, ends the call, and makes the value become the call expression's result.
+- **Visual explanation:** `function body -> return value -> caller`
 - **Practical example:**
 
 ```python
-apply_return_statements_label = "Return Statements"
-print(apply_return_statements_label)
+def double(number):
+    return number * 2
+
+result = double(6)
+print(result)
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when return statements code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Early return
+- **Definition:** A return can handle an exceptional condition immediately, preventing the remaining body from running.
+- **Visual explanation:** `guard true -> return now; false -> normal path`
 - **Practical example:**
 
 ```python
-def greet(name):
-    print(f"Hello, {name}")
+def divide(total, count):
+    if count == 0:
+        return None
+    return total / count
 
-greet("Ada")
+print(divide(10, 0))
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps return statements understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Implicit None and multiple values
+- **Definition:** A function reaching its end returns `None`; comma-separated return values are packed into a tuple.
+- **Visual explanation:** `no return -> None; return a, b -> tuple`
 - **Practical example:**
 
 ```python
-def calculate_total(subtotal: float, tax_rate: float = 0.08) -> float:
-    return subtotal * (1 + tax_rate)
+def limits(values):
+    return min(values), max(values)
 
-print(calculate_total(100))
+low, high = limits([8, 3, 11])
+print(low, high)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Return Statements belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Separate computation from output and side effects. |
-| 🔥 Benefits | Composable logic, testing, pipelines, and service functions. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | A `return` statement ends a function call and sends a result object back to its caller. |
+| ⚡ Purpose | Send computed results from a function back to its caller. |
+| 🔥 Benefits | Returning data separates computation from display and lets callers compose, store, or test results. |
+| 🎯 Use Cases | Calculators, parsers, searches, and transformations return values for later decisions. |
+| 🚀 Best Practices | Return useful data from logic functions and let the outer interaction layer decide how to print or store it. |
+| ❌ Common Mistakes | Printing a value inside a function when the caller needs to receive and reuse that value. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-def add(left, right):
-    return left + right
+def square(number):
+    return number ** 2
+
+print(square(5))
 ```
 
 ### Standard Structure
 
 ```python
-def apply_return_statements(value):
-    """Apply the Return Statements concept to one value."""
-    return value
+def normalize(text):
+    cleaned = text.strip()
+    if not cleaned:
+        return None
+    return cleaned.title()
 
-result = apply_return_statements("practice")
-print(result)
+print(normalize("  ada  "))
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Return Statements problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+def statistics(values):
+    if not values:
+        return None
+    return min(values), max(values), sum(values) / len(values)
+
+result = statistics([4, 9, 2, 7])
+if result is not None:
+    low, high, average = result
+    print(low, high, average)
 ```
 
 ## Examples
@@ -3245,138 +3319,177 @@ print(result)
 ### Beginner Example
 
 ```python
-def greet(name):
-    print(f"Hello, {name}")
+def answer():
+    return 42
 
-greet("Ada")
+value = answer()
+print(value)
 ```
 
 ### Intermediate Example
 
 ```python
-def calculate_total(subtotal: float, tax_rate: float = 0.08) -> float:
-    return subtotal * (1 + tax_rate)
+def find_even(numbers):
+    for number in numbers:
+        if number % 2 == 0:
+            return number
+    return None
 
-print(calculate_total(100))
+print(find_even([3, 7, 10, 13]))
 ```
 
 ### Advanced Example
 
 ```python
-from functools import lru_cache
+def invoice_summary(prices, tax_rate):
+    subtotal = sum(prices)
+    tax = subtotal * tax_rate
+    return {
+        "subtotal": subtotal,
+        "tax": tax,
+        "total": subtotal + tax,
+    }
 
-@lru_cache(maxsize=128)
-def fibonacci(n: int) -> int:
-    return n if n < 2 else fibonacci(n - 1) + fibonacci(n - 2)
-
-print(fibonacci(10))
+summary = invoice_summary([12.5, 7.5], 0.08)
+print(summary)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Return Statements Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Call function]
+    B[Execute statements]
+    C[Evaluate return expression]
+    D[End current call]
+    E[Caller receives result]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
 
-[Back to topic index](#return-statements)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Scope
 
 ## Overview
-- **What is it?** Scope defines where names are visible and how they are resolved.
-- **Why is it important?** Prevent accidental name collisions and hidden state bugs.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** Scope determines where a name can be accessed; Python resolves names through local, enclosing, global, then built-in scopes.
+- **Why is it important?** Clear scope limits unintended coupling and prevents one function from silently changing unrelated state.
+- **Where is it used?** Every function, nested function, module, and comprehension creates or interacts with name-resolution boundaries.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review scope code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind scope.
-- Expected outcome: you can use scope in a small project and recognize when it belongs in production code.
+- Identify local, enclosing, global, and built-in names.
+- Explain shadowing and the lifetime of local names.
+- Use return values instead of `global`, and understand when `nonlocal` is appropriate.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Keep temporary calculations private to a function.
+- Create a closure that remembers configuration.
+- Share module constants without hiding mutable state changes.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives scope its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Scope model -> clear code`
+### Local and global names
+- **Definition:** Assignment inside a function creates a local name unless declared otherwise; module-level names are global to that module.
+- **Visual explanation:** `module global -> function call -> local namespace`
 - **Practical example:**
 
 ```python
-apply_scope_label = "Scope"
-print(apply_scope_label)
+course = "Python"
+
+def show_course():
+    message = course
+    print(message)
+
+show_course()
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when scope code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### LEGB lookup
+- **Definition:** A name reference searches Local, Enclosing, Global, and Built-in namespaces in that order.
+- **Visual explanation:** `L -> E -> G -> B -> NameError`
 - **Practical example:**
 
 ```python
-def greet(name):
-    print(f"Hello, {name}")
+label = "global"
 
-greet("Ada")
+def outer():
+    label = "enclosing"
+    def inner():
+        print(label)
+    inner()
+
+outer()
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps scope understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Controlled state changes
+- **Definition:** `nonlocal` rebinds a name in an enclosing function; returning new state is often clearer than mutating globals.
+- **Visual explanation:** `inner assignment -> declared enclosing binding`
 - **Practical example:**
 
 ```python
-def calculate_total(subtotal: float, tax_rate: float = 0.08) -> float:
-    return subtotal * (1 + tax_rate)
+def make_counter():
+    count = 0
+    def increment():
+        nonlocal count
+        count += 1
+        return count
+    return increment
 
-print(calculate_total(100))
+counter = make_counter()
+print(counter(), counter())
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Scope belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Prevent accidental name collisions and hidden state bugs. |
-| 🔥 Benefits | Reliable functions, modules, closures, and classes. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Scope determines where a name can be accessed; Python resolves names through local, enclosing, global, then built-in scopes. |
+| ⚡ Purpose | Control where names are visible and how Python resolves each reference. |
+| 🔥 Benefits | Clear scope limits unintended coupling and prevents one function from silently changing unrelated state. |
+| 🎯 Use Cases | Every function, nested function, module, and comprehension creates or interacts with name-resolution boundaries. |
+| 🚀 Best Practices | Pass dependencies as arguments and return results; reserve module globals for constants and `nonlocal` for deliberate closures. |
+| ❌ Common Mistakes | Assigning inside a function while expecting Python to update a same-named global automatically. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-def add(left, right):
-    return left + right
+topic = "scope"
+
+def display():
+    local_message = topic.upper()
+    print(local_message)
+
+display()
 ```
 
 ### Standard Structure
 
 ```python
-def apply_scope(value):
-    """Apply the Scope concept to one value."""
-    return value
+tax_rate = 0.08
 
-result = apply_scope("practice")
-print(result)
+def total_with_tax(subtotal):
+    tax = subtotal * tax_rate
+    return subtotal + tax
+
+print(total_with_tax(50))
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Scope problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+def make_multiplier(factor):
+    def multiply(value):
+        return value * factor
+    return multiply
+
+double = make_multiplier(2)
+triple = make_multiplier(3)
+print(double(5), triple(5))
 ```
 
 ## Examples
@@ -3384,134 +3497,145 @@ print(result)
 ### Beginner Example
 
 ```python
-def greet(name):
-    print(f"Hello, {name}")
+name = "global"
 
-greet("Ada")
+def show():
+    name = "local"
+    print(name)
+
+show()
+print(name)
 ```
 
 ### Intermediate Example
 
 ```python
-def calculate_total(subtotal: float, tax_rate: float = 0.08) -> float:
-    return subtotal * (1 + tax_rate)
-
-print(calculate_total(100))
+currency = "USD"
+def format_price(amount):
+    symbol = "$"
+    return f"{symbol}{amount:.2f} {currency}"
+print(format_price(9.5))
 ```
 
 ### Advanced Example
 
 ```python
-from functools import lru_cache
-
-@lru_cache(maxsize=128)
-def fibonacci(n: int) -> int:
-    return n if n < 2 else fibonacci(n - 1) + fibonacci(n - 2)
-
-print(fibonacci(10))
+def make_scoreboard():
+    scores = []
+    def add(score):
+        scores.append(score)
+        return sum(scores) / len(scores)
+    return add
+record = make_scoreboard()
+print(record(80))
+print(record(90))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Scope Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Reference a name]
+    B[Search local scope]
+    C[Search enclosing then global]
+    D[Fall back to built-ins]
+    E[Use binding or raise NameError]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
 
-[Back to topic index](#scope)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Lambda Functions
 
 ## Overview
-- **What is it?** Lambda functions are small anonymous functions written as expressions.
-- **Why is it important?** Pass simple behavior into higher-order functions.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** A lambda expression creates a small anonymous function containing one expression.
+- **Why is it important?** Lambdas are useful when an operation is short, local, and passed directly to another function.
+- **Where is it used?** Sorting keys, simple transformations, and callback-style APIs frequently accept lambdas.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review lambda functions code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind lambda functions.
-- Expected outcome: you can use lambda functions in a small project and recognize when it belongs in production code.
+- Write and call a lambda expression.
+- Pass lambdas as `key` functions.
+- Choose a named `def` when logic, reuse, typing, or documentation grows.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Sort records by a selected field.
+- Transform items with `map` in APIs that require a callable.
+- Configure a one-line calculation at the call site.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives lambda functions its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Lambda Functions model -> clear code`
+### Expression function
+- **Definition:** The form `lambda parameters: expression` evaluates that one expression and returns its value.
+- **Visual explanation:** `arguments -> one expression -> result`
 - **Practical example:**
 
 ```python
-apply_lambda_functions_label = "Lambda Functions"
-print(apply_lambda_functions_label)
+double = lambda number: number * 2
+print(double(5))
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when lambda functions code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Callable as data
+- **Definition:** A lambda is a function object that can be stored or passed where another function expects behavior.
+- **Visual explanation:** `lambda -> callable argument -> host operation`
 - **Practical example:**
 
 ```python
-square = lambda number: number * number
-print(square(5))
+words = ["pear", "fig", "banana"]
+print(sorted(words, key=lambda word: len(word)))
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps lambda functions understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Readability boundary
+- **Definition:** A lambda cannot contain statements and becomes hard to read when it embeds multiple conditions or repeated logic.
+- **Visual explanation:** `simple local expression -> lambda; richer behavior -> def`
 - **Practical example:**
 
 ```python
-users = [{"name": "Ada", "score": 90}, {"name": "Lin", "score": 95}]
-print(sorted(users, key=lambda user: user["score"]))
+records = [{"name": "Bo", "score": 81}, {"name": "Ana", "score": 92}]
+ranked = sorted(records, key=lambda record: record["score"], reverse=True)
+print(ranked)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Lambda Functions belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Pass simple behavior into higher-order functions. |
-| 🔥 Benefits | Sorting keys, quick transformations, callbacks, and filters. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | A lambda expression creates a small anonymous function containing one expression. |
+| ⚡ Purpose | Provide a short one-expression callable where behavior is passed as data. |
+| 🔥 Benefits | Lambdas are useful when an operation is short, local, and passed directly to another function. |
+| 🎯 Use Cases | Sorting keys, simple transformations, and callback-style APIs frequently accept lambdas. |
+| 🚀 Best Practices | Use lambdas for obvious one-expression behavior, especially a `key`; give nontrivial logic a descriptive function name. |
+| ❌ Common Mistakes | Packing complex branching into a lambda merely to avoid writing `def`. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-double = lambda value: value * 2
-print(double(4))
+square = lambda value: value ** 2
+print(square(6))
 ```
 
 ### Standard Structure
 
 ```python
-def apply_lambda_functions(value):
-    """Apply the Lambda Functions concept to one value."""
-    return value
-
-result = apply_lambda_functions("practice")
-print(result)
+names = ["Zara", "amy", "MILO"]
+print(sorted(names, key=lambda name: name.lower()))
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Lambda Functions problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+products = [
+    {"name": "Pen", "price": 3.0},
+    {"name": "Book", "price": 8.0},
+]
+priced = sorted(products, key=lambda product: (product["price"], product["name"]))
+print(priced)
 ```
 
 ## Examples
@@ -3519,131 +3643,140 @@ print(result)
 ### Beginner Example
 
 ```python
-square = lambda number: number * number
-print(square(5))
+add_tax = lambda price: price * 1.08
+print(add_tax(20))
 ```
 
 ### Intermediate Example
 
 ```python
-users = [{"name": "Ada", "score": 90}, {"name": "Lin", "score": 95}]
-print(sorted(users, key=lambda user: user["score"]))
+points = [(2, 5), (1, 9), (4, 3)]
+by_y = sorted(points, key=lambda point: point[1])
+print(by_y)
 ```
 
 ### Advanced Example
 
 ```python
-from functools import reduce
-
-product = reduce(lambda left, right: left * right, [2, 3, 4])
-print(product)
+students = [
+    {"name": "Mia", "score": 88},
+    {"name": "Ali", "score": 88},
+    {"name": "Zoe", "score": 95},
+]
+ranked = sorted(students, key=lambda student: (-student["score"], student["name"]))
+print(ranked)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Lambda Functions Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Need short callable]
+    B[Confirm one clear expression]
+    C[Create lambda]
+    D[Pass to consuming function]
+    E[Replace with def if complexity grows]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
 
-[Back to topic index](#lambda-functions)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Modules
 
 ## Overview
-- **What is it?** Modules are Python files that expose reusable definitions.
-- **Why is it important?** Organize code into importable units.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** A module is one Python file loaded as a namespace, allowing its functions, classes, and constants to be imported elsewhere.
+- **Why is it important?** Modules separate responsibilities and make definitions reusable without copying code.
+- **Where is it used?** Applications divide calculations, configuration, I/O, and tests across modules.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review modules code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind modules.
-- Expected outcome: you can use modules in a small project and recognize when it belongs in production code.
+- Import a module or selected names.
+- Explain module namespaces, caching in `sys.modules`, and `__name__`.
+- Design a module that can be imported without unintended work.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Reuse standard-library functionality.
+- Split a script into focused Python files.
+- Expose a stable helper API to tests and other modules.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives modules its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Modules model -> clear code`
+### Module namespace
+- **Definition:** Importing a module creates or reuses a module object whose attributes are accessed with dot notation.
+- **Visual explanation:** `module.py -> import -> module namespace`
 - **Practical example:**
 
 ```python
-apply_modules_label = "Modules"
-print(apply_modules_label)
+import math
+print(math.pi, math.sqrt(16))
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when modules code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Import forms
+- **Definition:** `import name` preserves the namespace; `from name import item` binds selected attributes directly.
+- **Visual explanation:** `module namespace -> chosen import binding`
 - **Practical example:**
 
 ```python
-import platform
-print(platform.python_version())
+from pathlib import Path
+current = Path(".")
+print(current.resolve().name)
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps modules understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Import-safe execution
+- **Definition:** A `__name__ == '__main__'` guard runs command-line behavior only when the file is executed directly.
+- **Visual explanation:** `import -> definitions only; direct run -> main function`
 - **Practical example:**
 
 ```python
-import sys
+def main():
+    print("Run as a script")
 
-if sys.version_info < (3, 12):
-    raise RuntimeError("Python 3.12 or newer is recommended")
-print("Python version is ready")
+if __name__ == "__main__":
+    main()
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Modules belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Organize code into importable units. |
-| 🔥 Benefits | Libraries, scripts, test helpers, and application boundaries. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | A module is one Python file loaded as a namespace, allowing its functions, classes, and constants to be imported elsewhere. |
+| ⚡ Purpose | Organize reusable definitions in a Python file with its own importable namespace. |
+| 🔥 Benefits | Modules separate responsibilities and make definitions reusable without copying code. |
+| 🎯 Use Cases | Applications divide calculations, configuration, I/O, and tests across modules. |
+| 🚀 Best Practices | Keep top-level module work lightweight, import namespaces clearly, and put script behavior behind a main guard. |
+| ❌ Common Mistakes | Naming a file after a standard-library module such as `random.py`, causing the local file to shadow the intended import. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import sys
-print(sys.version)
-print(sys.executable)
+import statistics
+print(statistics.mean([4, 6, 8]))
 ```
 
 ### Standard Structure
 
 ```python
-def apply_modules(value):
-    """Apply the Modules concept to one value."""
-    return value
-
-result = apply_modules("practice")
-print(result)
+from math import ceil, pi
+radius = 2
+print(ceil(pi * radius ** 2))
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Modules problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+import json
+
+def encode_record(record):
+    return json.dumps(record, sort_keys=True)
+
+if __name__ == "__main__":
+    print(encode_record({"name": "Ada", "level": 1}))
 ```
 
 ## Examples
@@ -3651,135 +3784,143 @@ print(result)
 ### Beginner Example
 
 ```python
-import platform
-print(platform.python_version())
+import math
+print(math.factorial(5))
 ```
 
 ### Intermediate Example
 
 ```python
-import sys
-
-if sys.version_info < (3, 12):
-    raise RuntimeError("Python 3.12 or newer is recommended")
-print("Python version is ready")
+import collections
+counts = collections.Counter("banana")
+print(counts.most_common(2))
 ```
 
 ### Advanced Example
 
 ```python
 from pathlib import Path
-import sys
+import json
 
-project = Path.cwd()
-print({"python": sys.version.split()[0], "project": project.name})
+def configuration_text(settings):
+    return json.dumps(settings, indent=2)
+
+def main():
+    output_name = Path("settings.json").name
+    print(output_name)
+    print(configuration_text({"theme": "dark"}))
+
+if __name__ == "__main__":
+    main()
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Modules Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Encounter import]
+    B[Locate module file]
+    C[Execute module once]
+    D[Create cached namespace]
+    E[Access exported attribute]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
 
-[Back to topic index](#modules)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Packages
 
 ## Overview
-- **What is it?** Packages are directories of modules organized with package metadata.
-- **Why is it important?** Group related code into distributable namespaces.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** A package is an importable directory that groups related modules under a shared namespace.
+- **Why is it important?** Packages scale organization beyond one file and support explicit public interfaces and distribution.
+- **Where is it used?** Libraries and applications group models, services, utilities, and subfeatures into packages.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review packages code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind packages.
-- Expected outcome: you can use packages in a small project and recognize when it belongs in production code.
+- Distinguish a module file from a package directory.
+- Use absolute and relative imports within a package.
+- Understand the role of `__init__.py` and running package code with `-m`.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Organize a multi-feature application.
+- Publish a reusable library namespace.
+- Avoid collisions between similarly named modules.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives packages its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Packages model -> clear code`
+### Package layout
+- **Definition:** A regular package is a directory containing `__init__.py` plus modules or subpackages.
+- **Visual explanation:** `shop package -> __init__.py + pricing.py + reports.py`
 - **Practical example:**
 
 ```python
-apply_packages_label = "Packages"
-print(apply_packages_label)
+from pathlib import PurePath
+package_file = PurePath("shop") / "__init__.py"
+print(package_file)
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when packages code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Qualified imports
+- **Definition:** Absolute imports start from the top-level package; relative imports use dots from the current package.
+- **Visual explanation:** `shop.reports -> import shop.pricing`
 - **Practical example:**
 
 ```python
-import platform
-print(platform.python_version())
+import importlib
+json_package = importlib.import_module("json")
+print(json_package.__package__)
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps packages understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Package execution
+- **Definition:** `python -m package.module` resolves imports using the package context, unlike executing an internal file path directly.
+- **Visual explanation:** `project root -> -m package.module -> package-aware execution`
 - **Practical example:**
 
 ```python
-import sys
-
-if sys.version_info < (3, 12):
-    raise RuntimeError("Python 3.12 or newer is recommended")
-print("Python version is ready")
+import runpy
+module_data = runpy.run_module("json.tool", run_name="lesson_probe")
+print("__name__" in module_data)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Packages belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Group related code into distributable namespaces. |
-| 🔥 Benefits | SDKs, applications, plugins, and shared internal libraries. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | A package is an importable directory that groups related modules under a shared namespace. |
+| ⚡ Purpose | Group related modules beneath a shared importable directory namespace. |
+| 🔥 Benefits | Packages scale organization beyond one file and support explicit public interfaces and distribution. |
+| 🎯 Use Cases | Libraries and applications group models, services, utilities, and subfeatures into packages. |
+| 🚀 Best Practices | Run package entry points from the project root with `python -m ...` and expose only intentional names from `__init__.py`. |
+| ❌ Common Mistakes | Executing an internal package file directly and then patching broken imports with ad hoc path changes. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import sys
-print(sys.version)
-print(sys.executable)
+import email
+print(email.__package__)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_packages(value):
-    """Apply the Packages concept to one value."""
-    return value
-
-result = apply_packages("practice")
-print(result)
+from urllib import parse
+address = parse.urlparse("https://example.com/learn")
+print(address.netloc, address.path)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Packages problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+import importlib
+
+modules = ["json.decoder", "json.encoder"]
+loaded = [importlib.import_module(name).__name__ for name in modules]
+print(loaded)
 ```
 
 ## Examples
@@ -3787,133 +3928,145 @@ print(result)
 ### Beginner Example
 
 ```python
-import platform
-print(platform.python_version())
+import collections
+print(collections.__package__)
 ```
 
 ### Intermediate Example
 
 ```python
-import sys
-
-if sys.version_info < (3, 12):
-    raise RuntimeError("Python 3.12 or newer is recommended")
-print("Python version is ready")
+from pathlib import Path
+layout = [
+    Path("academy/__init__.py"),
+    Path("academy/courses.py"),
+    Path("academy/cli.py"),
+]
+for path in layout:
+    print(path)
 ```
 
 ### Advanced Example
 
 ```python
-from pathlib import Path
-import sys
+import importlib
 
-project = Path.cwd()
-print({"python": sys.version.split()[0], "project": project.name})
+def load_components(package_name, module_names):
+    return [
+        importlib.import_module(f"{package_name}.{name}")
+        for name in module_names
+    ]
+
+components = load_components("json", ["decoder", "encoder"])
+print([component.__name__ for component in components])
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Packages Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Start from project root]
+    B[Resolve top-level package]
+    C[Initialize package namespace]
+    D[Load requested submodule]
+    E[Use qualified public name]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
 
-[Back to topic index](#packages)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Date and Time
 
 ## Overview
-- **What is it?** Date and time APIs model timestamps, durations, calendars, and time zones.
-- **Why is it important?** Handle scheduling and time-based business rules correctly.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** Python's `datetime` types represent calendar dates, clock times, combined datetimes, and durations.
+- **Why is it important?** Explicit types support reliable arithmetic, formatting, parsing, and timezone-aware comparisons.
+- **Where is it used?** Scheduling, deadlines, logs, billing periods, and data pipelines all process temporal values.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review date and time code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind date and time.
-- Expected outcome: you can use date and time in a small project and recognize when it belongs in production code.
+- Create date, datetime, and timedelta objects.
+- Parse and format values with ISO methods or format codes.
+- Distinguish naive from timezone-aware datetimes.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Calculate a due date.
+- Parse timestamps from imported records.
+- Compare events in a shared timezone.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives date and time its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Date and Time model -> clear code`
-- **Practical example:**
-
-```python
-apply_date_and_time_label = "Date and Time"
-print(apply_date_and_time_label)
-```
-
-### Execution Flow
-- **Definition:** The ordered steps Python follows when date and time code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Calendar values
+- **Definition:** `date` stores year, month, and day; `datetime` adds time fields.
+- **Visual explanation:** `year month day + clock fields -> datetime`
 - **Practical example:**
 
 ```python
 from datetime import date
-print(date.today())
+release = date(2026, 7, 20)
+print(release.isoformat())
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps date and time understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Durations and arithmetic
+- **Definition:** `timedelta` represents elapsed duration and can be added to or subtracted from dates and datetimes.
+- **Visual explanation:** `start + duration -> end`
 - **Practical example:**
 
 ```python
-from datetime import datetime, timedelta
+from datetime import date, timedelta
+start = date(2026, 7, 20)
+print(start + timedelta(days=14))
+```
 
-due_at = datetime(2026, 7, 13) + timedelta(days=14)
-print(due_at.date())
+### Timezone awareness
+- **Definition:** An aware datetime includes a `tzinfo` offset; comparing stored instants in UTC avoids local-time ambiguity.
+- **Visual explanation:** `local aware time -> UTC -> compare or store`
+- **Practical example:**
+
+```python
+from datetime import datetime, timezone
+now_utc = datetime.now(timezone.utc)
+print(now_utc.isoformat())
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Date and Time belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Handle scheduling and time-based business rules correctly. |
-| 🔥 Benefits | Reports, logs, billing, reminders, and audit trails. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Python's `datetime` types represent calendar dates, clock times, combined datetimes, and durations. |
+| ⚡ Purpose | Model calendar values, instants, and durations for temporal calculations. |
+| 🔥 Benefits | Explicit types support reliable arithmetic, formatting, parsing, and timezone-aware comparisons. |
+| 🎯 Use Cases | Scheduling, deadlines, logs, billing periods, and data pipelines all process temporal values. |
+| 🚀 Best Practices | Use ISO 8601 at boundaries, timezone-aware UTC for instants, and `date` for calendar-only facts. |
+| ❌ Common Mistakes | Mixing naive and aware datetimes or assuming a local clock reading uniquely identifies an instant. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-from datetime import datetime, timezone
-now = datetime.now(timezone.utc)
+from datetime import date
+today = date.today()
+print(today.year, today.month, today.day)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_date_and_time(value):
-    """Apply the Date and Time concept to one value."""
-    return value
-
-result = apply_date_and_time("practice")
-print(result)
+from datetime import datetime
+stamp = datetime.fromisoformat("2026-07-20T16:08:00")
+print(stamp.strftime("%d %b %Y, %H:%M"))
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Date and Time problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+from datetime import datetime, timedelta, timezone
+start = datetime(2026, 7, 20, 16, 0, tzinfo=timezone.utc)
+deadline = start + timedelta(days=2, hours=6)
+print(deadline.isoformat())
 ```
 
 ## Examples
@@ -3922,105 +4075,113 @@ print(result)
 
 ```python
 from datetime import date
-print(date.today())
+birthday = date(2000, 5, 12)
+print(birthday.strftime("%A"))
 ```
 
 ### Intermediate Example
 
 ```python
-from datetime import datetime, timedelta
-
-due_at = datetime(2026, 7, 13) + timedelta(days=14)
-print(due_at.date())
+from datetime import date, timedelta
+checkout = date(2026, 7, 20)
+return_date = checkout + timedelta(weeks=3)
+print(return_date.isoformat())
 ```
 
 ### Advanced Example
 
 ```python
-from datetime import datetime
-from zoneinfo import ZoneInfo
+from datetime import datetime, timezone
 
-meeting = datetime(2026, 7, 13, 9, tzinfo=ZoneInfo("UTC"))
-print(meeting.astimezone(ZoneInfo("Asia/Dubai")))
+def parse_utc(text):
+    parsed = datetime.fromisoformat(text)
+    if parsed.tzinfo is None:
+        raise ValueError("Timezone offset required")
+    return parsed.astimezone(timezone.utc)
+
+print(parse_utc("2026-07-20T18:08:00+02:00").isoformat())
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Date and Time Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Receive temporal text or fields]
+    B[Parse into datetime type]
+    C[Attach or convert timezone]
+    D[Perform arithmetic or comparison]
+    E[Format for output]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
 
-[Back to topic index](#date-and-time)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Math Module
 
 ## Overview
-- **What is it?** The math module provides numeric functions and constants.
-- **Why is it important?** Perform reliable mathematical operations using the standard library.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** The standard-library `math` module provides constants and real-number functions beyond basic arithmetic operators.
+- **Why is it important?** Its tested implementations cover roots, rounding directions, logarithms, trigonometry, and accurate aggregation.
+- **Where is it used?** Geometry, simulations, analytics, finance, and scientific calculations use these functions.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review math module code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind math module.
-- Expected outcome: you can use math module in a small project and recognize when it belongs in production code.
+- Import and call common `math` functions.
+- Use constants and choose floor, ceil, truncation, or closeness checks correctly.
+- Recognize that `math` generally operates on real numbers, not arbitrary collections.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Calculate geometric measurements.
+- Round resource counts up to whole units.
+- Compare floating-point results with a tolerance.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives math module its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Math Module model -> clear code`
-- **Practical example:**
-
-```python
-apply_math_module_label = "Math Module"
-print(apply_math_module_label)
-```
-
-### Execution Flow
-- **Definition:** The ordered steps Python follows when math module code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Constants and roots
+- **Definition:** `math.pi`, `math.e`, `sqrt`, and related functions provide standard numeric definitions.
+- **Visual explanation:** `numeric input -> math function -> float result`
 - **Practical example:**
 
 ```python
 import math
-print(math.pi)
+radius = 3
+print(math.pi * radius ** 2, math.sqrt(81))
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps math module understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Rounding direction
+- **Definition:** `floor` rounds down, `ceil` rounds up, and `trunc` removes the fractional part toward zero.
+- **Visual explanation:** `real number -> chosen rounding rule -> integer`
 - **Practical example:**
 
 ```python
 import math
+print(math.floor(2.9), math.ceil(2.1), math.trunc(-2.9))
+```
 
-radius = 5
-area = math.pi * math.pow(radius, 2)
-print(round(area, 2))
+### Floating-point reliability
+- **Definition:** `isclose` compares approximate values using relative and absolute tolerances; `fsum` reduces summation error.
+- **Visual explanation:** `floating results + tolerance -> reliable comparison`
+- **Practical example:**
+
+```python
+import math
+total = math.fsum([0.1, 0.1, 0.1])
+print(total, math.isclose(total, 0.3))
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Math Module belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Perform reliable mathematical operations using the standard library. |
-| 🔥 Benefits | Finance, analytics, geometry, science, and simulations. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | The standard-library `math` module provides constants and real-number functions beyond basic arithmetic operators. |
+| ⚡ Purpose | Apply standard mathematical constants and real-number functions reliably. |
+| 🔥 Benefits | Its tested implementations cover roots, rounding directions, logarithms, trigonometry, and accurate aggregation. |
+| 🎯 Use Cases | Geometry, simulations, analytics, finance, and scientific calculations use these functions. |
+| 🚀 Best Practices | Choose the function whose mathematical rule matches the domain, and use `isclose` instead of exact float equality. |
+| ❌ Common Mistakes | Using `round` or `int` when the requirement specifically says always round up or always round down. |
 
 ## Syntax Guide
 
@@ -4028,26 +4189,29 @@ print(round(area, 2))
 
 ```python
 import math
-print(math.sqrt(81))
+print(math.sqrt(144))
+print(math.pi)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_math_module(value):
-    """Apply the Math Module concept to one value."""
-    return value
-
-result = apply_math_module("practice")
-print(result)
+import math
+items = 23
+box_capacity = 5
+boxes = math.ceil(items / box_capacity)
+print(boxes)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Math Module problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+import math
+points = [(0, 0), (3, 4), (6, 8)]
+distances = []
+for (x1, y1), (x2, y2) in zip(points, points[1:]):
+    distances.append(math.hypot(x2 - x1, y2 - y1))
+print(math.fsum(distances))
 ```
 
 ## Examples
@@ -4056,104 +4220,115 @@ print(result)
 
 ```python
 import math
-print(math.pi)
+radius = 5
+print(math.tau * radius)
 ```
 
 ### Intermediate Example
 
 ```python
 import math
-
-radius = 5
-area = math.pi * math.pow(radius, 2)
-print(round(area, 2))
+angle_degrees = 30
+angle_radians = math.radians(angle_degrees)
+print(math.sin(angle_radians))
 ```
 
 ### Advanced Example
 
 ```python
-import statistics
+import math
 
-latencies = [120, 95, 140, 110]
-print(statistics.mean(latencies), statistics.pstdev(latencies))
+def compound(principal, annual_rate, years):
+    return principal * math.pow(1 + annual_rate, years)
+
+future = compound(1000, 0.05, 10)
+print(f"${future:.2f}")
+print(math.isfinite(future))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Math Module Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Identify mathematical rule]
+    B[Select math constant or function]
+    C[Pass numeric arguments]
+    D[Check finite or approximate result]
+    E[Use value in domain calculation]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
 
-[Back to topic index](#math-module)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Random Module
 
 ## Overview
-- **What is it?** The random module generates pseudo-random values.
-- **Why is it important?** Support simulations, sampling, games, test data, and randomized decisions.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** The `random` module produces deterministic pseudo-random sequences suitable for simulation, sampling, and games.
+- **Why is it important?** It offers controlled variation and reproducibility through explicit random generator instances and seeds.
+- **Where is it used?** Games, randomized tests, classroom exercises, and statistical samples use pseudo-random values.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review random module code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind random module.
-- Expected outcome: you can use random module in a small project and recognize when it belongs in production code.
+- Generate ranges, choices, samples, and shuffled sequences.
+- Use a local `Random` instance with a seed for repeatable tests.
+- Avoid `random` for passwords, tokens, or security decisions.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Roll dice or select a game move.
+- Sample records without replacement.
+- Create repeatable test fixtures and simulations.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives random module its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Random Module model -> clear code`
-- **Practical example:**
-
-```python
-apply_random_module_label = "Random Module"
-print(apply_random_module_label)
-```
-
-### Execution Flow
-- **Definition:** The ordered steps Python follows when random module code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Pseudo-random generator
+- **Definition:** A generator evolves deterministic internal state, so the same seed produces the same sequence.
+- **Visual explanation:** `seed + state -> next value -> updated state`
 - **Practical example:**
 
 ```python
 import random
-print(random.choice(["red", "green", "blue"]))
+rng = random.Random(7)
+print(rng.randint(1, 6), rng.randint(1, 6))
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps random module understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Choice and sampling
+- **Definition:** `choice` picks one element; `sample` returns distinct selections without replacement.
+- **Visual explanation:** `population -> random index or distinct indexes -> selection`
 - **Practical example:**
 
 ```python
 import random
+rng = random.Random(3)
+colors = ["red", "green", "blue", "gold"]
+print(rng.choice(colors), rng.sample(colors, k=2))
+```
 
-sample = random.sample(range(100), k=5)
-print(sample)
+### Security boundary
+- **Definition:** The algorithm is predictable and must not generate credentials; the `secrets` module serves security-sensitive choices.
+- **Visual explanation:** `simulation -> random; secret token -> secrets`
+- **Practical example:**
+
+```python
+import secrets
+alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"
+code = "".join(secrets.choice(alphabet) for _ in range(8))
+print(len(code))
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Random Module belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Support simulations, sampling, games, test data, and randomized decisions. |
-| 🔥 Benefits | Experiments, demos, games, load tests, and statistical sampling. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | The `random` module produces deterministic pseudo-random sequences suitable for simulation, sampling, and games. |
+| ⚡ Purpose | Generate controlled pseudo-random choices, samples, and simulations. |
+| 🔥 Benefits | It offers controlled variation and reproducibility through explicit random generator instances and seeds. |
+| 🎯 Use Cases | Games, randomized tests, classroom exercises, and statistical samples use pseudo-random values. |
+| 🚀 Best Practices | Inject or create a seeded generator for tests, omit the seed for ordinary simulation, and use `secrets` for security. |
+| ❌ Common Mistakes | Seeding globally in production code or using `random` to create reset tokens and passwords. |
 
 ## Syntax Guide
 
@@ -4167,20 +4342,22 @@ print(random.randint(1, 6))
 ### Standard Structure
 
 ```python
-def apply_random_module(value):
-    """Apply the Random Module concept to one value."""
-    return value
-
-result = apply_random_module("practice")
-print(result)
+import random
+rng = random.Random(42)
+participants = ["Ada", "Bo", "Chen", "Dia"]
+print(rng.sample(participants, k=2))
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Random Module problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+import random
+rng = random.Random(10)
+results = {"heads": 0, "tails": 0}
+for _ in range(1000):
+    side = rng.choice(list(results))
+    results[side] += 1
+print(results)
 ```
 
 ## Examples
@@ -4189,16 +4366,18 @@ print(result)
 
 ```python
 import random
-print(random.choice(["red", "green", "blue"]))
+print(random.choice(["north", "south", "east", "west"]))
 ```
 
 ### Intermediate Example
 
 ```python
 import random
-
-sample = random.sample(range(100), k=5)
-print(sample)
+rng = random.Random(5)
+deck = list(range(1, 11))
+rng.shuffle(deck)
+hand = deck[:3]
+print(hand)
 ```
 
 ### Advanced Example
@@ -4206,114 +4385,134 @@ print(sample)
 ```python
 import random
 
-rng = random.Random(42)
-print([rng.random() for _ in range(3)])
+def estimate_even_probability(trials, seed):
+    rng = random.Random(seed)
+    even = 0
+    for _ in range(trials):
+        even += rng.randint(1, 6) % 2 == 0
+    return even / trials
+
+print(estimate_even_probability(10_000, 11))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Random Module Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Choose simulation or security need]
+    B[Create correct generator]
+    C[Seed only for reproducibility]
+    D[Generate choice sample or shuffle]
+    E[Validate distribution or result]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
 
-[Back to topic index](#random-module)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # File Handling
 
 ## Overview
-- **What is it?** File handling reads, writes, appends, and manages files safely.
-- **Why is it important?** Persist and exchange data outside program memory.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** File handling opens filesystem paths and reads or writes persistent bytes or text.
+- **Why is it important?** Context managers close resources reliably, while explicit modes and encodings make data behavior predictable.
+- **Where is it used?** Applications store configuration, reports, logs, exports, and imported datasets in files.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review file handling code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind file handling.
-- Expected outcome: you can use file handling in a small project and recognize when it belongs in production code.
+- Open text files with a context manager and explicit encoding.
+- Choose read, write, append, or exclusive-creation modes.
+- Use `pathlib` and handle missing or malformed content.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Read application settings.
+- Write a generated report.
+- Append events to a log or process a file line by line.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives file handling its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> File Handling model -> clear code`
-- **Practical example:**
-
-```python
-apply_file_handling_label = "File Handling"
-print(apply_file_handling_label)
-```
-
-### Execution Flow
-- **Definition:** The ordered steps Python follows when file handling code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Paths and modes
+- **Definition:** A path identifies a filesystem entry; mode `r`, `w`, `a`, or `x` determines read, replace, append, or create-only behavior.
+- **Visual explanation:** `path + mode -> open file object`
 - **Practical example:**
 
 ```python
 from pathlib import Path
-Path("hello.txt").write_text("Hello file", encoding="utf-8")
-print(Path("hello.txt").read_text(encoding="utf-8"))
+path = Path("notes.txt")
+print(path.name, path.suffix)
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps file handling understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Context-managed resource
+- **Definition:** A `with` statement closes the file even when an exception leaves the block.
+- **Visual explanation:** `with open -> use resource -> automatic close`
+- **Practical example:**
+
+```python
+from io import StringIO
+with StringIO("first\nsecond\n") as file:
+    print(file.readline().strip())
+```
+
+### Text encoding and structure
+- **Definition:** Text must be encoded as bytes on disk; specifying UTF-8 avoids platform-dependent defaults.
+- **Visual explanation:** `Unicode text <-> UTF-8 bytes <-> file`
 - **Practical example:**
 
 ```python
 from pathlib import Path
-
-rows = ["name,score", "Ada,95"]
-Path("scores.csv").write_text("\n".join(rows), encoding="utf-8")
+path = Path("lesson_demo.txt")
+path.write_text("Python ✓\n", encoding="utf-8")
+print(path.read_text(encoding="utf-8").strip())
+path.unlink()
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | File Handling belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Persist and exchange data outside program memory. |
-| 🔥 Benefits | Logs, CSV imports, reports, configs, and backups. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | File handling opens filesystem paths and reads or writes persistent bytes or text. |
+| ⚡ Purpose | Read and write persistent text or bytes through safely managed file resources. |
+| 🔥 Benefits | Context managers close resources reliably, while explicit modes and encodings make data behavior predictable. |
+| 🎯 Use Cases | Applications store configuration, reports, logs, exports, and imported datasets in files. |
+| 🚀 Best Practices | Use `Path`, `with`, and `encoding='utf-8'`; write to a temporary path before replacing valuable data. |
+| ❌ Common Mistakes | Using write mode on an existing file without realizing it truncates all previous content. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-from pathlib import Path
-Path("notes.txt").write_text("hello", encoding="utf-8")
+from io import StringIO
+file = StringIO("alpha\nbeta\n")
+print(file.read())
+file.close()
 ```
 
 ### Standard Structure
 
 ```python
-def apply_file_handling(value):
-    """Apply the File Handling concept to one value."""
-    return value
-
-result = apply_file_handling("practice")
-print(result)
+from pathlib import Path
+path = Path("example.txt")
+path.write_text("one\ntwo\n", encoding="utf-8")
+lines = path.read_text(encoding="utf-8").splitlines()
+print(lines)
+path.unlink()
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the File Handling problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+from pathlib import Path
+import json
+
+path = Path("settings_demo.json")
+data = {"theme": "dark", "font_size": 14}
+path.write_text(json.dumps(data, indent=2), encoding="utf-8")
+loaded = json.loads(path.read_text(encoding="utf-8"))
+print(loaded["theme"])
+path.unlink()
 ```
 
 ## Examples
@@ -4321,111 +4520,131 @@ print(result)
 ### Beginner Example
 
 ```python
-from pathlib import Path
-Path("hello.txt").write_text("Hello file", encoding="utf-8")
-print(Path("hello.txt").read_text(encoding="utf-8"))
+from io import StringIO
+with StringIO("Python file practice") as file:
+    print(file.read())
 ```
 
 ### Intermediate Example
 
 ```python
 from pathlib import Path
-
-rows = ["name,score", "Ada,95"]
-Path("scores.csv").write_text("\n".join(rows), encoding="utf-8")
+path = Path("scores_demo.txt")
+path.write_text("80\n92\n76\n", encoding="utf-8")
+scores = [int(line) for line in path.read_text(encoding="utf-8").splitlines()]
+print(sum(scores) / len(scores))
+path.unlink()
 ```
 
 ### Advanced Example
 
 ```python
 from pathlib import Path
-import json
+import csv
 
-config = {"debug": False, "retries": 3}
-Path("config.json").write_text(json.dumps(config, indent=2), encoding="utf-8")
+path = Path("people_demo.csv")
+with path.open("w", newline="", encoding="utf-8") as file:
+    writer = csv.DictWriter(file, fieldnames=["name", "score"])
+    writer.writeheader()
+    writer.writerows([{"name": "Ada", "score": 90}, {"name": "Bo", "score": 84}])
+with path.open(newline="", encoding="utf-8") as file:
+    records = list(csv.DictReader(file))
+print(records)
+path.unlink()
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify File Handling Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Build filesystem path]
+    B[Choose mode and encoding]
+    C[Open with context manager]
+    D[Read parse or write content]
+    E[Close and handle errors]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
 
-[Back to topic index](#file-handling)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Exception Handling
 
 ## Overview
-- **What is it?** Exception handling catches and responds to runtime failures.
-- **Why is it important?** Keep programs understandable and resilient when things go wrong.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** Exception handling uses `try`, `except`, `else`, `finally`, and `raise` to represent and respond to runtime failures.
+- **Why is it important?** It separates expected failure paths from normal logic without silently hiding programming defects.
+- **Where is it used?** Input conversion, file access, networking, and domain validation can all raise exceptions.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review exception handling code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind exception handling.
-- Expected outcome: you can use exception handling in a small project and recognize when it belongs in production code.
+- Catch specific exception types.
+- Use `else` for success work and `finally` for unconditional cleanup.
+- Raise meaningful exceptions and preserve useful error context.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Reject malformed user data.
+- Recover from a missing optional file.
+- Translate low-level failures into domain-specific messages.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives exception handling its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Exception Handling model -> clear code`
+### Raising and propagation
+- **Definition:** When an exception is raised, normal execution stops and stack frames unwind until a matching handler is found.
+- **Visual explanation:** `raise -> unwind call stack -> matching except or program exit`
 - **Practical example:**
 
 ```python
-apply_exception_handling_label = "Exception Handling"
-print(apply_exception_handling_label)
+def require_positive(value):
+    if value <= 0:
+        raise ValueError("value must be positive")
+    return value
+
+print(require_positive(3))
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when exception handling code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Specific handlers
+- **Definition:** An `except` clause should catch only failures it can meaningfully handle.
+- **Visual explanation:** `try operation -> matching exception -> recovery`
 - **Practical example:**
 
 ```python
 try:
-    print(10 / 0)
-except ZeroDivisionError:
-    print("Cannot divide by zero")
+    count = int("not-a-number")
+except ValueError as error:
+    print(f"Invalid count: {error}")
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps exception handling understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Else and finally
+- **Definition:** `else` runs only after a successful try; `finally` runs whether the operation succeeded or failed.
+- **Visual explanation:** `try -> success else or failure except -> always finally`
 - **Practical example:**
 
 ```python
-def parse_quantity(raw: str) -> int:
-    try:
-        return int(raw)
-    except ValueError as exc:
-        raise ValueError(f"Invalid quantity: {raw}") from exc
-
-print(parse_quantity("12"))
+events = []
+try:
+    value = 10 / 2
+except ZeroDivisionError:
+    events.append("failed")
+else:
+    events.append(f"result={value}")
+finally:
+    events.append("finished")
+print(events)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Exception Handling belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Keep programs understandable and resilient when things go wrong. |
-| 🔥 Benefits | API clients, validation, file IO, retries, and user-friendly errors. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Exception handling uses `try`, `except`, `else`, `finally`, and `raise` to represent and respond to runtime failures. |
+| ⚡ Purpose | Represent expected runtime failures and route them to appropriate recovery logic. |
+| 🔥 Benefits | It separates expected failure paths from normal logic without silently hiding programming defects. |
+| 🎯 Use Cases | Input conversion, file access, networking, and domain validation can all raise exceptions. |
+| 🚀 Best Practices | Keep try blocks narrow, catch named exceptions, and either recover clearly or let the error propagate. |
+| ❌ Common Mistakes | Using a bare `except` that hides interrupts, programming bugs, and the original cause. |
 
 ## Syntax Guide
 
@@ -4433,28 +4652,37 @@ print(parse_quantity("12"))
 
 ```python
 try:
-    value = int(raw_value)
+    number = int("42")
 except ValueError:
-    value = 0
+    print("Invalid number")
+else:
+    print(number)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_exception_handling(value):
-    """Apply the Exception Handling concept to one value."""
-    return value
-
-result = apply_exception_handling("practice")
-print(result)
+def safe_divide(left, right):
+    try:
+        return left / right
+    except ZeroDivisionError:
+        return None
+print(safe_divide(8, 2), safe_divide(8, 0))
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Exception Handling problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+class InvalidScoreError(ValueError):
+    pass
+def record_score(value):
+    if not 0 <= value <= 100:
+        raise InvalidScoreError(f"score out of range: {value}")
+    return {"score": value}
+try:
+    print(record_score(120))
+except InvalidScoreError as error:
+    print(error)
 ```
 
 ## Examples
@@ -4463,140 +4691,165 @@ print(result)
 
 ```python
 try:
-    print(10 / 0)
+    result = 5 / 0
 except ZeroDivisionError:
-    print("Cannot divide by zero")
+    result = None
+print(result)
 ```
 
 ### Intermediate Example
 
 ```python
-def parse_quantity(raw: str) -> int:
+def parse_age(text):
     try:
-        return int(raw)
-    except ValueError as exc:
-        raise ValueError(f"Invalid quantity: {raw}") from exc
-
-print(parse_quantity("12"))
+        age = int(text)
+    except ValueError as error:
+        raise ValueError("age must be a whole number") from error
+    if age < 0:
+        raise ValueError("age cannot be negative")
+    return age
+print(parse_age("21"))
 ```
 
 ### Advanced Example
 
 ```python
-class PaymentError(Exception):
-    pass
-
-def charge(amount: float) -> str:
-    if amount <= 0:
-        raise PaymentError("Amount must be positive")
-    return "approved"
-
-print(charge(10))
+def load_port(settings):
+    try:
+        raw = settings["port"]
+        port = int(raw)
+    except KeyError:
+        return 8000
+    except ValueError as error:
+        raise ValueError("configured port must be numeric") from error
+    else:
+        if not 1 <= port <= 65535:
+            raise ValueError("port outside valid range")
+        return port
+print(load_port({"port": "8080"}))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Exception Handling Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Enter narrow try block]
+    B[Run operation]
+    C[Match specific failure if raised]
+    D[Run else on success]
+    E[Run finally and continue or propagate]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
 
-[Back to topic index](#exception-handling)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Debugging Basics
 
 ## Overview
-- **What is it?** Debugging is the process of finding, understanding, and fixing defects.
-- **Why is it important?** Use evidence instead of guesses when code behaves unexpectedly.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** Debugging is an evidence-driven process for reproducing, locating, explaining, fixing, and preventing defects.
+- **Why is it important?** A disciplined workflow replaces guesses with observations from tracebacks, tests, logging, and debugger state.
+- **Where is it used?** Every development role debugs incorrect results, exceptions, integrations, and environment differences.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review debugging basics code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind debugging basics.
-- Expected outcome: you can use debugging basics in a small project and recognize when it belongs in production code.
+- Reproduce a defect with the smallest reliable input.
+- Read a traceback from the final exception upward through relevant frames.
+- Form a hypothesis, inspect state, apply one fix, and add a regression check.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Find an off-by-one calculation.
+- Trace malformed data to its source.
+- Compare expected and actual state at a breakpoint.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives debugging basics its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Debugging Basics model -> clear code`
+### Reliable reproduction
+- **Definition:** A reproducible case records the input, environment, steps, expected result, and actual result.
+- **Visual explanation:** `known setup + input -> repeatable failure`
 - **Practical example:**
 
 ```python
-apply_debugging_basics_label = "Debugging Basics"
-print(apply_debugging_basics_label)
+def last_item(items):
+    return items[-1]
+
+sample = ["a", "b"]
+print(last_item(sample))
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when debugging basics code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Tracebacks and state
+- **Definition:** A traceback identifies exception type, message, and active call frames; inspected values explain how execution reached the failure.
+- **Visual explanation:** `exception -> traceback frames -> relevant variables`
 - **Practical example:**
 
 ```python
-topic = "Debugging Basics"
-print(f"Learning {topic}")
+def ratio(total, count):
+    assert count > 0, "count must be positive"
+    return total / count
+
+print(ratio(12, 3))
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps debugging basics understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Hypothesis and regression
+- **Definition:** Change one suspected cause, rerun the reproduction, then preserve the case as an automated assertion.
+- **Visual explanation:** `failure -> hypothesis -> focused fix -> regression test`
 - **Practical example:**
 
 ```python
-def summarize_debugging_basics(items: list[str]) -> dict[str, int]:
-    return {"topic_count": len(items), "unique_count": len(set(items))}
+def inclusive_count(start, stop):
+    return stop - start + 1
 
-print(summarize_debugging_basics(["learn", "practice", "learn"]))
+assert inclusive_count(3, 5) == 3
+print("Regression check passed")
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Debugging Basics belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Use evidence instead of guesses when code behaves unexpectedly. |
-| 🔥 Benefits | Faster issue resolution, better tests, and reliable delivery. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Debugging is an evidence-driven process for reproducing, locating, explaining, fixing, and preventing defects. |
+| ⚡ Purpose | Locate and explain a defect through reproducible evidence before correcting it. |
+| 🔥 Benefits | A disciplined workflow replaces guesses with observations from tracebacks, tests, logging, and debugger state. |
+| 🎯 Use Cases | Every development role debugs incorrect results, exceptions, integrations, and environment differences. |
+| 🚀 Best Practices | Record expected versus actual behavior, inspect values near the first wrong state, and keep a test for every fixed bug. |
+| ❌ Common Mistakes | Changing several lines before reproducing the bug, making it impossible to know which change mattered. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-topic_name = "Debugging Basics"
-print(topic_name)
+values = [2, 4, 6]
+print("count:", len(values), "values:", values)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_debugging_basics(value):
-    """Apply the Debugging Basics concept to one value."""
-    return value
+def average(total, count):
+    print(f"DEBUG {total=} {count=}")
+    return total / count
 
-result = apply_debugging_basics("practice")
-print(result)
+result = average(18, 3)
+assert result == 6
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Debugging Basics problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+def calculate_discount(price, percent):
+    if not 0 <= percent <= 100:
+        raise ValueError("percent must be from 0 to 100")
+    return price * (1 - percent / 100)
+
+cases = [(100, 20, 80), (50, 0, 50), (50, 100, 0)]
+for price, percent, expected in cases:
+    actual = calculate_discount(price, percent)
+    assert actual == expected, (price, percent, expected, actual)
+print("All regression cases passed")
 ```
 
 ## Examples
@@ -4604,17 +4857,856 @@ print(result)
 ### Beginner Example
 
 ```python
-topic = "Debugging Basics"
-print(f"Learning {topic}")
+expected = 10
+actual = 4 + 6
+print({"expected": expected, "actual": actual})
+assert actual == expected
 ```
 
 ### Intermediate Example
 
 ```python
-def summarize_debugging_basics(items: list[str]) -> dict[str, int]:
-    return {"topic_count": len(items), "unique_count": len(set(items))}
+def lookup(items, index):
+    print(f"DEBUG {len(items)=} {index=}")
+    return items[index]
 
-print(summarize_debugging_basics(["learn", "practice", "learn"]))
+assert lookup(["a", "b", "c"], 2) == "c"
+```
+
+### Advanced Example
+
+```python
+def calculate_pages(total_items, page_size):
+    if page_size <= 0:
+        raise ValueError("page_size must be positive")
+    return (total_items + page_size - 1) // page_size
+
+tests = [(0, 10, 0), (1, 10, 1), (10, 10, 1), (11, 10, 2)]
+for total, size, expected in tests:
+    actual = calculate_pages(total, size)
+    assert actual == expected, f"{total=}, {size=}, {actual=}"
+print("Pagination regression tests passed")
+```
+
+## Workflow Diagram
+
+```mermaid
+flowchart LR
+    A[Capture expected and actual behavior]
+    B[Reproduce smallest failing case]
+    C[Read traceback and inspect state]
+    D[Test one root-cause hypothesis]
+    E[Fix and retain regression check]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
+[Back to complete topic index](#complete-topic-index)
+
+---
+
+# Virtual Environments
+
+## Overview
+- **What is it?** A virtual environment is an isolated Python installation context with its own interpreter links and site-packages directory.
+- **Why is it important?** Isolation lets projects use different dependency versions without modifying system Python.
+- **Where is it used?** Local development, CI jobs, tutorials, and deployments create environments from declared dependencies.
+
+## Learning Objectives
+- Create and activate a `.venv` with the standard `venv` module.
+- Install packages through the environment's Python and verify the active executable.
+- Record dependencies while excluding the environment directory from version control.
+
+## Real World Applications
+- Keep two projects on incompatible library versions.
+- Reproduce a teammate's dependency set.
+- Run tests in a clean environment.
+
+## Core Concepts
+
+### Environment creation
+- **Definition:** `python -m venv .venv` creates an environment directory containing a Python executable and package location.
+- **Visual explanation:** `base interpreter -> venv -> isolated interpreter context`
+- **Practical example:**
+
+```python
+import venv
+print(venv.EnvBuilder.__module__)
+```
+
+### Activation and interpreter identity
+- **Definition:** Activation prepends the environment's executable directory to `PATH`; it is convenience, not a requirement.
+- **Visual explanation:** `activate -> PATH changed -> python resolves inside .venv`
+- **Practical example:**
+
+```python
+import sys
+print(sys.prefix)
+print(sys.base_prefix)
+print("in venv:", sys.prefix != sys.base_prefix)
+```
+
+### Dependency workflow
+- **Definition:** Packages installed with `environment-python -m pip` belong to that environment; a dependency file describes what to recreate.
+- **Visual explanation:** `dependency declaration -> clean venv -> install -> verify`
+- **Practical example:**
+
+```python
+import importlib.metadata
+pip_version = importlib.metadata.version("pip")
+print(f"pip {pip_version}")
+```
+
+## Infographic Summary
+
+| Infographic Block | Topic-Specific Takeaway |
+| --- | --- |
+| 📌 Concept | A virtual environment is an isolated Python installation context with its own interpreter links and site-packages directory. |
+| ⚡ Purpose | Isolate each project's interpreter context and installed dependencies. |
+| 🔥 Benefits | Isolation lets projects use different dependency versions without modifying system Python. |
+| 🎯 Use Cases | Local development, CI jobs, tutorials, and deployments create environments from declared dependencies. |
+| 🚀 Best Practices | Create `.venv` per project, use `python -m pip`, commit dependency declarations, and never commit the environment directory. |
+| ❌ Common Mistakes | Assuming activation installs dependencies or makes an environment portable between machines. |
+
+## Syntax Guide
+
+### Basic Syntax
+
+```python
+import sys
+print(sys.executable)
+print(sys.prefix != sys.base_prefix)
+```
+
+### Standard Structure
+
+```python
+import site
+import sys
+print({"environment": sys.prefix, "packages": site.getsitepackages()})
+```
+
+### Code Pattern
+
+```python
+import importlib.metadata
+import sys
+
+packages = sorted(
+    (dist.metadata["Name"], dist.version)
+    for dist in importlib.metadata.distributions()
+    if dist.metadata["Name"]
+)
+print({"python": sys.version.split()[0], "package_count": len(packages)})
+print(packages[:3])
+```
+
+### Terminal Workflow
+
+```bash
+python -m venv .venv
+source .venv/bin/activate          # macOS or Linux
+# .venv\Scripts\activate           # Windows PowerShell
+python -m pip install -r requirements.txt
+python -c "import sys; print(sys.executable)"
+deactivate
+```
+
+## Examples
+
+### Beginner Example
+
+```python
+import sys
+print("Virtual environment active:", sys.prefix != sys.base_prefix)
+```
+
+### Intermediate Example
+
+```python
+from pathlib import Path
+import sys
+venv_root = Path(sys.prefix)
+print({"root": venv_root.name, "python": Path(sys.executable).name})
+```
+
+### Advanced Example
+
+```python
+import importlib.metadata
+import sys
+
+def environment_report():
+    distributions = list(importlib.metadata.distributions())
+    return {
+        "python": sys.version.split()[0],
+        "isolated": sys.prefix != sys.base_prefix,
+        "installed_distributions": len(distributions),
+    }
+
+print(environment_report())
+```
+
+## Workflow Diagram
+
+```mermaid
+flowchart LR
+    A[Enter project directory]
+    B[Create .venv]
+    C[Activate or call its Python]
+    D[Install declared dependencies]
+    E[Verify interpreter then run project]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
+[Back to complete topic index](#complete-topic-index)
+
+---
+
+# Basic Project Structure
+
+## Overview
+- **What is it?** Basic project structure gives source code, tests, configuration, documentation, and generated files predictable locations.
+- **Why is it important?** A clear layout makes imports, commands, collaboration, testing, and packaging easier to understand.
+- **Where is it used?** Even small scripts benefit when they grow into maintained applications or reusable packages.
+
+## Learning Objectives
+- Separate importable source from tests and project documentation.
+- Add an entry point guarded by `__name__ == '__main__'`.
+- Keep generated environments, caches, secrets, and build output out of version control.
+
+## Real World Applications
+- Onboard contributors with an obvious starting point.
+- Run tests against importable application code.
+- Package or deploy without mixing source and local artifacts.
+
+## Core Concepts
+
+### Source and test boundaries
+- **Definition:** Application modules belong in a package, while tests import and exercise that package from a separate directory.
+- **Visual explanation:** `project -> src package + tests`
+- **Practical example:**
+
+```python
+from pathlib import PurePath
+source = PurePath("src") / "academy" / "courses.py"
+test = PurePath("tests") / "test_courses.py"
+print(source, test)
+```
+
+### Project metadata
+- **Definition:** `pyproject.toml` can describe build settings, project metadata, dependencies, and tool configuration.
+- **Visual explanation:** `pyproject.toml -> tools and build backend`
+- **Practical example:**
+
+```python
+from pathlib import PurePath
+files = [PurePath("pyproject.toml"), PurePath("README.md"), PurePath(".gitignore")]
+print([file.name for file in files])
+```
+
+### Entry point and clean repository
+- **Definition:** A small entry module calls application functions; ignored runtime artifacts remain outside the tracked source tree.
+- **Visual explanation:** `command -> entry point -> package logic; artifacts -> ignored`
+- **Practical example:**
+
+```python
+def main():
+    print("Academy application")
+
+if __name__ == "__main__":
+    main()
+```
+
+## Infographic Summary
+
+| Infographic Block | Topic-Specific Takeaway |
+| --- | --- |
+| 📌 Concept | Basic project structure gives source code, tests, configuration, documentation, and generated files predictable locations. |
+| ⚡ Purpose | Give source, tests, metadata, documentation, and generated artifacts clear locations. |
+| 🔥 Benefits | A clear layout makes imports, commands, collaboration, testing, and packaging easier to understand. |
+| 🎯 Use Cases | Even small scripts benefit when they grow into maintained applications or reusable packages. |
+| 🚀 Best Practices | Start with the smallest structure that separates source and tests, document the run command, and ignore generated artifacts. |
+| ❌ Common Mistakes | Creating many empty architectural folders before the project has responsibilities that justify them. |
+
+## Syntax Guide
+
+### Basic Syntax
+
+```python
+from pathlib import PurePath
+project_files = [PurePath("README.md"), PurePath("app.py"), PurePath("tests/test_app.py")]
+for file in project_files:
+    print(file)
+```
+
+### Standard Structure
+
+```python
+def project_tree(name):
+    return [
+        f"{name}/README.md",
+        f"{name}/src/{name}/__init__.py",
+        f"{name}/tests/test_core.py",
+        f"{name}/pyproject.toml",
+    ]
+
+print(*project_tree("academy"), sep="\n")
+```
+
+### Code Pattern
+
+```python
+from pathlib import PurePath
+
+def classify(path_text):
+    path = PurePath(path_text)
+    if "tests" in path.parts:
+        return "test"
+    if "src" in path.parts:
+        return "source"
+    if path.name.startswith("."):
+        return "configuration"
+    return "project metadata"
+
+for item in ["src/academy/core.py", "tests/test_core.py", ".gitignore", "README.md"]:
+    print(item, "->", classify(item))
+```
+
+## Examples
+
+### Beginner Example
+
+```python
+from pathlib import PurePath
+root = PurePath("academy")
+print(root / "README.md")
+```
+
+### Intermediate Example
+
+```python
+from pathlib import PurePath
+paths = {
+    "source": PurePath("src/academy"),
+    "tests": PurePath("tests"),
+    "metadata": PurePath("pyproject.toml"),
+}
+for role, path in paths.items():
+    print(role, path)
+```
+
+### Advanced Example
+
+```python
+from pathlib import PurePath
+
+def validate_layout(paths):
+    parts = {PurePath(path).parts[0] for path in paths}
+    required = {"src", "tests"}
+    return {"missing": sorted(required - parts), "valid": required <= parts}
+
+layout = ["src/academy/__init__.py", "src/academy/cli.py", "tests/test_cli.py"]
+print(validate_layout(layout))
+```
+
+## Workflow Diagram
+
+```mermaid
+flowchart LR
+    A[Name project responsibility]
+    B[Create source package]
+    C[Add separate tests]
+    D[Document metadata and commands]
+    E[Ignore generated files and run checks]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
+[Back to complete topic index](#complete-topic-index)
+
+---
+
+## Level 2: Intermediate
+
+---
+
+# Object Oriented Programming
+
+## Overview
+- **What is it?** Object Oriented Programming is the intermediate Python topic of organizing behavior and state around domain objects rather than unrelated procedures.
+- **Why is it important?** It provides a vocabulary for modeling changing state, responsibilities, and collaborations without turning every value into a class.
+- **Where is it used?** business domain models, GUI components, service layers and plugins.
+
+## Learning Objectives
+- Separate state, behavior, and collaboration responsibilities.
+- Choose composition or inheritance deliberately.
+- Keep object boundaries small enough to test.
+
+## Real World Applications
+- **Engineering:** Business domain models rely on this topic.
+- **Product work:** It supports GUI components.
+- **Operations:** It appears in service layers and plugins.
+
+## Core Concepts
+
+### Objects and responsibilities
+- **Definition:** OOP assigns a cohesive responsibility to an object that owns state and the operations that protect it.
+- **Visual explanation:** ``request -> Cart object -> validated state change``
+- **Practical example:**
+
+```python
+class Cart:
+    def __init__(self):
+        self.items = []
+
+    def add(self, sku):
+        self.items.append(sku)
+
+cart = Cart()
+cart.add("BOOK-1")
+```
+
+### Composition
+- **Definition:** Composition builds behavior by storing collaborating objects, expressing a has-a relationship without coupling subclasses.
+- **Visual explanation:** ``Checkout has-a PriceCalculator -> total``
+- **Practical example:**
+
+```python
+class Checkout:
+    def __init__(self, calculator):
+        self.calculator = calculator
+
+    def total(self, prices):
+        return self.calculator.sum(prices)
+```
+
+### Cohesion and coupling
+- **Definition:** Cohesion keeps related behavior together; low coupling lets an object depend on a narrow collaborator contract.
+- **Visual explanation:** ``cohesive object + narrow boundary -> replaceable parts``
+- **Practical example:**
+
+```python
+class Notifier:
+    def send_receipt(self, order, sender):
+        sender(order.customer_email, order.receipt())
+```
+
+## Infographic Summary
+
+| Infographic Block | Topic-specific guidance |
+| --- | --- |
+| 📌 Concept | Objects and responsibilities, Composition, Cohesion and coupling |
+| ⚡ Purpose | It provides a vocabulary for modeling changing state, responsibilities, and collaborations without turning every value into a class. |
+| 🔥 Benefits | Clear responsibility boundaries, replaceable collaborators, and behavior-focused tests. |
+| 🎯 Use Cases | business domain models, GUI components, service layers and plugins |
+| 🚀 Best Practices | Model a meaningful responsibility; prefer composition when the relationship is has-a. |
+| ❌ Common Mistakes | Creating data-only classes plus one oversized manager object. |
+
+## Syntax Guide
+
+### Basic Syntax
+
+```python
+class Temperature:
+    def __init__(self, celsius: float):
+        self.celsius = celsius
+
+    def fahrenheit(self) -> float:
+        return self.celsius * 9 / 5 + 32
+```
+
+### Standard Structure
+
+```python
+class OrderService:
+    def __init__(self, repository, payment_gateway):
+        self.repository = repository
+        self.payment_gateway = payment_gateway
+
+    def place(self, order):
+        self.payment_gateway.charge(order.total)
+        self.repository.save(order)
+```
+
+### Code Pattern
+
+```python
+# 1. Name the domain responsibility.
+# 2. Keep its invariants beside its state.
+# 3. Inject collaborators through a narrow interface.
+# 4. Test observable behavior, not internal attributes.
+```
+
+## Examples
+
+### Beginner Example
+
+```python
+class Counter:
+    def __init__(self):
+        self.value = 0
+
+    def increment(self):
+        self.value += 1
+
+counter = Counter()
+counter.increment()
+print(counter.value)
+```
+
+### Intermediate Example
+
+```python
+class PercentageDiscount:
+    def __init__(self, rate: float):
+        if not 0 <= rate <= 1:
+            raise ValueError("rate must be between 0 and 1")
+        self.rate = rate
+
+    def apply(self, amount: float) -> float:
+        return amount * (1 - self.rate)
+
+print(PercentageDiscount(0.2).apply(50))
+```
+
+### Advanced Example
+
+```python
+from dataclasses import dataclass
+from typing import Protocol
+
+class TaxPolicy(Protocol):
+    def tax_for(self, subtotal: float) -> float: ...
+
+@dataclass(frozen=True)
+class Order:
+    subtotal: float
+    tax_policy: TaxPolicy
+
+    @property
+    def total(self) -> float:
+        return self.subtotal + self.tax_policy.tax_for(self.subtotal)
+
+class FlatTax:
+    def tax_for(self, subtotal: float) -> float:
+        return subtotal * 0.1
+
+print(Order(100, FlatTax()).total)
+```
+
+## Workflow Diagram
+
+```mermaid
+flowchart LR
+    A[Identify domain responsibility] --> B[Define state invariants]
+    B --> C[Compose collaborators]
+    C --> D[Send messages between objects]
+    D --> E[Test behavior]
+```
+
+[Back to complete topic index](#complete-topic-index)
+
+---
+
+# Classes
+
+## Overview
+- **What is it?** Classes is the intermediate Python topic of defining reusable types that describe the data and behavior shared by their instances.
+- **Why is it important?** A class is the blueprint and namespace; it is not an individual runtime object.
+- **Where is it used?** validated domain types, framework models, reusable adapters.
+
+## Learning Objectives
+- Define instance, class, and static methods correctly.
+- Distinguish class attributes from instance attributes.
+- Use class methods as named alternative constructors.
+
+## Real World Applications
+- **Engineering:** Validated domain types rely on this topic.
+- **Product work:** It supports framework models.
+- **Operations:** It appears in reusable adapters.
+
+## Core Concepts
+
+### Class body and namespace
+- **Definition:** Executing a class statement creates a namespace and then a class object whose attributes come from that namespace.
+- **Visual explanation:** ``class statement -> namespace -> class object``
+- **Practical example:**
+
+```python
+class Plan:
+    currency = "USD"
+
+print(Plan.currency)
+```
+
+### Instance methods
+- **Definition:** An instance method is a function descriptor that binds the receiving instance to its first parameter, conventionally self.
+- **Visual explanation:** ``plan.price() -> Plan.price(plan)``
+- **Practical example:**
+
+```python
+class Plan:
+    def label(self):
+        return f"{self.name} plan"
+
+plan = Plan()
+plan.name = "Pro"
+print(plan.label())
+```
+
+### Class and static methods
+- **Definition:** A class method receives the class and supports polymorphic factories; a static method is namespaced utility code with no implicit receiver.
+- **Visual explanation:** ``cls factory | static utility``
+- **Practical example:**
+
+```python
+class User:
+    @classmethod
+    def guest(cls):
+        return cls("guest")
+
+    def __init__(self, name):
+        self.name = name
+```
+
+## Infographic Summary
+
+| Infographic Block | Topic-specific guidance |
+| --- | --- |
+| 📌 Concept | Class body and namespace, Instance methods, Class and static methods |
+| ⚡ Purpose | A class is the blueprint and namespace; it is not an individual runtime object. |
+| 🔥 Benefits | Reusable type definitions, shared behavior, and expressive construction APIs. |
+| 🎯 Use Cases | validated domain types, framework models, reusable adapters |
+| 🚀 Best Practices | Put shared constants on the class and per-object mutable state on each instance. |
+| ❌ Common Mistakes | Using a mutable class attribute as if every instance owned a separate value. |
+
+## Syntax Guide
+
+### Basic Syntax
+
+```python
+class Product:
+    category = "book"
+
+    def title_line(self):
+        return self.title.upper()
+```
+
+### Standard Structure
+
+```python
+class Distance:
+    def __init__(self, meters: float):
+        self.meters = meters
+
+    @classmethod
+    def from_kilometers(cls, kilometers: float):
+        return cls(kilometers * 1000)
+```
+
+### Code Pattern
+
+```python
+# Class attribute: shared definition-level data
+# Instance attribute: state unique to one object
+# Instance method: behavior using self
+# Class method: factory using cls
+```
+
+## Examples
+
+### Beginner Example
+
+```python
+class Greeter:
+    greeting = "Hello"
+
+    def greet(self, name):
+        return f"{self.greeting}, {name}"
+
+print(Greeter().greet("Ada"))
+```
+
+### Intermediate Example
+
+```python
+class InventoryItem:
+    tax_rate = 0.2
+
+    def __init__(self, name: str, net_price: float):
+        self.name = name
+        self.net_price = net_price
+
+    def gross_price(self) -> float:
+        return self.net_price * (1 + self.tax_rate)
+
+print(InventoryItem("Keyboard", 50).gross_price())
+```
+
+### Advanced Example
+
+```python
+class Color:
+    def __init__(self, red: int, green: int, blue: int):
+        self.red, self.green, self.blue = red, green, blue
+
+    @classmethod
+    def from_hex(cls, value: str):
+        value = value.removeprefix("#")
+        if len(value) != 6:
+            raise ValueError("expected six hexadecimal digits")
+        return cls(*(int(value[index:index + 2], 16) for index in (0, 2, 4)))
+
+    @staticmethod
+    def channel_is_valid(channel: int) -> bool:
+        return 0 <= channel <= 255
+
+print(vars(Color.from_hex("#336699")))
+```
+
+## Workflow Diagram
+
+```mermaid
+flowchart LR
+    A[Execute class body] --> B[Create class object]
+    B --> C[Call class]
+    C --> D[Bind methods to instance]
+    D --> E[Run behavior]
+```
+
+[Back to complete topic index](#complete-topic-index)
+
+---
+
+# Objects
+
+## Overview
+- **What is it?** Objects is the intermediate Python topic of working with concrete runtime instances that have identity, type, state, and behavior.
+- **Why is it important?** Understanding identity and references prevents accidental aliasing and clarifies when equality differs from sameness.
+- **Where is it used?** stateful entities, in-memory object graphs, dependency collaboration.
+
+## Learning Objectives
+- Explain identity, type, and value.
+- Recognize aliasing of mutable objects.
+- Inspect and compare objects intentionally.
+
+## Real World Applications
+- **Engineering:** Stateful entities rely on this topic.
+- **Product work:** It supports in-memory object graphs.
+- **Operations:** It appears in dependency collaboration.
+
+## Core Concepts
+
+### Identity and type
+- **Definition:** Every object has a stable identity during its lifetime and a type that determines its supported operations.
+- **Visual explanation:** ``reference -> object identity + type``
+- **Practical example:**
+
+```python
+item = {"sku": "A1"}
+alias = item
+print(alias is item, type(item).__name__)
+```
+
+### State
+- **Definition:** Object state is the data currently stored in an instance; methods may read or transition that state.
+- **Visual explanation:** ``method call: state before -> state after``
+- **Practical example:**
+
+```python
+class Lamp:
+    def turn_on(self):
+        self.is_on = True
+
+lamp = Lamp()
+lamp.turn_on()
+```
+
+### Aliasing and equality
+- **Definition:** Two names may reference one object; is checks identity while == asks the type to compare values.
+- **Visual explanation:** ``a is b: same object | a == b: equivalent value``
+- **Practical example:**
+
+```python
+first = [1, 2]
+second = list(first)
+print(first == second, first is second)
+```
+
+## Infographic Summary
+
+| Infographic Block | Topic-specific guidance |
+| --- | --- |
+| 📌 Concept | Identity and type, State, Aliasing and equality |
+| ⚡ Purpose | Understanding identity and references prevents accidental aliasing and clarifies when equality differs from sameness. |
+| 🔥 Benefits | Predictable identity, controlled state transitions, and safer handling of mutable references. |
+| 🎯 Use Cases | stateful entities, in-memory object graphs, dependency collaboration |
+| 🚀 Best Practices | Use is for singleton checks such as None and == for value comparison. |
+| ❌ Common Mistakes | Assuming assignment copies a mutable object. |
+
+## Syntax Guide
+
+### Basic Syntax
+
+```python
+customer = Customer("Ada")  # instantiate an object
+print(type(customer))
+print(customer.name)
+```
+
+### Standard Structure
+
+```python
+original = {"tags": ["python"]}
+alias = original
+copy = {"tags": list(original["tags"])}
+alias["tags"].append("oop")
+```
+
+### Code Pattern
+
+```python
+# 1. Create or receive an object.
+# 2. Keep only the references that need it.
+# 3. Invoke behavior through its public interface.
+# 4. Compare identity and value for the right purpose.
+```
+
+## Examples
+
+### Beginner Example
+
+```python
+class Note:
+    pass
+
+note = Note()
+note.text = "Learn object identity"
+print(note.text, type(note).__name__)
+```
+
+### Intermediate Example
+
+```python
+class Thermostat:
+    def __init__(self, target: float):
+        self.target = target
+
+    def adjust(self, change: float):
+        self.target += change
+
+hall = Thermostat(20)
+alias = hall
+alias.adjust(1.5)
+print(hall.target, alias is hall)
 ```
 
 ### Advanced Example
@@ -4623,879 +5715,128 @@ print(summarize_debugging_basics(["learn", "practice", "learn"]))
 from dataclasses import dataclass
 
 @dataclass(frozen=True)
-class DebuggingBasicsOutcome:
-    topic: str
-    evidence: str
+class Coordinate:
+    x: int
+    y: int
 
-outcome = DebuggingBasicsOutcome("Debugging Basics", "production-ready understanding")
-print(outcome)
+first = Coordinate(2, 3)
+equal_value = Coordinate(2, 3)
+same_object = first
+print(first == equal_value)
+print(first is equal_value)
+print(first is same_object)
+print({first: "origin offset"})
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Debugging Basics Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Class defines type] --> B[Call creates object]
+    B --> C[Name stores reference]
+    C --> D[Method observes or changes state]
+    D --> E[Object eventually becomes unreachable]
 ```
 
-[Back to topic index](#debugging-basics)
-
-
----
-
-# Virtual Environments
-
-## Overview
-- **What is it?** Virtual environments isolate project dependencies from system Python and other projects.
-- **Why is it important?** Keep packages reproducible and avoid version conflicts.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
-
-## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review virtual environments code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind virtual environments.
-- Expected outcome: you can use virtual environments in a small project and recognize when it belongs in production code.
-
-## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
-
-## Core Concepts
-
-### Mental Model
-- **Definition:** The main idea that gives virtual environments its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Virtual Environments model -> clear code`
-- **Practical example:**
-
-```python
-apply_virtual_environments_label = "Virtual Environments"
-print(apply_virtual_environments_label)
-```
-
-### Execution Flow
-- **Definition:** The ordered steps Python follows when virtual environments code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
-- **Practical example:**
-
-```python
-import platform
-print(platform.python_version())
-```
-
-### Quality Rule
-- **Definition:** The reliability habit that keeps virtual environments understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
-- **Practical example:**
-
-```python
-import sys
-
-if sys.version_info < (3, 12):
-    raise RuntimeError("Python 3.12 or newer is recommended")
-print("Python version is ready")
-```
-
-## Infographic Summary
-
-| Infographic Block | Key Message |
-| --- | --- |
-| 📌 Concept | Virtual Environments belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Keep packages reproducible and avoid version conflicts. |
-| 🔥 Benefits | Professional project setup, CI, collaboration, and deployments. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
-
-## Syntax Guide
-
-### Basic Syntax
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install requests
-```
-
-### Standard Structure
-
-```python
-def apply_virtual_environments(value):
-    """Apply the Virtual Environments concept to one value."""
-    return value
-
-result = apply_virtual_environments("practice")
-print(result)
-```
-
-### Code Pattern
-
-```python
-# 1. Identify the Virtual Environments problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
-```
-
-## Examples
-
-### Beginner Example
-
-```python
-import platform
-print(platform.python_version())
-```
-
-### Intermediate Example
-
-```python
-import sys
-
-if sys.version_info < (3, 12):
-    raise RuntimeError("Python 3.12 or newer is recommended")
-print("Python version is ready")
-```
-
-### Advanced Example
-
-```python
-from pathlib import Path
-import sys
-
-project = Path.cwd()
-print({"python": sys.version.split()[0], "project": project.name})
-```
-
-## Workflow Diagram
-
-```mermaid
-flowchart LR
-    A[Identify Virtual Environments Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
-```
-
-[Back to topic index](#virtual-environments)
-
-
----
-
-# Basic Project Structure
-
-## Overview
-- **What is it?** Basic project structure organizes source code, tests, docs, and configuration into predictable folders.
-- **Why is it important?** Make projects easier to navigate, test, and maintain.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
-
-## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review basic project structure code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind basic project structure.
-- Expected outcome: you can use basic project structure in a small project and recognize when it belongs in production code.
-
-## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
-
-## Core Concepts
-
-### Mental Model
-- **Definition:** The main idea that gives basic project structure its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Basic Project Structure model -> clear code`
-- **Practical example:**
-
-```python
-apply_basic_project_structure_label = "Basic Project Structure"
-print(apply_basic_project_structure_label)
-```
-
-### Execution Flow
-- **Definition:** The ordered steps Python follows when basic project structure code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
-- **Practical example:**
-
-```python
-message = "Run this file from your IDE"
-print(message)
-```
-
-### Quality Rule
-- **Definition:** The reliability habit that keeps basic project structure understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
-- **Practical example:**
-
-```python
-def format_name(first: str, last: str) -> str:
-    return f"{first.title()} {last.title()}"
-
-print(format_name("ada", "lovelace"))
-```
-
-## Infographic Summary
-
-| Infographic Block | Key Message |
-| --- | --- |
-| 📌 Concept | Basic Project Structure belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Make projects easier to navigate, test, and maintain. |
-| 🔥 Benefits | Team collaboration, onboarding, packaging, and scaling. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
-
-## Syntax Guide
-
-### Basic Syntax
-
-```python
-def add(left: int, right: int) -> int:
-    return left + right
-
-print(add(2, 3))
-```
-
-### Standard Structure
-
-```python
-def apply_basic_project_structure(value):
-    """Apply the Basic Project Structure concept to one value."""
-    return value
-
-result = apply_basic_project_structure("practice")
-print(result)
-```
-
-### Code Pattern
-
-```python
-# 1. Identify the Basic Project Structure problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
-```
-
-## Examples
-
-### Beginner Example
-
-```python
-message = "Run this file from your IDE"
-print(message)
-```
-
-### Intermediate Example
-
-```python
-def format_name(first: str, last: str) -> str:
-    return f"{first.title()} {last.title()}"
-
-print(format_name("ada", "lovelace"))
-```
-
-### Advanced Example
-
-```python
-import pdb
-
-values = [1, 2, 3]
-total = sum(values)
-# pdb.set_trace()
-print(total)
-```
-
-## Workflow Diagram
-
-```mermaid
-flowchart LR
-    A[Identify Basic Project Structure Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
-```
-
-[Back to topic index](#basic-project-structure)
-
-
----
-
----
-
-## Level 2: Intermediate
-
-Develop professional engineering habits for larger projects, integration work, testing, and maintainability.
-
-# Object Oriented Programming
-
-## Overview
-- **What is it?** Object Oriented Programming is a Python knowledge area focused on object-oriented design.
-- **Why is it important?** Help developers apply object-oriented design techniques safely, clearly, and consistently.
-- **Where is it used?** Domain modeling, application architecture, frameworks, and reusable components.
-
-## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review object oriented programming code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind object oriented programming.
-- Expected outcome: you can use object oriented programming in a small project and recognize when it belongs in production code.
-
-## Real World Applications
-- **Industry use cases:** Domain modeling, application architecture, frameworks, and reusable components.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
-
-## Core Concepts
-
-### Model
-- **Definition:** The main idea that gives object oriented programming its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Object Oriented Programming model -> clear code`
-- **Practical example:**
-
-```python
-apply_object_oriented_programming_label = "Object Oriented Programming"
-print(apply_object_oriented_programming_label)
-```
-
-### Interface
-- **Definition:** The ordered steps Python follows when object oriented programming code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
-- **Practical example:**
-
-```python
-class Dog:
-    def speak(self):
-        return "woof"
-
-print(Dog().speak())
-```
-
-### Behavior Rule
-- **Definition:** The reliability habit that keeps object oriented programming understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
-- **Practical example:**
-
-```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
-
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
-
-account = Account()
-account.deposit(50)
-print(account.balance)
-```
-
-## Infographic Summary
-
-| Infographic Block | Key Message |
-| --- | --- |
-| 📌 Concept | Object Oriented Programming belongs to the object-oriented design part of Python mastery. |
-| ⚡ Purpose | Help developers apply object-oriented design techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional object-oriented design decisions. |
-| 🎯 Use Cases | Domain modeling, application architecture, frameworks, and reusable components. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
-
-## Syntax Guide
-
-### Basic Syntax
-
-```python
-class Customer:
-    def __init__(self, name):
-        self.name = name
-```
-
-### Standard Structure
-
-```python
-def apply_object_oriented_programming(value):
-    """Apply the Object Oriented Programming concept to one value."""
-    return value
-
-result = apply_object_oriented_programming("practice")
-print(result)
-```
-
-### Code Pattern
-
-```python
-# 1. Identify the Object Oriented Programming problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
-```
-
-## Examples
-
-### Beginner Example
-
-```python
-class Dog:
-    def speak(self):
-        return "woof"
-
-print(Dog().speak())
-```
-
-### Intermediate Example
-
-```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
-
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
-
-account = Account()
-account.deposit(50)
-print(account.balance)
-```
-
-### Advanced Example
-
-```python
-from dataclasses import dataclass
-
-@dataclass
-class Order:
-    id: int
-    total: float
-
-    def is_large(self) -> bool:
-        return self.total >= 1000
-
-print(Order(1, 1200).is_large())
-```
-
-## Workflow Diagram
-
-```mermaid
-flowchart LR
-    A[Identify Object Oriented Programming Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
-```
-
-[Back to topic index](#object-oriented-programming)
-
-
----
-
-# Classes
-
-## Overview
-- **What is it?** Classes is a Python knowledge area focused on object-oriented design.
-- **Why is it important?** Help developers apply object-oriented design techniques safely, clearly, and consistently.
-- **Where is it used?** Domain modeling, application architecture, frameworks, and reusable components.
-
-## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review classes code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind classes.
-- Expected outcome: you can use classes in a small project and recognize when it belongs in production code.
-
-## Real World Applications
-- **Industry use cases:** Domain modeling, application architecture, frameworks, and reusable components.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
-
-## Core Concepts
-
-### Model
-- **Definition:** The main idea that gives classes its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Classes model -> clear code`
-- **Practical example:**
-
-```python
-apply_classes_label = "Classes"
-print(apply_classes_label)
-```
-
-### Interface
-- **Definition:** The ordered steps Python follows when classes code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
-- **Practical example:**
-
-```python
-class Dog:
-    def speak(self):
-        return "woof"
-
-print(Dog().speak())
-```
-
-### Behavior Rule
-- **Definition:** The reliability habit that keeps classes understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
-- **Practical example:**
-
-```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
-
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
-
-account = Account()
-account.deposit(50)
-print(account.balance)
-```
-
-## Infographic Summary
-
-| Infographic Block | Key Message |
-| --- | --- |
-| 📌 Concept | Classes belongs to the object-oriented design part of Python mastery. |
-| ⚡ Purpose | Help developers apply object-oriented design techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional object-oriented design decisions. |
-| 🎯 Use Cases | Domain modeling, application architecture, frameworks, and reusable components. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
-
-## Syntax Guide
-
-### Basic Syntax
-
-```python
-class Customer:
-    def __init__(self, name):
-        self.name = name
-```
-
-### Standard Structure
-
-```python
-def apply_classes(value):
-    """Apply the Classes concept to one value."""
-    return value
-
-result = apply_classes("practice")
-print(result)
-```
-
-### Code Pattern
-
-```python
-# 1. Identify the Classes problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
-```
-
-## Examples
-
-### Beginner Example
-
-```python
-class Dog:
-    def speak(self):
-        return "woof"
-
-print(Dog().speak())
-```
-
-### Intermediate Example
-
-```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
-
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
-
-account = Account()
-account.deposit(50)
-print(account.balance)
-```
-
-### Advanced Example
-
-```python
-from dataclasses import dataclass
-
-@dataclass
-class Order:
-    id: int
-    total: float
-
-    def is_large(self) -> bool:
-        return self.total >= 1000
-
-print(Order(1, 1200).is_large())
-```
-
-## Workflow Diagram
-
-```mermaid
-flowchart LR
-    A[Identify Classes Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
-```
-
-[Back to topic index](#classes)
-
-
----
-
-# Objects
-
-## Overview
-- **What is it?** Objects is a Python knowledge area focused on object-oriented design.
-- **Why is it important?** Help developers apply object-oriented design techniques safely, clearly, and consistently.
-- **Where is it used?** Domain modeling, application architecture, frameworks, and reusable components.
-
-## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review objects code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind objects.
-- Expected outcome: you can use objects in a small project and recognize when it belongs in production code.
-
-## Real World Applications
-- **Industry use cases:** Domain modeling, application architecture, frameworks, and reusable components.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
-
-## Core Concepts
-
-### Model
-- **Definition:** The main idea that gives objects its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Objects model -> clear code`
-- **Practical example:**
-
-```python
-apply_objects_label = "Objects"
-print(apply_objects_label)
-```
-
-### Interface
-- **Definition:** The ordered steps Python follows when objects code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
-- **Practical example:**
-
-```python
-class Dog:
-    def speak(self):
-        return "woof"
-
-print(Dog().speak())
-```
-
-### Behavior Rule
-- **Definition:** The reliability habit that keeps objects understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
-- **Practical example:**
-
-```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
-
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
-
-account = Account()
-account.deposit(50)
-print(account.balance)
-```
-
-## Infographic Summary
-
-| Infographic Block | Key Message |
-| --- | --- |
-| 📌 Concept | Objects belongs to the object-oriented design part of Python mastery. |
-| ⚡ Purpose | Help developers apply object-oriented design techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional object-oriented design decisions. |
-| 🎯 Use Cases | Domain modeling, application architecture, frameworks, and reusable components. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
-
-## Syntax Guide
-
-### Basic Syntax
-
-```python
-class Customer:
-    def __init__(self, name):
-        self.name = name
-```
-
-### Standard Structure
-
-```python
-def apply_objects(value):
-    """Apply the Objects concept to one value."""
-    return value
-
-result = apply_objects("practice")
-print(result)
-```
-
-### Code Pattern
-
-```python
-# 1. Identify the Objects problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
-```
-
-## Examples
-
-### Beginner Example
-
-```python
-class Dog:
-    def speak(self):
-        return "woof"
-
-print(Dog().speak())
-```
-
-### Intermediate Example
-
-```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
-
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
-
-account = Account()
-account.deposit(50)
-print(account.balance)
-```
-
-### Advanced Example
-
-```python
-from dataclasses import dataclass
-
-@dataclass
-class Order:
-    id: int
-    total: float
-
-    def is_large(self) -> bool:
-        return self.total >= 1000
-
-print(Order(1, 1200).is_large())
-```
-
-## Workflow Diagram
-
-```mermaid
-flowchart LR
-    A[Identify Objects Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
-```
-
-[Back to topic index](#objects)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Constructors
 
 ## Overview
-- **What is it?** Constructors is a Python knowledge area focused on object-oriented design.
-- **Why is it important?** Help developers apply object-oriented design techniques safely, clearly, and consistently.
-- **Where is it used?** Domain modeling, application architecture, frameworks, and reusable components.
+- **What is it?** Constructors is the intermediate Python topic of establishing valid instance state during object creation.
+- **Why is it important?** Python separates allocation in __new__ from initialization in __init__; most application classes customize only __init__.
+- **Where is it used?** validated value objects, dependency injection, alternative factories.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review constructors code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind constructors.
-- Expected outcome: you can use constructors in a small project and recognize when it belongs in production code.
+- Explain __new__ versus __init__.
+- Establish invariants before an instance is used.
+- Design keyword-only and alternative constructors.
 
 ## Real World Applications
-- **Industry use cases:** Domain modeling, application architecture, frameworks, and reusable components.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Validated value objects rely on this topic.
+- **Product work:** It supports dependency injection.
+- **Operations:** It appears in alternative factories.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives constructors its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Constructors model -> clear code`
+### Allocation and initialization
+- **Definition:** __new__ allocates and returns an instance; __init__ initializes the already-created instance and must return None.
+- **Visual explanation:** ``Class(args) -> __new__ -> instance -> __init__``
 - **Practical example:**
 
 ```python
-apply_constructors_label = "Constructors"
-print(apply_constructors_label)
+class Token:
+    def __init__(self, value):
+        self.value = value.strip()
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when constructors code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Constructor invariants
+- **Definition:** A constructor invariant is a condition guaranteed for every successfully initialized instance.
+- **Visual explanation:** ``raw arguments -> validation -> valid object``
 - **Practical example:**
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
-
-print(Dog().speak())
+class Quantity:
+    def __init__(self, value):
+        if value < 0:
+            raise ValueError("quantity cannot be negative")
+        self.value = value
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps constructors understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Alternative constructors
+- **Definition:** A class method can translate another representation and delegate final initialization to cls.
+- **Visual explanation:** ``external form -> @classmethod -> cls(...)``
 - **Practical example:**
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
-
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
-
-account = Account()
-account.deposit(50)
-print(account.balance)
+class DateKey:
+    @classmethod
+    def parse(cls, text):
+        year, month = map(int, text.split("-"))
+        return cls(year, month)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Constructors belongs to the object-oriented design part of Python mastery. |
-| ⚡ Purpose | Help developers apply object-oriented design techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional object-oriented design decisions. |
-| 🎯 Use Cases | Domain modeling, application architecture, frameworks, and reusable components. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Allocation and initialization, Constructor invariants, Alternative constructors |
+| ⚡ Purpose | Python separates allocation in __new__ from initialization in __init__; most application classes customize only __init__. |
+| 🔥 Benefits | Valid objects from creation time, centralized normalization, and readable alternative factories. |
+| 🎯 Use Cases | validated value objects, dependency injection, alternative factories |
+| 🚀 Best Practices | Validate required state once and make optional arguments explicit. |
+| ❌ Common Mistakes | Performing network or database work in __init__, making construction slow and failure-prone. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-class Customer:
-    def __init__(self, name):
-        self.name = name
+class User:
+    def __init__(self, username: str):
+        self.username = username
 ```
 
 ### Standard Structure
 
 ```python
-def apply_constructors(value):
-    """Apply the Constructors concept to one value."""
-    return value
-
-result = apply_constructors("practice")
-print(result)
+class Report:
+    def __init__(self, title: str, *, include_details: bool = False):
+        if not title.strip():
+            raise ValueError("title is required")
+        self.title = title.strip()
+        self.include_details = include_details
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Constructors problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# 1. Accept the minimum required inputs.
+# 2. Normalize and validate them.
+# 3. Assign every invariant-bearing attribute.
+# 4. Move alternate input formats to class methods.
 ```
 
 ## Examples
@@ -5503,157 +5844,168 @@ print(result)
 ### Beginner Example
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
+class Point:
+    def __init__(self, x: float, y: float):
+        self.x = x
+        self.y = y
 
-print(Dog().speak())
+print(vars(Point(2, 4)))
 ```
 
 ### Intermediate Example
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
+class EmailAddress:
+    def __init__(self, value: str):
+        normalized = value.strip().lower()
+        if normalized.count("@") != 1:
+            raise ValueError("invalid email address")
+        self.value = normalized
 
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
-
-account = Account()
-account.deposit(50)
-print(account.balance)
+print(EmailAddress(" ADA@EXAMPLE.COM ").value)
 ```
 
 ### Advanced Example
 
 ```python
-from dataclasses import dataclass
+class Money:
+    def __new__(cls, amount, currency="USD"):
+        if amount == 0:
+            return ZERO_USD if currency == "USD" and "ZERO_USD" in globals() else super().__new__(cls)
+        return super().__new__(cls)
 
-@dataclass
-class Order:
-    id: int
-    total: float
+    def __init__(self, amount, currency="USD"):
+        self.amount = amount
+        self.currency = currency
 
-    def is_large(self) -> bool:
-        return self.total >= 1000
+    @classmethod
+    def parse(cls, text: str):
+        currency, amount = text.split()
+        return cls(float(amount), currency)
 
-print(Order(1, 1200).is_large())
+ZERO_USD = Money(0)
+print(Money.parse("EUR 19.95").currency)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Constructors Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Call class] --> B[__new__ allocates]
+    B --> C[__init__ validates]
+    C --> D[Store invariant state]
+    D --> E[Return initialized instance]
 ```
 
-[Back to topic index](#constructors)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Encapsulation
 
 ## Overview
-- **What is it?** Encapsulation is a Python knowledge area focused on object-oriented design.
-- **Why is it important?** Help developers apply object-oriented design techniques safely, clearly, and consistently.
-- **Where is it used?** Domain modeling, application architecture, frameworks, and reusable components.
+- **What is it?** Encapsulation is the intermediate Python topic of protecting invariants behind a small public interface.
+- **Why is it important?** Python uses conventions, properties, and name mangling rather than absolute private access control.
+- **Where is it used?** validated account state, stable library APIs, replaceable implementations.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review encapsulation code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind encapsulation.
-- Expected outcome: you can use encapsulation in a small project and recognize when it belongs in production code.
+- Design public and non-public interfaces.
+- Use properties for controlled attribute access.
+- Explain why name mangling is not security.
 
 ## Real World Applications
-- **Industry use cases:** Domain modeling, application architecture, frameworks, and reusable components.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Validated account state rely on this topic.
+- **Product work:** It supports stable library APIs.
+- **Operations:** It appears in replaceable implementations.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives encapsulation its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Encapsulation model -> clear code`
+### Public interface
+- **Definition:** A public interface is the supported set of attributes and methods callers may depend on.
+- **Visual explanation:** ``caller -> public methods -> internal state``
 - **Practical example:**
 
 ```python
-apply_encapsulation_label = "Encapsulation"
-print(apply_encapsulation_label)
+class QueueDepth:
+    def __init__(self):
+        self._value = 0
+
+    def increment(self):
+        self._value += 1
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when encapsulation code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Properties
+- **Definition:** A property preserves attribute-style access while centralizing validation or computed behavior.
+- **Visual explanation:** ``assignment -> setter validation -> _stored value``
 - **Practical example:**
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
-
-print(Dog().speak())
+class Score:
+    @property
+    def value(self):
+        return self._value
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps encapsulation understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Underscores and mangling
+- **Definition:** A leading underscore signals non-public API; double-leading names are class-mangled mainly to avoid subclass collisions.
+- **Visual explanation:** ``_internal: convention | __name: _Class__name``
 - **Practical example:**
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
-
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
-
-account = Account()
-account.deposit(50)
-print(account.balance)
+class Base:
+    def __init__(self):
+        self.__version = 1
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Encapsulation belongs to the object-oriented design part of Python mastery. |
-| ⚡ Purpose | Help developers apply object-oriented design techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional object-oriented design decisions. |
-| 🎯 Use Cases | Domain modeling, application architecture, frameworks, and reusable components. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Public interface, Properties, Underscores and mangling |
+| ⚡ Purpose | Python uses conventions, properties, and name mangling rather than absolute private access control. |
+| 🔥 Benefits | Protected invariants, stable public APIs, and freedom to change internal representation. |
+| 🎯 Use Cases | validated account state, stable library APIs, replaceable implementations |
+| 🚀 Best Practices | Expose behavior that preserves invariants instead of mutable internal containers. |
+| ❌ Common Mistakes | Treating double underscores as a security boundary. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-class Customer:
-    def __init__(self, name):
-        self.name = name
+class Wallet:
+    def __init__(self):
+        self._balance = 0
+
+    def deposit(self, amount):
+        self._balance += amount
 ```
 
 ### Standard Structure
 
 ```python
-def apply_encapsulation(value):
-    """Apply the Encapsulation concept to one value."""
-    return value
+class Percentage:
+    def __init__(self, value: float):
+        self.value = value
 
-result = apply_encapsulation("practice")
-print(result)
+    @property
+    def value(self) -> float:
+        return self._value
+
+    @value.setter
+    def value(self, candidate: float):
+        if not 0 <= candidate <= 100:
+            raise ValueError("percentage out of range")
+        self._value = candidate
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Encapsulation problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Public method -> validate request
+# Internal state -> update atomically
+# Read-only property -> expose safe observation
+# Leading underscore -> mark implementation detail
 ```
 
 ## Examples
@@ -5661,157 +6013,185 @@ print(result)
 ### Beginner Example
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
+class Light:
+    def __init__(self):
+        self._is_on = False
 
-print(Dog().speak())
+    def switch_on(self):
+        self._is_on = True
+
+    def status(self):
+        return "on" if self._is_on else "off"
+
+light = Light()
+light.switch_on()
+print(light.status())
 ```
 
 ### Intermediate Example
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
+class BankAccount:
+    def __init__(self, opening_balance: float = 0):
+        if opening_balance < 0:
+            raise ValueError("negative opening balance")
+        self._balance = opening_balance
 
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
+    @property
+    def balance(self) -> float:
+        return self._balance
 
-account = Account()
-account.deposit(50)
+    def withdraw(self, amount: float):
+        if amount <= 0 or amount > self._balance:
+            raise ValueError("invalid withdrawal")
+        self._balance -= amount
+
+account = BankAccount(100)
+account.withdraw(25)
 print(account.balance)
 ```
 
 ### Advanced Example
 
 ```python
-from dataclasses import dataclass
+class Playlist:
+    def __init__(self, tracks=()):
+        self.__tracks = list(tracks)
 
-@dataclass
-class Order:
-    id: int
-    total: float
+    @property
+    def tracks(self) -> tuple[str, ...]:
+        return tuple(self.__tracks)
 
-    def is_large(self) -> bool:
-        return self.total >= 1000
+    def add(self, track: str):
+        if not track.strip():
+            raise ValueError("track title is required")
+        self.__tracks.append(track.strip())
 
-print(Order(1, 1200).is_large())
+playlist = Playlist(["Intro"])
+snapshot = playlist.tracks
+playlist.add("Finale")
+print(snapshot, playlist.tracks)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Encapsulation Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Caller uses public API] --> B[Validate operation]
+    B --> C[Protect invariant]
+    C --> D[Update internal state]
+    D --> E[Return safe view]
 ```
 
-[Back to topic index](#encapsulation)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Inheritance
 
 ## Overview
-- **What is it?** Inheritance is a Python knowledge area focused on object-oriented design.
-- **Why is it important?** Help developers apply object-oriented design techniques safely, clearly, and consistently.
-- **Where is it used?** Domain modeling, application architecture, frameworks, and reusable components.
+- **What is it?** Inheritance is the intermediate Python topic of specializing behavior through an is-a relationship between classes.
+- **Why is it important?** Inheritance can reuse and extend contracts, but composition is safer when substitutability does not hold.
+- **Where is it used?** framework extension points, exception hierarchies, related domain variants.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review inheritance code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind inheritance.
-- Expected outcome: you can use inheritance in a small project and recognize when it belongs in production code.
+- Apply is-a and substitutability tests.
+- Override methods and use super correctly.
+- Understand method resolution order.
 
 ## Real World Applications
-- **Industry use cases:** Domain modeling, application architecture, frameworks, and reusable components.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Framework extension points rely on this topic.
+- **Product work:** It supports exception hierarchies.
+- **Operations:** It appears in related domain variants.
 
 ## Core Concepts
 
-### Model
-- **Definition:** The main idea that gives inheritance its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Inheritance model -> clear code`
+### Subclass relationship
+- **Definition:** A subclass inherits attributes and should remain usable wherever its base-class contract is expected.
+- **Visual explanation:** ``Dog is-an Animal -> inherited interface``
 - **Practical example:**
 
 ```python
-apply_inheritance_label = "Inheritance"
-print(apply_inheritance_label)
+class Animal:
+    def move(self):
+        return "moving"
+
+class Bird(Animal):
+    pass
 ```
 
-### Interface
-- **Definition:** The ordered steps Python follows when inheritance code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Overriding and super
+- **Definition:** Overriding replaces inherited behavior; super delegates to the next implementation in the method resolution order.
+- **Visual explanation:** ``subclass method -> super() -> next MRO method``
 - **Practical example:**
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
-
-print(Dog().speak())
+class TrackedList(list):
+    def append(self, value):
+        print("adding", value)
+        super().append(value)
 ```
 
-### Behavior Rule
-- **Definition:** The reliability habit that keeps inheritance understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Method resolution order
+- **Definition:** The MRO is the deterministic class search order used for attributes, including cooperative multiple inheritance.
+- **Visual explanation:** ``Child.__mro__: Child -> mixins -> Base -> object``
 - **Practical example:**
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
+class JsonMixin:
+    def format(self):
+        return "{}"
 
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
-
-account = Account()
-account.deposit(50)
-print(account.balance)
+class Response(JsonMixin):
+    pass
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Inheritance belongs to the object-oriented design part of Python mastery. |
-| ⚡ Purpose | Help developers apply object-oriented design techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional object-oriented design decisions. |
-| 🎯 Use Cases | Domain modeling, application architecture, frameworks, and reusable components. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Subclass relationship, Overriding and super, Method resolution order |
+| ⚡ Purpose | Inheritance can reuse and extend contracts, but composition is safer when substitutability does not hold. |
+| 🔥 Benefits | Focused specialization, framework extensibility, and reusable behavior where substitutability holds. |
+| 🎯 Use Cases | framework extension points, exception hierarchies, related domain variants |
+| 🚀 Best Practices | Inherit only when the subtype honors the complete base contract. |
+| ❌ Common Mistakes | Inheriting solely to reuse one helper method. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-class Customer:
-    def __init__(self, name):
-        self.name = name
+class Employee:
+    def describe(self):
+        return "employee"
+
+class Manager(Employee):
+    pass
 ```
 
 ### Standard Structure
 
 ```python
-def apply_inheritance(value):
-    """Apply the Inheritance concept to one value."""
-    return value
+class Message:
+    def render(self):
+        raise NotImplementedError
 
-result = apply_inheritance("practice")
-print(result)
+class TextMessage(Message):
+    def __init__(self, text):
+        self.text = text
+
+    def render(self):
+        return self.text
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Inheritance problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# 1. Verify the subtype is-a base type.
+# 2. Preserve input and output expectations.
+# 3. Override only specialization points.
+# 4. Use super() for cooperative behavior.
 ```
 
 ## Examples
@@ -5819,157 +6199,167 @@ print(result)
 ### Beginner Example
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
+class Vehicle:
+    def description(self):
+        return "vehicle"
 
-print(Dog().speak())
+class Bicycle(Vehicle):
+    def description(self):
+        return "pedal bicycle"
+
+print(Bicycle().description())
 ```
 
 ### Intermediate Example
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
+class Notification:
+    def __init__(self, recipient: str):
+        self.recipient = recipient
 
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
+    def summary(self) -> str:
+        return f"to {self.recipient}"
 
-account = Account()
-account.deposit(50)
-print(account.balance)
+class EmailNotification(Notification):
+    def __init__(self, recipient: str, subject: str):
+        super().__init__(recipient)
+        self.subject = subject
+
+    def summary(self) -> str:
+        return f"{self.subject} {super().summary()}"
+
+print(EmailNotification("ada@example.com", "Welcome").summary())
 ```
 
 ### Advanced Example
 
 ```python
-from dataclasses import dataclass
+class AuditMixin:
+    def save(self):
+        print("audit before save")
+        return super().save()
 
-@dataclass
-class Order:
-    id: int
-    total: float
+class TimestampMixin:
+    def save(self):
+        print("timestamp before save")
+        return super().save()
 
-    def is_large(self) -> bool:
-        return self.total >= 1000
+class Record:
+    def save(self):
+        return "stored"
 
-print(Order(1, 1200).is_large())
+class AuditedRecord(AuditMixin, TimestampMixin, Record):
+    pass
+
+record = AuditedRecord()
+print(record.save())
+print([cls.__name__ for cls in AuditedRecord.__mro__])
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Inheritance Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Define base contract] --> B[Confirm is-a relationship]
+    B --> C[Create subclass]
+    C --> D[Override specialization]
+    D --> E[Resolve through MRO]
 ```
 
-[Back to topic index](#inheritance)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Polymorphism
 
 ## Overview
-- **What is it?** Polymorphism is a Python knowledge area focused on object-oriented design.
-- **Why is it important?** Help developers apply object-oriented design techniques safely, clearly, and consistently.
-- **Where is it used?** Domain modeling, application architecture, frameworks, and reusable components.
+- **What is it?** Polymorphism is the intermediate Python topic of using one operation with values of different concrete types.
+- **Why is it important?** Python commonly achieves polymorphism through duck typing and protocols, not only inheritance.
+- **Where is it used?** payment strategies, serializers, replaceable infrastructure adapters.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review polymorphism code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind polymorphism.
-- Expected outcome: you can use polymorphism in a small project and recognize when it belongs in production code.
+- Use duck typing safely.
+- Define structural contracts with Protocol.
+- Distinguish polymorphism from inheritance.
 
 ## Real World Applications
-- **Industry use cases:** Domain modeling, application architecture, frameworks, and reusable components.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Payment strategies rely on this topic.
+- **Product work:** It supports serializers.
+- **Operations:** It appears in replaceable infrastructure adapters.
 
 ## Core Concepts
 
-### Model
-- **Definition:** The main idea that gives polymorphism its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Polymorphism model -> clear code`
+### Duck typing
+- **Definition:** Duck typing accepts any object supporting the required operations, regardless of its inheritance tree.
+- **Visual explanation:** ``different types -> same required method -> caller``
 - **Practical example:**
 
 ```python
-apply_polymorphism_label = "Polymorphism"
-print(apply_polymorphism_label)
+def announce(item):
+    return item.label()
 ```
 
-### Interface
-- **Definition:** The ordered steps Python follows when polymorphism code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Substitution
+- **Definition:** Polymorphic implementations must preserve the caller-visible contract, including accepted inputs, results, and errors.
+- **Visual explanation:** ``contract -> implementation A | B | C``
 - **Practical example:**
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
-
-print(Dog().speak())
+def total(pricer, items):
+    return pricer.price(items)
 ```
 
-### Behavior Rule
-- **Definition:** The reliability habit that keeps polymorphism understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Protocols
+- **Definition:** A typing Protocol describes a structural interface that static checkers can verify without runtime inheritance.
+- **Visual explanation:** ``Protocol shape <- structurally matching classes``
 - **Practical example:**
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
+from typing import Protocol
 
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
-
-account = Account()
-account.deposit(50)
-print(account.balance)
+class Renderable(Protocol):
+    def render(self) -> str: ...
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Polymorphism belongs to the object-oriented design part of Python mastery. |
-| ⚡ Purpose | Help developers apply object-oriented design techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional object-oriented design decisions. |
-| 🎯 Use Cases | Domain modeling, application architecture, frameworks, and reusable components. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Duck typing, Substitution, Protocols |
+| ⚡ Purpose | Python commonly achieves polymorphism through duck typing and protocols, not only inheritance. |
+| 🔥 Benefits | Interchangeable implementations, smaller caller dependencies, and easier extension without type switches. |
+| 🎯 Use Cases | payment strategies, serializers, replaceable infrastructure adapters |
+| 🚀 Best Practices | Depend on the smallest behavior the caller actually needs. |
+| ❌ Common Mistakes | Using isinstance chains instead of asking objects to perform their behavior. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-class Customer:
-    def __init__(self, name):
-        self.name = name
+def print_area(shape):
+    print(shape.area())  # any object with area() works
 ```
 
 ### Standard Structure
 
 ```python
-def apply_polymorphism(value):
-    """Apply the Polymorphism concept to one value."""
-    return value
+from typing import Protocol
 
-result = apply_polymorphism("practice")
-print(result)
+class Compressor(Protocol):
+    def compress(self, data: bytes) -> bytes: ...
+
+def archive(data: bytes, compressor: Compressor) -> bytes:
+    return compressor.compress(data)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Polymorphism problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Caller depends on one operation.
+# Multiple unrelated types implement that operation.
+# Contract semantics stay consistent.
+# Select an implementation outside the caller.
 ```
 
 ## Examples
@@ -5977,157 +6367,168 @@ print(result)
 ### Beginner Example
 
 ```python
-class Dog:
+class Cat:
     def speak(self):
-        return "woof"
+        return "meow"
 
-print(Dog().speak())
+class Alarm:
+    def speak(self):
+        return "beep"
+
+for speaker in (Cat(), Alarm()):
+    print(speaker.speak())
 ```
 
 ### Intermediate Example
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
+class CardPayment:
+    def pay(self, cents: int) -> str:
+        return f"charged card {cents}"
 
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
+class WalletPayment:
+    def pay(self, cents: int) -> str:
+        return f"debited wallet {cents}"
 
-account = Account()
-account.deposit(50)
-print(account.balance)
+def checkout(method, cents: int) -> str:
+    return method.pay(cents)
+
+print(checkout(CardPayment(), 2500))
+print(checkout(WalletPayment(), 2500))
 ```
 
 ### Advanced Example
 
 ```python
 from dataclasses import dataclass
+from typing import Protocol
+
+class Formatter(Protocol):
+    def format(self, fields: dict[str, str]) -> str: ...
+
+class LineFormatter:
+    def format(self, fields: dict[str, str]) -> str:
+        return " | ".join(f"{key}={value}" for key, value in fields.items())
 
 @dataclass
-class Order:
-    id: int
-    total: float
+class Report:
+    fields: dict[str, str]
 
-    def is_large(self) -> bool:
-        return self.total >= 1000
+    def render(self, formatter: Formatter) -> str:
+        return formatter.format(self.fields)
 
-print(Order(1, 1200).is_large())
+print(Report({"status": "ok"}).render(LineFormatter()))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Polymorphism Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Define narrow operation] --> B[Implement in multiple types]
+    B --> C[Inject concrete value]
+    C --> D[Call through common contract]
+    D --> E[Swap implementation]
 ```
 
-[Back to topic index](#polymorphism)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Abstraction
 
 ## Overview
-- **What is it?** Abstraction is a Python knowledge area focused on object-oriented design.
-- **Why is it important?** Help developers apply object-oriented design techniques safely, clearly, and consistently.
-- **Where is it used?** Domain modeling, application architecture, frameworks, and reusable components.
+- **What is it?** Abstraction is the intermediate Python topic of exposing essential operations while hiding implementation details.
+- **Why is it important?** Abstraction controls what callers must know; Python supports informal interfaces, Protocol, and abstract base classes.
+- **Where is it used?** storage ports, plugin contracts, service boundaries.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review abstraction code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind abstraction.
-- Expected outcome: you can use abstraction in a small project and recognize when it belongs in production code.
+- Separate interface from implementation.
+- Use ABC when runtime enforcement is useful.
+- Avoid abstractions with only one speculative use.
 
 ## Real World Applications
-- **Industry use cases:** Domain modeling, application architecture, frameworks, and reusable components.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Storage ports rely on this topic.
+- **Product work:** It supports plugin contracts.
+- **Operations:** It appears in service boundaries.
 
 ## Core Concepts
 
-### Model
-- **Definition:** The main idea that gives abstraction its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Abstraction model -> clear code`
+### Interface boundary
+- **Definition:** An abstraction names the capability a caller needs without exposing how a concrete provider performs it.
+- **Visual explanation:** ``caller -> capability -> hidden implementation``
 - **Practical example:**
 
 ```python
-apply_abstraction_label = "Abstraction"
-print(apply_abstraction_label)
+def publish(message, channel):
+    channel.send(message)
 ```
 
-### Interface
-- **Definition:** The ordered steps Python follows when abstraction code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Abstract base classes
+- **Definition:** An ABC can prevent instantiation until subclasses implement methods marked abstractmethod.
+- **Visual explanation:** ``ABC contract -> concrete subclass -> instance``
 - **Practical example:**
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
+from abc import ABC, abstractmethod
 
-print(Dog().speak())
+class Store(ABC):
+    @abstractmethod
+    def get(self, key): ...
 ```
 
-### Behavior Rule
-- **Definition:** The reliability habit that keeps abstraction understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Dependency inversion
+- **Definition:** High-level policy depends on an abstraction supplied from outside rather than constructing low-level infrastructure.
+- **Visual explanation:** ``business policy -> port <- database adapter``
 - **Practical example:**
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
-
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
-
-account = Account()
-account.deposit(50)
-print(account.balance)
+class Catalog:
+    def __init__(self, repository):
+        self.repository = repository
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Abstraction belongs to the object-oriented design part of Python mastery. |
-| ⚡ Purpose | Help developers apply object-oriented design techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional object-oriented design decisions. |
-| 🎯 Use Cases | Domain modeling, application architecture, frameworks, and reusable components. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Interface boundary, Abstract base classes, Dependency inversion |
+| ⚡ Purpose | Abstraction controls what callers must know; Python supports informal interfaces, Protocol, and abstract base classes. |
+| 🔥 Benefits | Lower coupling, testable high-level policy, and replaceable infrastructure adapters. |
+| 🎯 Use Cases | storage ports, plugin contracts, service boundaries |
+| 🚀 Best Practices | Abstract around a stable capability at a real change boundary. |
+| ❌ Common Mistakes | Adding layers that merely rename one concrete method. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-class Customer:
-    def __init__(self, name):
-        self.name = name
+from abc import ABC, abstractmethod
+
+class Exporter(ABC):
+    @abstractmethod
+    def export(self, rows):
+        raise NotImplementedError
 ```
 
 ### Standard Structure
 
 ```python
-def apply_abstraction(value):
-    """Apply the Abstraction concept to one value."""
-    return value
+class BillingService:
+    def __init__(self, gateway):
+        self.gateway = gateway
 
-result = apply_abstraction("practice")
-print(result)
+    def bill(self, customer, cents):
+        return self.gateway.charge(customer, cents)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Abstraction problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# High-level code states the needed capability.
+# Concrete adapter implements that capability.
+# Composition root selects the adapter.
+# Tests supply a small in-memory implementation.
 ```
 
 ## Examples
@@ -6135,157 +6536,193 @@ print(result)
 ### Beginner Example
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
+from abc import ABC, abstractmethod
 
-print(Dog().speak())
+class Shape(ABC):
+    @abstractmethod
+    def area(self) -> float:
+        raise NotImplementedError
+
+class Square(Shape):
+    def __init__(self, side: float):
+        self.side = side
+
+    def area(self) -> float:
+        return self.side ** 2
+
+print(Square(4).area())
 ```
 
 ### Intermediate Example
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
+class MemoryRepository:
+    def __init__(self):
+        self.records = {}
 
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
+    def save(self, key, value):
+        self.records[key] = value
 
-account = Account()
-account.deposit(50)
-print(account.balance)
+class Registration:
+    def __init__(self, repository):
+        self.repository = repository
+
+    def register(self, username):
+        self.repository.save(username, {"active": True})
+
+repository = MemoryRepository()
+Registration(repository).register("ada")
+print(repository.records)
 ```
 
 ### Advanced Example
 
 ```python
-from dataclasses import dataclass
+from typing import Protocol
 
-@dataclass
-class Order:
-    id: int
-    total: float
+class KeyValueStore(Protocol):
+    def read(self, key: str) -> str | None: ...
+    def write(self, key: str, value: str) -> None: ...
 
-    def is_large(self) -> bool:
-        return self.total >= 1000
+class FeatureFlags:
+    def __init__(self, store: KeyValueStore):
+        self.store = store
 
-print(Order(1, 1200).is_large())
+    def enabled(self, name: str) -> bool:
+        return self.store.read(name) == "on"
+
+class DictStore:
+    def __init__(self):
+        self.data: dict[str, str] = {}
+
+    def read(self, key):
+        return self.data.get(key)
+
+    def write(self, key, value):
+        self.data[key] = value
+
+store = DictStore()
+store.write("search-v2", "on")
+print(FeatureFlags(store).enabled("search-v2"))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Abstraction Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Find changing detail] --> B[Name required capability]
+    B --> C[Define abstraction]
+    C --> D[Implement adapter]
+    D --> E[Inject into policy]
 ```
 
-[Back to topic index](#abstraction)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Magic Methods
 
 ## Overview
-- **What is it?** Magic Methods is a Python knowledge area focused on object-oriented design.
-- **Why is it important?** Help developers apply object-oriented design techniques safely, clearly, and consistently.
-- **Where is it used?** Domain modeling, application architecture, frameworks, and reusable components.
+- **What is it?** Magic Methods is the intermediate Python topic of integrating custom types with Python's data model through special methods.
+- **Why is it important?** Methods such as __repr__, __len__, and __eq__ let syntax and built-ins delegate to your type.
+- **Where is it used?** value objects, collection-like types, context-aware resources.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review magic methods code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind magic methods.
-- Expected outcome: you can use magic methods in a small project and recognize when it belongs in production code.
+- Map Python operations to special methods.
+- Return NotImplemented for unsupported comparisons.
+- Keep operator semantics unsurprising.
 
 ## Real World Applications
-- **Industry use cases:** Domain modeling, application architecture, frameworks, and reusable components.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Value objects rely on this topic.
+- **Product work:** It supports collection-like types.
+- **Operations:** It appears in context-aware resources.
 
 ## Core Concepts
 
-### Model
-- **Definition:** The main idea that gives magic methods its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Magic Methods model -> clear code`
+### Protocol hooks
+- **Definition:** A magic or dunder method is a data-model hook invoked by Python syntax or a built-in operation.
+- **Visual explanation:** ``len(box) -> box.__len__()``
 - **Practical example:**
 
 ```python
-apply_magic_methods_label = "Magic Methods"
-print(apply_magic_methods_label)
+class Box:
+    def __len__(self):
+        return 3
+
+print(len(Box()))
 ```
 
-### Interface
-- **Definition:** The ordered steps Python follows when magic methods code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Representations
+- **Definition:** __repr__ should provide an unambiguous developer-facing representation; __str__ may be friendlier for users.
+- **Visual explanation:** ``repr(object): diagnostic | str(object): display``
 - **Practical example:**
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
-
-print(Dog().speak())
+class Tag:
+    def __repr__(self):
+        return "Tag('python')"
 ```
 
-### Behavior Rule
-- **Definition:** The reliability habit that keeps magic methods understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Binary operation dispatch
+- **Definition:** For unsupported operand types, comparison and arithmetic hooks should return NotImplemented so reflected operations or errors can proceed.
+- **Visual explanation:** ``left.__add__ -> NotImplemented -> right.__radd__``
 - **Practical example:**
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
-
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
-
-account = Account()
-account.deposit(50)
-print(account.balance)
+class Distance:
+    def __eq__(self, other):
+        if not isinstance(other, Distance):
+            return NotImplemented
+        return self.meters == other.meters
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Magic Methods belongs to the object-oriented design part of Python mastery. |
-| ⚡ Purpose | Help developers apply object-oriented design techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional object-oriented design decisions. |
-| 🎯 Use Cases | Domain modeling, application architecture, frameworks, and reusable components. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Protocol hooks, Representations, Binary operation dispatch |
+| ⚡ Purpose | Methods such as __repr__, __len__, and __eq__ let syntax and built-ins delegate to your type. |
+| 🔥 Benefits | Custom types that compose naturally with Python syntax, operators, and built-ins. |
+| 🎯 Use Cases | value objects, collection-like types, context-aware resources |
+| 🚀 Best Practices | Implement only protocols whose semantics naturally fit the type. |
+| ❌ Common Mistakes | Calling special methods directly instead of using len(), iteration, or operators. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-class Customer:
-    def __init__(self, name):
-        self.name = name
+class Batch:
+    def __init__(self, records):
+        self.records = list(records)
+
+    def __len__(self):
+        return len(self.records)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_magic_methods(value):
-    """Apply the Magic Methods concept to one value."""
-    return value
+class Identifier:
+    def __init__(self, value):
+        self.value = value
 
-result = apply_magic_methods("practice")
-print(result)
+    def __repr__(self):
+        return f"Identifier({self.value!r})"
+
+    def __eq__(self, other):
+        if not isinstance(other, Identifier):
+            return NotImplemented
+        return self.value == other.value
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Magic Methods problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Python operation -> special-method protocol
+# Validate the other operand's type.
+# Return a value with conventional semantics.
+# Return NotImplemented when unsupported.
 ```
 
 ## Examples
@@ -6293,26 +6730,33 @@ print(result)
 ### Beginner Example
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
+class Playlist:
+    def __init__(self, tracks):
+        self.tracks = list(tracks)
 
-print(Dog().speak())
+    def __len__(self):
+        return len(self.tracks)
+
+playlist = Playlist(["Intro", "Finale"])
+print(len(playlist))
 ```
 
 ### Intermediate Example
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
+class Version:
+    def __init__(self, major: int, minor: int):
+        self.major, self.minor = major, minor
 
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
+    def __repr__(self):
+        return f"Version({self.major}, {self.minor})"
 
-account = Account()
-account.deposit(50)
-print(account.balance)
+    def __eq__(self, other):
+        if not isinstance(other, Version):
+            return NotImplemented
+        return (self.major, self.minor) == (other.major, other.minor)
+
+print(Version(3, 12), Version(3, 12) == Version(3, 12))
 ```
 
 ### Advanced Example
@@ -6320,126 +6764,138 @@ print(account.balance)
 ```python
 from dataclasses import dataclass
 
-@dataclass
-class Order:
-    id: int
-    total: float
+@dataclass(frozen=True)
+class Vector:
+    x: float
+    y: float
 
-    def is_large(self) -> bool:
-        return self.total >= 1000
+    def __add__(self, other):
+        if not isinstance(other, Vector):
+            return NotImplemented
+        return Vector(self.x + other.x, self.y + other.y)
 
-print(Order(1, 1200).is_large())
+    def __iter__(self):
+        yield self.x
+        yield self.y
+
+    def __bool__(self):
+        return bool(self.x or self.y)
+
+result = Vector(1, 2) + Vector(3, 4)
+print(tuple(result), bool(result))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Magic Methods Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Use Python syntax] --> B[Interpreter selects protocol]
+    B --> C[Invoke special method]
+    C --> D[Return conventional result]
+    D --> E[Compose with built-ins]
 ```
 
-[Back to topic index](#magic-methods)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Iterators
 
 ## Overview
-- **What is it?** Iterators is a Python knowledge area focused on professional Python patterns.
-- **Why is it important?** Help developers apply professional Python patterns techniques safely, clearly, and consistently.
-- **Where is it used?** Data exchange, observability, clean abstractions, and production utilities.
+- **What is it?** Iterators is the intermediate Python topic of representing pull-based streams that produce one item at a time.
+- **Why is it important?** An iterable creates an iterator; an iterator tracks traversal state and raises StopIteration when exhausted.
+- **Where is it used?** custom collections, streaming parsers, lazy data pipelines.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review iterators code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind iterators.
-- Expected outcome: you can use iterators in a small project and recognize when it belongs in production code.
+- Distinguish iterable from iterator.
+- Implement __iter__ and __next__.
+- Use iter(callable, sentinel) and iterator tools.
 
 ## Real World Applications
-- **Industry use cases:** Data exchange, observability, clean abstractions, and production utilities.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Custom collections rely on this topic.
+- **Product work:** It supports streaming parsers.
+- **Operations:** It appears in lazy data pipelines.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives iterators its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Iterators model -> clear code`
+### Iterable protocol
+- **Definition:** An iterable's __iter__ returns a fresh iterator or, for an iterator, itself.
+- **Visual explanation:** ``iterable --iter()--> iterator``
 - **Practical example:**
 
 ```python
-apply_iterators_label = "Iterators"
-print(apply_iterators_label)
+numbers = [1, 2]
+iterator = iter(numbers)
+print(next(iterator))
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when iterators code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Iterator protocol
+- **Definition:** An iterator's __next__ returns the next value and raises StopIteration permanently after exhaustion.
+- **Visual explanation:** ``next -> value -> ... -> StopIteration``
 - **Practical example:**
 
 ```python
-def countdown(start):
-    while start > 0:
-        yield start
-        start -= 1
-
-print(list(countdown(3)))
+iterator = iter("ab")
+print(next(iterator), next(iterator))
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps iterators understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Stateful consumption
+- **Definition:** Iterators are single-pass cursors; consuming through one reference advances the same underlying state.
+- **Visual explanation:** ``shared cursor: consumer A advances consumer B``
 - **Practical example:**
 
 ```python
-def read_batches(rows, size):
-    for index in range(0, len(rows), size):
-        yield rows[index:index + size]
-
-print(list(read_batches([1, 2, 3, 4], 2)))
+cursor = iter([10, 20, 30])
+first = next(cursor)
+rest = list(cursor)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Iterators belongs to the professional Python patterns part of Python mastery. |
-| ⚡ Purpose | Help developers apply professional Python patterns techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional professional Python patterns decisions. |
-| 🎯 Use Cases | Data exchange, observability, clean abstractions, and production utilities. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Iterable protocol, Iterator protocol, Stateful consumption |
+| ⚡ Purpose | An iterable creates an iterator; an iterator tracks traversal state and raises StopIteration when exhausted. |
+| 🔥 Benefits | Memory-efficient traversal, explicit single-pass state, and compatibility with Python iteration tools. |
+| 🎯 Use Cases | custom collections, streaming parsers, lazy data pipelines |
+| 🚀 Best Practices | Return a fresh iterator from reusable container objects. |
+| ❌ Common Mistakes | Expecting an exhausted iterator to restart automatically. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-def numbers():
-    yield 1
-    yield 2
+iterator = iter([10, 20])
+print(next(iterator))
+print(next(iterator))
 ```
 
 ### Standard Structure
 
 ```python
-def apply_iterators(value):
-    """Apply the Iterators concept to one value."""
-    return value
+class Countdown:
+    def __init__(self, start):
+        self.current = start
 
-result = apply_iterators("practice")
-print(result)
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.current <= 0:
+            raise StopIteration
+        value = self.current
+        self.current -= 1
+        return value
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Iterators problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Iterable produces an iterator.
+# Iterator owns traversal state.
+# __next__ returns one item.
+# Exhaustion is signaled with StopIteration.
 ```
 
 ## Examples
@@ -6447,142 +6903,168 @@ print(result)
 ### Beginner Example
 
 ```python
-def countdown(start):
-    while start > 0:
-        yield start
-        start -= 1
-
-print(list(countdown(3)))
+colors = ["red", "green", "blue"]
+cursor = iter(colors)
+print(next(cursor))
+print(list(cursor))
 ```
 
 ### Intermediate Example
 
 ```python
-def read_batches(rows, size):
-    for index in range(0, len(rows), size):
-        yield rows[index:index + size]
+class StepRange:
+    def __init__(self, start: int, stop: int, step: int):
+        self.current = start
+        self.stop = stop
+        self.step = step
 
-print(list(read_batches([1, 2, 3, 4], 2)))
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.current >= self.stop:
+            raise StopIteration
+        value = self.current
+        self.current += self.step
+        return value
+
+print(list(StepRange(1, 8, 2)))
 ```
 
 ### Advanced Example
 
 ```python
-def pipeline(values):
-    yield from (value * value for value in values if value % 2 == 0)
+class LogEntries:
+    def __init__(self, lines):
+        self.lines = list(lines)
 
-print(list(pipeline(range(10))))
+    def __iter__(self):
+        return LogEntryIterator(self.lines)
+
+class LogEntryIterator:
+    def __init__(self, lines):
+        self._source = iter(lines)
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        line = next(self._source)
+        timestamp, message = line.split(" ", 1)
+        return {"timestamp": timestamp, "message": message}
+
+entries = LogEntries(["09:00 started", "09:01 ready"])
+print(list(entries))
+print(list(entries))  # fresh traversal
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Iterators Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Request iter()] --> B[Obtain iterator]
+    B --> C[Call next()]
+    C --> D[Return item and advance]
+    D --> E[Raise StopIteration]
 ```
 
-[Back to topic index](#iterators)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Generators
 
 ## Overview
-- **What is it?** Generators is a Python knowledge area focused on professional Python patterns.
-- **Why is it important?** Help developers apply professional Python patterns techniques safely, clearly, and consistently.
-- **Where is it used?** Data exchange, observability, clean abstractions, and production utilities.
+- **What is it?** Generators is the intermediate Python topic of writing lazy iterators with yield and generator expressions.
+- **Why is it important?** A generator suspends its frame between values, providing iterator behavior without a manual state-machine class.
+- **Where is it used?** large-file pipelines, event streams, incremental transformations.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review generators code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind generators.
-- Expected outcome: you can use generators in a small project and recognize when it belongs in production code.
+- Explain yield suspension.
+- Contrast generator functions with ordinary functions.
+- Compose lazy pipelines without retaining all data.
 
 ## Real World Applications
-- **Industry use cases:** Data exchange, observability, clean abstractions, and production utilities.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Large-file pipelines rely on this topic.
+- **Product work:** It supports event streams.
+- **Operations:** It appears in incremental transformations.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives generators its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Generators model -> clear code`
+### Generator functions
+- **Definition:** Calling a function containing yield returns a generator immediately; its body runs only as values are requested.
+- **Visual explanation:** ``call -> generator; next -> run until yield -> suspend``
 - **Practical example:**
 
 ```python
-apply_generators_label = "Generators"
-print(apply_generators_label)
+def ids():
+    yield 1
+    yield 2
+
+print(list(ids()))
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when generators code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Generator state
+- **Definition:** Local variables and the instruction position remain stored in the suspended generator frame.
+- **Visual explanation:** ``yield value + preserve locals -> resume later``
 - **Practical example:**
 
 ```python
-def countdown(start):
-    while start > 0:
-        yield start
-        start -= 1
-
-print(list(countdown(3)))
+def countdown(n):
+    while n:
+        yield n
+        n -= 1
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps generators understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Lazy composition
+- **Definition:** Generator expressions and yield from connect stages so only demanded items move through the pipeline.
+- **Visual explanation:** ``source -> lazy filter -> lazy map -> consumer``
 - **Practical example:**
 
 ```python
-def read_batches(rows, size):
-    for index in range(0, len(rows), size):
-        yield rows[index:index + size]
-
-print(list(read_batches([1, 2, 3, 4], 2)))
+squares = (n * n for n in range(5))
+print(next(squares))
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Generators belongs to the professional Python patterns part of Python mastery. |
-| ⚡ Purpose | Help developers apply professional Python patterns techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional professional Python patterns decisions. |
-| 🎯 Use Cases | Data exchange, observability, clean abstractions, and production utilities. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Generator functions, Generator state, Lazy composition |
+| ⚡ Purpose | A generator suspends its frame between values, providing iterator behavior without a manual state-machine class. |
+| 🔥 Benefits | Lazy production, low memory use, and readable streaming pipelines without manual iterator classes. |
+| 🎯 Use Cases | large-file pipelines, event streams, incremental transformations |
+| 🚀 Best Practices | Use generators for single-pass streams and document whether iteration has side effects. |
+| ❌ Common Mistakes | Converting a generator to a list before streaming benefits are needed. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-def numbers():
-    yield 1
-    yield 2
+def even_numbers(limit):
+    for number in range(limit):
+        if number % 2 == 0:
+            yield number
 ```
 
 ### Standard Structure
 
 ```python
-def apply_generators(value):
-    """Apply the Generators concept to one value."""
-    return value
-
-result = apply_generators("practice")
-print(result)
+def normalized(lines):
+    for line in lines:
+        text = line.strip()
+        if text:
+            yield text.casefold()
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Generators problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Read one source item.
+# Transform or filter it.
+# yield one result and suspend.
+# Resume only when the consumer asks.
 ```
 
 ## Examples
@@ -6590,157 +7072,169 @@ print(result)
 ### Beginner Example
 
 ```python
-def countdown(start):
+def countdown(start: int):
     while start > 0:
         yield start
         start -= 1
 
-print(list(countdown(3)))
+for number in countdown(3):
+    print(number)
 ```
 
 ### Intermediate Example
 
 ```python
-def read_batches(rows, size):
-    for index in range(0, len(rows), size):
-        yield rows[index:index + size]
+def parsed_scores(lines):
+    for line in lines:
+        name, raw_score = line.split(",")
+        yield name, int(raw_score)
 
-print(list(read_batches([1, 2, 3, 4], 2)))
+passing = (
+    name
+    for name, score in parsed_scores(["Ada,91", "Lin,58", "Sam,84"])
+    if score >= 60
+)
+print(list(passing))
 ```
 
 ### Advanced Example
 
 ```python
-def pipeline(values):
-    yield from (value * value for value in values if value % 2 == 0)
+def read_chunks(text: str, size: int):
+    for start in range(0, len(text), size):
+        yield text[start:start + size]
 
-print(list(pipeline(range(10))))
+def nonblank(chunks):
+    for chunk in chunks:
+        cleaned = chunk.strip()
+        if cleaned:
+            yield cleaned
+
+def stream_document(text: str):
+    yield from nonblank(read_chunks(text, 5))
+
+stream = stream_document("alpha beta gamma")
+print(next(stream))
+print(list(stream))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Generators Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Call generator function] --> B[Receive suspended generator]
+    B --> C[Consumer calls next]
+    C --> D[Run to yield and suspend]
+    D --> E[Finish with StopIteration]
 ```
 
-[Back to topic index](#generators)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Decorators
 
 ## Overview
-- **What is it?** Decorators is a Python knowledge area focused on professional Python patterns.
-- **Why is it important?** Help developers apply professional Python patterns techniques safely, clearly, and consistently.
-- **Where is it used?** Data exchange, observability, clean abstractions, and production utilities.
+- **What is it?** Decorators is the intermediate Python topic of wrapping callables or classes to add reusable behavior declaratively.
+- **Why is it important?** Decorator syntax rebinds a name to the result of a transformation performed when the definition executes.
+- **Where is it used?** authorization checks, instrumentation, registration and caching.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review decorators code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind decorators.
-- Expected outcome: you can use decorators in a small project and recognize when it belongs in production code.
+- Translate @syntax into function application.
+- Preserve wrapped metadata.
+- Write parameterized and stateful decorators.
 
 ## Real World Applications
-- **Industry use cases:** Data exchange, observability, clean abstractions, and production utilities.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Authorization checks rely on this topic.
+- **Product work:** It supports instrumentation.
+- **Operations:** It appears in registration and caching.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives decorators its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Decorators model -> clear code`
+### Callable transformation
+- **Definition:** A function decorator receives a callable and returns the callable that should replace it.
+- **Visual explanation:** ``@trace def f -> f = trace(f)``
 - **Practical example:**
 
 ```python
-apply_decorators_label = "Decorators"
-print(apply_decorators_label)
-```
-
-### Execution Flow
-- **Definition:** The ordered steps Python follows when decorators code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
-- **Practical example:**
-
-```python
-def uppercase(func):
+def uppercase(function):
     def wrapper():
-        return func().upper()
+        return function().upper()
     return wrapper
-
-@uppercase
-def message():
-    return "hello"
-
-print(message())
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps decorators understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Closures and metadata
+- **Definition:** The wrapper closes over the original callable; functools.wraps copies metadata and exposes __wrapped__.
+- **Visual explanation:** ``wrapper closure -> original; wraps -> preserved identity``
 - **Practical example:**
 
 ```python
-import time
+from functools import wraps
 
-def timer(func):
+def traced(function):
+    @wraps(function)
     def wrapper(*args, **kwargs):
-        start = time.perf_counter()
-        result = func(*args, **kwargs)
-        print(round(time.perf_counter() - start, 6))
-        return result
+        return function(*args, **kwargs)
     return wrapper
+```
 
-@timer
-def work():
-    return sum(range(1000))
+### Decorator factories
+- **Definition:** A parameterized decorator adds an outer factory that captures configuration before receiving the target.
+- **Visual explanation:** ``@retry(3) -> factory(3) -> decorator -> wrapper``
+- **Practical example:**
 
-print(work())
+```python
+def tagged(label):
+    def decorate(function):
+        function.label = label
+        return function
+    return decorate
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Decorators belongs to the professional Python patterns part of Python mastery. |
-| ⚡ Purpose | Help developers apply professional Python patterns techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional professional Python patterns decisions. |
-| 🎯 Use Cases | Data exchange, observability, clean abstractions, and production utilities. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Callable transformation, Closures and metadata, Decorator factories |
+| ⚡ Purpose | Decorator syntax rebinds a name to the result of a transformation performed when the definition executes. |
+| 🔥 Benefits | Reusable cross-cutting behavior, declarative application, and consistent instrumentation or policy. |
+| 🎯 Use Cases | authorization checks, instrumentation, registration and caching |
+| 🚀 Best Practices | Keep wrappers transparent and use wraps unless intentionally changing the interface. |
+| ❌ Common Mistakes | Performing request-time work when the decorated function is defined. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-def decorator(func):
+def announce(function):
     def wrapper(*args, **kwargs):
-        return func(*args, **kwargs)
+        print(function.__name__)
+        return function(*args, **kwargs)
     return wrapper
 ```
 
 ### Standard Structure
 
 ```python
-def apply_decorators(value):
-    """Apply the Decorators concept to one value."""
-    return value
+from functools import wraps
 
-result = apply_decorators("practice")
-print(result)
+def require_nonempty(function):
+    @wraps(function)
+    def wrapper(value, *args, **kwargs):
+        if not value:
+            raise ValueError("value is required")
+        return function(value, *args, **kwargs)
+    return wrapper
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Decorators problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Factory captures decorator arguments (optional).
+# Decorator receives the target.
+# Wrapper runs before/after behavior.
+# functools.wraps preserves target metadata.
 ```
 
 ## Examples
@@ -6748,36 +7242,39 @@ print(result)
 ### Beginner Example
 
 ```python
-def uppercase(func):
-    def wrapper():
-        return func().upper()
+def excited(function):
+    def wrapper(name):
+        return function(name) + "!"
     return wrapper
 
-@uppercase
-def message():
-    return "hello"
+@excited
+def greet(name):
+    return f"Hello, {name}"
 
-print(message())
+print(greet("Ada"))
 ```
 
 ### Intermediate Example
 
 ```python
-import time
+from functools import wraps
+from time import perf_counter
 
-def timer(func):
+def timed(function):
+    @wraps(function)
     def wrapper(*args, **kwargs):
-        start = time.perf_counter()
-        result = func(*args, **kwargs)
-        print(round(time.perf_counter() - start, 6))
-        return result
+        started = perf_counter()
+        try:
+            return function(*args, **kwargs)
+        finally:
+            print(f"{function.__name__}: {perf_counter() - started:.6f}s")
     return wrapper
 
-@timer
-def work():
-    return sum(range(1000))
+@timed
+def total(values):
+    return sum(values)
 
-print(work())
+print(total(range(1000)))
 ```
 
 ### Advanced Example
@@ -6785,136 +7282,143 @@ print(work())
 ```python
 from functools import wraps
 
-def require_role(role: str):
-    def outer(func):
-        @wraps(func)
-        def inner(user, *args, **kwargs):
-            if user.get("role") != role:
-                raise PermissionError(role)
-            return func(user, *args, **kwargs)
-        return inner
-    return outer
+def retry(attempts: int, exceptions=(Exception,)):
+    if attempts < 1:
+        raise ValueError("attempts must be positive")
 
-@require_role("admin")
-def delete_user(user):
-    return "deleted"
+    def decorate(function):
+        @wraps(function)
+        def wrapper(*args, **kwargs):
+            for attempt in range(1, attempts + 1):
+                try:
+                    return function(*args, **kwargs)
+                except exceptions:
+                    if attempt == attempts:
+                        raise
+        return wrapper
+    return decorate
 
-print(delete_user({"role": "admin"}))
+@retry(3, (ConnectionError,))
+def connect():
+    return "connected"
+
+print(connect())
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Decorators Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Execute decorator factory] --> B[Pass target to decorator]
+    B --> C[Rebind name to wrapper]
+    C --> D[Call wrapper]
+    D --> E[Delegate to original callable]
 ```
 
-[Back to topic index](#decorators)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Context Managers
 
 ## Overview
-- **What is it?** Context Managers is a Python knowledge area focused on professional Python patterns.
-- **Why is it important?** Help developers apply professional Python patterns techniques safely, clearly, and consistently.
-- **Where is it used?** Data exchange, observability, clean abstractions, and production utilities.
+- **What is it?** Context Managers is the intermediate Python topic of pairing resource acquisition with reliable cleanup around a with block.
+- **Why is it important?** The context manager protocol guarantees __exit__ runs when control leaves the block, including through exceptions.
+- **Where is it used?** files and locks, database transactions, temporary state.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review context managers code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind context managers.
-- Expected outcome: you can use context managers in a small project and recognize when it belongs in production code.
+- Implement __enter__ and __exit__.
+- Use contextlib.contextmanager.
+- Decide whether an exception should be suppressed.
 
 ## Real World Applications
-- **Industry use cases:** Data exchange, observability, clean abstractions, and production utilities.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Files and locks rely on this topic.
+- **Product work:** It supports database transactions.
+- **Operations:** It appears in temporary state.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives context managers its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Context Managers model -> clear code`
+### Context protocol
+- **Definition:** __enter__ produces the bound value and __exit__ receives exception details while releasing resources.
+- **Visual explanation:** ``with -> __enter__ -> body -> __exit__``
 - **Practical example:**
 
 ```python
-apply_context_managers_label = "Context Managers"
-print(apply_context_managers_label)
+with open("notes.txt", "w", encoding="utf-8") as handle:
+    handle.write("safe cleanup")
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when context managers code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Exception handling
+- **Definition:** __exit__ returning truthy suppresses the active exception; returning falsey propagates it after cleanup.
+- **Visual explanation:** ``body error -> __exit__(type, value, traceback) -> suppress or raise``
 - **Practical example:**
 
 ```python
-from pathlib import Path
-
-with Path("note.txt").open("w", encoding="utf-8") as file:
-    file.write("safe write")
+class VisibleErrors:
+    def __enter__(self):
+        return self
+    def __exit__(self, exc_type, exc, tb):
+        return False
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps context managers understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Generator-based managers
+- **Definition:** contextmanager turns a one-yield generator into setup before yield and cleanup in finally.
+- **Visual explanation:** ``setup -> yield resource -> finally cleanup``
 - **Practical example:**
 
 ```python
 from contextlib import contextmanager
 
 @contextmanager
-def managed_resource():
-    print("open")
+def managed():
     try:
         yield "resource"
     finally:
-        print("close")
-
-with managed_resource() as resource:
-    print(resource)
+        pass
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Context Managers belongs to the professional Python patterns part of Python mastery. |
-| ⚡ Purpose | Help developers apply professional Python patterns techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional professional Python patterns decisions. |
-| 🎯 Use Cases | Data exchange, observability, clean abstractions, and production utilities. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Context protocol, Exception handling, Generator-based managers |
+| ⚡ Purpose | The context manager protocol guarantees __exit__ runs when control leaves the block, including through exceptions. |
+| 🔥 Benefits | Guaranteed cleanup, concise resource lifetimes, and reliable transaction or temporary-state handling. |
+| 🎯 Use Cases | files and locks, database transactions, temporary state |
+| 🚀 Best Practices | Keep acquisition and release adjacent and make cleanup idempotent where possible. |
+| ❌ Common Mistakes | Returning True from __exit__ accidentally and hiding real failures. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-with open("file.txt", "w", encoding="utf-8") as file:
-    file.write("data")
+with open("report.txt", "w", encoding="utf-8") as file:
+    file.write("complete")
 ```
 
 ### Standard Structure
 
 ```python
-def apply_context_managers(value):
-    """Apply the Context Managers concept to one value."""
-    return value
+from contextlib import contextmanager
 
-result = apply_context_managers("practice")
-print(result)
+@contextmanager
+def transaction(connection):
+    try:
+        yield connection
+        connection.commit()
+    except Exception:
+        connection.rollback()
+        raise
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Context Managers problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# __enter__: acquire and return resource
+# with body: use resource
+# __exit__: release in every exit path
+# False return: propagate active exception
 ```
 
 ## Examples
@@ -6922,118 +7426,132 @@ print(result)
 ### Beginner Example
 
 ```python
-from pathlib import Path
+from io import StringIO
 
-with Path("note.txt").open("w", encoding="utf-8") as file:
-    file.write("safe write")
+with StringIO() as buffer:
+    buffer.write("context-managed")
+    print(buffer.getvalue())
 ```
 
 ### Intermediate Example
 
 ```python
-from contextlib import contextmanager
+class TemporarySetting:
+    def __init__(self, settings, key, value):
+        self.settings, self.key, self.value = settings, key, value
 
-@contextmanager
-def managed_resource():
-    print("open")
-    try:
-        yield "resource"
-    finally:
-        print("close")
+    def __enter__(self):
+        self.previous = self.settings.get(self.key)
+        self.settings[self.key] = self.value
+        return self.settings
 
-with managed_resource() as resource:
-    print(resource)
+    def __exit__(self, exc_type, exc, traceback):
+        if self.previous is None:
+            self.settings.pop(self.key, None)
+        else:
+            self.settings[self.key] = self.previous
+        return False
+
+settings = {"mode": "normal"}
+with TemporarySetting(settings, "mode", "debug"):
+    print(settings)
+print(settings)
 ```
 
 ### Advanced Example
 
 ```python
-from contextlib import ExitStack
-from pathlib import Path
+from contextlib import ExitStack, contextmanager
 
-paths = [Path("a.txt"), Path("b.txt")]
+@contextmanager
+def resource(name):
+    print("open", name)
+    try:
+        yield name
+    finally:
+        print("close", name)
+
+names = ["input", "output", "audit"]
 with ExitStack() as stack:
-    files = [stack.enter_context(path.open("w", encoding="utf-8")) for path in paths]
-    for file in files:
-        file.write("ok")
+    opened = [stack.enter_context(resource(name)) for name in names]
+    print("using", opened)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Context Managers Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Evaluate manager] --> B[Call __enter__]
+    B --> C[Execute with body]
+    C --> D[Call __exit__ with outcome]
+    D --> E[Release and propagate or suppress]
 ```
 
-[Back to topic index](#context-managers)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Regular Expressions
 
 ## Overview
-- **What is it?** Regular Expressions is a Python knowledge area focused on professional Python patterns.
-- **Why is it important?** Help developers apply professional Python patterns techniques safely, clearly, and consistently.
-- **Where is it used?** Data exchange, observability, clean abstractions, and production utilities.
+- **What is it?** Regular Expressions is the intermediate Python topic of describing and extracting structured text with compiled patterns.
+- **Why is it important?** Regex is effective for local text grammars but should not replace a parser for deeply nested formats.
+- **Where is it used?** input validation, log extraction, search and redaction.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review regular expressions code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind regular expressions.
-- Expected outcome: you can use regular expressions in a small project and recognize when it belongs in production code.
+- Use raw strings, groups, and quantifiers.
+- Choose match, search, fullmatch, and finditer.
+- Control backtracking with precise patterns.
 
 ## Real World Applications
-- **Industry use cases:** Data exchange, observability, clean abstractions, and production utilities.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Input validation rely on this topic.
+- **Product work:** It supports log extraction.
+- **Operations:** It appears in search and redaction.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives regular expressions its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Regular Expressions model -> clear code`
-- **Practical example:**
-
-```python
-apply_regular_expressions_label = "Regular Expressions"
-print(apply_regular_expressions_label)
-```
-
-### Execution Flow
-- **Definition:** The ordered steps Python follows when regular expressions code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Pattern language
+- **Definition:** A regex combines literals, character classes, quantifiers, and anchors to describe matching text.
+- **Visual explanation:** ``text -> pattern engine -> match spans``
 - **Practical example:**
 
 ```python
 import re
-print(bool(re.search(r"python", "learn python")))
+print(bool(re.fullmatch(r"[A-Z]{2}-\d{4}", "GB-2048")))
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps regular expressions understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Groups and captures
+- **Definition:** Parentheses group expressions; named capturing groups expose meaningful substrings through a Match object.
+- **Visual explanation:** ``(?P<name>...) -> match.group('name')``
 - **Practical example:**
 
 ```python
 import re
+match = re.search(r"order=(?P<id>\d+)", "order=42")
+print(match.group("id") if match else None)
+```
 
-emails = re.findall(r"[\w.-]+@[\w.-]+", "Contact a@x.com and b@y.com")
-print(emails)
+### Compilation and boundaries
+- **Definition:** Compiled patterns reuse intent and flags; anchors or fullmatch prevent accepting an unintended substring.
+- **Visual explanation:** ``compile once -> fullmatch many inputs``
+- **Practical example:**
+
+```python
+import re
+slug = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
+print(bool(slug.fullmatch("python-patterns")))
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Regular Expressions belongs to the professional Python patterns part of Python mastery. |
-| ⚡ Purpose | Help developers apply professional Python patterns techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional professional Python patterns decisions. |
-| 🎯 Use Cases | Data exchange, observability, clean abstractions, and production utilities. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Pattern language, Groups and captures, Compilation and boundaries |
+| ⚡ Purpose | Regex is effective for local text grammars but should not replace a parser for deeply nested formats. |
+| 🔥 Benefits | Concise text validation, structured capture, and repeatable search or redaction rules. |
+| 🎯 Use Cases | input validation, log extraction, search and redaction |
+| 🚀 Best Practices | Use raw string literals and test valid, invalid, and adversarial inputs. |
+| ❌ Common Mistakes | Using .* greedily when a bounded character class expresses the grammar. |
 
 ## Syntax Guide
 
@@ -7041,26 +7559,29 @@ print(emails)
 
 ```python
 import re
-match = re.search(r"\d+", "Order 42")
+match = re.search(r"\d+", "invoice 204")
+if match:
+    print(match.group())
 ```
 
 ### Standard Structure
 
 ```python
-def apply_regular_expressions(value):
-    """Apply the Regular Expressions concept to one value."""
-    return value
+import re
 
-result = apply_regular_expressions("practice")
-print(result)
+DATE = re.compile(
+    r"(?P<year>\d{4})-(?P<month>0[1-9]|1[0-2])-(?P<day>\d{2})"
+)
+match = DATE.fullmatch("2026-07-20")
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Regular Expressions problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Define the accepted text grammar.
+# Anchor the match to the required boundary.
+# Capture only fields the program needs.
+# Handle the possibility of no match.
 ```
 
 ## Examples
@@ -7069,7 +7590,9 @@ print(result)
 
 ```python
 import re
-print(bool(re.search(r"python", "learn python")))
+
+words = re.findall(r"\bpy\w*", "Python powers pytests and pydantic", re.IGNORECASE)
+print(words)
 ```
 
 ### Intermediate Example
@@ -7077,8 +7600,14 @@ print(bool(re.search(r"python", "learn python")))
 ```python
 import re
 
-emails = re.findall(r"[\w.-]+@[\w.-]+", "Contact a@x.com and b@y.com")
-print(emails)
+LOG_LINE = re.compile(
+    r"^(?P<level>INFO|WARN|ERROR) "
+    r"(?P<code>[A-Z]\d{3}) "
+    r"(?P<message>.+)$"
+)
+match = LOG_LINE.fullmatch("ERROR E503 service unavailable")
+if match:
+    print(match.groupdict())
 ```
 
 ### Advanced Example
@@ -7086,88 +7615,96 @@ print(emails)
 ```python
 import re
 
-pattern = re.compile(r"(?P<status>\d{3}) (?P<path>/\S+)")
-match = pattern.search("200 /api/users")
-print(match.groupdict() if match else {})
+SECRET = re.compile(
+    r"(?P<prefix>api[_-]?key\s*[=:]\s*)"
+    r"(?P<value>[A-Za-z0-9_-]{8,})",
+    re.IGNORECASE,
+)
+
+def redact(text: str) -> str:
+    return SECRET.sub(lambda match: match["prefix"] + "***", text)
+
+line = "user=ada api_key=abcDEF123456 status=ok"
+print(redact(line))
+print([(m.start(), m.group("value")) for m in SECRET.finditer(line)])
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Regular Expressions Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Define text grammar] --> B[Compile pattern]
+    B --> C[Select matching operation]
+    C --> D[Inspect captures]
+    D --> E[Validate or transform result]
 ```
 
-[Back to topic index](#regular-expressions)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # JSON Processing
 
 ## Overview
-- **What is it?** JSON Processing is a Python knowledge area focused on professional Python patterns.
-- **Why is it important?** Help developers apply professional Python patterns techniques safely, clearly, and consistently.
-- **Where is it used?** Data exchange, observability, clean abstractions, and production utilities.
+- **What is it?** JSON Processing is the intermediate Python topic of encoding and decoding interoperable JSON documents.
+- **Why is it important?** JSON maps to a limited data model, so applications must validate shape and explicitly adapt dates, decimals, and custom objects.
+- **Where is it used?** API payloads, configuration files, event messages.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review json processing code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind json processing.
-- Expected outcome: you can use json processing in a small project and recognize when it belongs in production code.
+- Use loads/dumps and load/dump.
+- Validate decoded structures.
+- Customize encoding without losing type intent.
 
 ## Real World Applications
-- **Industry use cases:** Data exchange, observability, clean abstractions, and production utilities.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Api payloads rely on this topic.
+- **Product work:** It supports configuration files.
+- **Operations:** It appears in event messages.
 
 ## Core Concepts
 
-### Task Unit
-- **Definition:** The main idea that gives json processing its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> JSON Processing model -> clear code`
-- **Practical example:**
-
-```python
-apply_json_processing_label = "JSON Processing"
-print(apply_json_processing_label)
-```
-
-### Scheduler or Worker
-- **Definition:** The ordered steps Python follows when json processing code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### JSON data model
+- **Definition:** JSON supports objects, arrays, strings, numbers, booleans, and null, mapped to Python dict, list, str, numeric, bool, and None.
+- **Visual explanation:** ``JSON text <-> Python primitive graph``
 - **Practical example:**
 
 ```python
 import json
-print(json.dumps({"language": "Python"}))
+payload = json.loads('{"active": true}')
+print(payload["active"])
 ```
 
-### Coordination Rule
-- **Definition:** The reliability habit that keeps json processing understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Serialization
+- **Definition:** Serialization encodes Python-compatible values to text; ensure_ascii, indent, and separators control representation.
+- **Visual explanation:** ``Python values -> json.dumps -> UTF-8 text``
 - **Practical example:**
 
 ```python
 import json
+print(json.dumps({"name": "Zoë"}, ensure_ascii=False))
+```
 
-raw = "{\"items\": [1, 2, 3]}"
-payload = json.loads(raw)
-print(sum(payload["items"]))
+### Validation and customization
+- **Definition:** Decoding proves only valid JSON syntax; code must validate required keys and convert domain-specific values.
+- **Visual explanation:** ``decode -> shape validation -> domain conversion``
+- **Practical example:**
+
+```python
+import json
+data = json.loads('{"quantity": 2}')
+if not isinstance(data.get("quantity"), int):
+    raise ValueError("integer quantity required")
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | JSON Processing belongs to the professional Python patterns part of Python mastery. |
-| ⚡ Purpose | Help developers apply professional Python patterns techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional professional Python patterns decisions. |
-| 🎯 Use Cases | Data exchange, observability, clean abstractions, and production utilities. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | JSON data model, Serialization, Validation and customization |
+| ⚡ Purpose | JSON maps to a limited data model, so applications must validate shape and explicitly adapt dates, decimals, and custom objects. |
+| 🔥 Benefits | Interoperable payloads, explicit data validation, and controlled domain-type conversion. |
+| 🎯 Use Cases | API payloads, configuration files, event messages |
+| 🚀 Best Practices | Treat decoded JSON as untrusted input and validate its structure before use. |
+| ❌ Common Mistakes | Assuming every Python object can be serialized losslessly. |
 
 ## Syntax Guide
 
@@ -7175,26 +7712,29 @@ print(sum(payload["items"]))
 
 ```python
 import json
-data = json.loads("{\"name\": \"Ada\"}")
+
+text = json.dumps({"status": "ok", "count": 2})
+data = json.loads(text)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_json_processing(value):
-    """Apply the JSON Processing concept to one value."""
-    return value
+import json
+from pathlib import Path
 
-result = apply_json_processing("practice")
-print(result)
+path = Path("settings.json")
+with path.open("r", encoding="utf-8") as file:
+    settings = json.load(file)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the JSON Processing problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Read bytes as text with a known encoding.
+# Decode JSON syntax.
+# Validate keys, types, and ranges.
+# Convert to domain objects before business logic.
 ```
 
 ## Examples
@@ -7203,7 +7743,11 @@ print(result)
 
 ```python
 import json
-print(json.dumps({"language": "Python"}))
+
+record = {"name": "Ada", "skills": ["Python", "SQL"], "active": True}
+encoded = json.dumps(record, indent=2, sort_keys=True)
+print(encoded)
+print(json.loads(encoded)["skills"][0])
 ```
 
 ### Intermediate Example
@@ -7211,9 +7755,17 @@ print(json.dumps({"language": "Python"}))
 ```python
 import json
 
-raw = "{\"items\": [1, 2, 3]}"
-payload = json.loads(raw)
-print(sum(payload["items"]))
+def parse_job(text: str) -> tuple[str, int]:
+    data = json.loads(text)
+    if set(data) != {"task", "priority"}:
+        raise ValueError("unexpected job fields")
+    if not isinstance(data["task"], str) or not isinstance(data["priority"], int):
+        raise TypeError("invalid job field type")
+    if not 1 <= data["priority"] <= 5:
+        raise ValueError("priority out of range")
+    return data["task"], data["priority"]
+
+print(parse_job('{"task": "index", "priority": 3}'))
 ```
 
 ### Advanced Example
@@ -7221,98 +7773,105 @@ print(sum(payload["items"]))
 ```python
 import json
 from dataclasses import asdict, dataclass
+from datetime import datetime, timezone
 
-@dataclass
+@dataclass(frozen=True)
 class Event:
     name: str
-    count: int
+    occurred_at: datetime
 
-print(json.dumps(asdict(Event("login", 3))))
+class EventEncoder(json.JSONEncoder):
+    def default(self, value):
+        if isinstance(value, datetime):
+            return value.isoformat()
+        if isinstance(value, Event):
+            return asdict(value)
+        return super().default(value)
+
+event = Event("deployed", datetime(2026, 7, 20, tzinfo=timezone.utc))
+text = json.dumps(event, cls=EventEncoder)
+print(text)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify JSON Processing Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Receive JSON text] --> B[Decode syntax]
+    B --> C[Validate schema]
+    C --> D[Convert domain values]
+    D --> E[Process or encode response]
 ```
 
-[Back to topic index](#json-processing)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # CSV Processing
 
 ## Overview
-- **What is it?** CSV Processing is a Python knowledge area focused on professional Python patterns.
-- **Why is it important?** Help developers apply professional Python patterns techniques safely, clearly, and consistently.
-- **Where is it used?** Data exchange, observability, clean abstractions, and production utilities.
+- **What is it?** CSV Processing is the intermediate Python topic of reading and writing delimited tabular text with the csv module.
+- **Why is it important?** The csv module handles quoting, delimiters, and embedded newlines that manual string splitting gets wrong.
+- **Where is it used?** spreadsheet exchange, bulk imports, report exports.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review csv processing code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind csv processing.
-- Expected outcome: you can use csv processing in a small project and recognize when it belongs in production code.
+- Use reader/writer and DictReader/DictWriter.
+- Open files with newline='' and explicit encoding.
+- Validate rows and stream large files.
 
 ## Real World Applications
-- **Industry use cases:** Data exchange, observability, clean abstractions, and production utilities.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Spreadsheet exchange rely on this topic.
+- **Product work:** It supports bulk imports.
+- **Operations:** It appears in report exports.
 
 ## Core Concepts
 
-### Task Unit
-- **Definition:** The main idea that gives csv processing its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> CSV Processing model -> clear code`
-- **Practical example:**
-
-```python
-apply_csv_processing_label = "CSV Processing"
-print(apply_csv_processing_label)
-```
-
-### Scheduler or Worker
-- **Definition:** The ordered steps Python follows when csv processing code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### CSV dialect
+- **Definition:** A dialect defines delimiter, quote, escape, and line-termination rules for a tabular text format.
+- **Visual explanation:** ``text + dialect -> fields and rows``
 - **Practical example:**
 
 ```python
 import csv
 from io import StringIO
-
-file = StringIO("name,score\nAda,95\n")
-print(list(csv.DictReader(file)))
+rows = list(csv.reader(StringIO('name,city\n"Ada","London"')))
+print(rows)
 ```
 
-### Coordination Rule
-- **Definition:** The reliability habit that keeps csv processing understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Dictionary rows
+- **Definition:** DictReader maps header names to field strings; DictWriter emits columns in an explicit order.
+- **Visual explanation:** ``header + row -> mapping[fieldname]``
 - **Practical example:**
 
 ```python
 import csv
 from io import StringIO
+reader = csv.DictReader(StringIO("name,score\nAda,91"))
+print(next(reader)["score"])
+```
 
-output = StringIO()
-writer = csv.DictWriter(output, fieldnames=["name", "score"])
-writer.writeheader()
-writer.writerow({"name": "Lin", "score": 98})
-print(output.getvalue())
+### Type conversion and validation
+- **Definition:** CSV has no native types, so every field starts as text and requires application-level conversion and validation.
+- **Visual explanation:** ``field text -> parse -> validate -> typed record``
+- **Practical example:**
+
+```python
+raw = "42"
+quantity = int(raw)
+if quantity < 0:
+    raise ValueError("negative quantity")
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | CSV Processing belongs to the professional Python patterns part of Python mastery. |
-| ⚡ Purpose | Help developers apply professional Python patterns techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional professional Python patterns decisions. |
-| 🎯 Use Cases | Data exchange, observability, clean abstractions, and production utilities. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | CSV dialect, Dictionary rows, Type conversion and validation |
+| ⚡ Purpose | The csv module handles quoting, delimiters, and embedded newlines that manual string splitting gets wrong. |
+| 🔥 Benefits | Correct quoting and delimiter handling, streaming imports, and stable tabular exchange. |
+| 🎯 Use Cases | spreadsheet exchange, bulk imports, report exports |
+| 🚀 Best Practices | Use newline='' for file handles and define a stable column contract. |
+| ❌ Common Mistakes | Splitting lines on commas, which breaks quoted commas and newlines. |
 
 ## Syntax Guide
 
@@ -7320,26 +7879,30 @@ print(output.getvalue())
 
 ```python
 import csv
-rows = list(csv.DictReader(open("data.csv", newline="")))
+
+with open("data.csv", newline="", encoding="utf-8") as file:
+    for row in csv.reader(file):
+        print(row)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_csv_processing(value):
-    """Apply the CSV Processing concept to one value."""
-    return value
+import csv
 
-result = apply_csv_processing("practice")
-print(result)
+with open("report.csv", "w", newline="", encoding="utf-8") as file:
+    writer = csv.DictWriter(file, fieldnames=["name", "score"])
+    writer.writeheader()
+    writer.writerow({"name": "Ada", "score": 91})
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the CSV Processing problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Open with newline="" and explicit encoding.
+# Parse according to the agreed dialect.
+# Convert and validate every field.
+# Report row numbers for invalid records.
 ```
 
 ## Examples
@@ -7350,8 +7913,9 @@ print(result)
 import csv
 from io import StringIO
 
-file = StringIO("name,score\nAda,95\n")
-print(list(csv.DictReader(file)))
+source = StringIO('name,city\nAda,"London, UK"\n')
+for row in csv.reader(source):
+    print(row)
 ```
 
 ### Intermediate Example
@@ -7360,104 +7924,116 @@ print(list(csv.DictReader(file)))
 import csv
 from io import StringIO
 
-output = StringIO()
-writer = csv.DictWriter(output, fieldnames=["name", "score"])
-writer.writeheader()
-writer.writerow({"name": "Lin", "score": 98})
-print(output.getvalue())
+source = StringIO("name,score\nAda,91\nLin,84\n")
+reader = csv.DictReader(source)
+scores = {row["name"]: int(row["score"]) for row in reader}
+print(scores)
 ```
 
 ### Advanced Example
 
 ```python
 import csv
+from dataclasses import dataclass
 from io import StringIO
 
-data = StringIO("dept,total\nSales,100\nSales,150\n")
-totals = {}
-for row in csv.DictReader(data):
-    totals[row["dept"]] = totals.get(row["dept"], 0) + int(row["total"])
-print(totals)
+@dataclass(frozen=True)
+class Sale:
+    product: str
+    quantity: int
+    unit_price: float
+
+def sales_from_csv(source):
+    for line_number, row in enumerate(csv.DictReader(source), start=2):
+        try:
+            sale = Sale(row["product"], int(row["quantity"]), float(row["unit_price"]))
+        except (KeyError, TypeError, ValueError) as error:
+            raise ValueError(f"invalid row {line_number}") from error
+        if sale.quantity < 0 or sale.unit_price < 0:
+            raise ValueError(f"negative value on row {line_number}")
+        yield sale
+
+data = StringIO("product,quantity,unit_price\nBook,2,12.50\n")
+print(list(sales_from_csv(data)))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify CSV Processing Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Open text stream] --> B[Apply CSV dialect]
+    B --> C[Map fields]
+    C --> D[Convert and validate types]
+    D --> E[Consume or write rows]
 ```
 
-[Back to topic index](#csv-processing)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # XML Processing
 
 ## Overview
-- **What is it?** XML Processing is a Python knowledge area focused on professional Python patterns.
-- **Why is it important?** Help developers apply professional Python patterns techniques safely, clearly, and consistently.
-- **Where is it used?** Data exchange, observability, clean abstractions, and production utilities.
+- **What is it?** XML Processing is the intermediate Python topic of parsing, querying, and creating hierarchical XML documents.
+- **Why is it important?** ElementTree handles namespaces and escaped text while allowing incremental parsing for larger documents.
+- **Where is it used?** enterprise integrations, feeds and configuration, document metadata.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review xml processing code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind xml processing.
-- Expected outcome: you can use xml processing in a small project and recognize when it belongs in production code.
+- Navigate ElementTree elements and attributes.
+- Handle XML namespaces.
+- Parse untrusted or large XML with appropriate safeguards.
 
 ## Real World Applications
-- **Industry use cases:** Data exchange, observability, clean abstractions, and production utilities.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Enterprise integrations rely on this topic.
+- **Product work:** It supports feeds and configuration.
+- **Operations:** It appears in document metadata.
 
 ## Core Concepts
 
-### Task Unit
-- **Definition:** The main idea that gives xml processing its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> XML Processing model -> clear code`
-- **Practical example:**
-
-```python
-apply_xml_processing_label = "XML Processing"
-print(apply_xml_processing_label)
-```
-
-### Scheduler or Worker
-- **Definition:** The ordered steps Python follows when xml processing code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Element tree
+- **Definition:** An XML document forms a tree of elements with tags, attributes, text, and child elements.
+- **Visual explanation:** ``document root -> nested element nodes``
 - **Practical example:**
 
 ```python
 import xml.etree.ElementTree as ET
-root = ET.fromstring("<course><title>Python</title></course>")
-print(root.findtext("title"))
+root = ET.fromstring("<catalog><book id='1'/></catalog>")
+print(root.find("book").get("id"))
 ```
 
-### Coordination Rule
-- **Definition:** The reliability habit that keeps xml processing understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Namespaces
+- **Definition:** A namespace URI qualifies tag names; ElementTree queries use expanded names or a prefix mapping.
+- **Visual explanation:** ``prefix:name -> {namespace URI}name``
 - **Practical example:**
 
 ```python
 import xml.etree.ElementTree as ET
+root = ET.fromstring("<x:item xmlns:x='urn:shop'>Book</x:item>")
+print(root.tag)
+```
 
-root = ET.Element("items")
-ET.SubElement(root, "item", name="book")
-print(ET.tostring(root, encoding="unicode"))
+### Safety and streaming
+- **Definition:** iterparse limits retained tree state for large files; untrusted XML may require defusedxml to block entity-based attacks.
+- **Visual explanation:** ``large/untrusted XML -> safe parser -> incremental events``
+- **Practical example:**
+
+```python
+import xml.etree.ElementTree as ET
+for event, element in ET.iterparse("catalog.xml", events=("end",)):
+    if element.tag == "book":
+        element.clear()
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | XML Processing belongs to the professional Python patterns part of Python mastery. |
-| ⚡ Purpose | Help developers apply professional Python patterns techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional professional Python patterns decisions. |
-| 🎯 Use Cases | Data exchange, observability, clean abstractions, and production utilities. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Element tree, Namespaces, Safety and streaming |
+| ⚡ Purpose | ElementTree handles namespaces and escaped text while allowing incremental parsing for larger documents. |
+| 🔥 Benefits | Namespace-aware document handling, safe hierarchical extraction, and scalable incremental parsing. |
+| 🎯 Use Cases | enterprise integrations, feeds and configuration, document metadata |
+| 🚀 Best Practices | Use namespace maps and a hardened parser when XML is untrusted. |
+| ❌ Common Mistakes | Using regex to parse nested XML markup. |
 
 ## Syntax Guide
 
@@ -7465,26 +8041,28 @@ print(ET.tostring(root, encoding="unicode"))
 
 ```python
 import xml.etree.ElementTree as ET
+
 root = ET.fromstring("<user><name>Ada</name></user>")
+print(root.findtext("name"))
 ```
 
 ### Standard Structure
 
 ```python
-def apply_xml_processing(value):
-    """Apply the XML Processing concept to one value."""
-    return value
+import xml.etree.ElementTree as ET
 
-result = apply_xml_processing("practice")
-print(result)
+NS = {"atom": "http://www.w3.org/2005/Atom"}
+root = ET.fromstring(xml_text)
+titles = [node.text for node in root.findall("atom:entry/atom:title", NS)]
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the XML Processing problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Parse with a trusted or hardened parser.
+# Locate elements with namespace-aware paths.
+# Validate required attributes and text.
+# Clear processed nodes during incremental parsing.
 ```
 
 ## Examples
@@ -7493,8 +8071,11 @@ print(result)
 
 ```python
 import xml.etree.ElementTree as ET
-root = ET.fromstring("<course><title>Python</title></course>")
-print(root.findtext("title"))
+
+xml_text = "<catalog><book id='7'><title>Python</title></book></catalog>"
+root = ET.fromstring(xml_text)
+book = root.find("book")
+print(book.get("id"), book.findtext("title"))
 ```
 
 ### Intermediate Example
@@ -7502,99 +8083,112 @@ print(root.findtext("title"))
 ```python
 import xml.etree.ElementTree as ET
 
-root = ET.Element("items")
-ET.SubElement(root, "item", name="book")
-print(ET.tostring(root, encoding="unicode"))
+feed = '''<feed xmlns="urn:news">
+  <entry><title>Release</title></entry>
+  <entry><title>Guide</title></entry>
+</feed>'''
+root = ET.fromstring(feed)
+namespaces = {"news": "urn:news"}
+titles = [node.text for node in root.findall("news:entry/news:title", namespaces)]
+print(titles)
 ```
 
 ### Advanced Example
 
 ```python
 import xml.etree.ElementTree as ET
+from io import BytesIO
 
-xml = '<orders><order total="10"/><order total="20"/></orders>'
-root = ET.fromstring(xml)
-print(sum(int(order.attrib["total"]) for order in root.findall("order")))
+def iter_products(source):
+    for event, element in ET.iterparse(source, events=("end",)):
+        if element.tag == "product":
+            sku = element.get("sku")
+            price_text = element.findtext("price")
+            if not sku or price_text is None:
+                raise ValueError("product requires sku and price")
+            yield {"sku": sku, "price": float(price_text)}
+            element.clear()
+
+document = b"<products><product sku='A1'><price>9.50</price></product></products>"
+print(list(iter_products(BytesIO(document))))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify XML Processing Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Choose safe parser] --> B[Parse root or events]
+    B --> C[Resolve namespaces]
+    C --> D[Extract and validate nodes]
+    D --> E[Clear or serialize elements]
 ```
 
-[Back to topic index](#xml-processing)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Logging
 
 ## Overview
-- **What is it?** Logging is a Python knowledge area focused on professional Python patterns.
-- **Why is it important?** Help developers apply professional Python patterns techniques safely, clearly, and consistently.
-- **Where is it used?** Data exchange, observability, clean abstractions, and production utilities.
+- **What is it?** Logging is the intermediate Python topic of emitting configurable, structured runtime diagnostics.
+- **Why is it important?** The logging package separates event creation from filtering, formatting, and delivery to handlers.
+- **Where is it used?** service observability, incident diagnosis, audit-friendly operations.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review logging code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind logging.
-- Expected outcome: you can use logging in a small project and recognize when it belongs in production code.
+- Use module-level named loggers.
+- Configure levels, handlers, and formatters centrally.
+- Include exception and contextual information safely.
 
 ## Real World Applications
-- **Industry use cases:** Data exchange, observability, clean abstractions, and production utilities.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Service observability rely on this topic.
+- **Product work:** It supports incident diagnosis.
+- **Operations:** It appears in audit-friendly operations.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives logging its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Logging model -> clear code`
-- **Practical example:**
-
-```python
-apply_logging_label = "Logging"
-print(apply_logging_label)
-```
-
-### Execution Flow
-- **Definition:** The ordered steps Python follows when logging code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Log records
+- **Definition:** A logging call creates a LogRecord containing level, logger name, message arguments, time, and optional exception data.
+- **Visual explanation:** ``logger call -> LogRecord -> handlers``
 - **Practical example:**
 
 ```python
 import logging
-logging.basicConfig(level=logging.INFO)
-logging.info("Hello logs")
+logger = logging.getLogger(__name__)
+logger.info("processed %d rows", 12)
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps logging understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Levels and filtering
+- **Definition:** Logger and handler thresholds decide which records proceed; DEBUG through CRITICAL express increasing severity.
+- **Visual explanation:** ``record level >= thresholds -> emit``
 - **Practical example:**
 
 ```python
 import logging
+logging.basicConfig(level=logging.WARNING)
+logging.getLogger(__name__).warning("disk nearing capacity")
+```
 
-logger = logging.getLogger("billing")
-logging.basicConfig(level=logging.INFO, format="%(levelname)s:%(name)s:%(message)s")
-logger.info("invoice_created")
+### Handlers and formatting
+- **Definition:** Handlers route records to destinations while formatters choose their textual or structured representation.
+- **Visual explanation:** ``record -> console/file handler -> formatted output``
+- **Practical example:**
+
+```python
+import logging
+handler = logging.StreamHandler()
+handler.setFormatter(logging.Formatter("%(levelname)s %(message)s"))
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Logging belongs to the professional Python patterns part of Python mastery. |
-| ⚡ Purpose | Help developers apply professional Python patterns techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional professional Python patterns decisions. |
-| 🎯 Use Cases | Data exchange, observability, clean abstractions, and production utilities. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Log records, Levels and filtering, Handlers and formatting |
+| ⚡ Purpose | The logging package separates event creation from filtering, formatting, and delivery to handlers. |
+| 🔥 Benefits | Configurable diagnostics, severity-based filtering, and routable operational evidence. |
+| 🎯 Use Cases | service observability, incident diagnosis, audit-friendly operations |
+| 🚀 Best Practices | Use lazy %-style arguments and configure logging at the application boundary. |
+| ❌ Common Mistakes | Logging secrets or calling basicConfig from reusable library modules. |
 
 ## Syntax Guide
 
@@ -7602,26 +8196,30 @@ logger.info("invoice_created")
 
 ```python
 import logging
-logging.info("Application started")
+
+logger = logging.getLogger(__name__)
+logger.warning("retrying request %s", "req-42")
 ```
 
 ### Standard Structure
 
 ```python
-def apply_logging(value):
-    """Apply the Logging concept to one value."""
-    return value
+import logging
 
-result = apply_logging("practice")
-print(result)
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s %(levelname)s %(name)s %(message)s",
+)
+logger = logging.getLogger(__name__)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Logging problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Module creates a named logger.
+# Call emits level plus contextual arguments.
+# Central configuration filters and formats.
+# Handler delivers to the chosen destination.
 ```
 
 ## Examples
@@ -7630,8 +8228,10 @@ print(result)
 
 ```python
 import logging
+
 logging.basicConfig(level=logging.INFO)
-logging.info("Hello logs")
+logger = logging.getLogger("lesson")
+logger.info("lesson %s loaded", "logging")
 ```
 
 ### Intermediate Example
@@ -7639,128 +8239,151 @@ logging.info("Hello logs")
 ```python
 import logging
 
-logger = logging.getLogger("billing")
-logging.basicConfig(level=logging.INFO, format="%(levelname)s:%(name)s:%(message)s")
-logger.info("invoice_created")
+logger = logging.getLogger("orders")
+handler = logging.StreamHandler()
+handler.setFormatter(logging.Formatter("%(levelname)s %(name)s order=%(order_id)s %(message)s"))
+logger.addHandler(handler)
+logger.setLevel(logging.INFO)
+logger.propagate = False
+logger.info("accepted", extra={"order_id": "A-17"})
 ```
 
 ### Advanced Example
 
 ```python
 import logging
+from logging.config import dictConfig
 
-logger = logging.getLogger("api")
-handler = logging.StreamHandler()
-handler.setFormatter(logging.Formatter("%(asctime)s %(levelname)s %(message)s"))
-logger.addHandler(handler)
-logger.setLevel(logging.INFO)
-logger.info("request_complete")
+dictConfig({
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {"standard": {"format": "%(levelname)s %(name)s %(message)s"}},
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "standard",
+            "level": "INFO",
+        }
+    },
+    "root": {"handlers": ["console"], "level": "INFO"},
+})
+
+logger = logging.getLogger("payments")
+try:
+    int("not-a-number")
+except ValueError:
+    logger.exception("payment amount was invalid")
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Logging Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Create named logger] --> B[Build LogRecord]
+    B --> C[Apply logger filters]
+    C --> D[Format in handler]
+    D --> E[Deliver event]
 ```
 
-[Back to topic index](#logging)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Configuration Management
 
 ## Overview
-- **What is it?** Configuration Management is a Python knowledge area focused on professional Python patterns.
-- **Why is it important?** Help developers apply professional Python patterns techniques safely, clearly, and consistently.
-- **Where is it used?** Data exchange, observability, clean abstractions, and production utilities.
+- **What is it?** Configuration Management is the intermediate Python topic of loading, validating, and layering settings outside application logic.
+- **Why is it important?** Configuration separates deployment-specific values from code while typed validation makes failures early and explicit.
+- **Where is it used?** environment-specific endpoints, feature switches, runtime limits.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review configuration management code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind configuration management.
-- Expected outcome: you can use configuration management in a small project and recognize when it belongs in production code.
+- Layer defaults, files, environment, and arguments.
+- Parse strings into validated types.
+- Keep secrets out of source control and logs.
 
 ## Real World Applications
-- **Industry use cases:** Data exchange, observability, clean abstractions, and production utilities.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Environment-specific endpoints rely on this topic.
+- **Product work:** It supports feature switches.
+- **Operations:** It appears in runtime limits.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives configuration management its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Configuration Management model -> clear code`
+### Configuration sources
+- **Definition:** Settings may come from defaults, files, environment variables, or CLI flags with a documented precedence.
+- **Visual explanation:** ``defaults < file < environment < CLI``
 - **Practical example:**
 
 ```python
-apply_configuration_management_label = "Configuration Management"
-print(apply_configuration_management_label)
+import os
+port = int(os.getenv("APP_PORT", "8000"))
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when configuration management code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Parsing and validation
+- **Definition:** External configuration is text until converted; validation should reject missing, malformed, or unsafe values at startup.
+- **Visual explanation:** ``raw strings -> convert -> validate -> Settings``
 - **Practical example:**
 
 ```python
-import json
-print(json.dumps({"language": "Python"}))
+timeout = float("2.5")
+if timeout <= 0:
+    raise ValueError("timeout must be positive")
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps configuration management understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Secrets
+- **Definition:** Secret values belong in a secret manager or injected environment and must not be committed, printed, or embedded in defaults.
+- **Visual explanation:** ``secret store -> process environment -> narrow consumer``
 - **Practical example:**
 
 ```python
-import json
-
-raw = "{\"items\": [1, 2, 3]}"
-payload = json.loads(raw)
-print(sum(payload["items"]))
+import os
+token = os.environ["SERVICE_TOKEN"]
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Configuration Management belongs to the professional Python patterns part of Python mastery. |
-| ⚡ Purpose | Help developers apply professional Python patterns techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional professional Python patterns decisions. |
-| 🎯 Use Cases | Data exchange, observability, clean abstractions, and production utilities. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Configuration sources, Parsing and validation, Secrets |
+| ⚡ Purpose | Configuration separates deployment-specific values from code while typed validation makes failures early and explicit. |
+| 🔥 Benefits | Portable deployments, fail-fast startup validation, and secure separation of settings from code. |
+| 🎯 Use Cases | environment-specific endpoints, feature switches, runtime limits |
+| 🚀 Best Practices | Construct one immutable settings object at the composition root. |
+| ❌ Common Mistakes | Reading environment variables throughout business logic. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import json
-data = json.loads("{\"name\": \"Ada\"}")
+import os
+
+debug = os.getenv("APP_DEBUG", "false").lower() in {"1", "true", "yes"}
 ```
 
 ### Standard Structure
 
 ```python
-def apply_configuration_management(value):
-    """Apply the Configuration Management concept to one value."""
-    return value
+from dataclasses import dataclass
+import os
 
-result = apply_configuration_management("practice")
-print(result)
+@dataclass(frozen=True)
+class Settings:
+    endpoint: str
+    timeout: float
+
+settings = Settings(
+    endpoint=os.environ["API_ENDPOINT"],
+    timeout=float(os.getenv("API_TIMEOUT", "5")),
+)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Configuration Management problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Load defaults and external sources.
+# Apply explicit precedence.
+# Parse and validate once at startup.
+# Pass a typed settings object to consumers.
 ```
 
 ## Examples
@@ -7768,119 +8391,143 @@ print(result)
 ### Beginner Example
 
 ```python
-import json
-print(json.dumps({"language": "Python"}))
+import os
+
+host = os.getenv("APP_HOST", "127.0.0.1")
+port = int(os.getenv("APP_PORT", "8000"))
+print(f"http://{host}:{port}")
 ```
 
 ### Intermediate Example
 
 ```python
-import json
+from dataclasses import dataclass
+import os
 
-raw = "{\"items\": [1, 2, 3]}"
-payload = json.loads(raw)
-print(sum(payload["items"]))
+@dataclass(frozen=True)
+class Settings:
+    workers: int
+    log_level: str
+
+    @classmethod
+    def from_environment(cls):
+        workers = int(os.getenv("WORKERS", "2"))
+        level = os.getenv("LOG_LEVEL", "INFO").upper()
+        if workers < 1:
+            raise ValueError("WORKERS must be positive")
+        if level not in {"DEBUG", "INFO", "WARNING", "ERROR"}:
+            raise ValueError("invalid LOG_LEVEL")
+        return cls(workers, level)
+
+print(Settings.from_environment())
 ```
 
 ### Advanced Example
 
 ```python
-import json
-from dataclasses import asdict, dataclass
+import argparse
+import os
+from dataclasses import dataclass
 
-@dataclass
-class Event:
-    name: str
-    count: int
+@dataclass(frozen=True)
+class Settings:
+    region: str
+    retries: int
 
-print(json.dumps(asdict(Event("login", 3))))
+def load_settings(arguments=None) -> Settings:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--region")
+    parser.add_argument("--retries", type=int)
+    options = parser.parse_args(arguments)
+    region = options.region or os.getenv("APP_REGION", "eu-west")
+    retries = options.retries if options.retries is not None else int(os.getenv("APP_RETRIES", "3"))
+    if retries < 0:
+        parser.error("retries cannot be negative")
+    return Settings(region, retries)
+
+print(load_settings(["--retries", "5"]))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Configuration Management Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Read ordered sources] --> B[Resolve precedence]
+    B --> C[Convert text values]
+    C --> D[Validate constraints]
+    D --> E[Inject immutable settings]
 ```
 
-[Back to topic index](#configuration-management)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Multithreading
 
 ## Overview
-- **What is it?** Multithreading is a Python knowledge area focused on execution model.
-- **Why is it important?** Help developers apply execution model techniques safely, clearly, and consistently.
-- **Where is it used?** High-throughput services, background jobs, io workloads, and cpu-bound processing.
+- **What is it?** Multithreading is the intermediate Python topic of overlapping blocking I/O in one process with multiple threads.
+- **Why is it important?** Threads share memory and are useful for I/O-bound work; the GIL usually prevents speedups for pure Python CPU-bound work.
+- **Where is it used?** parallel HTTP calls, file and socket I/O, blocking client libraries.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review multithreading code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind multithreading.
-- Expected outcome: you can use multithreading in a small project and recognize when it belongs in production code.
+- Choose threads for blocking I/O, not CPU-heavy Python loops.
+- Coordinate shared state with locks or queues.
+- Shut down workers without queue.empty races.
 
 ## Real World Applications
-- **Industry use cases:** High-throughput services, background jobs, io workloads, and cpu-bound processing.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Parallel http calls rely on this topic.
+- **Product work:** It supports file and socket I/O.
+- **Operations:** It appears in blocking client libraries.
 
 ## Core Concepts
 
-### Task Unit
-- **Definition:** The main idea that gives multithreading its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Multithreading model -> clear code`
-- **Practical example:**
-
-```python
-apply_multithreading_label = "Multithreading"
-print(apply_multithreading_label)
-```
-
-### Scheduler or Worker
-- **Definition:** The ordered steps Python follows when multithreading code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Thread scheduling
+- **Definition:** Operating-system threads share one process; while one waits on I/O another can run, despite the CPython GIL.
+- **Visual explanation:** ``I/O wait T1 -> scheduler runs T2``
 - **Practical example:**
 
 ```python
 from threading import Thread
 
-def say_hi():
-    print("hi")
-
-thread = Thread(target=say_hi)
+thread = Thread(target=print, args=("worker",))
 thread.start()
 thread.join()
 ```
 
-### Coordination Rule
-- **Definition:** The reliability habit that keeps multithreading understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Shared-state synchronization
+- **Definition:** A Lock makes a critical section mutually exclusive so compound updates are not interleaved.
+- **Visual explanation:** ``threads -> lock -> protected state``
 - **Practical example:**
 
 ```python
-from concurrent.futures import ThreadPoolExecutor
+from threading import Lock
+lock = Lock()
+with lock:
+    shared_total = 1
+```
 
-def fetch(page):
-    return f"page-{page}"
+### Work queues and shutdown
+- **Definition:** Queue provides synchronized handoff; sentinels or explicit task counts signal completion without unreliable empty() checks.
+- **Visual explanation:** ``producer -> Queue -> workers -> sentinel -> join``
+- **Practical example:**
 
-with ThreadPoolExecutor(max_workers=3) as pool:
-    print(list(pool.map(fetch, range(3))))
+```python
+from queue import Queue
+jobs = Queue()
+jobs.put("task")
+jobs.put(None)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Multithreading belongs to the execution model part of Python mastery. |
-| ⚡ Purpose | Help developers apply execution model techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional execution model decisions. |
-| 🎯 Use Cases | High-throughput services, background jobs, io workloads, and cpu-bound processing. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Thread scheduling, Shared-state synchronization, Work queues and shutdown |
+| ⚡ Purpose | Threads share memory and are useful for I/O-bound work; the GIL usually prevents speedups for pure Python CPU-bound work. |
+| 🔥 Benefits | Higher I/O throughput, bounded worker reuse, and safe coordination inside one process. |
+| 🎯 Use Cases | parallel HTTP calls, file and socket I/O, blocking client libraries |
+| 🚀 Best Practices | Prefer ThreadPoolExecutor for bounded independent I/O tasks and always wait for completion. |
+| ❌ Common Mistakes | Checking queue.empty() before get(), creating a race with producers or other workers. |
 
 ## Syntax Guide
 
@@ -7888,7 +8535,8 @@ with ThreadPoolExecutor(max_workers=3) as pool:
 
 ```python
 from threading import Thread
-thread = Thread(target=print, args=("hi",))
+
+thread = Thread(target=download, args=(url,))
 thread.start()
 thread.join()
 ```
@@ -7896,20 +8544,19 @@ thread.join()
 ### Standard Structure
 
 ```python
-def apply_multithreading(value):
-    """Apply the Multithreading concept to one value."""
-    return value
+from concurrent.futures import ThreadPoolExecutor
 
-result = apply_multithreading("practice")
-print(result)
+with ThreadPoolExecutor(max_workers=8) as pool:
+    results = list(pool.map(fetch_url, urls))
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Multithreading problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Partition independent blocking I/O tasks.
+# Bound the worker count.
+# Transfer ownership through Queue or futures.
+# Join workers and surface exceptions.
 ```
 
 ## Examples
@@ -7918,25 +8565,33 @@ print(result)
 
 ```python
 from threading import Thread
+from time import sleep
 
-def say_hi():
-    print("hi")
+def wait_for_service(name):
+    sleep(0.01)  # represents blocking I/O
+    print(name, "ready")
 
-thread = Thread(target=say_hi)
-thread.start()
-thread.join()
+threads = [Thread(target=wait_for_service, args=(name,)) for name in ("search", "billing")]
+for thread in threads:
+    thread.start()
+for thread in threads:
+    thread.join()
 ```
 
 ### Intermediate Example
 
 ```python
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from time import sleep
 
-def fetch(page):
-    return f"page-{page}"
+def fetch(identifier: int) -> str:
+    sleep(0.01)
+    return f"response-{identifier}"
 
-with ThreadPoolExecutor(max_workers=3) as pool:
-    print(list(pool.map(fetch, range(3))))
+with ThreadPoolExecutor(max_workers=3) as executor:
+    futures = [executor.submit(fetch, identifier) for identifier in range(5)]
+    results = [future.result() for future in as_completed(futures)]
+print(sorted(results))
 ```
 
 ### Advanced Example
@@ -7945,100 +8600,114 @@ with ThreadPoolExecutor(max_workers=3) as pool:
 from queue import Queue
 from threading import Thread
 
-queue = Queue()
-queue.put("task")
+STOP = object()
+jobs = Queue()
+results = []
 
 def worker():
-    item = queue.get()
-    print(item)
-    queue.task_done()
+    while True:
+        item = jobs.get()
+        try:
+            if item is STOP:
+                return
+            results.append(item.upper())
+        finally:
+            jobs.task_done()
 
-thread = Thread(target=worker)
-thread.start()
-queue.join()
-thread.join()
+workers = [Thread(target=worker) for _ in range(2)]
+for thread in workers:
+    thread.start()
+for item in ("alpha", "beta", "gamma"):
+    jobs.put(item)
+for _ in workers:
+    jobs.put(STOP)
+jobs.join()
+for thread in workers:
+    thread.join()
+print(sorted(results))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Multithreading Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Identify blocking I/O] --> B[Submit bounded tasks]
+    B --> C[Threads overlap waits]
+    C --> D[Collect results or exceptions]
+    D --> E[Signal and join workers]
 ```
 
-[Back to topic index](#multithreading)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Multiprocessing
 
 ## Overview
-- **What is it?** Multiprocessing is a Python knowledge area focused on execution model.
-- **Why is it important?** Help developers apply execution model techniques safely, clearly, and consistently.
-- **Where is it used?** High-throughput services, background jobs, io workloads, and cpu-bound processing.
+- **What is it?** Multiprocessing is the intermediate Python topic of running CPU-bound Python work across separate processes.
+- **Why is it important?** Processes have independent interpreters and memory, bypassing the GIL at the cost of serialization and startup overhead.
+- **Where is it used?** image transforms, numeric batch calculations, CPU-heavy parsing.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review multiprocessing code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind multiprocessing.
-- Expected outcome: you can use multiprocessing in a small project and recognize when it belongs in production code.
+- Choose processes for coarse CPU-bound tasks.
+- Protect entry points for spawn compatibility.
+- Use pools and IPC without assuming shared memory.
 
 ## Real World Applications
-- **Industry use cases:** High-throughput services, background jobs, io workloads, and cpu-bound processing.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Image transforms rely on this topic.
+- **Product work:** It supports numeric batch calculations.
+- **Operations:** It appears in CPU-heavy parsing.
 
 ## Core Concepts
 
-### Task Unit
-- **Definition:** The main idea that gives multiprocessing its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Multiprocessing model -> clear code`
+### Process isolation
+- **Definition:** Each process owns its interpreter and address space; arguments and results are normally serialized between processes.
+- **Visual explanation:** ``parent --pickle--> worker process --pickle--> result``
 - **Practical example:**
 
 ```python
-apply_multiprocessing_label = "Multiprocessing"
-print(apply_multiprocessing_label)
+from multiprocessing import Process
+
+process = Process(target=print, args=("child",))
+process.start()
+process.join()
 ```
 
-### Scheduler or Worker
-- **Definition:** The ordered steps Python follows when multiprocessing code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Process pools
+- **Definition:** ProcessPoolExecutor keeps a bounded set of workers and maps independent CPU tasks onto them.
+- **Visual explanation:** ``CPU tasks -> process pool -> cores -> results``
 - **Practical example:**
 
 ```python
-from multiprocessing import cpu_count
-print(cpu_count())
+from concurrent.futures import ProcessPoolExecutor
+
+with ProcessPoolExecutor() as pool:
+    values = list(pool.map(abs, [-1, -2]))
 ```
 
-### Coordination Rule
-- **Definition:** The reliability habit that keeps multiprocessing understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Safe startup and IPC
+- **Definition:** The __main__ guard prevents recursive child creation under spawn; queues and pipes explicitly exchange messages.
+- **Visual explanation:** ``main guard -> spawn safely; Queue -> IPC``
 - **Practical example:**
 
 ```python
-from multiprocessing import Pool
-
-def square(value):
-    return value * value
+def main():
+    print("parent entry")
 
 if __name__ == "__main__":
-    with Pool(2) as pool:
-        print(pool.map(square, [1, 2, 3]))
+    main()
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Multiprocessing belongs to the execution model part of Python mastery. |
-| ⚡ Purpose | Help developers apply execution model techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional execution model decisions. |
-| 🎯 Use Cases | High-throughput services, background jobs, io workloads, and cpu-bound processing. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Process isolation, Process pools, Safe startup and IPC |
+| ⚡ Purpose | Processes have independent interpreters and memory, bypassing the GIL at the cost of serialization and startup overhead. |
+| 🔥 Benefits | Parallel CPU execution across cores, process isolation, and scalable batch computation. |
+| 🎯 Use Cases | image transforms, numeric batch calculations, CPU-heavy parsing |
+| 🚀 Best Practices | Send coarse, pickleable tasks and keep shared mutable state out of workers. |
+| ❌ Common Mistakes | Expecting child mutations of ordinary objects to appear in the parent. |
 
 ## Syntax Guide
 
@@ -8046,26 +8715,33 @@ if __name__ == "__main__":
 
 ```python
 from multiprocessing import Process
-process = Process(target=print, args=("hi",))
+
+if __name__ == "__main__":
+    process = Process(target=compute, args=(input_value,))
+    process.start()
+    process.join()
 ```
 
 ### Standard Structure
 
 ```python
-def apply_multiprocessing(value):
-    """Apply the Multiprocessing concept to one value."""
-    return value
+from concurrent.futures import ProcessPoolExecutor
 
-result = apply_multiprocessing("practice")
-print(result)
+def main():
+    with ProcessPoolExecutor() as pool:
+        return list(pool.map(cpu_heavy, inputs))
+
+if __name__ == "__main__":
+    print(main())
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Multiprocessing problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Confirm work is CPU-bound and independent.
+# Define a top-level pickleable worker.
+# Guard process creation with __main__.
+# Collect results and handle worker exceptions.
 ```
 
 ## Examples
@@ -8073,122 +8749,147 @@ print(result)
 ### Beginner Example
 
 ```python
-from multiprocessing import cpu_count
-print(cpu_count())
+from multiprocessing import Process
+
+def calculate_square(value):
+    print(value * value)
+
+if __name__ == "__main__":
+    process = Process(target=calculate_square, args=(12,))
+    process.start()
+    process.join()
+    if process.exitcode != 0:
+        raise RuntimeError("worker failed")
 ```
 
 ### Intermediate Example
 
 ```python
-from multiprocessing import Pool
+from concurrent.futures import ProcessPoolExecutor
 
-def square(value):
-    return value * value
+def count_primes(limit: int) -> int:
+    total = 0
+    for candidate in range(2, limit):
+        if all(candidate % divisor for divisor in range(2, int(candidate ** 0.5) + 1)):
+            total += 1
+    return total
+
+def main():
+    with ProcessPoolExecutor(max_workers=2) as pool:
+        return list(pool.map(count_primes, [5000, 6000, 7000]))
 
 if __name__ == "__main__":
-    with Pool(2) as pool:
-        print(pool.map(square, [1, 2, 3]))
+    print(main())
 ```
 
 ### Advanced Example
 
 ```python
-from concurrent.futures import ProcessPoolExecutor
+from concurrent.futures import ProcessPoolExecutor, as_completed
 
-def score(value):
-    return sum(i * i for i in range(value))
+def checksum(chunk: bytes) -> tuple[int, int]:
+    return len(chunk), sum(chunk) % 256
+
+def checksums(chunks):
+    with ProcessPoolExecutor(max_workers=3) as pool:
+        future_to_index = {
+            pool.submit(checksum, chunk): index
+            for index, chunk in enumerate(chunks)
+        }
+        ordered = [None] * len(chunks)
+        for future in as_completed(future_to_index):
+            ordered[future_to_index[future]] = future.result()
+        return ordered
 
 if __name__ == "__main__":
-    with ProcessPoolExecutor() as pool:
-        print(list(pool.map(score, [1000, 2000])))
+    print(checksums([b"alpha", b"beta", b"gamma"]))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Multiprocessing Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Identify CPU-bound chunks] --> B[Serialize task input]
+    B --> C[Run on worker processes]
+    C --> D[Serialize results]
+    D --> E[Join pool and combine]
 ```
 
-[Back to topic index](#multiprocessing)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Async Programming
 
 ## Overview
-- **What is it?** Async Programming is a Python knowledge area focused on execution model.
-- **Why is it important?** Help developers apply execution model techniques safely, clearly, and consistently.
-- **Where is it used?** High-throughput services, background jobs, io workloads, and cpu-bound processing.
+- **What is it?** Async Programming is the intermediate Python topic of cooperatively overlapping many non-blocking I/O operations on an event loop.
+- **Why is it important?** asyncio scales I/O concurrency with tasks that yield control at await points; it does not make CPU work parallel.
+- **Where is it used?** many network connections, concurrent service calls, event-driven workers.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review async programming code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind async programming.
-- Expected outcome: you can use async programming in a small project and recognize when it belongs in production code.
+- Explain coroutine, task, and event-loop roles.
+- Use await, gather, TaskGroup, and timeouts.
+- Keep blocking and CPU-heavy work off the event loop.
 
 ## Real World Applications
-- **Industry use cases:** High-throughput services, background jobs, io workloads, and cpu-bound processing.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Many network connections rely on this topic.
+- **Product work:** It supports concurrent service calls.
+- **Operations:** It appears in event-driven workers.
 
 ## Core Concepts
 
-### Task Unit
-- **Definition:** The main idea that gives async programming its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Async Programming model -> clear code`
-- **Practical example:**
-
-```python
-apply_async_programming_label = "Async Programming"
-print(apply_async_programming_label)
-```
-
-### Scheduler or Worker
-- **Definition:** The ordered steps Python follows when async programming code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Coroutines and await
+- **Definition:** Calling async def creates a coroutine; await suspends the current task until the awaited operation is ready.
+- **Visual explanation:** ``coroutine -> await I/O -> suspend -> resume``
 - **Practical example:**
 
 ```python
 import asyncio
 
-async def greet():
-    return "hello"
-
-print(asyncio.run(greet()))
-```
-
-### Coordination Rule
-- **Definition:** The reliability habit that keeps async programming understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
-- **Practical example:**
-
-```python
-import asyncio
-
-async def fetch(number):
+async def pause():
     await asyncio.sleep(0)
-    return number * 2
+
+asyncio.run(pause())
+```
+
+### Tasks and structured concurrency
+- **Definition:** A Task schedules a coroutine; TaskGroup scopes sibling lifetimes and propagates failures as a group.
+- **Visual explanation:** ``TaskGroup -> child tasks -> wait/cancel together``
+- **Practical example:**
+
+```python
+import asyncio
 
 async def main():
-    print(await asyncio.gather(fetch(1), fetch(2)))
+    async with asyncio.TaskGroup() as group:
+        group.create_task(asyncio.sleep(0))
 
 asyncio.run(main())
 ```
 
+### Blocking boundaries
+- **Definition:** Blocking calls freeze the loop; use asynchronous libraries, asyncio.to_thread for blocking I/O, or processes for CPU-bound work.
+- **Visual explanation:** ``event loop -> async I/O | to_thread blocking I/O | process CPU``
+- **Practical example:**
+
+```python
+import asyncio
+from pathlib import Path
+
+async def read_text(path):
+    return await asyncio.to_thread(Path(path).read_text)
+```
+
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Async Programming belongs to the execution model part of Python mastery. |
-| ⚡ Purpose | Help developers apply execution model techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional execution model decisions. |
-| 🎯 Use Cases | High-throughput services, background jobs, io workloads, and cpu-bound processing. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Coroutines and await, Tasks and structured concurrency, Blocking boundaries |
+| ⚡ Purpose | asyncio scales I/O concurrency with tasks that yield control at await points; it does not make CPU work parallel. |
+| 🔥 Benefits | High I/O concurrency, efficient task scheduling, and structured cancellation and timeout handling. |
+| 🎯 Use Cases | many network connections, concurrent service calls, event-driven workers |
+| 🚀 Best Practices | Create concurrency explicitly and bound fan-out with semaphores or worker pools. |
+| ❌ Common Mistakes | Calling time.sleep or synchronous HTTP clients inside a coroutine. |
 
 ## Syntax Guide
 
@@ -8198,7 +8899,7 @@ asyncio.run(main())
 import asyncio
 
 async def main():
-    await asyncio.sleep(0)
+    await asyncio.sleep(0.1)
 
 asyncio.run(main())
 ```
@@ -8206,20 +8907,21 @@ asyncio.run(main())
 ### Standard Structure
 
 ```python
-def apply_async_programming(value):
-    """Apply the Async Programming concept to one value."""
-    return value
+import asyncio
 
-result = apply_async_programming("practice")
-print(result)
+async def fetch_all(urls):
+    async with asyncio.TaskGroup() as group:
+        tasks = [group.create_task(fetch(url)) for url in urls]
+    return [task.result() for task in tasks]
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Async Programming problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Start one top-level event loop.
+# Schedule independent I/O as bounded tasks.
+# await operations that can suspend.
+# Cancel, time out, and collect failures explicitly.
 ```
 
 ## Examples
@@ -8229,10 +8931,14 @@ print(result)
 ```python
 import asyncio
 
-async def greet():
-    return "hello"
+async def greet_after(delay: float, name: str):
+    await asyncio.sleep(delay)
+    return f"Hello, {name}"
 
-print(asyncio.run(greet()))
+async def main():
+    print(await greet_after(0.01, "Ada"))
+
+asyncio.run(main())
 ```
 
 ### Intermediate Example
@@ -8240,12 +8946,13 @@ print(asyncio.run(greet()))
 ```python
 import asyncio
 
-async def fetch(number):
-    await asyncio.sleep(0)
-    return number * 2
+async def request(identifier: int) -> str:
+    await asyncio.sleep(0.01)  # represents non-blocking network I/O
+    return f"item-{identifier}"
 
 async def main():
-    print(await asyncio.gather(fetch(1), fetch(2)))
+    results = await asyncio.gather(*(request(i) for i in range(4)))
+    print(results)
 
 asyncio.run(main())
 ```
@@ -8255,17 +8962,17 @@ asyncio.run(main())
 ```python
 import asyncio
 
-async def worker(name, queue):
-    while not queue.empty():
-        item = await queue.get()
-        print(name, item)
-        queue.task_done()
+async def bounded_call(identifier: int, limit: asyncio.Semaphore):
+    async with limit:
+        async with asyncio.timeout(1):
+            await asyncio.sleep(0.01)
+            return f"result-{identifier}"
 
 async def main():
-    queue = asyncio.Queue()
-    for item in range(3):
-        await queue.put(item)
-    await asyncio.gather(worker("w1", queue), worker("w2", queue))
+    limit = asyncio.Semaphore(3)
+    async with asyncio.TaskGroup() as group:
+        tasks = [group.create_task(bounded_call(i, limit)) for i in range(8)]
+    print([task.result() for task in tasks])
 
 asyncio.run(main())
 ```
@@ -8274,49 +8981,38 @@ asyncio.run(main())
 
 ```mermaid
 flowchart LR
-    A[Identify Async Programming Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Create event loop] --> B[Schedule coroutines as tasks]
+    B --> C[Task awaits I/O]
+    C --> D[Loop runs another ready task]
+    D --> E[Resume and collect results]
 ```
 
-[Back to topic index](#async-programming)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # API Development
 
 ## Overview
-- **What is it?** API Development is a Python knowledge area focused on integration.
-- **Why is it important?** Help developers apply integration techniques safely, clearly, and consistently.
-- **Where is it used?** Web services, persistence layers, analytics backends, and business systems.
+- **What is it?** API Development is the intermediate Python topic of designing and implementing HTTP endpoints that expose a stable service contract.
+- **Why is it important?** API development covers server-side routing, validation, status codes, serialization, and operational behavior.
+- **Where is it used?** web and mobile backends, internal microservices, automation interfaces.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review api development code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind api development.
-- Expected outcome: you can use api development in a small project and recognize when it belongs in production code.
+- Design resource-oriented endpoints and schemas.
+- Return meaningful status codes and errors.
+- Separate transport, business logic, and persistence.
 
 ## Real World Applications
-- **Industry use cases:** Web services, persistence layers, analytics backends, and business systems.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Web and mobile backends rely on this topic.
+- **Product work:** It supports internal microservices.
+- **Operations:** It appears in automation interfaces.
 
 ## Core Concepts
 
-### Contract
-- **Definition:** The main idea that gives api development its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> API Development model -> clear code`
-- **Practical example:**
-
-```python
-apply_api_development_label = "API Development"
-print(apply_api_development_label)
-```
-
-### Connection Flow
-- **Definition:** The ordered steps Python follows when api development code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### HTTP contract
+- **Definition:** An endpoint contract defines method, path, parameters, body schema, status codes, and response representation.
+- **Visual explanation:** ``request method + path + body -> status + headers + body``
 - **Practical example:**
 
 ```python
@@ -8324,38 +9020,45 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
-@app.get("/")
-def root():
-    return {"message": "Hello API"}
+@app.get("/health")
+def health():
+    return {"status": "ok"}
 ```
 
-### Reliability Boundary
-- **Definition:** The reliability habit that keeps api development understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Validation and errors
+- **Definition:** Request models reject malformed data at the boundary; domain failures should map consistently to documented HTTP responses.
+- **Visual explanation:** ``untrusted request -> schema -> domain -> HTTP result``
 - **Practical example:**
 
 ```python
 from pydantic import BaseModel
 
-class UserIn(BaseModel):
-    email: str
+class TaskInput(BaseModel):
+    title: str
+    priority: int = 1
+```
 
-def create_user(user: UserIn) -> dict[str, str]:
-    return {"email": user.email, "status": "created"}
+### Layered handlers
+- **Definition:** A route handler translates HTTP data and delegates business decisions to a service rather than embedding persistence logic.
+- **Visual explanation:** ``HTTP adapter -> application service -> repository``
+- **Practical example:**
 
-print(create_user(UserIn(email="a@example.com")))
+```python
+def create_task(payload, service):
+    task = service.create(payload.title)
+    return {"id": task.id}
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | API Development belongs to the integration part of Python mastery. |
-| ⚡ Purpose | Help developers apply integration techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional integration decisions. |
-| 🎯 Use Cases | Web services, persistence layers, analytics backends, and business systems. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | HTTP contract, Validation and errors, Layered handlers |
+| ⚡ Purpose | API development covers server-side routing, validation, status codes, serialization, and operational behavior. |
+| 🔥 Benefits | Stable service contracts, validated boundaries, and maintainable separation of HTTP and domain logic. |
+| 🎯 Use Cases | web and mobile backends, internal microservices, automation interfaces |
+| 🚀 Best Practices | Publish an explicit schema and make handlers thin, deterministic adapters. |
+| ❌ Common Mistakes | Returning 200 for every outcome or exposing internal exceptions to clients. |
 
 ## Syntax Guide
 
@@ -8363,30 +9066,37 @@ print(create_user(UserIn(email="a@example.com")))
 
 ```python
 from fastapi import FastAPI
+
 app = FastAPI()
 
-@app.get("/health")
-def health():
-    return {"ok": True}
+@app.get("/items/{item_id}")
+def read_item(item_id: int):
+    return {"id": item_id}
 ```
 
 ### Standard Structure
 
 ```python
-def apply_api_development(value):
-    """Apply the API Development concept to one value."""
-    return value
+from fastapi import FastAPI, status
+from pydantic import BaseModel, Field
 
-result = apply_api_development("practice")
-print(result)
+app = FastAPI()
+
+class ItemCreate(BaseModel):
+    name: str = Field(min_length=1)
+
+@app.post("/items", status_code=status.HTTP_201_CREATED)
+def create_item(command: ItemCreate):
+    return {"id": 1, "name": command.name}
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the API Development problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Route matches method and resource path.
+# Schema validates external input.
+# Service executes business behavior.
+# Handler maps outcome to status and representation.
 ```
 
 ## Examples
@@ -8398,146 +9108,170 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
-@app.get("/")
-def root():
-    return {"message": "Hello API"}
+@app.get("/health")
+def health():
+    return {"status": "ok"}
 ```
 
 ### Intermediate Example
 
 ```python
-from pydantic import BaseModel
+from fastapi import FastAPI, HTTPException
 
-class UserIn(BaseModel):
-    email: str
+app = FastAPI()
+ITEMS = {1: {"id": 1, "name": "Keyboard"}}
 
-def create_user(user: UserIn) -> dict[str, str]:
-    return {"email": user.email, "status": "created"}
-
-print(create_user(UserIn(email="a@example.com")))
+@app.get("/items/{item_id}")
+def get_item(item_id: int):
+    item = ITEMS.get(item_id)
+    if item is None:
+        raise HTTPException(status_code=404, detail="item not found")
+    return item
 ```
 
 ### Advanced Example
 
 ```python
-from fastapi import Depends, FastAPI
+from fastapi import Depends, FastAPI, HTTPException, status
+from pydantic import BaseModel, Field
 
 app = FastAPI()
 
-def get_settings():
-    return {"debug": False}
+class TaskCreate(BaseModel):
+    title: str = Field(min_length=1, max_length=100)
 
-@app.get("/settings")
-def settings(settings = Depends(get_settings)):
-    return settings
+class TaskService:
+    def __init__(self):
+        self.tasks = {}
+
+    def create(self, title: str):
+        task = {"id": len(self.tasks) + 1, "title": title.strip()}
+        self.tasks[task["id"]] = task
+        return task
+
+service = TaskService()
+
+def get_service():
+    return service
+
+@app.post("/tasks", status_code=status.HTTP_201_CREATED)
+def create_task(command: TaskCreate, tasks: TaskService = Depends(get_service)):
+    if not command.title.strip():
+        raise HTTPException(422, "blank title")
+    return tasks.create(command.title)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify API Development Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Route HTTP request] --> B[Validate request schema]
+    B --> C[Call application service]
+    C --> D[Map domain outcome]
+    D --> E[Serialize HTTP response]
 ```
 
-[Back to topic index](#api-development)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # API Consumption
 
 ## Overview
-- **What is it?** API Consumption is a Python knowledge area focused on integration.
-- **Why is it important?** Help developers apply integration techniques safely, clearly, and consistently.
-- **Where is it used?** Web services, persistence layers, analytics backends, and business systems.
+- **What is it?** API Consumption is the intermediate Python topic of integrating with remote APIs as a reliable client, independent of a particular HTTP library.
+- **Why is it important?** API consumption is the broader discipline of understanding contracts, authentication, pagination, rate limits, and failure modes.
+- **Where is it used?** third-party integrations, data synchronization, service-to-service calls.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review api consumption code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind api consumption.
-- Expected outcome: you can use api consumption in a small project and recognize when it belongs in production code.
+- Read API contracts and encode parameters.
+- Classify transport, HTTP, and payload failures.
+- Implement pagination, authentication, and idempotent retries.
 
 ## Real World Applications
-- **Industry use cases:** Web services, persistence layers, analytics backends, and business systems.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Third-party integrations rely on this topic.
+- **Product work:** It supports data synchronization.
+- **Operations:** It appears in service-to-service calls.
 
 ## Core Concepts
 
-### Contract
-- **Definition:** The main idea that gives api consumption its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> API Consumption model -> clear code`
+### Contract consumption
+- **Definition:** A client must honor the provider's method, URL, headers, parameter encoding, and response schema.
+- **Visual explanation:** ``client request -> API contract -> validated representation``
 - **Practical example:**
 
 ```python
-apply_api_consumption_label = "API Consumption"
-print(apply_api_consumption_label)
+from urllib.parse import urlencode
+query = urlencode({"page": 2, "limit": 50})
+url = f"https://api.example.test/items?{query}"
 ```
 
-### Connection Flow
-- **Definition:** The ordered steps Python follows when api consumption code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Failure layers
+- **Definition:** DNS/TLS/timeouts are transport failures, non-success statuses are HTTP failures, and invalid bodies are representation failures.
+- **Visual explanation:** ``transport -> status -> content-type -> schema``
 - **Practical example:**
 
 ```python
-import requests
-
-response = requests.get("https://example.com", timeout=10)
-print(response.status_code)
+def require_success(status: int):
+    if not 200 <= status < 300:
+        raise RuntimeError(f"HTTP {status}")
 ```
 
-### Reliability Boundary
-- **Definition:** The reliability habit that keeps api consumption understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Pagination and resilience
+- **Definition:** Consumers follow provider pagination tokens and retry only safe operations with limits, backoff, and rate-limit awareness.
+- **Visual explanation:** ``page -> next token -> page ... -> complete``
 - **Practical example:**
 
 ```python
-import requests
-
-with requests.Session() as session:
-    response = session.get("https://api.github.com", timeout=10)
-    print(response.headers.get("content-type"))
+def pages(fetch):
+    token = None
+    while True:
+        payload = fetch(token)
+        yield from payload["items"]
+        token = payload.get("next")
+        if token is None:
+            return
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | API Consumption belongs to the integration part of Python mastery. |
-| ⚡ Purpose | Help developers apply integration techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional integration decisions. |
-| 🎯 Use Cases | Web services, persistence layers, analytics backends, and business systems. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Contract consumption, Failure layers, Pagination and resilience |
+| ⚡ Purpose | API consumption is the broader discipline of understanding contracts, authentication, pagination, rate limits, and failure modes. |
+| 🔥 Benefits | Reliable integrations, explicit failure classification, and safe pagination and retry behavior. |
+| 🎯 Use Cases | third-party integrations, data synchronization, service-to-service calls |
+| 🚀 Best Practices | Wrap the remote contract in a small client and validate every response before business use. |
+| ❌ Common Mistakes | Retrying every failed POST automatically, risking duplicate side effects. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import requests
-response = requests.get("https://example.com", timeout=10)
+from urllib.request import urlopen
+import json
+
+with urlopen(url, timeout=5) as response:
+    payload = json.load(response)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_api_consumption(value):
-    """Apply the API Consumption concept to one value."""
-    return value
-
-result = apply_api_consumption("practice")
-print(result)
+def fetch_page(client, token=None):
+    payload = client.get_items(page_token=token)
+    if not isinstance(payload.get("items"), list):
+        raise ValueError("items must be a list")
+    return payload
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the API Consumption problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Build request from the published contract.
+# Set authentication and a finite timeout.
+# Check transport, status, and payload shape.
+# Follow pagination and retry policy deliberately.
 ```
 
 ## Examples
@@ -8545,113 +9279,134 @@ print(result)
 ### Beginner Example
 
 ```python
-import requests
+from urllib.parse import urlencode
 
-response = requests.get("https://example.com", timeout=10)
-print(response.status_code)
+parameters = urlencode({"query": "python api", "limit": 10})
+url = f"https://api.example.test/search?{parameters}"
+print(url)
 ```
 
 ### Intermediate Example
 
 ```python
-import requests
+import json
+from urllib.error import HTTPError, URLError
+from urllib.request import Request, urlopen
 
-with requests.Session() as session:
-    response = session.get("https://api.github.com", timeout=10)
-    print(response.headers.get("content-type"))
+def get_json(url: str, token: str) -> dict:
+    request = Request(url, headers={"Authorization": f"Bearer {token}"})
+    try:
+        with urlopen(request, timeout=5) as response:
+            if response.headers.get_content_type() != "application/json":
+                raise ValueError("expected JSON response")
+            return json.load(response)
+    except HTTPError as error:
+        raise RuntimeError(f"API returned {error.code}") from error
+    except URLError as error:
+        raise ConnectionError("API unavailable") from error
 ```
 
 ### Advanced Example
 
 ```python
-import requests
-from requests.adapters import HTTPAdapter
+def iter_resources(fetch_page):
+    token = None
+    seen_tokens = set()
+    while True:
+        payload = fetch_page(token)
+        items = payload.get("items")
+        if not isinstance(items, list):
+            raise ValueError("response.items must be a list")
+        yield from items
+        token = payload.get("next_page_token")
+        if token is None:
+            return
+        if token in seen_tokens:
+            raise RuntimeError("pagination token repeated")
+        seen_tokens.add(token)
 
-session = requests.Session()
-session.mount("https://", HTTPAdapter(max_retries=3))
-response = session.get("https://example.com", timeout=(3, 10))
-print(response.ok)
+responses = {
+    None: {"items": [1, 2], "next_page_token": "p2"},
+    "p2": {"items": [3], "next_page_token": None},
+}
+print(list(iter_resources(responses.__getitem__)))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify API Consumption Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Read provider contract] --> B[Build authenticated request]
+    B --> C[Send with timeout]
+    C --> D[Validate status and schema]
+    D --> E[Paginate or apply retry policy]
 ```
 
-[Back to topic index](#api-consumption)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Requests Library
 
 ## Overview
-- **What is it?** Requests Library is a Python knowledge area focused on integration.
-- **Why is it important?** Help developers apply integration techniques safely, clearly, and consistently.
-- **Where is it used?** Web services, persistence layers, analytics backends, and business systems.
+- **What is it?** Requests Library is the intermediate Python topic of sending HTTP requests with the third-party requests library.
+- **Why is it important?** Requests provides ergonomic sessions, parameter encoding, response decoding, exceptions, and adapter-based retry configuration.
+- **Where is it used?** REST clients, webhook delivery, service health checks.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review requests library code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind requests library.
-- Expected outcome: you can use requests library in a small project and recognize when it belongs in production code.
+- Use params, json, headers, timeout, and raise_for_status.
+- Reuse connections with Session.
+- Configure narrow retries with urllib3 Retry.
 
 ## Real World Applications
-- **Industry use cases:** Web services, persistence layers, analytics backends, and business systems.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Rest clients rely on this topic.
+- **Product work:** It supports webhook delivery.
+- **Operations:** It appears in service health checks.
 
 ## Core Concepts
 
-### Contract
-- **Definition:** The main idea that gives requests library its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Requests Library model -> clear code`
-- **Practical example:**
-
-```python
-apply_requests_library_label = "Requests Library"
-print(apply_requests_library_label)
-```
-
-### Connection Flow
-- **Definition:** The ordered steps Python follows when requests library code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Request and response
+- **Definition:** requests builds an HTTP request from method arguments and returns a Response with status, headers, bytes, text, and JSON helpers.
+- **Visual explanation:** ``requests.get -> Response -> status/content``
 - **Practical example:**
 
 ```python
 import requests
-
-response = requests.get("https://example.com", timeout=10)
-print(response.status_code)
+response = requests.get("https://example.com", timeout=5)
+response.raise_for_status()
 ```
 
-### Reliability Boundary
-- **Definition:** The reliability habit that keeps requests library understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Sessions
+- **Definition:** A Session persists headers, cookies, and connection pools across calls, reducing setup overhead and centralizing policy.
+- **Visual explanation:** ``Session policy + connection pool -> many requests``
 - **Practical example:**
 
 ```python
 import requests
+session = requests.Session()
+session.headers["User-Agent"] = "lesson-client/1.0"
+```
 
-with requests.Session() as session:
-    response = session.get("https://api.github.com", timeout=10)
-    print(response.headers.get("content-type"))
+### Timeouts and retries
+- **Definition:** A timeout bounds connection and read waits; retries should target transient failures and idempotent methods.
+- **Visual explanation:** ``request -> finite timeout -> selected retry/backoff -> failure``
+- **Practical example:**
+
+```python
+import requests
+response = requests.get("https://example.com", timeout=(2, 10))
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Requests Library belongs to the integration part of Python mastery. |
-| ⚡ Purpose | Help developers apply integration techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional integration decisions. |
-| 🎯 Use Cases | Web services, persistence layers, analytics backends, and business systems. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Request and response, Sessions, Timeouts and retries |
+| ⚡ Purpose | Requests provides ergonomic sessions, parameter encoding, response decoding, exceptions, and adapter-based retry configuration. |
+| 🔥 Benefits | Concise HTTP clients, pooled connections, and centralized timeout, status, and retry policy. |
+| 🎯 Use Cases | REST clients, webhook delivery, service health checks |
+| 🚀 Best Practices | Always set a finite timeout and call raise_for_status before trusting the body. |
+| ❌ Common Mistakes | Using response.json() as proof that the status was successful or the schema is valid. |
 
 ## Syntax Guide
 
@@ -8659,26 +9414,37 @@ with requests.Session() as session:
 
 ```python
 import requests
-response = requests.get("https://example.com", timeout=10)
+
+response = requests.get(
+    "https://api.example.test/items",
+    params={"limit": 10},
+    timeout=5,
+)
+response.raise_for_status()
 ```
 
 ### Standard Structure
 
 ```python
-def apply_requests_library(value):
-    """Apply the Requests Library concept to one value."""
-    return value
+import requests
 
-result = apply_requests_library("practice")
-print(result)
+with requests.Session() as session:
+    session.headers.update({"Accept": "application/json"})
+    response = session.post(
+        "https://api.example.test/jobs",
+        json={"task": "index"},
+        timeout=(2, 10),
+    )
+    response.raise_for_status()
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Requests Library problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Reuse a configured Session.
+# Encode query with params or body with json.
+# Set connect/read timeout.
+# raise_for_status, decode, then validate schema.
 ```
 
 ## Examples
@@ -8688,8 +9454,13 @@ print(result)
 ```python
 import requests
 
-response = requests.get("https://example.com", timeout=10)
-print(response.status_code)
+response = requests.get(
+    "https://httpbin.org/get",
+    params={"topic": "python"},
+    timeout=5,
+)
+response.raise_for_status()
+print(response.json()["args"])
 ```
 
 ### Intermediate Example
@@ -8697,9 +9468,18 @@ print(response.status_code)
 ```python
 import requests
 
-with requests.Session() as session:
-    response = session.get("https://api.github.com", timeout=10)
-    print(response.headers.get("content-type"))
+def create_job(session: requests.Session, task: str) -> dict:
+    response = session.post(
+        "https://api.example.test/jobs",
+        json={"task": task},
+        headers={"Idempotency-Key": f"job-{task}"},
+        timeout=(2, 10),
+    )
+    response.raise_for_status()
+    payload = response.json()
+    if not isinstance(payload.get("id"), str):
+        raise ValueError("response requires string id")
+    return payload
 ```
 
 ### Advanced Example
@@ -8707,121 +9487,142 @@ with requests.Session() as session:
 ```python
 import requests
 from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 
-session = requests.Session()
-session.mount("https://", HTTPAdapter(max_retries=3))
-response = session.get("https://example.com", timeout=(3, 10))
-print(response.ok)
+retry = Retry(
+    total=3,
+    backoff_factor=0.5,
+    status_forcelist=(429, 502, 503, 504),
+    allowed_methods=frozenset({"GET", "HEAD"}),
+    respect_retry_after_header=True,
+)
+
+with requests.Session() as session:
+    session.mount("https://", HTTPAdapter(max_retries=retry))
+    session.headers["User-Agent"] = "catalog-client/1.0"
+    response = session.get(
+        "https://api.example.test/catalog",
+        timeout=(2, 10),
+    )
+    response.raise_for_status()
+    catalog = response.json()
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Requests Library Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Configure Session] --> B[Build method parameters]
+    B --> C[Send with timeout]
+    C --> D[Raise for bad status]
+    D --> E[Decode and validate payload]
 ```
 
-[Back to topic index](#requests-library)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Database Fundamentals
 
 ## Overview
-- **What is it?** Database Fundamentals is a Python knowledge area focused on integration.
-- **Why is it important?** Help developers apply integration techniques safely, clearly, and consistently.
-- **Where is it used?** Web services, persistence layers, analytics backends, and business systems.
+- **What is it?** Database Fundamentals is the intermediate Python topic of using relational data, SQL, transactions, and DB-API concepts correctly.
+- **Why is it important?** Database fundamentals explain schemas and consistency independently of a specific driver or ORM.
+- **Where is it used?** transactional applications, reporting stores, durable service state.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review database fundamentals code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind database fundamentals.
-- Expected outcome: you can use database fundamentals in a small project and recognize when it belongs in production code.
+- Model tables, keys, and relationships.
+- Use parameterized SQL and transactions.
+- Understand connections, cursors, commits, and rollbacks.
 
 ## Real World Applications
-- **Industry use cases:** Web services, persistence layers, analytics backends, and business systems.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Transactional applications rely on this topic.
+- **Product work:** It supports reporting stores.
+- **Operations:** It appears in durable service state.
 
 ## Core Concepts
 
-### Contract
-- **Definition:** The main idea that gives database fundamentals its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Database Fundamentals model -> clear code`
+### Relational schema
+- **Definition:** A schema defines tables, typed columns, keys, constraints, and relationships that preserve data meaning.
+- **Visual explanation:** ``entity -> table; identity -> primary key; relation -> foreign key``
 - **Practical example:**
 
 ```python
-apply_database_fundamentals_label = "Database Fundamentals"
-print(apply_database_fundamentals_label)
+schema = '''
+CREATE TABLE customer (
+    id INTEGER PRIMARY KEY,
+    email TEXT NOT NULL UNIQUE
+)
+'''
 ```
 
-### Connection Flow
-- **Definition:** The ordered steps Python follows when database fundamentals code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Parameterized SQL
+- **Definition:** Parameters send values separately from SQL structure, preserving types and preventing injection through data.
+- **Visual explanation:** ``SQL template + bound values -> driver -> database``
 - **Practical example:**
 
 ```python
-import sqlite3
-connection = sqlite3.connect(":memory:")
-connection.execute("CREATE TABLE users (name TEXT)")
-connection.execute("INSERT INTO users VALUES (?)", ("Ada",))
-print(connection.execute("SELECT name FROM users").fetchone()[0])
+cursor.execute(
+    "SELECT id FROM customer WHERE email = ?",
+    ("ada@example.com",),
+)
 ```
 
-### Reliability Boundary
-- **Definition:** The reliability habit that keeps database fundamentals understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Transactions
+- **Definition:** A transaction groups statements into an atomic unit that commits entirely or rolls back on failure.
+- **Visual explanation:** ``BEGIN -> statements -> COMMIT | ROLLBACK``
 - **Practical example:**
 
 ```python
-import sqlite3
-
-with sqlite3.connect(":memory:") as connection:
-    connection.execute("CREATE TABLE metrics (name TEXT, value REAL)")
-    connection.executemany("INSERT INTO metrics VALUES (?, ?)", [("latency", 120.5)])
-    print(connection.execute("SELECT COUNT(*) FROM metrics").fetchone()[0])
+try:
+    connection.execute("UPDATE account SET balance = balance - ?", (10,))
+    connection.commit()
+except Exception:
+    connection.rollback()
+    raise
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Database Fundamentals belongs to the integration part of Python mastery. |
-| ⚡ Purpose | Help developers apply integration techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional integration decisions. |
-| 🎯 Use Cases | Web services, persistence layers, analytics backends, and business systems. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Relational schema, Parameterized SQL, Transactions |
+| ⚡ Purpose | Database fundamentals explain schemas and consistency independently of a specific driver or ORM. |
+| 🔥 Benefits | Durable relational state, injection-safe queries, and atomic consistency through transactions. |
+| 🎯 Use Cases | transactional applications, reporting stores, durable service state |
+| 🚀 Best Practices | Enforce invariants with database constraints as well as application validation. |
+| ❌ Common Mistakes | Interpolating values into SQL with f-strings. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import sqlite3
-connection = sqlite3.connect(":memory:")
+cursor.execute(
+    "SELECT name FROM users WHERE id = ?",
+    (user_id,),
+)
+row = cursor.fetchone()
 ```
 
 ### Standard Structure
 
 ```python
-def apply_database_fundamentals(value):
-    """Apply the Database Fundamentals concept to one value."""
-    return value
-
-result = apply_database_fundamentals("practice")
-print(result)
+try:
+    cursor.execute(debit_sql, (amount, source_id))
+    cursor.execute(credit_sql, (amount, target_id))
+    connection.commit()
+except Exception:
+    connection.rollback()
+    raise
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Database Fundamentals problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Acquire a connection from a pool.
+# Execute parameterized statements.
+# Fetch only required columns and rows.
+# Commit the unit or roll back every change.
 ```
 
 ## Examples
@@ -8830,10 +9631,12 @@ print(result)
 
 ```python
 import sqlite3
+
 connection = sqlite3.connect(":memory:")
-connection.execute("CREATE TABLE users (name TEXT)")
-connection.execute("INSERT INTO users VALUES (?)", ("Ada",))
-print(connection.execute("SELECT name FROM users").fetchone()[0])
+connection.execute("CREATE TABLE users (id INTEGER PRIMARY KEY, name TEXT NOT NULL)")
+connection.execute("INSERT INTO users (name) VALUES (?)", ("Ada",))
+print(connection.execute("SELECT id, name FROM users").fetchall())
+connection.close()
 ```
 
 ### Intermediate Example
@@ -8842,9 +9645,16 @@ print(connection.execute("SELECT name FROM users").fetchone()[0])
 import sqlite3
 
 with sqlite3.connect(":memory:") as connection:
-    connection.execute("CREATE TABLE metrics (name TEXT, value REAL)")
-    connection.executemany("INSERT INTO metrics VALUES (?, ?)", [("latency", 120.5)])
-    print(connection.execute("SELECT COUNT(*) FROM metrics").fetchone()[0])
+    connection.execute(
+        "CREATE TABLE account (id INTEGER PRIMARY KEY, balance INTEGER CHECK (balance >= 0))"
+    )
+    connection.executemany(
+        "INSERT INTO account VALUES (?, ?)",
+        [(1, 100), (2, 20)],
+    )
+    connection.execute("UPDATE account SET balance = balance - ? WHERE id = ?", (25, 1))
+    connection.execute("UPDATE account SET balance = balance + ? WHERE id = ?", (25, 2))
+    print(connection.execute("SELECT * FROM account ORDER BY id").fetchall())
 ```
 
 ### Advanced Example
@@ -8852,95 +9662,101 @@ with sqlite3.connect(":memory:") as connection:
 ```python
 import sqlite3
 
-connection = sqlite3.connect(":memory:")
-connection.row_factory = sqlite3.Row
-connection.execute("CREATE TABLE users (id INTEGER, email TEXT)")
-connection.execute("INSERT INTO users VALUES (?, ?)", (1, "a@example.com"))
-row = connection.execute("SELECT * FROM users").fetchone()
-print(dict(row))
+def transfer(connection, source_id: int, target_id: int, amount: int):
+    if amount <= 0:
+        raise ValueError("amount must be positive")
+    with connection:
+        debit = connection.execute(
+            "UPDATE account SET balance = balance - ? "
+            "WHERE id = ? AND balance >= ?",
+            (amount, source_id, amount),
+        )
+        if debit.rowcount != 1:
+            raise ValueError("source missing or insufficient funds")
+        credit = connection.execute(
+            "UPDATE account SET balance = balance + ? WHERE id = ?",
+            (amount, target_id),
+        )
+        if credit.rowcount != 1:
+            raise ValueError("target account missing")
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Database Fundamentals Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Model schema and constraints] --> B[Open transaction]
+    B --> C[Bind SQL parameters]
+    C --> D[Check affected rows]
+    D --> E[Commit or roll back]
 ```
 
-[Back to topic index](#database-fundamentals)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # SQLite
 
 ## Overview
-- **What is it?** SQLite is a Python knowledge area focused on integration.
-- **Why is it important?** Help developers apply integration techniques safely, clearly, and consistently.
-- **Where is it used?** Web services, persistence layers, analytics backends, and business systems.
+- **What is it?** SQLite is the intermediate Python topic of using Python's built-in sqlite3 driver for embedded relational storage.
+- **Why is it important?** SQLite stores a transactional database in one file and needs no server, making it ideal for local tools and modest workloads.
+- **Where is it used?** desktop and CLI state, local caches, tests and prototypes.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review sqlite code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind sqlite.
-- Expected outcome: you can use sqlite in a small project and recognize when it belongs in production code.
+- Manage sqlite3 connections and transactions.
+- Use placeholders and row factories.
+- Understand locking, foreign keys, and file lifetime.
 
 ## Real World Applications
-- **Industry use cases:** Web services, persistence layers, analytics backends, and business systems.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Desktop and cli state rely on this topic.
+- **Product work:** It supports local caches.
+- **Operations:** It appears in tests and prototypes.
 
 ## Core Concepts
 
-### Contract
-- **Definition:** The main idea that gives sqlite its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> SQLite model -> clear code`
-- **Practical example:**
-
-```python
-apply_sqlite_label = "SQLite"
-print(apply_sqlite_label)
-```
-
-### Connection Flow
-- **Definition:** The ordered steps Python follows when sqlite code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Embedded connection
+- **Definition:** sqlite3 connects directly to a database file or :memory: database inside the current process.
+- **Visual explanation:** ``Python process -> sqlite3 connection -> database file``
 - **Practical example:**
 
 ```python
 import sqlite3
 connection = sqlite3.connect(":memory:")
-connection.execute("CREATE TABLE users (name TEXT)")
-connection.execute("INSERT INTO users VALUES (?)", ("Ada",))
-print(connection.execute("SELECT name FROM users").fetchone()[0])
+print(connection.execute("SELECT sqlite_version()").fetchone())
 ```
 
-### Reliability Boundary
-- **Definition:** The reliability habit that keeps sqlite understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Rows and parameters
+- **Definition:** SQLite uses ? named placeholders; row_factory can expose name-addressable rows.
+- **Visual explanation:** ``SQL + tuple values -> cursor -> Row``
 - **Practical example:**
 
 ```python
 import sqlite3
+connection = sqlite3.connect(":memory:")
+connection.row_factory = sqlite3.Row
+```
 
-with sqlite3.connect(":memory:") as connection:
-    connection.execute("CREATE TABLE metrics (name TEXT, value REAL)")
-    connection.executemany("INSERT INTO metrics VALUES (?, ?)", [("latency", 120.5)])
-    print(connection.execute("SELECT COUNT(*) FROM metrics").fetchone()[0])
+### Transactions and constraints
+- **Definition:** A connection context commits on normal exit and rolls back on exceptions; foreign keys must be enabled per connection.
+- **Visual explanation:** ``with connection -> transaction -> commit/rollback``
+- **Practical example:**
+
+```python
+import sqlite3
+connection = sqlite3.connect(":memory:")
+connection.execute("PRAGMA foreign_keys = ON")
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | SQLite belongs to the integration part of Python mastery. |
-| ⚡ Purpose | Help developers apply integration techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional integration decisions. |
-| 🎯 Use Cases | Web services, persistence layers, analytics backends, and business systems. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Embedded connection, Rows and parameters, Transactions and constraints |
+| ⚡ Purpose | SQLite stores a transactional database in one file and needs no server, making it ideal for local tools and modest workloads. |
+| 🔥 Benefits | Zero-service relational storage, transactional local data, and fast setup for tools and tests. |
+| 🎯 Use Cases | desktop and CLI state, local caches, tests and prototypes |
+| 🚀 Best Practices | Use short transactions, parameter binding, and PRAGMA foreign_keys = ON. |
+| ❌ Common Mistakes | Sharing one connection freely across threads or expecting server-scale concurrent writers. |
 
 ## Syntax Guide
 
@@ -8948,26 +9764,32 @@ with sqlite3.connect(":memory:") as connection:
 
 ```python
 import sqlite3
-connection = sqlite3.connect(":memory:")
+
+with sqlite3.connect("app.db") as connection:
+    connection.execute("CREATE TABLE IF NOT EXISTS note (text TEXT NOT NULL)")
 ```
 
 ### Standard Structure
 
 ```python
-def apply_sqlite(value):
-    """Apply the SQLite concept to one value."""
-    return value
+import sqlite3
 
-result = apply_sqlite("practice")
-print(result)
+connection = sqlite3.connect("app.db")
+connection.row_factory = sqlite3.Row
+connection.execute("PRAGMA foreign_keys = ON")
+row = connection.execute(
+    "SELECT id, text FROM note WHERE id = ?",
+    (note_id,),
+).fetchone()
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the SQLite problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Connect to a specific file.
+# Enable required pragmas.
+# Bind values with ? placeholders.
+# Keep writes in short connection-context transactions.
 ```
 
 ## Examples
@@ -8976,10 +9798,11 @@ print(result)
 
 ```python
 import sqlite3
-connection = sqlite3.connect(":memory:")
-connection.execute("CREATE TABLE users (name TEXT)")
-connection.execute("INSERT INTO users VALUES (?)", ("Ada",))
-print(connection.execute("SELECT name FROM users").fetchone()[0])
+
+with sqlite3.connect(":memory:") as connection:
+    connection.execute("CREATE TABLE note (id INTEGER PRIMARY KEY, text TEXT NOT NULL)")
+    connection.execute("INSERT INTO note (text) VALUES (?)", ("Learn SQLite",))
+    print(connection.execute("SELECT text FROM note").fetchone()[0])
 ```
 
 ### Intermediate Example
@@ -8988,9 +9811,19 @@ print(connection.execute("SELECT name FROM users").fetchone()[0])
 import sqlite3
 
 with sqlite3.connect(":memory:") as connection:
-    connection.execute("CREATE TABLE metrics (name TEXT, value REAL)")
-    connection.executemany("INSERT INTO metrics VALUES (?, ?)", [("latency", 120.5)])
-    print(connection.execute("SELECT COUNT(*) FROM metrics").fetchone()[0])
+    connection.row_factory = sqlite3.Row
+    connection.execute(
+        "CREATE TABLE inventory (sku TEXT PRIMARY KEY, quantity INTEGER NOT NULL)"
+    )
+    connection.executemany(
+        "INSERT INTO inventory VALUES (?, ?)",
+        [("A1", 3), ("B2", 7)],
+    )
+    rows = connection.execute(
+        "SELECT sku, quantity FROM inventory WHERE quantity >= ? ORDER BY sku",
+        (5,),
+    )
+    print([dict(row) for row in rows])
 ```
 
 ### Advanced Example
@@ -8998,122 +9831,142 @@ with sqlite3.connect(":memory:") as connection:
 ```python
 import sqlite3
 
+def reserve(connection, sku: str, amount: int) -> None:
+    if amount <= 0:
+        raise ValueError("amount must be positive")
+    with connection:
+        result = connection.execute(
+            "UPDATE inventory SET quantity = quantity - ? "
+            "WHERE sku = ? AND quantity >= ?",
+            (amount, sku, amount),
+        )
+        if result.rowcount != 1:
+            raise ValueError("unknown sku or insufficient stock")
+
 connection = sqlite3.connect(":memory:")
-connection.row_factory = sqlite3.Row
-connection.execute("CREATE TABLE users (id INTEGER, email TEXT)")
-connection.execute("INSERT INTO users VALUES (?, ?)", (1, "a@example.com"))
-row = connection.execute("SELECT * FROM users").fetchone()
-print(dict(row))
+connection.execute("CREATE TABLE inventory (sku TEXT PRIMARY KEY, quantity INTEGER CHECK(quantity >= 0))")
+connection.execute("INSERT INTO inventory VALUES (?, ?)", ("A1", 4))
+reserve(connection, "A1", 2)
+print(connection.execute("SELECT quantity FROM inventory").fetchone()[0])
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify SQLite Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Open file connection] --> B[Configure pragmas and rows]
+    B --> C[Execute bound SQL]
+    C --> D[Commit or roll back]
+    D --> E[Close connection]
 ```
 
-[Back to topic index](#sqlite)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # MySQL Integration
 
 ## Overview
-- **What is it?** MySQL Integration is a Python knowledge area focused on integration.
-- **Why is it important?** Help developers apply integration techniques safely, clearly, and consistently.
-- **Where is it used?** Web services, persistence layers, analytics backends, and business systems.
+- **What is it?** MySQL Integration is the intermediate Python topic of connecting Python applications to MySQL with a MySQL DB-API driver.
+- **Why is it important?** MySQL integration requires server connection management, %s parameter binding, transactions, and production pooling.
+- **Where is it used?** web application persistence, transactional business systems, MySQL-backed services.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review mysql integration code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind mysql integration.
-- Expected outcome: you can use mysql integration in a small project and recognize when it belongs in production code.
+- Use mysql.connector connection and cursor patterns.
+- Bind parameters with %s placeholders.
+- Manage transactions, dictionary rows, and connection pools.
 
 ## Real World Applications
-- **Industry use cases:** Web services, persistence layers, analytics backends, and business systems.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Web application persistence rely on this topic.
+- **Product work:** It supports transactional business systems.
+- **Operations:** It appears in MySQL-backed services.
 
 ## Core Concepts
 
-### Contract
-- **Definition:** The main idea that gives mysql integration its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> MySQL Integration model -> clear code`
+### Driver connection
+- **Definition:** A MySQL driver opens a network connection using host, credentials, and database settings; it should be closed or returned to a pool.
+- **Visual explanation:** ``application -> MySQL driver -> TCP/TLS -> server``
 - **Practical example:**
 
 ```python
-apply_mysql_integration_label = "MySQL Integration"
-print(apply_mysql_integration_label)
+import mysql.connector
+
+connection = mysql.connector.connect(
+    host="localhost", user="app", password="secret", database="shop"
+)
 ```
 
-### Connection Flow
-- **Definition:** The ordered steps Python follows when mysql integration code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### MySQL parameters and cursors
+- **Definition:** Connector/Python binds values with %s placeholders and can return dictionary rows without interpolating SQL.
+- **Visual explanation:** ``SQL with %s + tuple -> prepared execution -> rows``
 - **Practical example:**
 
 ```python
-import sqlite3
-connection = sqlite3.connect(":memory:")
-connection.execute("CREATE TABLE users (name TEXT)")
-connection.execute("INSERT INTO users VALUES (?)", ("Ada",))
-print(connection.execute("SELECT name FROM users").fetchone()[0])
+cursor = connection.cursor(dictionary=True)
+cursor.execute("SELECT id, email FROM users WHERE id = %s", (42,))
+row = cursor.fetchone()
 ```
 
-### Reliability Boundary
-- **Definition:** The reliability habit that keeps mysql integration understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Transactions and pooling
+- **Definition:** Explicit commit or rollback defines write durability; pooling reuses bounded server connections across requests.
+- **Visual explanation:** ``pool -> connection -> transaction -> return to pool``
 - **Practical example:**
 
 ```python
-import sqlite3
-
-with sqlite3.connect(":memory:") as connection:
-    connection.execute("CREATE TABLE metrics (name TEXT, value REAL)")
-    connection.executemany("INSERT INTO metrics VALUES (?, ?)", [("latency", 120.5)])
-    print(connection.execute("SELECT COUNT(*) FROM metrics").fetchone()[0])
+try:
+    connection.start_transaction()
+    cursor.execute("UPDATE stock SET quantity = quantity - %s WHERE sku = %s", (1, "A1"))
+    connection.commit()
+except Exception:
+    connection.rollback()
+    raise
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | MySQL Integration belongs to the integration part of Python mastery. |
-| ⚡ Purpose | Help developers apply integration techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional integration decisions. |
-| 🎯 Use Cases | Web services, persistence layers, analytics backends, and business systems. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Driver connection, MySQL parameters and cursors, Transactions and pooling |
+| ⚡ Purpose | MySQL integration requires server connection management, %s parameter binding, transactions, and production pooling. |
+| 🔥 Benefits | Safe MySQL queries, reusable server connections, and explicit transactional durability. |
+| 🎯 Use Cases | web application persistence, transactional business systems, MySQL-backed services |
+| 🚀 Best Practices | Use a supported driver, parameter binding, TLS in production, and a bounded pool. |
+| ❌ Common Mistakes | Copying sqlite3 placeholders or APIs into MySQL code. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import sqlite3
-connection = sqlite3.connect(":memory:")
+import mysql.connector
+
+connection = mysql.connector.connect(**database_config)
+cursor = connection.cursor()
+cursor.execute("SELECT name FROM users WHERE id = %s", (user_id,))
+row = cursor.fetchone()
+cursor.close()
+connection.close()
 ```
 
 ### Standard Structure
 
 ```python
-def apply_mysql_integration(value):
-    """Apply the MySQL Integration concept to one value."""
-    return value
+from mysql.connector.pooling import MySQLConnectionPool
 
-result = apply_mysql_integration("practice")
-print(result)
+pool = MySQLConnectionPool(pool_name="app", pool_size=5, **database_config)
+with pool.get_connection() as connection:
+    with connection.cursor(dictionary=True) as cursor:
+        cursor.execute("SELECT id, email FROM users WHERE active = %s", (True,))
+        users = cursor.fetchall()
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the MySQL Integration problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Acquire a TLS-configured pooled connection.
+# Open the appropriate cursor type.
+# Bind values with %s placeholders.
+# Commit/rollback and return connection to pool.
 ```
 
 ## Examples
@@ -9121,145 +9974,181 @@ print(result)
 ### Beginner Example
 
 ```python
-import sqlite3
-connection = sqlite3.connect(":memory:")
-connection.execute("CREATE TABLE users (name TEXT)")
-connection.execute("INSERT INTO users VALUES (?)", ("Ada",))
-print(connection.execute("SELECT name FROM users").fetchone()[0])
+import mysql.connector
+
+connection = mysql.connector.connect(
+    host="127.0.0.1",
+    user="app",
+    password="secret",
+    database="learning",
+)
+try:
+    cursor = connection.cursor()
+    cursor.execute("SELECT id, name FROM course WHERE id = %s", (1,))
+    print(cursor.fetchone())
+    cursor.close()
+finally:
+    connection.close()
 ```
 
 ### Intermediate Example
 
 ```python
-import sqlite3
+import mysql.connector
 
-with sqlite3.connect(":memory:") as connection:
-    connection.execute("CREATE TABLE metrics (name TEXT, value REAL)")
-    connection.executemany("INSERT INTO metrics VALUES (?, ?)", [("latency", 120.5)])
-    print(connection.execute("SELECT COUNT(*) FROM metrics").fetchone()[0])
+def add_user(config: dict, email: str) -> int:
+    with mysql.connector.connect(**config) as connection:
+        with connection.cursor() as cursor:
+            try:
+                cursor.execute(
+                    "INSERT INTO users (email) VALUES (%s)",
+                    (email,),
+                )
+                connection.commit()
+                return cursor.lastrowid
+            except mysql.connector.Error:
+                connection.rollback()
+                raise
 ```
 
 ### Advanced Example
 
 ```python
-import sqlite3
+from mysql.connector.pooling import MySQLConnectionPool
 
-connection = sqlite3.connect(":memory:")
-connection.row_factory = sqlite3.Row
-connection.execute("CREATE TABLE users (id INTEGER, email TEXT)")
-connection.execute("INSERT INTO users VALUES (?, ?)", (1, "a@example.com"))
-row = connection.execute("SELECT * FROM users").fetchone()
-print(dict(row))
+class UserRepository:
+    def __init__(self, config: dict):
+        self.pool = MySQLConnectionPool(
+            pool_name="users",
+            pool_size=5,
+            pool_reset_session=True,
+            **config,
+        )
+
+    def active_users(self, limit: int) -> list[dict]:
+        if not 1 <= limit <= 100:
+            raise ValueError("limit out of range")
+        with self.pool.get_connection() as connection:
+            with connection.cursor(dictionary=True) as cursor:
+                cursor.execute(
+                    "SELECT id, email FROM users "
+                    "WHERE active = %s ORDER BY id LIMIT %s",
+                    (True, limit),
+                )
+                return cursor.fetchall()
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify MySQL Integration Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Acquire pooled MySQL connection] --> B[Open cursor]
+    B --> C[Execute SQL with %s bindings]
+    C --> D[Fetch or commit/rollback]
+    D --> E[Close cursor and return connection]
 ```
 
-[Back to topic index](#mysql-integration)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # PostgreSQL Integration
 
 ## Overview
-- **What is it?** PostgreSQL Integration is a Python knowledge area focused on integration.
-- **Why is it important?** Help developers apply integration techniques safely, clearly, and consistently.
-- **Where is it used?** Web services, persistence layers, analytics backends, and business systems.
+- **What is it?** PostgreSQL Integration is the intermediate Python topic of connecting Python applications to PostgreSQL with psycopg 3.
+- **Why is it important?** psycopg provides safe %s binding, context-managed transactions, row factories, pools, and PostgreSQL-specific capabilities.
+- **Where is it used?** transactional services, analytics backends, PostgreSQL feature-rich applications.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review postgresql integration code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind postgresql integration.
-- Expected outcome: you can use postgresql integration in a small project and recognize when it belongs in production code.
+- Use psycopg 3 connections and cursors.
+- Configure dict_row and transaction scopes.
+- Use psycopg_pool for bounded production connections.
 
 ## Real World Applications
-- **Industry use cases:** Web services, persistence layers, analytics backends, and business systems.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Transactional services rely on this topic.
+- **Product work:** It supports analytics backends.
+- **Operations:** It appears in PostgreSQL feature-rich applications.
 
 ## Core Concepts
 
-### Contract
-- **Definition:** The main idea that gives postgresql integration its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> PostgreSQL Integration model -> clear code`
+### psycopg connections
+- **Definition:** psycopg.connect opens a PostgreSQL session; a connection context commits on success, rolls back on error, and closes.
+- **Visual explanation:** ``Python -> psycopg -> PostgreSQL session``
 - **Practical example:**
 
 ```python
-apply_postgresql_integration_label = "PostgreSQL Integration"
-print(apply_postgresql_integration_label)
+import psycopg
+
+with psycopg.connect("dbname=learning user=app") as connection:
+    row = connection.execute("SELECT current_database()").fetchone()
 ```
 
-### Connection Flow
-- **Definition:** The ordered steps Python follows when postgresql integration code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Binding and row factories
+- **Definition:** psycopg uses %s for all bound value types and row_factory to select tuple, dict, or typed row representations.
+- **Visual explanation:** ``SQL + %s values -> server; row factory -> Python shape``
 - **Practical example:**
 
 ```python
-import sqlite3
-connection = sqlite3.connect(":memory:")
-connection.execute("CREATE TABLE users (name TEXT)")
-connection.execute("INSERT INTO users VALUES (?)", ("Ada",))
-print(connection.execute("SELECT name FROM users").fetchone()[0])
+from psycopg.rows import dict_row
+with connection.cursor(row_factory=dict_row) as cursor:
+    cursor.execute("SELECT id FROM users WHERE email = %s", ("ada@example.com",))
 ```
 
-### Reliability Boundary
-- **Definition:** The reliability habit that keeps postgresql integration understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Transactions and pools
+- **Definition:** Nested connection.transaction blocks create explicit scopes; ConnectionPool controls reusable concurrent sessions.
+- **Visual explanation:** ``ConnectionPool -> transaction -> commit/rollback -> pool``
 - **Practical example:**
 
 ```python
-import sqlite3
-
-with sqlite3.connect(":memory:") as connection:
-    connection.execute("CREATE TABLE metrics (name TEXT, value REAL)")
-    connection.executemany("INSERT INTO metrics VALUES (?, ?)", [("latency", 120.5)])
-    print(connection.execute("SELECT COUNT(*) FROM metrics").fetchone()[0])
+with connection.transaction():
+    connection.execute("UPDATE counters SET value = value + 1 WHERE name = %s", ("jobs",))
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | PostgreSQL Integration belongs to the integration part of Python mastery. |
-| ⚡ Purpose | Help developers apply integration techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional integration decisions. |
-| 🎯 Use Cases | Web services, persistence layers, analytics backends, and business systems. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | psycopg connections, Binding and row factories, Transactions and pools |
+| ⚡ Purpose | psycopg provides safe %s binding, context-managed transactions, row factories, pools, and PostgreSQL-specific capabilities. |
+| 🔥 Benefits | Typed PostgreSQL rows, concise transaction scopes, and bounded production connection reuse. |
+| 🎯 Use Cases | transactional services, analytics backends, PostgreSQL feature-rich applications |
+| 🚀 Best Practices | Use psycopg SQL composition for identifiers and parameters only for values. |
+| ❌ Common Mistakes | Using Python string formatting to insert table names or values into SQL. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import sqlite3
-connection = sqlite3.connect(":memory:")
+import psycopg
+
+with psycopg.connect(connection_string) as connection:
+    row = connection.execute(
+        "SELECT name FROM users WHERE id = %s",
+        (user_id,),
+    ).fetchone()
 ```
 
 ### Standard Structure
 
 ```python
-def apply_postgresql_integration(value):
-    """Apply the PostgreSQL Integration concept to one value."""
-    return value
+from psycopg.rows import dict_row
 
-result = apply_postgresql_integration("practice")
-print(result)
+with connection.cursor(row_factory=dict_row) as cursor:
+    cursor.execute(
+        "SELECT id, email FROM users WHERE active = %s ORDER BY id",
+        (True,),
+    )
+    users = cursor.fetchall()
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the PostgreSQL Integration problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Acquire a psycopg connection or pool lease.
+# Begin the intended transaction scope.
+# Bind values with %s; compose identifiers safely.
+# Commit/rollback and release the session.
 ```
 
 ## Examples
@@ -9267,145 +10156,177 @@ print(result)
 ### Beginner Example
 
 ```python
-import sqlite3
-connection = sqlite3.connect(":memory:")
-connection.execute("CREATE TABLE users (name TEXT)")
-connection.execute("INSERT INTO users VALUES (?)", ("Ada",))
-print(connection.execute("SELECT name FROM users").fetchone()[0])
+import psycopg
+
+with psycopg.connect("dbname=learning user=app") as connection:
+    with connection.cursor() as cursor:
+        cursor.execute("SELECT id, title FROM course WHERE id = %s", (1,))
+        print(cursor.fetchone())
 ```
 
 ### Intermediate Example
 
 ```python
-import sqlite3
+import psycopg
+from psycopg.rows import dict_row
 
-with sqlite3.connect(":memory:") as connection:
-    connection.execute("CREATE TABLE metrics (name TEXT, value REAL)")
-    connection.executemany("INSERT INTO metrics VALUES (?, ?)", [("latency", 120.5)])
-    print(connection.execute("SELECT COUNT(*) FROM metrics").fetchone()[0])
+def create_task(connection: psycopg.Connection, title: str) -> dict:
+    with connection.cursor(row_factory=dict_row) as cursor:
+        cursor.execute(
+            "INSERT INTO task (title) VALUES (%s) "
+            "RETURNING id, title, created_at",
+            (title,),
+        )
+        task = cursor.fetchone()
+        if task is None:
+            raise RuntimeError("insert returned no row")
+        return task
+
+with psycopg.connect("dbname=learning user=app") as connection:
+    print(create_task(connection, "Learn psycopg"))
 ```
 
 ### Advanced Example
 
 ```python
-import sqlite3
+from psycopg.rows import class_row
+from psycopg_pool import ConnectionPool
+from dataclasses import dataclass
 
-connection = sqlite3.connect(":memory:")
-connection.row_factory = sqlite3.Row
-connection.execute("CREATE TABLE users (id INTEGER, email TEXT)")
-connection.execute("INSERT INTO users VALUES (?, ?)", (1, "a@example.com"))
-row = connection.execute("SELECT * FROM users").fetchone()
-print(dict(row))
+@dataclass
+class User:
+    id: int
+    email: str
+
+pool = ConnectionPool(
+    "dbname=learning user=app",
+    min_size=1,
+    max_size=8,
+)
+
+def find_user(user_id: int) -> User | None:
+    with pool.connection() as connection:
+        with connection.cursor(row_factory=class_row(User)) as cursor:
+            cursor.execute(
+                "SELECT id, email FROM users WHERE id = %s",
+                (user_id,),
+            )
+            return cursor.fetchone()
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify PostgreSQL Integration Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Lease psycopg connection] --> B[Enter transaction]
+    B --> C[Bind and execute PostgreSQL SQL]
+    C --> D[Map returned rows]
+    D --> E[Commit/rollback and release]
 ```
 
-[Back to topic index](#postgresql-integration)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # SQLAlchemy ORM
 
 ## Overview
-- **What is it?** SQLAlchemy ORM is a Python knowledge area focused on integration.
-- **Why is it important?** Help developers apply integration techniques safely, clearly, and consistently.
-- **Where is it used?** Web services, persistence layers, analytics backends, and business systems.
+- **What is it?** SQLAlchemy ORM is the intermediate Python topic of mapping Python domain classes to relational tables with SQLAlchemy 2.x.
+- **Why is it important?** The ORM unit of work tracks mapped objects and flushes SQL through an explicit Session transaction.
+- **Where is it used?** backend persistence layers, complex relational domains, database-portable data access.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review sqlalchemy orm code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind sqlalchemy orm.
-- Expected outcome: you can use sqlalchemy orm in a small project and recognize when it belongs in production code.
+- Declare 2.x typed mappings.
+- Use select() and Session scopes.
+- Model relationships and avoid hidden N+1 queries.
 
 ## Real World Applications
-- **Industry use cases:** Web services, persistence layers, analytics backends, and business systems.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Backend persistence layers rely on this topic.
+- **Product work:** It supports complex relational domains.
+- **Operations:** It appears in database-portable data access.
 
 ## Core Concepts
 
-### Contract
-- **Definition:** The main idea that gives sqlalchemy orm its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> SQLAlchemy ORM model -> clear code`
+### Declarative mappings
+- **Definition:** DeclarativeBase, Mapped, and mapped_column connect typed class attributes to table columns.
+- **Visual explanation:** ``mapped class <-> table metadata``
 - **Practical example:**
 
 ```python
-apply_sqlalchemy_orm_label = "SQLAlchemy ORM"
-print(apply_sqlalchemy_orm_label)
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+
+class Base(DeclarativeBase):
+    pass
+
+class User(Base):
+    __tablename__ = "user"
+    id: Mapped[int] = mapped_column(primary_key=True)
 ```
 
-### Connection Flow
-- **Definition:** The ordered steps Python follows when sqlalchemy orm code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Session and unit of work
+- **Definition:** A Session is a short-lived identity map and transaction boundary that tracks changes and flushes SQL.
+- **Visual explanation:** ``objects -> Session unit of work -> flush -> transaction``
 - **Practical example:**
 
 ```python
-import sqlite3
-connection = sqlite3.connect(":memory:")
-connection.execute("CREATE TABLE users (name TEXT)")
-connection.execute("INSERT INTO users VALUES (?)", ("Ada",))
-print(connection.execute("SELECT name FROM users").fetchone()[0])
+from sqlalchemy.orm import Session
+
+with Session(engine) as session, session.begin():
+    session.add(User())
 ```
 
-### Reliability Boundary
-- **Definition:** The reliability habit that keeps sqlalchemy orm understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### 2.x queries and loading
+- **Definition:** SQLAlchemy 2.x queries use select(); relationship loading should be chosen explicitly to control round trips.
+- **Visual explanation:** ``select(User) -> execute -> scalars; selectinload -> bounded related query``
 - **Practical example:**
 
 ```python
-import sqlite3
-
-with sqlite3.connect(":memory:") as connection:
-    connection.execute("CREATE TABLE metrics (name TEXT, value REAL)")
-    connection.executemany("INSERT INTO metrics VALUES (?, ?)", [("latency", 120.5)])
-    print(connection.execute("SELECT COUNT(*) FROM metrics").fetchone()[0])
+from sqlalchemy import select
+statement = select(User).where(User.id == 1)
+user = session.scalar(statement)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | SQLAlchemy ORM belongs to the integration part of Python mastery. |
-| ⚡ Purpose | Help developers apply integration techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional integration decisions. |
-| 🎯 Use Cases | Web services, persistence layers, analytics backends, and business systems. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Declarative mappings, Session and unit of work, 2.x queries and loading |
+| ⚡ Purpose | The ORM unit of work tracks mapped objects and flushes SQL through an explicit Session transaction. |
+| 🔥 Benefits | Typed relational mappings, coordinated units of work, and expressive database-independent querying. |
+| 🎯 Use Cases | backend persistence layers, complex relational domains, database-portable data access |
+| 🚀 Best Practices | Use one Session per request or job and pass it explicitly to repositories. |
+| ❌ Common Mistakes | Keeping a global Session or relying on lazy loading after the Session closes. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import sqlite3
-connection = sqlite3.connect(":memory:")
+from sqlalchemy import create_engine, select
+from sqlalchemy.orm import Session
+
+engine = create_engine("sqlite:///app.db")
+with Session(engine) as session:
+    users = session.scalars(select(User)).all()
 ```
 
 ### Standard Structure
 
 ```python
-def apply_sqlalchemy_orm(value):
-    """Apply the SQLAlchemy ORM concept to one value."""
-    return value
-
-result = apply_sqlalchemy_orm("practice")
-print(result)
+with Session(engine) as session:
+    with session.begin():
+        user = User(email="ada@example.com")
+        session.add(user)
+    session.refresh(user)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the SQLAlchemy ORM problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Define typed declarative mappings.
+# Open a short-lived Session.
+# Execute select() or change mapped objects.
+# Commit transaction and close Session.
 ```
 
 ## Examples
@@ -9413,119 +10334,149 @@ print(result)
 ### Beginner Example
 
 ```python
-import sqlite3
-connection = sqlite3.connect(":memory:")
-connection.execute("CREATE TABLE users (name TEXT)")
-connection.execute("INSERT INTO users VALUES (?)", ("Ada",))
-print(connection.execute("SELECT name FROM users").fetchone()[0])
+from sqlalchemy import create_engine, select
+from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column
+class Base(DeclarativeBase):
+    pass
+class Course(Base):
+    __tablename__ = "course"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    title: Mapped[str]
+engine = create_engine("sqlite:///:memory:")
+Base.metadata.create_all(engine)
+with Session(engine) as session:
+    session.add(Course(title="Intermediate Python"))
+    session.commit()
+    print(session.scalars(select(Course)).one().title)
 ```
 
 ### Intermediate Example
 
 ```python
-import sqlite3
+from sqlalchemy import create_engine, select
+from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column
+class Base(DeclarativeBase):
+    pass
+class Task(Base):
+    __tablename__ = "task"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    title: Mapped[str]
+    done: Mapped[bool] = mapped_column(default=False)
+engine = create_engine("sqlite:///:memory:")
+Base.metadata.create_all(engine)
+with Session(engine) as session, session.begin():
+    session.add_all([Task(title="Map model"), Task(title="Query model")])
 
-with sqlite3.connect(":memory:") as connection:
-    connection.execute("CREATE TABLE metrics (name TEXT, value REAL)")
-    connection.executemany("INSERT INTO metrics VALUES (?, ?)", [("latency", 120.5)])
-    print(connection.execute("SELECT COUNT(*) FROM metrics").fetchone()[0])
+with Session(engine) as session:
+    open_tasks = session.scalars(
+        select(Task).where(Task.done.is_(False)).order_by(Task.id)
+    ).all()
+    print([task.title for task in open_tasks])
 ```
 
 ### Advanced Example
 
 ```python
-import sqlite3
-
-connection = sqlite3.connect(":memory:")
-connection.row_factory = sqlite3.Row
-connection.execute("CREATE TABLE users (id INTEGER, email TEXT)")
-connection.execute("INSERT INTO users VALUES (?, ?)", (1, "a@example.com"))
-row = connection.execute("SELECT * FROM users").fetchone()
-print(dict(row))
+from sqlalchemy import ForeignKey, create_engine, select
+from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column, relationship, selectinload
+class Base(DeclarativeBase):
+    pass
+class Author(Base):
+    __tablename__ = "author"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    name: Mapped[str]
+    books: Mapped[list["Book"]] = relationship(back_populates="author")
+class Book(Base):
+    __tablename__ = "book"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    title: Mapped[str]
+    author_id: Mapped[int] = mapped_column(ForeignKey("author.id"))
+    author: Mapped[Author] = relationship(back_populates="books")
+engine = create_engine("sqlite:///:memory:")
+Base.metadata.create_all(engine)
+with Session(engine) as session, session.begin():
+    session.add(Author(name="Ada", books=[Book(title="Python Systems")]))
+with Session(engine) as session:
+    query = select(Author).options(selectinload(Author.books))
+    author = session.scalars(query).one()
+    print([book.title for book in author.books])
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify SQLAlchemy ORM Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Define mapped classes] --> B[Open Session transaction]
+    B --> C[Load or mutate objects]
+    C --> D[Flush SQL and commit]
+    D --> E[Close Session]
 ```
 
-[Back to topic index](#sqlalchemy-orm)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Unit Testing
 
 ## Overview
-- **What is it?** Unit Testing is a Python knowledge area focused on delivery quality.
-- **Why is it important?** Help developers apply delivery quality techniques safely, clearly, and consistently.
-- **Where is it used?** Reliable releases, automation tools, reusable packages, and developer productivity.
+- **What is it?** Unit Testing is the intermediate Python topic of testing small units with Python's standard-library unittest framework.
+- **Why is it important?** unittest organizes TestCase classes, lifecycle methods, assertions, discovery, and mock integration without third-party tools.
+- **Where is it used?** library regression suites, legacy test code, standard-library-only projects.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review unit testing code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind unit testing.
-- Expected outcome: you can use unit testing in a small project and recognize when it belongs in production code.
+- Write TestCase methods and assertions.
+- Use setUp/tearDown and subTest appropriately.
+- Contrast unittest class style with pytest function-and-fixture style.
 
 ## Real World Applications
-- **Industry use cases:** Reliable releases, automation tools, reusable packages, and developer productivity.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Library regression suites rely on this topic.
+- **Product work:** It supports legacy test code.
+- **Operations:** It appears in standard-library-only projects.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives unit testing its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Unit Testing model -> clear code`
-- **Practical example:**
-
-```python
-apply_unit_testing_label = "Unit Testing"
-print(apply_unit_testing_label)
-```
-
-### Execution Flow
-- **Definition:** The ordered steps Python follows when unit testing code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
-- **Practical example:**
-
-```python
-def add(left, right):
-    return left + right
-
-assert add(2, 3) == 5
-```
-
-### Quality Rule
-- **Definition:** The reliability habit that keeps unit testing understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### TestCase lifecycle
+- **Definition:** unittest creates a fresh TestCase instance for each test method and runs setUp and tearDown around it.
+- **Visual explanation:** ``new TestCase -> setUp -> test_* -> tearDown``
 - **Practical example:**
 
 ```python
 import unittest
 
-def normalize(value):
-    return value.strip().lower()
+class MathTests(unittest.TestCase):
+    def test_sum(self):
+        self.assertEqual(2 + 3, 5)
+```
 
-class TestNormalize(unittest.TestCase):
-    def test_normalize(self):
-        self.assertEqual(normalize(" Python "), "python")
+### Assertions
+- **Definition:** TestCase assertions report structured differences and expected exceptions instead of relying on bare boolean output.
+- **Visual explanation:** ``arrange -> act -> assertEqual/assertRaises``
+- **Practical example:**
+
+```python
+with self.assertRaises(ValueError):
+    int("invalid")
+```
+
+### Discovery and isolation
+- **Definition:** python -m unittest discovers test modules; each test must control state and remain independent of execution order.
+- **Visual explanation:** ``discovery -> isolated test methods -> report``
+- **Practical example:**
+
+```python
+# python -m unittest discover -s tests -p "test_*.py"
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Unit Testing belongs to the delivery quality part of Python mastery. |
-| ⚡ Purpose | Help developers apply delivery quality techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional delivery quality decisions. |
-| 🎯 Use Cases | Reliable releases, automation tools, reusable packages, and developer productivity. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | TestCase lifecycle, Assertions, Discovery and isolation |
+| ⚡ Purpose | unittest organizes TestCase classes, lifecycle methods, assertions, discovery, and mock integration without third-party tools. |
+| 🔥 Benefits | Standard-library test discovery, isolated lifecycle control, and structured regression assertions. |
+| 🎯 Use Cases | library regression suites, legacy test code, standard-library-only projects |
+| 🚀 Best Practices | Test observable behavior with one clear reason for failure per test. |
+| ❌ Common Mistakes | Sharing mutable class or global state between tests. |
 
 ## Syntax Guide
 
@@ -9534,28 +10485,30 @@ class TestNormalize(unittest.TestCase):
 ```python
 import unittest
 
-class TestMath(unittest.TestCase):
-    def test_add(self):
-        self.assertEqual(1 + 1, 2)
+class SlugTests(unittest.TestCase):
+    def test_spaces_become_hyphens(self):
+        self.assertEqual(slugify("hello world"), "hello-world")
 ```
 
 ### Standard Structure
 
 ```python
-def apply_unit_testing(value):
-    """Apply the Unit Testing concept to one value."""
-    return value
+class RepositoryTests(unittest.TestCase):
+    def setUp(self):
+        self.repository = MemoryRepository()
 
-result = apply_unit_testing("practice")
-print(result)
+    def test_saved_item_can_be_loaded(self):
+        self.repository.save("a", 1)
+        self.assertEqual(self.repository.load("a"), 1)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Unit Testing problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Arrange one isolated starting state.
+# Act through the unit's public interface.
+# Assert the observable result or exception.
+# unittest runner discovers test_* methods.
 ```
 
 ## Examples
@@ -9563,10 +10516,17 @@ print(result)
 ### Beginner Example
 
 ```python
-def add(left, right):
-    return left + right
+import unittest
 
-assert add(2, 3) == 5
+def double(value):
+    return value * 2
+
+class DoubleTests(unittest.TestCase):
+    def test_doubles_integer(self):
+        self.assertEqual(double(4), 8)
+
+if __name__ == "__main__":
+    unittest.main()
 ```
 
 ### Intermediate Example
@@ -9574,137 +10534,167 @@ assert add(2, 3) == 5
 ```python
 import unittest
 
-def normalize(value):
-    return value.strip().lower()
+def percentage(part: float, total: float) -> float:
+    if total == 0:
+        raise ValueError("total cannot be zero")
+    return part / total * 100
 
-class TestNormalize(unittest.TestCase):
-    def test_normalize(self):
-        self.assertEqual(normalize(" Python "), "python")
+class PercentageTests(unittest.TestCase):
+    def test_calculates_percentage(self):
+        self.assertAlmostEqual(percentage(1, 4), 25.0)
+
+    def test_rejects_zero_total(self):
+        with self.assertRaisesRegex(ValueError, "cannot be zero"):
+            percentage(3, 0)
+
+    def test_multiple_ratios(self):
+        for part, total, expected in ((1, 2, 50), (3, 4, 75)):
+            with self.subTest(part=part, total=total):
+                self.assertEqual(percentage(part, total), expected)
 ```
 
 ### Advanced Example
 
 ```python
-from dataclasses import dataclass
+import unittest
+from unittest.mock import Mock
 
-@dataclass
-class Cart:
-    items: list[float]
+class RegistrationService:
+    def __init__(self, repository, mailer):
+        self.repository = repository
+        self.mailer = mailer
 
-    def total(self) -> float:
-        return sum(self.items)
+    def register(self, email):
+        user = self.repository.save(email)
+        self.mailer.send_welcome(user)
+        return user
 
-def test_cart_total():
-    assert Cart([10, 15]).total() == 25
+class RegistrationTests(unittest.TestCase):
+    def setUp(self):
+        self.repository = Mock()
+        self.mailer = Mock()
+        self.service = RegistrationService(self.repository, self.mailer)
+
+    def test_saves_then_sends_welcome(self):
+        user = {"id": 7, "email": "ada@example.com"}
+        self.repository.save.return_value = user
+        self.assertIs(self.service.register(user["email"]), user)
+        self.repository.save.assert_called_once_with(user["email"])
+        self.mailer.send_welcome.assert_called_once_with(user)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Unit Testing Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Discover TestCase methods] --> B[Create fresh case]
+    B --> C[Run setUp]
+    C --> D[Execute and assert]
+    D --> E[Run tearDown and report]
 ```
 
-[Back to topic index](#unit-testing)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Pytest
 
 ## Overview
-- **What is it?** Pytest is a Python knowledge area focused on delivery quality.
-- **Why is it important?** Help developers apply delivery quality techniques safely, clearly, and consistently.
-- **Where is it used?** Reliable releases, automation tools, reusable packages, and developer productivity.
+- **What is it?** Pytest is the intermediate Python topic of writing concise tests with pytest assertions, fixtures, and parametrization.
+- **Why is it important?** pytest uses plain test functions, assertion rewriting, composable fixtures, and a rich plugin ecosystem.
+- **Where is it used?** modern application suites, integration test fixtures, data-driven testing.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review pytest code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind pytest.
-- Expected outcome: you can use pytest in a small project and recognize when it belongs in production code.
+- Write plain assert tests.
+- Build scoped fixtures with cleanup.
+- Parametrize cases and use pytest.raises.
 
 ## Real World Applications
-- **Industry use cases:** Reliable releases, automation tools, reusable packages, and developer productivity.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Modern application suites rely on this topic.
+- **Product work:** It supports integration test fixtures.
+- **Operations:** It appears in data-driven testing.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives pytest its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Pytest model -> clear code`
+### Assertion rewriting
+- **Definition:** pytest rewrites assert statements during collection to show evaluated subexpressions on failure.
+- **Visual explanation:** ``plain assert expression -> detailed failure explanation``
 - **Practical example:**
 
 ```python
-apply_pytest_label = "Pytest"
-print(apply_pytest_label)
+def test_total():
+    assert sum([2, 3]) == 5
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when pytest code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
-- **Practical example:**
-
-```python
-def increment(value):
-    return value + 1
-
-def test_increment():
-    assert increment(2) == 3
-```
-
-### Quality Rule
-- **Definition:** The reliability habit that keeps pytest understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Fixtures
+- **Definition:** A fixture declares reusable setup by dependency name; yield fixtures run teardown after consumers finish.
+- **Visual explanation:** ``test parameter -> fixture setup -> test -> teardown``
 - **Practical example:**
 
 ```python
 import pytest
 
-@pytest.mark.parametrize("raw,expected", [("1", 1), ("2", 2)])
-def test_parse_int(raw, expected):
-    assert int(raw) == expected
+@pytest.fixture
+def records():
+    return [{"id": 1}]
+```
+
+### Parametrization
+- **Definition:** parametrize collects one test case per argument set, keeping behavior and edge cases visible.
+- **Visual explanation:** ``one test function x case table -> many test items``
+- **Practical example:**
+
+```python
+import pytest
+
+@pytest.mark.parametrize("value", [1, 2, 3])
+def test_positive(value):
+    assert value > 0
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Pytest belongs to the delivery quality part of Python mastery. |
-| ⚡ Purpose | Help developers apply delivery quality techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional delivery quality decisions. |
-| 🎯 Use Cases | Reliable releases, automation tools, reusable packages, and developer productivity. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Assertion rewriting, Fixtures, Parametrization |
+| ⚡ Purpose | pytest uses plain test functions, assertion rewriting, composable fixtures, and a rich plugin ecosystem. |
+| 🔥 Benefits | Concise assertions, composable setup, and scalable data-driven test coverage. |
+| 🎯 Use Cases | modern application suites, integration test fixtures, data-driven testing |
+| 🚀 Best Practices | Keep fixture scope narrow and assert outcomes rather than implementation sequence. |
+| ❌ Common Mistakes | Turning fixtures into hidden, autouse-heavy global setup. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-def test_total():
-    assert sum([1, 2]) == 3
+def test_slugify():
+    assert slugify("Hello World") == "hello-world"
 ```
 
 ### Standard Structure
 
 ```python
-def apply_pytest(value):
-    """Apply the Pytest concept to one value."""
-    return value
+import pytest
 
-result = apply_pytest("practice")
-print(result)
+@pytest.fixture
+def repository():
+    repo = Repository()
+    yield repo
+    repo.close()
+
+def test_save(repository):
+    repository.save("item")
+    assert repository.count() == 1
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Pytest problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# pytest collects test_* functions.
+# Fixture names declare setup dependencies.
+# Plain assert states expected behavior.
+# yield fixture performs guaranteed teardown.
 ```
 
 ## Examples
@@ -9712,11 +10702,11 @@ print(result)
 ### Beginner Example
 
 ```python
-def increment(value):
-    return value + 1
+def add_tax(amount: float, rate: float) -> float:
+    return amount * (1 + rate)
 
-def test_increment():
-    assert increment(2) == 3
+def test_add_tax():
+    assert add_tax(100, 0.2) == 120
 ```
 
 ### Intermediate Example
@@ -9724,9 +10714,22 @@ def test_increment():
 ```python
 import pytest
 
-@pytest.mark.parametrize("raw,expected", [("1", 1), ("2", 2)])
-def test_parse_int(raw, expected):
-    assert int(raw) == expected
+def parse_port(text: str) -> int:
+    port = int(text)
+    if not 1 <= port <= 65535:
+        raise ValueError("port out of range")
+    return port
+
+@pytest.mark.parametrize(
+    ("text", "expected"),
+    [("80", 80), ("443", 443), ("8080", 8080)],
+)
+def test_parse_port(text, expected):
+    assert parse_port(text) == expected
+
+def test_parse_port_rejects_out_of_range():
+    with pytest.raises(ValueError, match="out of range"):
+        parse_port("70000")
 ```
 
 ### Advanced Example
@@ -9734,96 +10737,105 @@ def test_parse_int(raw, expected):
 ```python
 import pytest
 
-@pytest.fixture
-def user():
-    return {"role": "admin"}
+class MemoryRepository:
+    def __init__(self):
+        self.items = []
 
-def test_user_role(user):
-    assert user["role"] == "admin"
+    def close(self):
+        self.closed = True
+
+@pytest.fixture
+def repository():
+    value = MemoryRepository()
+    yield value
+    value.close()
+
+@pytest.fixture
+def populated_repository(repository):
+    repository.items.extend(["alpha", "beta"])
+    return repository
+
+def test_repository_starts_populated(populated_repository):
+    assert populated_repository.items == ["alpha", "beta"]
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Pytest Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Collect test functions] --> B[Resolve fixture graph]
+    B --> C[Run fixture setup]
+    C --> D[Execute plain assertions]
+    D --> E[Finalize fixtures and report]
 ```
 
-[Back to topic index](#pytest)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Mocking
 
 ## Overview
-- **What is it?** Mocking is a Python knowledge area focused on delivery quality.
-- **Why is it important?** Help developers apply delivery quality techniques safely, clearly, and consistently.
-- **Where is it used?** Reliable releases, automation tools, reusable packages, and developer productivity.
+- **What is it?** Mocking is the intermediate Python topic of replacing collaborators at test boundaries with controlled test doubles.
+- **Why is it important?** unittest.mock isolates nondeterministic or external behavior, but excessive mocking couples tests to implementation.
+- **Where is it used?** network failure simulation, time and randomness control, interaction verification.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review mocking code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind mocking.
-- Expected outcome: you can use mocking in a small project and recognize when it belongs in production code.
+- Use Mock, patch, autospec, and side_effect.
+- Patch where a name is looked up.
+- Choose fakes or real collaborators when behavior matters.
 
 ## Real World Applications
-- **Industry use cases:** Reliable releases, automation tools, reusable packages, and developer productivity.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Network failure simulation rely on this topic.
+- **Product work:** It supports time and randomness control.
+- **Operations:** It appears in interaction verification.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives mocking its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Mocking model -> clear code`
-- **Practical example:**
-
-```python
-apply_mocking_label = "Mocking"
-print(apply_mocking_label)
-```
-
-### Execution Flow
-- **Definition:** The ordered steps Python follows when mocking code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Test doubles
+- **Definition:** A mock records calls and returns configured values; stubs provide answers, while fakes provide a lightweight working implementation.
+- **Visual explanation:** ``unit -> test double instead of external collaborator``
 - **Practical example:**
 
 ```python
 from unittest.mock import Mock
-notify = Mock()
-notify("sent")
-notify.assert_called_once_with("sent")
+gateway = Mock()
+gateway.charge.return_value = "paid"
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps mocking understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Patching lookup names
+- **Definition:** patch temporarily rebinds the name used by code under test, which may differ from where the object was originally defined.
+- **Visual explanation:** ``module_under_test.name -> patched object during scope``
 - **Practical example:**
 
 ```python
 from unittest.mock import patch
 
-def get_clock():
-    import time
-    return time.time()
+with patch("service.clock") as clock:
+    clock.return_value = 100
+```
 
-with patch("time.time", return_value=123.0):
-    print(get_clock())
+### Specifications and side effects
+- **Definition:** autospec constrains a mock to a real callable signature; side_effect can raise or produce sequential outcomes.
+- **Visual explanation:** ``spec -> valid interface; side_effect -> result/error sequence``
+- **Practical example:**
+
+```python
+from unittest.mock import Mock
+client = Mock()
+client.fetch.side_effect = [TimeoutError, {"ok": True}]
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Mocking belongs to the delivery quality part of Python mastery. |
-| ⚡ Purpose | Help developers apply delivery quality techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional delivery quality decisions. |
-| 🎯 Use Cases | Reliable releases, automation tools, reusable packages, and developer productivity. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Test doubles, Patching lookup names, Specifications and side effects |
+| ⚡ Purpose | unittest.mock isolates nondeterministic or external behavior, but excessive mocking couples tests to implementation. |
+| 🔥 Benefits | Deterministic boundary tests, reproducible failures, and precise collaborator interaction checks. |
+| 🎯 Use Cases | network failure simulation, time and randomness control, interaction verification |
+| 🚀 Best Practices | Mock narrow external boundaries and assert the business outcome first. |
+| ❌ Common Mistakes | Patching the definition module when the code under test imported the name elsewhere. |
 
 ## Syntax Guide
 
@@ -9831,26 +10843,29 @@ with patch("time.time", return_value=123.0):
 
 ```python
 from unittest.mock import Mock
-service = Mock(return_value="ok")
+
+mailer = Mock()
+mailer.send.return_value = "queued"
+result = mailer.send("ada@example.com")
 ```
 
 ### Standard Structure
 
 ```python
-def apply_mocking(value):
-    """Apply the Mocking concept to one value."""
-    return value
+from unittest.mock import patch
 
-result = apply_mocking("practice")
-print(result)
+with patch("orders.requests.get", autospec=True) as get:
+    get.return_value.json.return_value = {"status": "ok"}
+    result = orders.fetch_status()
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Mocking problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Identify the external or nondeterministic boundary.
+# Replace the name where the unit looks it up.
+# Configure realistic result or failure.
+# Assert outcome and only meaningful interactions.
 ```
 
 ## Examples
@@ -9859,142 +10874,166 @@ print(result)
 
 ```python
 from unittest.mock import Mock
-notify = Mock()
-notify("sent")
-notify.assert_called_once_with("sent")
+
+notifier = Mock()
+notifier.send.return_value = "message-7"
+message_id = notifier.send("Build complete")
+assert message_id == "message-7"
+notifier.send.assert_called_once_with("Build complete")
 ```
 
 ### Intermediate Example
 
 ```python
-from unittest.mock import patch
+from unittest.mock import Mock
 
-def get_clock():
-    import time
-    return time.time()
+def deliver(client, payload):
+    response = client.post(payload)
+    if response["status"] != "accepted":
+        raise RuntimeError("delivery rejected")
+    return response["id"]
 
-with patch("time.time", return_value=123.0):
-    print(get_clock())
+client = Mock()
+client.post.return_value = {"status": "accepted", "id": "evt-1"}
+assert deliver(client, {"value": 4}) == "evt-1"
+client.post.assert_called_once_with({"value": 4})
 ```
 
 ### Advanced Example
 
 ```python
-from unittest.mock import create_autospec
+from unittest.mock import create_autospec, patch
 
-class Gateway:
-    def charge(self, amount: float) -> str:
-        return "approved"
+class Clock:
+    def now(self) -> float:
+        return 0.0
 
-gateway = create_autospec(Gateway)
-gateway.charge.return_value = "approved"
-print(gateway.charge(10.0))
+def issue_token(clock: Clock) -> dict:
+    return {"issued_at": clock.now()}
+
+clock = create_autospec(Clock, instance=True)
+clock.now.side_effect = [100.0, 101.0]
+assert issue_token(clock)["issued_at"] == 100.0
+assert issue_token(clock)["issued_at"] == 101.0
+
+with patch("time.sleep", autospec=True) as sleep:
+    sleep(0.5)
+    sleep.assert_called_once_with(0.5)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Mocking Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Locate collaborator boundary] --> B[Create spec-constrained double]
+    B --> C[Patch lookup or inject double]
+    C --> D[Exercise unit]
+    D --> E[Assert outcome and calls]
 ```
 
-[Back to topic index](#mocking)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Packaging Python Projects
 
 ## Overview
-- **What is it?** Packaging Python Projects is a Python knowledge area focused on delivery quality.
-- **Why is it important?** Help developers apply delivery quality techniques safely, clearly, and consistently.
-- **Where is it used?** Reliable releases, automation tools, reusable packages, and developer productivity.
+- **What is it?** Packaging Python Projects is the intermediate Python topic of building installable Python distributions from a pyproject.toml and src layout.
+- **Why is it important?** Modern packaging separates build metadata, import packages, distributions, and isolated build backends.
+- **Where is it used?** reusable libraries, internal tools, PyPI distributions.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review packaging python projects code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind packaging python projects.
-- Expected outcome: you can use packaging python projects in a small project and recognize when it belongs in production code.
+- Create pyproject.toml metadata.
+- Use a src layout to test installed imports.
+- Build and inspect wheel and source distributions.
 
 ## Real World Applications
-- **Industry use cases:** Reliable releases, automation tools, reusable packages, and developer productivity.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Reusable libraries rely on this topic.
+- **Product work:** It supports internal tools.
+- **Operations:** It appears in PyPI distributions.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives packaging python projects its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Packaging Python Projects model -> clear code`
+### Project metadata
+- **Definition:** pyproject.toml declares the build backend and standardized project name, version, Python requirement, dependencies, and entry points.
+- **Visual explanation:** ``pyproject.toml -> build backend -> distribution metadata``
 - **Practical example:**
 
 ```python
-apply_packaging_python_projects_label = "Packaging Python Projects"
-print(apply_packaging_python_projects_label)
+from pathlib import Path
+metadata = Path("pyproject.toml").read_text(encoding="utf-8")
+print("[project]" in metadata)
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when packaging python projects code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Source layout
+- **Definition:** A src layout places import packages under src/, preventing tests from accidentally importing the working tree instead of the installed project.
+- **Visual explanation:** ``project/src/package -> installation -> site-packages/package``
 - **Practical example:**
 
 ```python
-import platform
-print(platform.python_version())
+from pathlib import Path
+package = Path("src/learning_tools/__init__.py")
+print(package.as_posix())
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps packaging python projects understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Distribution artifacts
+- **Definition:** A build creates a source distribution and platform-appropriate wheel; consumers install the distribution and import its package name.
+- **Visual explanation:** ``source tree -> sdist + wheel -> installer -> import package``
 - **Practical example:**
 
 ```python
-import sys
-
-if sys.version_info < (3, 12):
-    raise RuntimeError("Python 3.12 or newer is recommended")
-print("Python version is ready")
+from pathlib import Path
+artifacts = list(Path("dist").glob("*"))
+print([path.suffix for path in artifacts])
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Packaging Python Projects belongs to the delivery quality part of Python mastery. |
-| ⚡ Purpose | Help developers apply delivery quality techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional delivery quality decisions. |
-| 🎯 Use Cases | Reliable releases, automation tools, reusable packages, and developer productivity. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Project metadata, Source layout, Distribution artifacts |
+| ⚡ Purpose | Modern packaging separates build metadata, import packages, distributions, and isolated build backends. |
+| 🔥 Benefits | Reproducible builds, clean installed imports, and distributable versioned artifacts. |
+| 🎯 Use Cases | reusable libraries, internal tools, PyPI distributions |
+| 🚀 Best Practices | Build in isolation, test the wheel in a clean environment, and publish immutable versions. |
+| ❌ Common Mistakes | Confusing the distribution name with the import package or importing from the repository root in tests. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
-```bash
-python -m build
-python -m twine upload dist/*
+```toml
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "learning-tools"
+version = "0.1.0"
+requires-python = ">=3.12"
 ```
 
 ### Standard Structure
 
-```python
-def apply_packaging_python_projects(value):
-    """Apply the Packaging Python Projects concept to one value."""
-    return value
-
-result = apply_packaging_python_projects("practice")
-print(result)
+```text
+learning-tools/
+├── pyproject.toml
+├── README.md
+├── src/
+│   └── learning_tools/
+│       ├── __init__.py
+│       └── cli.py
+└── tests/
+    └── test_cli.py
 ```
 
 ### Code Pattern
 
-```python
-# 1. Identify the Packaging Python Projects problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+```bash
+python -m build
+python -m venv /tmp/package-check
+/tmp/package-check/bin/python -m pip install dist/*.whl
+/tmp/package-check/bin/python -c "import learning_tools"
 ```
 
 ## Examples
@@ -10002,115 +11041,125 @@ print(result)
 ### Beginner Example
 
 ```python
-import platform
-print(platform.python_version())
+# src/learning_tools/version.py
+__version__ = "0.1.0"
+
+def version_message() -> str:
+    return f"learning-tools {__version__}"
+
+print(version_message())
 ```
 
 ### Intermediate Example
 
 ```python
-import sys
+# src/learning_tools/slug.py
+import re
 
-if sys.version_info < (3, 12):
-    raise RuntimeError("Python 3.12 or newer is recommended")
-print("Python version is ready")
+def slugify(value: str) -> str:
+    normalized = value.strip().casefold()
+    return re.sub(r"[^a-z0-9]+", "-", normalized).strip("-")
+
+if __name__ == "__main__":
+    print(slugify("Packaged Python Tool"))
 ```
 
 ### Advanced Example
 
 ```python
-from pathlib import Path
-import sys
+# src/learning_tools/cli.py
+import argparse
+from importlib.metadata import version
 
-project = Path.cwd()
-print({"python": sys.version.split()[0], "project": project.name})
+def main(arguments=None) -> int:
+    parser = argparse.ArgumentParser(prog="learning-tools")
+    parser.add_argument("--version", action="store_true")
+    options = parser.parse_args(arguments)
+    if options.version:
+        print(version("learning-tools"))
+    return 0
+
+if __name__ == "__main__":
+    raise SystemExit(main())
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Packaging Python Projects Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Define pyproject metadata] --> B[Place package under src]
+    B --> C[Run tests against installation]
+    C --> D[Build sdist and wheel]
+    D --> E[Inspect and publish artifacts]
 ```
 
-[Back to topic index](#packaging-python-projects)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # CLI Applications
 
 ## Overview
-- **What is it?** CLI Applications is a Python knowledge area focused on delivery quality.
-- **Why is it important?** Help developers apply delivery quality techniques safely, clearly, and consistently.
-- **Where is it used?** Reliable releases, automation tools, reusable packages, and developer productivity.
+- **What is it?** CLI Applications is the intermediate Python topic of building composable command-line interfaces with argparse.
+- **Why is it important?** A CLI translates shell arguments into validated application commands, writes results to the correct stream, and signals outcomes with exit codes.
+- **Where is it used?** developer tooling, automation scripts, administrative utilities.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review cli applications code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind cli applications.
-- Expected outcome: you can use cli applications in a small project and recognize when it belongs in production code.
+- Design options, arguments, and subcommands.
+- Separate parsing from command behavior.
+- Use stdout, stderr, and exit statuses predictably.
 
 ## Real World Applications
-- **Industry use cases:** Reliable releases, automation tools, reusable packages, and developer productivity.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Developer tooling rely on this topic.
+- **Product work:** It supports automation scripts.
+- **Operations:** It appears in administrative utilities.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives cli applications its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> CLI Applications model -> clear code`
-- **Practical example:**
-
-```python
-apply_cli_applications_label = "CLI Applications"
-print(apply_cli_applications_label)
-```
-
-### Execution Flow
-- **Definition:** The ordered steps Python follows when cli applications code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Argument contract
+- **Definition:** A CLI contract defines command names, positional arguments, options, defaults, help, and validation.
+- **Visual explanation:** ``argv -> argparse parser -> Namespace``
 - **Practical example:**
 
 ```python
 import argparse
-
 parser = argparse.ArgumentParser()
-parser.add_argument("--name", default="Python")
-args = parser.parse_args([])
-print(args.name)
+parser.add_argument("--verbose", action="store_true")
+options = parser.parse_args([])
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps cli applications understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Command dispatch
+- **Definition:** Subparsers map explicit commands to handler functions while keeping business logic independently callable.
+- **Visual explanation:** ``subcommand -> selected handler -> service``
 - **Practical example:**
 
 ```python
-import argparse
+parser = argparse.ArgumentParser()
+commands = parser.add_subparsers(dest="command", required=True)
+commands.add_parser("status")
+```
 
-def build_parser():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("count", type=int)
-    return parser
+### Streams and exit status
+- **Definition:** Normal machine-readable output goes to stdout, diagnostics go to stderr, and zero/nonzero status reports success/failure.
+- **Visual explanation:** ``result -> stdout + exit 0 | error -> stderr + nonzero``
+- **Practical example:**
 
-args = build_parser().parse_args(["3"])
-print(args.count * 2)
+```python
+import sys
+print("invalid input", file=sys.stderr)
+status = 2
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | CLI Applications belongs to the delivery quality part of Python mastery. |
-| ⚡ Purpose | Help developers apply delivery quality techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional delivery quality decisions. |
-| 🎯 Use Cases | Reliable releases, automation tools, reusable packages, and developer productivity. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Argument contract, Command dispatch, Streams and exit status |
+| ⚡ Purpose | A CLI translates shell arguments into validated application commands, writes results to the correct stream, and signals outcomes with exit codes. |
+| 🔥 Benefits | Discoverable command contracts, automation-friendly output, and testable command dispatch. |
+| 🎯 Use Cases | developer tooling, automation scripts, administrative utilities |
+| 🚀 Best Practices | Keep main(arguments=None) testable and return an integer status. |
+| ❌ Common Mistakes | Mixing argument parsing, database access, and formatting in one function. |
 
 ## Syntax Guide
 
@@ -10118,27 +11167,32 @@ print(args.count * 2)
 
 ```python
 import argparse
+
 parser = argparse.ArgumentParser()
 parser.add_argument("name")
+args = parser.parse_args()
+print(f"Hello, {args.name}")
 ```
 
 ### Standard Structure
 
 ```python
-def apply_cli_applications(value):
-    """Apply the CLI Applications concept to one value."""
-    return value
-
-result = apply_cli_applications("practice")
-print(result)
+def build_parser():
+    parser = argparse.ArgumentParser(prog="tasks")
+    subcommands = parser.add_subparsers(required=True)
+    add = subcommands.add_parser("add")
+    add.add_argument("title")
+    add.set_defaults(handler=handle_add)
+    return parser
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the CLI Applications problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Build parser and document the contract.
+# Parse argv into typed values.
+# Dispatch to a separately testable handler.
+# Print to correct stream and return an exit code.
 ```
 
 ## Examples
@@ -10148,10 +11202,10 @@ print(result)
 ```python
 import argparse
 
-parser = argparse.ArgumentParser()
-parser.add_argument("--name", default="Python")
-args = parser.parse_args([])
-print(args.name)
+parser = argparse.ArgumentParser(description="Greet one person")
+parser.add_argument("name")
+args = parser.parse_args(["Ada"])
+print(f"Hello, {args.name}")
 ```
 
 ### Intermediate Example
@@ -10159,135 +11213,182 @@ print(args.name)
 ```python
 import argparse
 
-def build_parser():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("count", type=int)
-    return parser
+def parse_arguments(arguments=None):
+    parser = argparse.ArgumentParser(prog="convert")
+    parser.add_argument("value", type=float)
+    parser.add_argument("--scale", type=float, default=1.0)
+    return parser.parse_args(arguments)
 
-args = build_parser().parse_args(["3"])
-print(args.count * 2)
+def main(arguments=None) -> int:
+    options = parse_arguments(arguments)
+    print(options.value * options.scale)
+    return 0
+
+if __name__ == "__main__":
+    raise SystemExit(main())
 ```
 
 ### Advanced Example
 
 ```python
 import argparse
+import sys
 
-parser = argparse.ArgumentParser(prog="portal")
-subcommands = parser.add_subparsers(dest="command", required=True)
-run = subcommands.add_parser("run")
-run.add_argument("--dry-run", action="store_true")
-print(parser.parse_args(["run", "--dry-run"]))
+def handle_add(options) -> int:
+    if not options.title.strip():
+        print("title cannot be blank", file=sys.stderr)
+        return 2
+    print(f"added: {options.title.strip()}")
+    return 0
+
+def handle_list(options) -> int:
+    print("\n".join(options.items))
+    return 0
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(prog="tasks")
+    commands = parser.add_subparsers(required=True)
+    add = commands.add_parser("add")
+    add.add_argument("title")
+    add.set_defaults(handler=handle_add)
+    listing = commands.add_parser("list")
+    listing.set_defaults(handler=handle_list, items=["learn", "test"])
+    return parser
+
+def main(arguments=None) -> int:
+    options = build_parser().parse_args(arguments)
+    return options.handler(options)
+
+if __name__ == "__main__":
+    raise SystemExit(main())
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify CLI Applications Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Receive argv] --> B[Parse and validate command]
+    B --> C[Dispatch selected handler]
+    C --> D[Write result to stdout/stderr]
+    D --> E[Return exit status]
 ```
 
-[Back to topic index](#cli-applications)
-
-
----
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 ## Level 3: Advanced
 
-Move from coding fluency into architecture, platforms, data systems, AI, performance, and production operations.
+---
 
 # Data Structures Internals
 
 ## Overview
-- **What is it?** Data Structures Internals is a Python knowledge area focused on advanced language engineering.
-- **Why is it important?** Help developers apply advanced language engineering techniques safely, clearly, and consistently.
-- **Where is it used?** Performance-sensitive systems, frameworks, libraries, and technical interviews.
+- **What is it?** Python containers are implemented with specialized memory layouts and algorithms: dynamic arrays for `list`, open-addressed hash tables for `dict` and `set`, and compact immutable records for `tuple`.
+- **Why is it important?** Knowing those internals explains amortized complexity, ordering, memory cost, hash requirements, and surprising mutation behavior.
+- **Where is it used?** Use this knowledge when selecting containers, reviewing hot paths, designing cache keys, or diagnosing memory growth.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review data structures internals code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind data structures internals.
-- Expected outcome: you can use data structures internals in a small project and recognize when it belongs in production code.
+- Relate list growth and dictionary hashing to observed time and space complexity.
+- Choose containers from workload characteristics rather than surface syntax.
+- Recognize hash, equality, aliasing, and mutation hazards in production code.
 
 ## Real World Applications
-- **Industry use cases:** Performance-sensitive systems, frameworks, libraries, and technical interviews.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Low-latency queues, indexes, caches, deduplication sets, and graph adjacency maps.
+- Capacity planning for large in-memory datasets and object-heavy services.
+- Technical design reviews where asymptotic and constant-factor costs both matter.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives data structures internals its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Data Structures Internals model -> clear code`
+### Dynamic Arrays and Amortization
+- **Definition:** A Python list stores references in a contiguous pointer array and over-allocates when it grows, making most appends O(1) amortized while middle insertion remains O(n).
+- **Visual explanation:** `logical items → spare pointer slots → occasional resize-and-copy`
 - **Practical example:**
 
 ```python
-apply_data_structures_internals_label = "Data Structures Internals"
-print(apply_data_structures_internals_label)
+import sys
+
+values: list[int] = []
+sizes = []
+for number in range(20):
+    before = sys.getsizeof(values)
+    values.append(number)
+    if sys.getsizeof(values) != before:
+        sizes.append((len(values), sys.getsizeof(values)))
+print(sizes)
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when data structures internals code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Hash Tables and Key Contracts
+- **Definition:** Dictionaries locate entries from a key hash and resolve collisions by probing; keys must keep compatible, stable `__hash__` and `__eq__` behavior while stored.
+- **Visual explanation:** `hash(key) → probe sequence → equality check → value slot`
 - **Practical example:**
 
 ```python
-profile = {"name": "Lin", "age": 29}
-print(profile["name"])
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class Coordinate:
+    x: int
+    y: int
+
+cache = {Coordinate(2, 5): "occupied"}
+print(cache[Coordinate(2, 5)])
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps data structures internals understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Views, Aliasing, and Copies
+- **Definition:** Assignment aliases a container, shallow copies duplicate only the outer container, and dictionary views remain connected to the source mapping.
+- **Visual explanation:** `mapping → live view; shallow copy → shared nested objects`
 - **Practical example:**
 
 ```python
-inventory = {"laptop": 3, "mouse": 10}
-inventory["laptop"] -= 1
-print(inventory)
+original = {"roles": ["reader"]}
+clone = original.copy()
+keys = original.keys()
+clone["roles"].append("editor")
+original["active"] = True
+print(original, list(keys))
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Data Structures Internals belongs to the advanced language engineering part of Python mastery. |
-| ⚡ Purpose | Help developers apply advanced language engineering techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional advanced language engineering decisions. |
-| 🎯 Use Cases | Performance-sensitive systems, frameworks, libraries, and technical interviews. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Python containers are implemented with specialized memory layouts and algorithms: dynamic arrays for `list`, open-addressed hash tables for `dict` and `set`, and compact immutable records for `tuple`. |
+| ⚡ Purpose | Knowing those internals explains amortized complexity, ordering, memory cost, hash requirements, and surprising mutation behavior. |
+| 🔥 Benefits | Builds the ability to relate list growth and dictionary hashing to observed time and space complexity; it also helps practitioners choose containers from workload characteristics rather than surface syntax. |
+| 🎯 Use Cases | Low-latency queues, indexes, caches, deduplication sets, and graph adjacency maps. Capacity planning for large in-memory datasets and object-heavy services. |
+| 🚀 Best Practices | Prefer `deque` for frequent operations at both ends. |
+| ❌ Common Mistakes | Ignoring the guardrail “Never mutate state that participates in a stored key's hash”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-user = {"name": "Ada", "role": "admin"}
-print(user["name"])
+from collections import deque
+
+pending = deque(["a", "b"])
+pending.appendleft("urgent")
+next_item = pending.popleft()
 ```
 
 ### Standard Structure
 
 ```python
-def apply_data_structures_internals(value):
-    """Apply the Data Structures Internals concept to one value."""
-    return value
+from collections import defaultdict
 
-result = apply_data_structures_internals("practice")
-print(result)
+index: defaultdict[str, list[int]] = defaultdict(list)
+for position, word in enumerate(["red", "blue", "red"]):
+    index[word].append(position)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Data Structures Internals problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+from collections.abc import Iterable
+
+def unique_in_order(items: Iterable[str]) -> list[str]:
+    return list(dict.fromkeys(items))
 ```
 
 ## Examples
@@ -10295,134 +11396,165 @@ print(result)
 ### Beginner Example
 
 ```python
-profile = {"name": "Lin", "age": 29}
-print(profile["name"])
+values = [8, 3, 8, 1]
+unique = set(values)
+ordered_unique = list(dict.fromkeys(values))
+print(unique, ordered_unique)
 ```
 
 ### Intermediate Example
 
 ```python
-inventory = {"laptop": 3, "mouse": 10}
-inventory["laptop"] -= 1
-print(inventory)
+from collections import Counter
+
+words = "hash tables reward stable hash keys".split()
+frequencies = Counter(words)
+most_common = frequencies.most_common(2)
+print(most_common)
 ```
 
 ### Advanced Example
 
 ```python
-from collections import defaultdict
+from collections import deque
 
-counts = defaultdict(int)
-for word in ["api", "db", "api"]:
-    counts[word] += 1
-print(dict(counts))
+graph = {"api": ["cache", "db"], "cache": [], "db": ["disk"], "disk": []}
+frontier = deque(["api"])
+visited = {"api"}
+while frontier:
+    node = frontier.popleft()
+    for neighbor in graph[node]:
+        if neighbor not in visited:
+            visited.add(neighbor)
+            frontier.append(neighbor)
+print(visited)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Data Structures Internals Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Characterize access pattern] --> B[Estimate time and memory]
+    B --> C[Select container]
+    C --> D[Measure workload]
+    D --> E[Revisit choice]
+    E -. feedback .-> A
 ```
 
-[Back to topic index](#data-structures-internals)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Algorithms in Python
 
 ## Overview
-- **What is it?** Algorithms in Python is a Python knowledge area focused on advanced language engineering.
-- **Why is it important?** Help developers apply advanced language engineering techniques safely, clearly, and consistently.
-- **Where is it used?** Performance-sensitive systems, frameworks, libraries, and technical interviews.
+- **What is it?** Algorithm engineering in Python combines complexity analysis with language-aware choices such as built-in C implementations, iterators, and appropriate data structures.
+- **Why is it important?** A correct algorithm can still fail operationally if its memory growth, recursion depth, or constant factors do not match the input distribution.
+- **Where is it used?** It is used in search, scheduling, routing, ranking, parsing, and data-processing pipelines.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review algorithms in python code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind algorithms in python.
-- Expected outcome: you can use algorithms in python in a small project and recognize when it belongs in production code.
+- State time and auxiliary-space complexity for common algorithmic strategies.
+- Use `bisect`, `heapq`, memoization, and graph traversal idiomatically.
+- Test invariants and boundary cases instead of relying on happy-path examples.
 
 ## Real World Applications
-- **Industry use cases:** Performance-sensitive systems, frameworks, libraries, and technical interviews.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Shortest-route calculation, top-k ranking, interval scheduling, and dependency resolution.
+- Efficient lookup and aggregation over datasets too large for naive nested loops.
+- Interview problem solving that translates into maintainable production implementations.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives algorithms in python its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Algorithms in Python model -> clear code`
+### Complexity as a Growth Model
+- **Definition:** Big-O describes how resource use scales with input size; Python implementations also account for object allocation, hashing, and optimized built-ins.
+- **Visual explanation:** `input size n → operation count f(n) → feasible latency and memory`
 - **Practical example:**
 
 ```python
-apply_algorithms_in_python_label = "Algorithms in Python"
-print(apply_algorithms_in_python_label)
+def contains_duplicate(values: list[int]) -> bool:
+    seen: set[int] = set()
+    for value in values:
+        if value in seen:
+            return True
+        seen.add(value)
+    return False
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when algorithms in python code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Greedy and Heap Invariants
+- **Definition:** A heap exposes the smallest item while preserving a partial-order invariant, enabling O(log n) priority updates without fully sorting every step.
+- **Visual explanation:** `candidates → heap invariant → extract best → add successors`
 - **Practical example:**
 
 ```python
-def greet(name):
-    print(f"Hello, {name}")
+import heapq
 
-greet("Ada")
+jobs = [(4, "report"), (1, "alert"), (3, "backup")]
+heapq.heapify(jobs)
+while jobs:
+    priority, name = heapq.heappop(jobs)
+    print(priority, name)
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps algorithms in python understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Dynamic Programming
+- **Definition:** Dynamic programming stores overlapping subproblem results and builds a solution from a recurrence with explicit base cases.
+- **Visual explanation:** `state + recurrence → memoized subproblems → optimal result`
 - **Practical example:**
 
 ```python
-def calculate_total(subtotal: float, tax_rate: float = 0.08) -> float:
-    return subtotal * (1 + tax_rate)
+from functools import cache
 
-print(calculate_total(100))
+@cache
+def ways(steps: int) -> int:
+    if steps < 0:
+        return 0
+    if steps == 0:
+        return 1
+    return ways(steps - 1) + ways(steps - 2)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Algorithms in Python belongs to the advanced language engineering part of Python mastery. |
-| ⚡ Purpose | Help developers apply advanced language engineering techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional advanced language engineering decisions. |
-| 🎯 Use Cases | Performance-sensitive systems, frameworks, libraries, and technical interviews. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Algorithm engineering in Python combines complexity analysis with language-aware choices such as built-in C implementations, iterators, and appropriate data structures. |
+| ⚡ Purpose | A correct algorithm can still fail operationally if its memory growth, recursion depth, or constant factors do not match the input distribution. |
+| 🔥 Benefits | Builds the ability to state time and auxiliary-space complexity for common algorithmic strategies; it also helps practitioners use `bisect`, `heapq`, memoization, and graph traversal idiomatically. |
+| 🎯 Use Cases | Shortest-route calculation, top-k ranking, interval scheduling, and dependency resolution. Efficient lookup and aggregation over datasets too large for naive nested loops. |
+| 🚀 Best Practices | Validate empty, singleton, duplicate, and worst-shaped inputs. |
+| ❌ Common Mistakes | Ignoring the guardrail “Prefer a simpler O(n log n) solution until constraints justify complexity”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-def add(left, right):
-    return left + right
+from bisect import bisect_left
+
+values = [2, 5, 9, 14]
+index = bisect_left(values, 9)
+found = index < len(values) and values[index] == 9
 ```
 
 ### Standard Structure
 
 ```python
-def apply_algorithms_in_python(value):
-    """Apply the Algorithms in Python concept to one value."""
-    return value
+import heapq
 
-result = apply_algorithms_in_python("practice")
-print(result)
+def smallest_three(values: list[int]) -> list[int]:
+    return heapq.nsmallest(3, values)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Algorithms in Python problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+def binary_search(values: list[int], target: int) -> int | None:
+    low, high = 0, len(values)
+    while low < high:
+        middle = (low + high) // 2
+        if values[middle] < target:
+            low = middle + 1
+        else:
+            high = middle
+    return low if low < len(values) and values[low] == target else None
 ```
 
 ## Examples
@@ -10430,146 +11562,185 @@ print(result)
 ### Beginner Example
 
 ```python
-def greet(name):
-    print(f"Hello, {name}")
+from bisect import insort
 
-greet("Ada")
+scores = [10, 30, 50]
+insort(scores, 40)
+print(scores)
 ```
 
 ### Intermediate Example
 
 ```python
-def calculate_total(subtotal: float, tax_rate: float = 0.08) -> float:
-    return subtotal * (1 + tax_rate)
+from collections import deque
 
-print(calculate_total(100))
+graph = {"A": ["B", "C"], "B": ["D"], "C": ["D"], "D": []}
+queue = deque([("A", 0)])
+seen = {"A"}
+while queue:
+    node, distance = queue.popleft()
+    print(node, distance)
+    for neighbor in graph[node]:
+        if neighbor not in seen:
+            seen.add(neighbor)
+            queue.append((neighbor, distance + 1))
 ```
 
 ### Advanced Example
 
 ```python
-from functools import lru_cache
+import heapq
+import math
 
-@lru_cache(maxsize=128)
-def fibonacci(n: int) -> int:
-    return n if n < 2 else fibonacci(n - 1) + fibonacci(n - 2)
-
-print(fibonacci(10))
+graph = {"A": [("B", 2), ("C", 5)], "B": [("C", 1)], "C": []}
+distances = {node: math.inf for node in graph}
+distances["A"] = 0
+frontier = [(0, "A")]
+while frontier:
+    distance, node = heapq.heappop(frontier)
+    if distance != distances[node]:
+        continue
+    for neighbor, weight in graph[node]:
+        candidate = distance + weight
+        if candidate < distances[neighbor]:
+            distances[neighbor] = candidate
+            heapq.heappush(frontier, (candidate, neighbor))
+print(distances)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Algorithms in Python Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Define constraints] --> B[Choose invariant]
+    B --> C[Implement algorithm]
+    C --> D[Test edge cases]
+    D --> E[Benchmark representative inputs]
+    E -. feedback .-> A
 ```
 
-[Back to topic index](#algorithms-in-python)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Design Patterns
 
 ## Overview
-- **What is it?** Design Patterns is a Python knowledge area focused on advanced language engineering.
-- **Why is it important?** Help developers apply advanced language engineering techniques safely, clearly, and consistently.
-- **Where is it used?** Performance-sensitive systems, frameworks, libraries, and technical interviews.
+- **What is it?** Design patterns are named, reusable arrangements of responsibilities and object collaboration, not code templates to copy mechanically.
+- **Why is it important?** In Python, functions, protocols, decorators, context managers, and modules often express patterns more directly than class-heavy translations.
+- **Where is it used?** Patterns help evolve libraries, integrations, and business workflows while keeping variation behind stable boundaries.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review design patterns code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind design patterns.
-- Expected outcome: you can use design patterns in a small project and recognize when it belongs in production code.
+- Recognize Strategy, Factory, Observer, Adapter, and dependency-injection structures.
+- Use Python's first-class functions and structural typing to keep patterns lightweight.
+- Distinguish justified extensibility from speculative abstraction.
 
 ## Real World Applications
-- **Industry use cases:** Performance-sensitive systems, frameworks, libraries, and technical interviews.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Pluggable payment rules, serializers, notification channels, and storage adapters.
+- Framework extension points whose callers depend on stable contracts.
+- Testing systems by substituting collaborators at explicit boundaries.
 
 ## Core Concepts
 
-### Model
-- **Definition:** The main idea that gives design patterns its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Design Patterns model -> clear code`
+### Strategy as Behavior
+- **Definition:** Strategy moves a varying algorithm behind a common callable contract so clients select behavior without branching on concrete types.
+- **Visual explanation:** `client → strategy contract → interchangeable algorithm`
 - **Practical example:**
 
 ```python
-apply_design_patterns_label = "Design Patterns"
-print(apply_design_patterns_label)
+from collections.abc import Callable
+
+Discount = Callable[[float], float]
+
+def checkout(total: float, discount: Discount) -> float:
+    return discount(total)
+
+print(checkout(100.0, lambda amount: amount * 0.9))
 ```
 
-### Interface
-- **Definition:** The ordered steps Python follows when design patterns code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Factory and Registration
+- **Definition:** A factory centralizes construction while a registry lets new implementations be added without modifying every caller.
+- **Visual explanation:** `configuration → registry lookup → constructed implementation`
 - **Practical example:**
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
+exporters: dict[str, type] = {}
 
-print(Dog().speak())
+def register(name: str):
+    def decorate(cls: type) -> type:
+        exporters[name] = cls
+        return cls
+    return decorate
+
+@register("json")
+class JsonExporter:
+    pass
 ```
 
-### Behavior Rule
-- **Definition:** The reliability habit that keeps design patterns understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Adapter Boundaries
+- **Definition:** An adapter translates a third-party or legacy interface into the application-owned protocol, containing change and simplifying tests.
+- **Visual explanation:** `domain call → adapter → external API shape`
 - **Practical example:**
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
+from typing import Protocol
 
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
+class Sender(Protocol):
+    def send(self, message: str) -> None: ...
 
-account = Account()
-account.deposit(50)
-print(account.balance)
+class LegacyAdapter:
+    def __init__(self, legacy_client: object) -> None:
+        self.client = legacy_client
+
+    def send(self, message: str) -> None:
+        getattr(self.client, "deliver")(payload=message)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Design Patterns belongs to the advanced language engineering part of Python mastery. |
-| ⚡ Purpose | Help developers apply advanced language engineering techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional advanced language engineering decisions. |
-| 🎯 Use Cases | Performance-sensitive systems, frameworks, libraries, and technical interviews. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Design patterns are named, reusable arrangements of responsibilities and object collaboration, not code templates to copy mechanically. |
+| ⚡ Purpose | In Python, functions, protocols, decorators, context managers, and modules often express patterns more directly than class-heavy translations. |
+| 🔥 Benefits | Builds the ability to recognize Strategy, Factory, Observer, Adapter, and dependency-injection structures; it also helps practitioners use Python's first-class functions and structural typing to keep patterns lightweight. |
+| 🎯 Use Cases | Pluggable payment rules, serializers, notification channels, and storage adapters. Framework extension points whose callers depend on stable contracts. |
+| 🚀 Best Practices | Protocol-based contracts reduce unnecessary inheritance. |
+| ❌ Common Mistakes | Ignoring the guardrail “Introduce a pattern only when it removes observed coupling”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-class Customer:
-    def __init__(self, name):
-        self.name = name
+from typing import Protocol
+
+class Formatter(Protocol):
+    def format(self, value: object) -> str: ...
 ```
 
 ### Standard Structure
 
 ```python
-def apply_design_patterns(value):
-    """Apply the Design Patterns concept to one value."""
-    return value
+class Service:
+    def __init__(self, formatter: "Formatter") -> None:
+        self.formatter = formatter
 
-result = apply_design_patterns("practice")
-print(result)
+    def render(self, value: object) -> str:
+        return self.formatter.format(value)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Design Patterns problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+from collections.abc import Callable
+
+handlers: dict[str, Callable[[object], None]] = {}
+
+def handler(event: str):
+    def register(function: Callable[[object], None]) -> Callable[[object], None]:
+        handlers[event] = function
+        return function
+    return register
 ```
 
 ## Examples
@@ -10577,157 +11748,166 @@ print(result)
 ### Beginner Example
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
+def upper(value: str) -> str:
+    return value.upper()
 
-print(Dog().speak())
+transform = upper
+print(transform("pattern"))
 ```
 
 ### Intermediate Example
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
+class CsvFormatter:
+    def format(self, value: object) -> str:
+        return f'"{value}"'
 
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
-
-account = Account()
-account.deposit(50)
-print(account.balance)
+service = Service(CsvFormatter())
+print(service.render("Ada"))
 ```
 
 ### Advanced Example
 
 ```python
-from dataclasses import dataclass
+from collections import defaultdict
+from collections.abc import Callable
 
-@dataclass
-class Order:
-    id: int
-    total: float
+class EventBus:
+    def __init__(self) -> None:
+        self._subscribers: defaultdict[str, list[Callable[[object], None]]] = defaultdict(list)
 
-    def is_large(self) -> bool:
-        return self.total >= 1000
+    def subscribe(self, event: str, callback: Callable[[object], None]) -> None:
+        self._subscribers[event].append(callback)
 
-print(Order(1, 1200).is_large())
+    def publish(self, event: str, payload: object) -> None:
+        for callback in tuple(self._subscribers[event]):
+            callback(payload)
+
+bus = EventBus()
+bus.subscribe("created", lambda payload: print("audit", payload))
+bus.publish("created", {"id": 7})
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Design Patterns Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Locate changing responsibility] --> B[Define owned contract]
+    B --> C[Select minimal pattern]
+    C --> D[Inject implementation]
+    D --> E[Test substitution]
+    E -. feedback .-> A
 ```
 
-[Back to topic index](#design-patterns)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # SOLID Principles
 
 ## Overview
-- **What is it?** SOLID Principles is a Python knowledge area focused on advanced language engineering.
-- **Why is it important?** Help developers apply advanced language engineering techniques safely, clearly, and consistently.
-- **Where is it used?** Performance-sensitive systems, frameworks, libraries, and technical interviews.
+- **What is it?** SOLID is a set of design heuristics for managing reasons to change, extension, substitutability, interface size, and dependency direction.
+- **Why is it important?** The principles guide trade-offs rather than requiring one class per action; Python protocols and composition keep boundaries small.
+- **Where is it used?** They are useful in long-lived services, libraries, and integrations where policy changes independently from infrastructure.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review solid principles code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind solid principles.
-- Expected outcome: you can use solid principles in a small project and recognize when it belongs in production code.
+- Apply each SOLID principle to concrete Python module and object boundaries.
+- Use protocols and dependency injection to reverse dependencies.
+- Detect violations through change friction, broad interfaces, and unsafe substitution.
 
 ## Real World Applications
-- **Industry use cases:** Performance-sensitive systems, frameworks, libraries, and technical interviews.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Separating invoice policy from persistence and delivery infrastructure.
+- Adding integrations without editing stable domain decision code.
+- Constructing testable services with small, substitutable collaborators.
 
 ## Core Concepts
 
-### Model
-- **Definition:** The main idea that gives solid principles its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> SOLID Principles model -> clear code`
+### Single Responsibility and Cohesion
+- **Definition:** A component should have one coherent reason to change; calculation, persistence, and presentation usually evolve under different pressures.
+- **Visual explanation:** `domain policy | storage policy | presentation policy`
 - **Practical example:**
 
 ```python
-apply_solid_principles_label = "SOLID Principles"
-print(apply_solid_principles_label)
+def invoice_total(lines: list[tuple[int, float]]) -> float:
+    return sum(quantity * price for quantity, price in lines)
+
+def render_total(total: float) -> str:
+    return f"${total:,.2f}"
 ```
 
-### Interface
-- **Definition:** The ordered steps Python follows when solid principles code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Open/Closed and Substitution
+- **Definition:** Stable callers should accept new behavior through a contract, and every implementation must preserve that contract's inputs, outputs, and failure semantics.
+- **Visual explanation:** `caller → stable protocol → old or new implementation`
 - **Practical example:**
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
+from typing import Protocol
 
-print(Dog().speak())
+class TaxPolicy(Protocol):
+    def tax(self, subtotal: float) -> float: ...
+
+class FlatTax:
+    def tax(self, subtotal: float) -> float:
+        return subtotal * 0.2
 ```
 
-### Behavior Rule
-- **Definition:** The reliability habit that keeps solid principles understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Dependency Inversion
+- **Definition:** High-level policy owns an abstraction and receives infrastructure implementations rather than importing concrete databases or gateways directly.
+- **Visual explanation:** `high-level use case → owned port ← infrastructure adapter`
 - **Practical example:**
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
+from typing import Protocol
 
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
+class AuditLog(Protocol):
+    def record(self, message: str) -> None: ...
 
-account = Account()
-account.deposit(50)
-print(account.balance)
+def approve(order_id: str, audit: AuditLog) -> None:
+    audit.record(f"approved:{order_id}")
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | SOLID Principles belongs to the advanced language engineering part of Python mastery. |
-| ⚡ Purpose | Help developers apply advanced language engineering techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional advanced language engineering decisions. |
-| 🎯 Use Cases | Performance-sensitive systems, frameworks, libraries, and technical interviews. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | SOLID is a set of design heuristics for managing reasons to change, extension, substitutability, interface size, and dependency direction. |
+| ⚡ Purpose | The principles guide trade-offs rather than requiring one class per action; Python protocols and composition keep boundaries small. |
+| 🔥 Benefits | Builds the ability to apply each SOLID principle to concrete Python module and object boundaries; it also helps practitioners use protocols and dependency injection to reverse dependencies. |
+| 🎯 Use Cases | Separating invoice policy from persistence and delivery infrastructure. Adding integrations without editing stable domain decision code. |
+| 🚀 Best Practices | D: policy owns abstractions; infrastructure plugs in. |
+| ❌ Common Mistakes | Ignoring the guardrail “Watch for pass-through classes that add ceremony without isolation”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-class Customer:
-    def __init__(self, name):
-        self.name = name
+from typing import Protocol
+
+class Reader(Protocol):
+    def read(self, key: str) -> bytes: ...
 ```
 
 ### Standard Structure
 
 ```python
-def apply_solid_principles(value):
-    """Apply the SOLID Principles concept to one value."""
-    return value
+class ReportService:
+    def __init__(self, reader: "Reader") -> None:
+        self._reader = reader
 
-result = apply_solid_principles("practice")
-print(result)
+    def load(self, key: str) -> bytes:
+        return self._reader.read(key)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the SOLID Principles problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+class MemoryReader:
+    def __init__(self, values: dict[str, bytes]) -> None:
+        self._values = values
+
+    def read(self, key: str) -> bytes:
+        return self._values[key]
 ```
 
 ## Examples
@@ -10735,148 +11915,163 @@ print(result)
 ### Beginner Example
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
-
-print(Dog().speak())
+def shipping(weight: float, rate: float) -> float:
+    if weight < 0:
+        raise ValueError("weight must be nonnegative")
+    return weight * rate
 ```
 
 ### Intermediate Example
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
+class PercentageTax:
+    def __init__(self, rate: float) -> None:
+        self.rate = rate
 
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
+    def tax(self, subtotal: float) -> float:
+        return subtotal * self.rate
 
-account = Account()
-account.deposit(50)
-print(account.balance)
+policy: TaxPolicy = PercentageTax(0.075)
+print(policy.tax(200.0))
 ```
 
 ### Advanced Example
 
 ```python
-from dataclasses import dataclass
+class MemoryAudit:
+    def __init__(self) -> None:
+        self.events: list[str] = []
 
-@dataclass
-class Order:
-    id: int
-    total: float
+    def record(self, message: str) -> None:
+        self.events.append(message)
 
-    def is_large(self) -> bool:
-        return self.total >= 1000
-
-print(Order(1, 1200).is_large())
+audit = MemoryAudit()
+approve("A-42", audit)
+assert audit.events == ["approved:A-42"]
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify SOLID Principles Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Identify change pressures] --> B[Draw responsibility boundaries]
+    B --> C[Define narrow contract]
+    C --> D[Inject adapters]
+    D --> E[Verify behavioral substitution]
+    E -. feedback .-> A
 ```
 
-[Back to topic index](#solid-principles)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Memory Management
 
 ## Overview
-- **What is it?** Memory Management is a Python knowledge area focused on advanced language engineering.
-- **Why is it important?** Help developers apply advanced language engineering techniques safely, clearly, and consistently.
-- **Where is it used?** Performance-sensitive systems, frameworks, libraries, and technical interviews.
+- **What is it?** CPython manages object lifetimes primarily with reference counting, supplements it with cyclic garbage collection, and allocates small objects through private arenas.
+- **Why is it important?** Memory behavior matters because retaining one reference can keep an entire object graph alive even when CPU work appears complete.
+- **Where is it used?** Use memory diagnostics in long-running services, data pipelines, caches, and extension-heavy applications.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review memory management code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind memory management.
-- Expected outcome: you can use memory management in a small project and recognize when it belongs in production code.
+- Explain references, identity, shallow size, and object lifetime in CPython.
+- Use weak references and bounded ownership where retention is undesirable.
+- Measure allocation traces before changing representations or pooling objects.
 
 ## Real World Applications
-- **Industry use cases:** Performance-sensitive systems, frameworks, libraries, and technical interviews.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Finding request objects retained by global caches or callbacks.
+- Reducing peak memory in batch pipelines through streaming and compact records.
+- Designing caches that do not accidentally become permanent ownership graphs.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives memory management its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Memory Management model -> clear code`
+### Reference Ownership
+- **Definition:** Names and containers hold references, not embedded objects; an object remains reachable while any strong reference path leads to it.
+- **Visual explanation:** `roots → strong references → reachable object graph`
 - **Practical example:**
 
 ```python
-apply_memory_management_label = "Memory Management"
-print(apply_memory_management_label)
+import sys
+
+payload = {"items": [1, 2, 3]}
+alias = payload
+print(payload is alias)
+print(sys.getrefcount(payload))
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when memory management code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Weak References
+- **Definition:** A weak reference observes an object without extending its lifetime and is useful for caches, registries, and back-references.
+- **Visual explanation:** `owner → object ← weak observer; remove owner → observer returns None`
 - **Practical example:**
 
 ```python
-value = 42
-print(type(value).__name__)
+import weakref
+
+class Session:
+    pass
+
+session = Session()
+observed = weakref.ref(session)
+assert observed() is session
+del session
+assert observed() is None
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps memory management understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Allocation Tracing
+- **Definition:** `tracemalloc` records Python allocation stacks and compares snapshots, revealing where retained Python-managed memory was created.
+- **Visual explanation:** `start tracing → exercise workload → snapshot diff → owning line`
 - **Practical example:**
 
 ```python
-profile = {"name": "Noor", "skills": ["Python", "SQL"], "active": True}
-print(profile["skills"][0])
+import tracemalloc
+
+tracemalloc.start()
+before = tracemalloc.take_snapshot()
+data = [bytearray(1024) for _ in range(50)]
+after = tracemalloc.take_snapshot()
+print(after.compare_to(before, "lineno")[:1])
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Memory Management belongs to the advanced language engineering part of Python mastery. |
-| ⚡ Purpose | Help developers apply advanced language engineering techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional advanced language engineering decisions. |
-| 🎯 Use Cases | Performance-sensitive systems, frameworks, libraries, and technical interviews. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | CPython manages object lifetimes primarily with reference counting, supplements it with cyclic garbage collection, and allocates small objects through private arenas. |
+| ⚡ Purpose | Memory behavior matters because retaining one reference can keep an entire object graph alive even when CPU work appears complete. |
+| 🔥 Benefits | Builds the ability to explain references, identity, shallow size, and object lifetime in CPython; it also helps practitioners use weak references and bounded ownership where retention is undesirable. |
+| 🎯 Use Cases | Finding request objects retained by global caches or callbacks. Reducing peak memory in batch pipelines through streaming and compact records. |
+| 🚀 Best Practices | `tracemalloc` attributes Python allocations to source lines. |
+| ❌ Common Mistakes | Ignoring the guardrail “Bound caches and stream data before micro-optimizing object size”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-age = 31
-price = 19.99
-name = "Python"
-is_active = True
-missing = None
+import sys
+
+value = [1, 2, 3]
+shallow_bytes = sys.getsizeof(value)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_memory_management(value):
-    """Apply the Memory Management concept to one value."""
-    return value
+import weakref
 
-result = apply_memory_management("practice")
-print(result)
+class Item:
+    pass
+
+cache: weakref.WeakValueDictionary[str, Item] = weakref.WeakValueDictionary()
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Memory Management problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+import tracemalloc
+
+tracemalloc.start(10)
+current, peak = tracemalloc.get_traced_memory()
+tracemalloc.stop()
 ```
 
 ## Examples
@@ -10884,134 +12079,171 @@ print(result)
 ### Beginner Example
 
 ```python
-value = 42
-print(type(value).__name__)
+first = [1, 2]
+second = first
+copied = first.copy()
+assert first is second
+assert first == copied and first is not copied
 ```
 
 ### Intermediate Example
 
 ```python
-profile = {"name": "Noor", "skills": ["Python", "SQL"], "active": True}
-print(profile["skills"][0])
+from dataclasses import dataclass
+
+@dataclass(slots=True)
+class Point:
+    x: float
+    y: float
+
+points = [Point(1.0, 2.0) for _ in range(100)]
+print(points[0])
 ```
 
 ### Advanced Example
 
 ```python
-from typing import TypedDict
+import tracemalloc
 
-class User(TypedDict):
-    id: int
-    email: str
+def allocate_batch(size: int) -> list[bytes]:
+    return [b"x" * 256 for _ in range(size)]
 
-user: User = {"id": 1, "email": "dev@example.com"}
-print(user)
+tracemalloc.start()
+baseline = tracemalloc.take_snapshot()
+retained = allocate_batch(1_000)
+delta = tracemalloc.take_snapshot().compare_to(baseline, "traceback")
+print(len(retained), delta[0])
+tracemalloc.stop()
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Memory Management Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Observe process growth] --> B[Reproduce workload]
+    B --> C[Trace allocations]
+    C --> D[Find retaining owner]
+    D --> E[Reduce lifetime and remeasure]
+    E -. feedback .-> A
 ```
 
-[Back to topic index](#memory-management)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Garbage Collection
 
 ## Overview
-- **What is it?** Garbage Collection is a Python knowledge area focused on advanced language engineering.
-- **Why is it important?** Help developers apply advanced language engineering techniques safely, clearly, and consistently.
-- **Where is it used?** Performance-sensitive systems, frameworks, libraries, and technical interviews.
+- **What is it?** CPython's cyclic garbage collector complements reference counting by detecting unreachable container cycles across three generations.
+- **Why is it important?** Understanding collection prevents myths about manual `gc.collect()`, clarifies finalization, and helps diagnose retained object graphs.
+- **Where is it used?** It matters in long-lived workers, graph-heavy applications, ORM sessions, callback systems, and objects with finalizers.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review garbage collection code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind garbage collection.
-- Expected outcome: you can use garbage collection in a small project and recognize when it belongs in production code.
+- Separate immediate reference-count cleanup from cyclic collection.
+- Inspect collection thresholds, statistics, callbacks, and unreachable cycles.
+- Break unintended ownership paths instead of forcing collection on every request.
 
 ## Real World Applications
-- **Industry use cases:** Performance-sensitive systems, frameworks, libraries, and technical interviews.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Diagnosing cycles formed by parents, children, closures, and event listeners.
+- Observing pause and collection behavior in latency-sensitive processes.
+- Designing safe cleanup with context managers and `weakref.finalize`.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives garbage collection its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Garbage Collection model -> clear code`
+### Generational Cycle Detection
+- **Definition:** The collector tracks cycle-capable objects and scans younger generations more often because most newly allocated objects die quickly.
+- **Visual explanation:** `tracked objects → generation threshold → reachability scan → reclaim cycle`
 - **Practical example:**
 
 ```python
-apply_garbage_collection_label = "Garbage Collection"
-print(apply_garbage_collection_label)
+import gc
+
+before = gc.get_count()
+cycle: list[object] = []
+cycle.append(cycle)
+del cycle
+reclaimed = gc.collect()
+print(before, reclaimed)
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when garbage collection code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Reachability and Retention
+- **Definition:** A cycle is collectible only when unreachable from roots; caches, module globals, tracebacks, and callbacks can legitimately keep it alive.
+- **Visual explanation:** `root path present → retained; no root path → cycle collectible`
 - **Practical example:**
 
 ```python
-value = 42
-print(type(value).__name__)
+import gc
+
+class Node:
+    pass
+
+node = Node()
+referrers = gc.get_referrers(node)
+print(any(isinstance(item, dict) for item in referrers))
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps garbage collection understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Deterministic Resource Cleanup
+- **Definition:** Garbage collection timing is not a resource-management contract; files, locks, and transactions should use context managers.
+- **Visual explanation:** `acquire → `with` body → guaranteed release`
 - **Practical example:**
 
 ```python
-profile = {"name": "Noor", "skills": ["Python", "SQL"], "active": True}
-print(profile["skills"][0])
+from pathlib import Path
+
+path = Path("events.txt")
+with path.open("w", encoding="utf-8") as stream:
+    stream.write("complete\n")
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Garbage Collection belongs to the advanced language engineering part of Python mastery. |
-| ⚡ Purpose | Help developers apply advanced language engineering techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional advanced language engineering decisions. |
-| 🎯 Use Cases | Performance-sensitive systems, frameworks, libraries, and technical interviews. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | CPython's cyclic garbage collector complements reference counting by detecting unreachable container cycles across three generations. |
+| ⚡ Purpose | Understanding collection prevents myths about manual `gc.collect()`, clarifies finalization, and helps diagnose retained object graphs. |
+| 🔥 Benefits | Builds the ability to separate immediate reference-count cleanup from cyclic collection; it also helps practitioners inspect collection thresholds, statistics, callbacks, and unreachable cycles. |
+| 🎯 Use Cases | Diagnosing cycles formed by parents, children, closures, and event listeners. Observing pause and collection behavior in latency-sensitive processes. |
+| 🚀 Best Practices | Use context managers for scarce external resources. |
+| ❌ Common Mistakes | Ignoring the guardrail “Avoid unconditional `gc.collect()` in hot request paths”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-age = 31
-price = 19.99
-name = "Python"
-is_active = True
-missing = None
+import gc
+
+counts = gc.get_count()
+thresholds = gc.get_threshold()
 ```
 
 ### Standard Structure
 
 ```python
-def apply_garbage_collection(value):
-    """Apply the Garbage Collection concept to one value."""
-    return value
+import gc
 
-result = apply_garbage_collection("practice")
-print(result)
+def observe(phase: str, info: dict[str, int]) -> None:
+    if phase == "stop":
+        print(info["generation"], info["collected"])
+
+gc.callbacks.append(observe)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Garbage Collection problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+import gc
+from contextlib import contextmanager
+
+@contextmanager
+def gc_disabled():
+    was_enabled = gc.isenabled()
+    gc.disable()
+    try:
+        yield
+    finally:
+        if was_enabled:
+            gc.enable()
 ```
 
 ## Examples
@@ -11019,134 +12251,170 @@ print(result)
 ### Beginner Example
 
 ```python
-value = 42
-print(type(value).__name__)
+import gc
+
+print(gc.isenabled())
+print(gc.get_threshold())
 ```
 
 ### Intermediate Example
 
 ```python
-profile = {"name": "Noor", "skills": ["Python", "SQL"], "active": True}
-print(profile["skills"][0])
+import weakref
+
+class Parent:
+    pass
+
+class Child:
+    def __init__(self, parent: Parent) -> None:
+        self.parent = weakref.ref(parent)
+
+parent = Parent()
+child = Child(parent)
+assert child.parent() is parent
 ```
 
 ### Advanced Example
 
 ```python
-from typing import TypedDict
+import gc
 
-class User(TypedDict):
-    id: int
-    email: str
-
-user: User = {"id": 1, "email": "dev@example.com"}
-print(user)
+gc.collect()
+baseline = [row.copy() for row in gc.get_stats()]
+cycles = []
+for _ in range(100):
+    item: list[object] = []
+    item.append(item)
+    cycles.append(item)
+del cycles
+gc.collect()
+after = gc.get_stats()
+print([(a["collected"] - b["collected"]) for a, b in zip(after, baseline)])
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Garbage Collection Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Observe retention] --> B[Confirm strong root paths]
+    B --> C[Inspect cycle ownership]
+    C --> D[Remove unintended references]
+    D --> E[Collect and remeasure]
+    E -. feedback .-> A
 ```
 
-[Back to topic index](#garbage-collection)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Python Internals
 
 ## Overview
-- **What is it?** Python Internals is a Python knowledge area focused on advanced language engineering.
-- **Why is it important?** Help developers apply advanced language engineering techniques safely, clearly, and consistently.
-- **Where is it used?** Performance-sensitive systems, frameworks, libraries, and technical interviews.
+- **What is it?** Python internals connect source text to tokens, abstract syntax trees, code objects, bytecode, frames, and the CPython evaluation loop.
+- **Why is it important?** This model makes disassembly, import behavior, scope resolution, and interpreter-specific performance observations understandable.
+- **Where is it used?** It is useful for debuggers, profilers, framework authors, static-analysis tools, and advanced incident diagnosis.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review python internals code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind python internals.
-- Expected outcome: you can use python internals in a small project and recognize when it belongs in production code.
+- Trace source through parsing, compilation, bytecode, frames, and execution.
+- Inspect code objects and disassembly without relying on unstable opcode details.
+- Explain name resolution, imports, and interpreter-specific implementation boundaries.
 
 ## Real World Applications
-- **Industry use cases:** Performance-sensitive systems, frameworks, libraries, and technical interviews.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Building decorators, tracers, debuggers, linters, and code-generation tools.
+- Understanding closure state, exception tracebacks, and import cache behavior.
+- Reading performance profiles with awareness of interpreter specialization.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives python internals its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Python Internals model -> clear code`
+### Compilation Pipeline
+- **Definition:** `compile` transforms parsed source into an immutable code object containing bytecode, constants, names, and source-location metadata.
+- **Visual explanation:** `source → tokenizer/parser → AST → code object → evaluation`
 - **Practical example:**
 
 ```python
-apply_python_internals_label = "Python Internals"
-print(apply_python_internals_label)
+import ast
+
+tree = ast.parse("result = left + right")
+code_object = compile(tree, "<lesson>", "exec")
+print(code_object.co_names)
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when python internals code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Frames and Name Resolution
+- **Definition:** Each executing scope has a frame linking code, local/global mappings, and the previous frame; lexical names follow local, enclosing, global, builtins lookup.
+- **Visual explanation:** `bytecode instruction → frame locals/globals → resolved object`
 - **Practical example:**
 
 ```python
-value = 42
-print(type(value).__name__)
+import inspect
+
+def describe_frame() -> tuple[str, tuple[str, ...]]:
+    frame = inspect.currentframe()
+    assert frame is not None
+    return frame.f_code.co_name, frame.f_code.co_varnames
+
+print(describe_frame())
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps python internals understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Imports and Module Caching
+- **Definition:** Import finders locate a module specification, loaders execute module code, and `sys.modules` caches the resulting module object.
+- **Visual explanation:** `import statement → finder/spec → loader → `sys.modules``
 - **Practical example:**
 
 ```python
-profile = {"name": "Noor", "skills": ["Python", "SQL"], "active": True}
-print(profile["skills"][0])
+import importlib.util
+import sys
+
+specification = importlib.util.find_spec("json")
+assert specification is not None
+print(specification.origin)
+print("json" in sys.modules)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Python Internals belongs to the advanced language engineering part of Python mastery. |
-| ⚡ Purpose | Help developers apply advanced language engineering techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional advanced language engineering decisions. |
-| 🎯 Use Cases | Performance-sensitive systems, frameworks, libraries, and technical interviews. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Python internals connect source text to tokens, abstract syntax trees, code objects, bytecode, frames, and the CPython evaluation loop. |
+| ⚡ Purpose | This model makes disassembly, import behavior, scope resolution, and interpreter-specific performance observations understandable. |
+| 🔥 Benefits | Builds the ability to trace source through parsing, compilation, bytecode, frames, and execution; it also helps practitioners inspect code objects and disassembly without relying on unstable opcode details. |
+| 🎯 Use Cases | Building decorators, tracers, debuggers, linters, and code-generation tools. Understanding closure state, exception tracebacks, and import cache behavior. |
+| 🚀 Best Practices | Use documented introspection APIs before private interpreter fields. |
+| ❌ Common Mistakes | Ignoring the guardrail “Do not infer source-level cost from bytecode count alone”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-age = 31
-price = 19.99
-name = "Python"
-is_active = True
-missing = None
+import ast
+
+expression = ast.parse("price * quantity", mode="eval")
+print(ast.dump(expression, indent=2))
 ```
 
 ### Standard Structure
 
 ```python
-def apply_python_internals(value):
-    """Apply the Python Internals concept to one value."""
-    return value
+import dis
 
-result = apply_python_internals("practice")
-print(result)
+def squared(value: int) -> int:
+    return value * value
+
+dis.dis(squared)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Python Internals problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+def make_counter():
+    count = 0
+
+    def increment() -> int:
+        nonlocal count
+        count += 1
+        return count
+
+    return increment
 ```
 
 ## Examples
@@ -11154,143 +12422,166 @@ print(result)
 ### Beginner Example
 
 ```python
-value = 42
-print(type(value).__name__)
+source = "answer = 6 * 7"
+namespace: dict[str, object] = {}
+exec(compile(source, "<dynamic>", "exec"), namespace)
+assert namespace["answer"] == 42
 ```
 
 ### Intermediate Example
 
 ```python
-profile = {"name": "Noor", "skills": ["Python", "SQL"], "active": True}
-print(profile["skills"][0])
+def outer(prefix: str):
+    def inner(value: str) -> str:
+        return f"{prefix}:{value}"
+    return inner
+
+formatter = outer("id")
+print(formatter.__code__.co_freevars)
+print(formatter.__closure__[0].cell_contents)
 ```
 
 ### Advanced Example
 
 ```python
-from typing import TypedDict
+import ast
 
-class User(TypedDict):
-    id: int
-    email: str
+class NameCollector(ast.NodeVisitor):
+    def __init__(self) -> None:
+        self.names: set[str] = set()
 
-user: User = {"id": 1, "email": "dev@example.com"}
-print(user)
+    def visit_Name(self, node: ast.Name) -> None:
+        self.names.add(node.id)
+        self.generic_visit(node)
+
+collector = NameCollector()
+collector.visit(ast.parse("total = price * quantity"))
+print(collector.names)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Python Internals Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Read source] --> B[Build AST]
+    B --> C[Compile code object]
+    C --> D[Evaluate in frame]
+    D --> E[Inspect runtime evidence]
+    E -. feedback .-> A
 ```
 
-[Back to topic index](#python-internals)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Metaclasses
 
 ## Overview
-- **What is it?** Metaclasses is a Python knowledge area focused on object-oriented design.
-- **Why is it important?** Help developers apply object-oriented design techniques safely, clearly, and consistently.
-- **Where is it used?** Domain modeling, application architecture, frameworks, and reusable components.
+- **What is it?** A metaclass is the callable responsible for creating a class object; ordinary classes are instances of `type`.
+- **Why is it important?** Metaclasses can validate namespaces, register subclasses, or synthesize class-level behavior when `__init_subclass__` and decorators are insufficient.
+- **Where is it used?** They appear in ORMs, schema frameworks, abstract interfaces, plugin systems, and declarative APIs.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review metaclasses code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind metaclasses.
-- Expected outcome: you can use metaclasses in a small project and recognize when it belongs in production code.
+- Explain class creation from namespace preparation through metaclass construction.
+- Implement registration and declaration validation with `type` hooks.
+- Choose simpler class decorators or `__init_subclass__` when full metaclass control is unnecessary.
 
 ## Real World Applications
-- **Industry use cases:** Domain modeling, application architecture, frameworks, and reusable components.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Collecting declarative fields into ORM or validation schemas.
+- Registering concrete plugins at class-definition time.
+- Enforcing class-level contracts before instances can be created.
 
 ## Core Concepts
 
-### Model
-- **Definition:** The main idea that gives metaclasses its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Metaclasses model -> clear code`
+### Classes Are Runtime Objects
+- **Definition:** `type(name, bases, namespace)` creates a class dynamically; the class then creates instances through its own call protocol.
+- **Visual explanation:** `namespace + bases → metaclass → class object → instances`
 - **Practical example:**
 
 ```python
-apply_metaclasses_label = "Metaclasses"
-print(apply_metaclasses_label)
+def speak(self) -> str:
+    return "ready"
+
+Worker = type("Worker", (), {"speak": speak})
+worker = Worker()
+print(type(Worker), worker.speak())
 ```
 
-### Interface
-- **Definition:** The ordered steps Python follows when metaclasses code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Class Creation Hooks
+- **Definition:** Python resolves the metaclass, calls `__prepare__`, executes the class body into that namespace, and invokes metaclass `__new__` then `__init__`.
+- **Visual explanation:** `resolve metaclass → prepare namespace → execute body → construct class`
 - **Practical example:**
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
+class RequiredName(type):
+    def __new__(mcls, name, bases, namespace):
+        if bases and "plugin_name" not in namespace:
+            raise TypeError("plugin_name is required")
+        return super().__new__(mcls, name, bases, namespace)
 
-print(Dog().speak())
+class Plugin(metaclass=RequiredName):
+    pass
 ```
 
-### Behavior Rule
-- **Definition:** The reliability habit that keeps metaclasses understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Metaclass Registries
+- **Definition:** A registry metaclass records concrete classes at definition time, enabling configured lookup while keeping construction centralized.
+- **Visual explanation:** `class statement → metaclass validation → registry entry`
 - **Practical example:**
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
+class Registered(type):
+    plugins: dict[str, type] = {}
 
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
-
-account = Account()
-account.deposit(50)
-print(account.balance)
+    def __new__(mcls, name, bases, namespace):
+        cls = super().__new__(mcls, name, bases, namespace)
+        if key := namespace.get("plugin_name"):
+            mcls.plugins[key] = cls
+        return cls
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Metaclasses belongs to the object-oriented design part of Python mastery. |
-| ⚡ Purpose | Help developers apply object-oriented design techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional object-oriented design decisions. |
-| 🎯 Use Cases | Domain modeling, application architecture, frameworks, and reusable components. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | A metaclass is the callable responsible for creating a class object; ordinary classes are instances of `type`. |
+| ⚡ Purpose | Metaclasses can validate namespaces, register subclasses, or synthesize class-level behavior when `__init_subclass__` and decorators are insufficient. |
+| 🔥 Benefits | Builds the ability to explain class creation from namespace preparation through metaclass construction; it also helps practitioners implement registration and declaration validation with `type` hooks. |
+| 🎯 Use Cases | Collecting declarative fields into ORM or validation schemas. Registering concrete plugins at class-definition time. |
+| 🚀 Best Practices | Prefer `__init_subclass__` for local subclass registration. |
+| ❌ Common Mistakes | Ignoring the guardrail “Reserve metaclasses for class-creation policies shared across hierarchies”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-class Customer:
-    def __init__(self, name):
-        self.name = name
+class Traced(type):
+    def __new__(mcls, name, bases, namespace):
+        namespace["created_by"] = mcls.__name__
+        return super().__new__(mcls, name, bases, namespace)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_metaclasses(value):
-    """Apply the Metaclasses concept to one value."""
-    return value
+class Service(metaclass=Traced):
+    pass
 
-result = apply_metaclasses("practice")
-print(result)
+assert Service.created_by == "Traced"
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Metaclasses problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+class OrderedMeta(type):
+    @classmethod
+    def __prepare__(mcls, name, bases):
+        return {}
+
+    def __new__(mcls, name, bases, namespace):
+        cls = super().__new__(mcls, name, bases, namespace)
+        cls.declared_names = tuple(namespace)
+        return cls
 ```
 
 ## Examples
@@ -11298,157 +12589,181 @@ print(result)
 ### Beginner Example
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
-
-print(Dog().speak())
+DynamicRecord = type("DynamicRecord", (), {"kind": "event"})
+record = DynamicRecord()
+print(record.kind)
 ```
 
 ### Intermediate Example
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
+class Command:
+    registry: dict[str, type["Command"]] = {}
 
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
+    def __init_subclass__(cls, *, name: str, **kwargs) -> None:
+        super().__init_subclass__(**kwargs)
+        cls.registry[name] = cls
 
-account = Account()
-account.deposit(50)
-print(account.balance)
+class Start(Command, name="start"):
+    pass
+
+assert Command.registry["start"] is Start
 ```
 
 ### Advanced Example
 
 ```python
-from dataclasses import dataclass
+class SchemaMeta(type):
+    def __new__(mcls, name, bases, namespace):
+        annotations = namespace.get("__annotations__", {})
+        cls = super().__new__(mcls, name, bases, namespace)
+        cls.fields = tuple(annotations)
+        return cls
 
-@dataclass
-class Order:
-    id: int
-    total: float
+class UserSchema(metaclass=SchemaMeta):
+    name: str
+    active: bool
 
-    def is_large(self) -> bool:
-        return self.total >= 1000
-
-print(Order(1, 1200).is_large())
+assert UserSchema.fields == ("name", "active")
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Metaclasses Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Resolve metaclass] --> B[Prepare namespace]
+    B --> C[Execute class body]
+    C --> D[Validate and create class]
+    D --> E[Instantiate under class policy]
+    E -. feedback .-> A
 ```
 
-[Back to topic index](#metaclasses)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Descriptors
 
 ## Overview
-- **What is it?** Descriptors is a Python knowledge area focused on advanced language engineering.
-- **Why is it important?** Help developers apply advanced language engineering techniques safely, clearly, and consistently.
-- **Where is it used?** Performance-sensitive systems, frameworks, libraries, and technical interviews.
+- **What is it?** Descriptors are objects defining `__get__`, `__set__`, or `__delete__` to customize attribute access from another class.
+- **Why is it important?** They are the mechanism beneath methods, properties, `classmethod`, `staticmethod`, slots, and many ORM fields.
+- **Where is it used?** Descriptors centralize validation, lazy computation, binding, and storage across many managed attributes.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review descriptors code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind descriptors.
-- Expected outcome: you can use descriptors in a small project and recognize when it belongs in production code.
+- Apply descriptor lookup precedence for class and instance access.
+- Implement reusable validated fields with `__set_name__`.
+- Distinguish data descriptors, non-data descriptors, and ordinary instance attributes.
 
 ## Real World Applications
-- **Industry use cases:** Performance-sensitive systems, frameworks, libraries, and technical interviews.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Validated model fields, lazy properties, ORM columns, and dependency injection.
+- Understanding why functions bind into methods when read from instances.
+- Building declarative APIs without repetitive property definitions.
 
 ## Core Concepts
 
-### Model
-- **Definition:** The main idea that gives descriptors its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Descriptors model -> clear code`
+### Descriptor Protocol
+- **Definition:** Attribute lookup invokes a descriptor's methods with the managed instance and owner; class access conventionally returns the descriptor itself.
+- **Visual explanation:** `instance.attr → owner namespace descriptor → `__get__``
 - **Practical example:**
 
 ```python
-apply_descriptors_label = "Descriptors"
-print(apply_descriptors_label)
+class Constant:
+    def __get__(self, instance, owner):
+        return 42
+
+class Answer:
+    value = Constant()
+
+print(Answer().value)
 ```
 
-### Interface
-- **Definition:** The ordered steps Python follows when descriptors code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Lookup Precedence
+- **Definition:** A data descriptor with `__set__` outranks the instance dictionary, while a non-data descriptor can be shadowed by an instance attribute.
+- **Visual explanation:** `data descriptor → instance dictionary → non-data descriptor → class value`
 - **Practical example:**
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
+class NonData:
+    def __get__(self, instance, owner):
+        return "descriptor"
 
-print(Dog().speak())
+class Example:
+    value = NonData()
+
+item = Example()
+item.value = "instance"
+print(item.value)
 ```
 
-### Behavior Rule
-- **Definition:** The reliability habit that keeps descriptors understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Managed Storage
+- **Definition:** `__set_name__` tells a descriptor its assigned attribute name so one descriptor class can store and validate many fields safely.
+- **Visual explanation:** `class creation → storage name → validated set/get`
 - **Practical example:**
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
+class Positive:
+    def __set_name__(self, owner, name):
+        self.storage_name = f"_{name}"
 
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
+    def __get__(self, instance, owner):
+        if instance is None:
+            return self
+        return getattr(instance, self.storage_name)
 
-account = Account()
-account.deposit(50)
-print(account.balance)
+    def __set__(self, instance, value):
+        if value <= 0:
+            raise ValueError("must be positive")
+        setattr(instance, self.storage_name, value)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Descriptors belongs to the advanced language engineering part of Python mastery. |
-| ⚡ Purpose | Help developers apply advanced language engineering techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional advanced language engineering decisions. |
-| 🎯 Use Cases | Performance-sensitive systems, frameworks, libraries, and technical interviews. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Descriptors are objects defining `__get__`, `__set__`, or `__delete__` to customize attribute access from another class. |
+| ⚡ Purpose | They are the mechanism beneath methods, properties, `classmethod`, `staticmethod`, slots, and many ORM fields. |
+| 🔥 Benefits | Builds the ability to apply descriptor lookup precedence for class and instance access; it also helps practitioners implement reusable validated fields with `__set_name__`. |
+| 🎯 Use Cases | Validated model fields, lazy properties, ORM columns, and dependency injection. Understanding why functions bind into methods when read from instances. |
+| 🚀 Best Practices | Store per-instance data on the instance, not the descriptor. |
+| ❌ Common Mistakes | Ignoring the guardrail “Return `self` for class-level descriptor inspection”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-class Customer:
-    def __init__(self, name):
-        self.name = name
+class Descriptor:
+    def __get__(self, instance, owner):
+        if instance is None:
+            return self
+        return instance.__dict__["value"]
 ```
 
 ### Standard Structure
 
 ```python
-def apply_descriptors(value):
-    """Apply the Descriptors concept to one value."""
-    return value
+class NamedField:
+    def __set_name__(self, owner, name):
+        self.name = name
 
-result = apply_descriptors("practice")
-print(result)
+    def __set__(self, instance, value):
+        instance.__dict__[self.name] = value
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Descriptors problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+class Lazy:
+    def __init__(self, function):
+        self.function = function
+        self.name = function.__name__
+
+    def __get__(self, instance, owner):
+        if instance is None:
+            return self
+        value = self.function(instance)
+        instance.__dict__[self.name] = value
+        return value
 ```
 
 ## Examples
@@ -11456,161 +12771,190 @@ print(result)
 ### Beginner Example
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
+class Celsius:
+    def __init__(self, value: float) -> None:
+        self._value = value
 
-print(Dog().speak())
+    @property
+    def value(self) -> float:
+        return self._value
 ```
 
 ### Intermediate Example
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
+class Product:
+    price = Positive()
 
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
+    def __init__(self, price: float) -> None:
+        self.price = price
 
-account = Account()
-account.deposit(50)
-print(account.balance)
+product = Product(19.5)
+assert product.price == 19.5
 ```
 
 ### Advanced Example
 
 ```python
-from dataclasses import dataclass
+class Typed:
+    def __init__(self, expected_type: type) -> None:
+        self.expected_type = expected_type
 
-@dataclass
-class Order:
-    id: int
-    total: float
+    def __set_name__(self, owner, name):
+        self.name = name
 
-    def is_large(self) -> bool:
-        return self.total >= 1000
+    def __get__(self, instance, owner):
+        return self if instance is None else instance.__dict__[self.name]
 
-print(Order(1, 1200).is_large())
+    def __set__(self, instance, value):
+        if not isinstance(value, self.expected_type):
+            raise TypeError(f"{self.name} requires {self.expected_type.__name__}")
+        instance.__dict__[self.name] = value
+
+class Event:
+    name = Typed(str)
+
+event = Event()
+event.name = "deployed"
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Descriptors Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Declare descriptor] --> B[Receive storage name]
+    B --> C[Intercept attribute access]
+    C --> D[Validate or compute]
+    D --> E[Store per-instance value]
+    E -. feedback .-> A
 ```
 
-[Back to topic index](#descriptors)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Concurrency
 
 ## Overview
-- **What is it?** Concurrency is a Python knowledge area focused on execution model.
-- **Why is it important?** Help developers apply execution model techniques safely, clearly, and consistently.
-- **Where is it used?** High-throughput services, background jobs, io workloads, and cpu-bound processing.
+- **What is it?** Concurrency lets multiple tasks make progress during overlapping time through threads, event loops, or structured task orchestration.
+- **Why is it important?** It improves I/O throughput but introduces cancellation, synchronization, backpressure, and shared-state correctness concerns.
+- **Where is it used?** Use it for network clients, request fan-out, background I/O, and pipelines with independently waiting stages.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review concurrency code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind concurrency.
-- Expected outcome: you can use concurrency in a small project and recognize when it belongs in production code.
+- Choose threads or `asyncio` from blocking behavior and library compatibility.
+- Coordinate task lifetime, cancellation, synchronization, and bounded work.
+- Build producer-consumer flows with task accounting or sentinels instead of racy state inspection.
 
 ## Real World Applications
-- **Industry use cases:** High-throughput services, background jobs, io workloads, and cpu-bound processing.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Fetching many independent endpoints while bounding in-flight requests.
+- Serving concurrent connections and overlapping database or filesystem waits.
+- Separating ingestion from processing with explicit capacity and shutdown.
 
 ## Core Concepts
 
-### Task Unit
-- **Definition:** The main idea that gives concurrency its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Concurrency model -> clear code`
+### Threads and Shared State
+- **Definition:** Threads share process memory and are effective for blocking I/O, but compound operations require locks or message passing to preserve invariants.
+- **Visual explanation:** `threads → shared object → lock-protected critical section`
 - **Practical example:**
 
 ```python
-apply_concurrency_label = "Concurrency"
-print(apply_concurrency_label)
+from concurrent.futures import ThreadPoolExecutor
+from urllib.request import urlopen
+
+def status(url: str) -> int:
+    with urlopen(url, timeout=5) as response:
+        return response.status
+
+with ThreadPoolExecutor(max_workers=4) as pool:
+    results = list(pool.map(status, ["https://example.com"] * 2))
 ```
 
-### Scheduler or Worker
-- **Definition:** The ordered steps Python follows when concurrency code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Structured Async Tasks
+- **Definition:** `asyncio.TaskGroup` binds child task lifetime to a lexical scope and propagates failures as an exception group after cancelling siblings.
+- **Visual explanation:** `enter task group → create children → await all or cancel on failure`
 - **Practical example:**
 
 ```python
 import asyncio
 
-async def greet():
-    return "hello"
+async def fetch(identifier: int) -> int:
+    await asyncio.sleep(0.01)
+    return identifier
 
-print(asyncio.run(greet()))
+async def main() -> None:
+    async with asyncio.TaskGroup() as group:
+        tasks = [group.create_task(fetch(i)) for i in range(3)]
+    print([task.result() for task in tasks])
 ```
 
-### Coordination Rule
-- **Definition:** The reliability habit that keeps concurrency understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Backpressure and Shutdown
+- **Definition:** A bounded queue makes producers wait when consumers fall behind, and sentinels or task accounting provide race-free completion.
+- **Visual explanation:** `producer → bounded queue → consumer → `task_done`/sentinel`
 - **Practical example:**
 
 ```python
-import asyncio
+from queue import Queue
+from threading import Thread
 
-async def fetch(number):
-    await asyncio.sleep(0)
-    return number * 2
+STOP = object()
+work: Queue[object] = Queue(maxsize=8)
 
-async def main():
-    print(await asyncio.gather(fetch(1), fetch(2)))
+def consume() -> None:
+    while (item := work.get()) is not STOP:
+        print(item)
+        work.task_done()
+    work.task_done()
 
-asyncio.run(main())
+Thread(target=consume).start()
+work.put("job")
+work.put(STOP)
+work.join()
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Concurrency belongs to the execution model part of Python mastery. |
-| ⚡ Purpose | Help developers apply execution model techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional execution model decisions. |
-| 🎯 Use Cases | High-throughput services, background jobs, io workloads, and cpu-bound processing. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Concurrency lets multiple tasks make progress during overlapping time through threads, event loops, or structured task orchestration. |
+| ⚡ Purpose | It improves I/O throughput but introduces cancellation, synchronization, backpressure, and shared-state correctness concerns. |
+| 🔥 Benefits | Builds the ability to choose threads or `asyncio` from blocking behavior and library compatibility; it also helps practitioners coordinate task lifetime, cancellation, synchronization, and bounded work. |
+| 🎯 Use Cases | Fetching many independent endpoints while bounding in-flight requests. Serving concurrent connections and overlapping database or filesystem waits. |
+| 🚀 Best Practices | Use `join`/sentinels, not `empty()`, to determine completion. |
+| ❌ Common Mistakes | Ignoring the guardrail “Always set deadlines around remote and blocking operations”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import asyncio
+from concurrent.futures import ThreadPoolExecutor
 
-async def main():
-    await asyncio.sleep(0)
-
-asyncio.run(main())
+with ThreadPoolExecutor(max_workers=8) as executor:
+    future = executor.submit(str.upper, "ready")
+    result = future.result(timeout=1)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_concurrency(value):
-    """Apply the Concurrency concept to one value."""
-    return value
+import asyncio
 
-result = apply_concurrency("practice")
-print(result)
+async def operation() -> str:
+    await asyncio.sleep(0)
+    return "done"
+
+result = asyncio.run(operation())
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Concurrency problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+import asyncio
+
+async def limited_call(semaphore: asyncio.Semaphore, value: int) -> int:
+    async with semaphore:
+        await asyncio.sleep(0.01)
+        return value * 2
 ```
 
 ## Examples
@@ -11618,12 +12962,11 @@ print(result)
 ### Beginner Example
 
 ```python
-import asyncio
+from concurrent.futures import ThreadPoolExecutor
 
-async def greet():
-    return "hello"
-
-print(asyncio.run(greet()))
+with ThreadPoolExecutor() as pool:
+    lengths = list(pool.map(len, ["alpha", "beta", "gamma"]))
+print(lengths)
 ```
 
 ### Intermediate Example
@@ -11631,14 +12974,12 @@ print(asyncio.run(greet()))
 ```python
 import asyncio
 
-async def fetch(number):
-    await asyncio.sleep(0)
-    return number * 2
+async def timed_work() -> str:
+    async with asyncio.timeout(1.0):
+        await asyncio.sleep(0.01)
+        return "complete"
 
-async def main():
-    print(await asyncio.gather(fetch(1), fetch(2)))
-
-asyncio.run(main())
+print(asyncio.run(timed_work()))
 ```
 
 ### Advanced Example
@@ -11646,128 +12987,147 @@ asyncio.run(main())
 ```python
 import asyncio
 
-async def worker(name, queue):
-    while not queue.empty():
+async def worker(queue: asyncio.Queue[int | None]) -> None:
+    while True:
         item = await queue.get()
-        print(name, item)
-        queue.task_done()
+        try:
+            if item is None:
+                return
+            print(item * item)
+        finally:
+            queue.task_done()
 
-async def main():
-    queue = asyncio.Queue()
-    for item in range(3):
+async def pipeline() -> None:
+    queue: asyncio.Queue[int | None] = asyncio.Queue(maxsize=4)
+    consumer = asyncio.create_task(worker(queue))
+    for item in range(5):
         await queue.put(item)
-    await asyncio.gather(worker("w1", queue), worker("w2", queue))
+    await queue.put(None)
+    await queue.join()
+    await consumer
 
-asyncio.run(main())
+asyncio.run(pipeline())
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Concurrency Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Classify blocking work] --> B[Choose concurrency model]
+    B --> C[Bound in-flight tasks]
+    C --> D[Propagate failure and cancellation]
+    D --> E[Measure throughput and saturation]
+    E -. feedback .-> A
 ```
 
-[Back to topic index](#concurrency)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Parallel Computing
 
 ## Overview
-- **What is it?** Parallel Computing is a Python knowledge area focused on execution model.
-- **Why is it important?** Help developers apply execution model techniques safely, clearly, and consistently.
-- **Where is it used?** High-throughput services, background jobs, io workloads, and cpu-bound processing.
+- **What is it?** Parallel computing executes CPU work simultaneously across cores or machines, commonly using processes to bypass CPython's global interpreter lock.
+- **Why is it important?** Speedup depends on task size, serialization cost, memory bandwidth, core count, and the serial fraction of the workload.
+- **Where is it used?** It supports numerical transforms, media processing, simulations, compilation, and independent batch computation.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review parallel computing code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind parallel computing.
-- Expected outcome: you can use parallel computing in a small project and recognize when it belongs in production code.
+- Distinguish concurrency from actual multi-core parallel execution.
+- Use process pools with picklable, coarse-grained tasks and explicit shutdown.
+- Evaluate speedup against serialization and scheduling overhead.
 
 ## Real World Applications
-- **Industry use cases:** High-throughput services, background jobs, io workloads, and cpu-bound processing.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Parallel image transforms, document parsing, simulation runs, and feature extraction.
+- Partitioning independent CPU-bound records across worker processes.
+- Using shared memory when copying large arrays would dominate runtime.
 
 ## Core Concepts
 
-### Task Unit
-- **Definition:** The main idea that gives parallel computing its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Parallel Computing model -> clear code`
+### Process Isolation
+- **Definition:** Worker processes have separate Python heaps; arguments and results normally cross process boundaries through serialization.
+- **Visual explanation:** `parent object → pickle/IPC → worker heap → result IPC`
 - **Practical example:**
 
 ```python
-apply_parallel_computing_label = "Parallel Computing"
-print(apply_parallel_computing_label)
-```
+from concurrent.futures import ProcessPoolExecutor
 
-### Scheduler or Worker
-- **Definition:** The ordered steps Python follows when parallel computing code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
-- **Practical example:**
-
-```python
-from multiprocessing import cpu_count
-print(cpu_count())
-```
-
-### Coordination Rule
-- **Definition:** The reliability habit that keeps parallel computing understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
-- **Practical example:**
-
-```python
-from multiprocessing import Pool
-
-def square(value):
+def square(value: int) -> int:
     return value * value
 
 if __name__ == "__main__":
-    with Pool(2) as pool:
-        print(pool.map(square, [1, 2, 3]))
+    with ProcessPoolExecutor() as pool:
+        print(list(pool.map(square, range(5))))
+```
+
+### Granularity and Amdahl's Law
+- **Definition:** Parallelism helps when each submitted unit contains enough CPU work to amortize startup, scheduling, and transfer costs.
+- **Visual explanation:** `serial setup + parallel fraction / workers + communication overhead`
+- **Practical example:**
+
+```python
+def theoretical_speedup(parallel_fraction: float, workers: int) -> float:
+    serial = 1.0 - parallel_fraction
+    return 1.0 / (serial + parallel_fraction / workers)
+
+print(theoretical_speedup(0.9, 8))
+```
+
+### Shared Memory
+- **Definition:** Shared memory exposes one byte buffer to multiple processes, avoiding copies but requiring disciplined ownership and synchronization.
+- **Visual explanation:** `shared segment ↔ process views; coordinate writes explicitly`
+- **Practical example:**
+
+```python
+from multiprocessing import shared_memory
+
+segment = shared_memory.SharedMemory(create=True, size=4)
+try:
+    segment.buf[:4] = b"data"
+    print(bytes(segment.buf[:4]))
+finally:
+    segment.close()
+    segment.unlink()
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Parallel Computing belongs to the execution model part of Python mastery. |
-| ⚡ Purpose | Help developers apply execution model techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional execution model decisions. |
-| 🎯 Use Cases | High-throughput services, background jobs, io workloads, and cpu-bound processing. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Parallel computing executes CPU work simultaneously across cores or machines, commonly using processes to bypass CPython's global interpreter lock. |
+| ⚡ Purpose | Speedup depends on task size, serialization cost, memory bandwidth, core count, and the serial fraction of the workload. |
+| 🔥 Benefits | Builds the ability to distinguish concurrency from actual multi-core parallel execution; it also helps practitioners use process pools with picklable, coarse-grained tasks and explicit shutdown. |
+| 🎯 Use Cases | Parallel image transforms, document parsing, simulation runs, and feature extraction. Partitioning independent CPU-bound records across worker processes. |
+| 🚀 Best Practices | Benchmark sequential and parallel versions on production-shaped data. |
+| ❌ Common Mistakes | Ignoring the guardrail “Do not submit tiny tasks one future at a time”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-from multiprocessing import Process
-process = Process(target=print, args=("hi",))
+from concurrent.futures import ProcessPoolExecutor
+
+def cube(value: int) -> int:
+    return value ** 3
 ```
 
 ### Standard Structure
 
 ```python
-def apply_parallel_computing(value):
-    """Apply the Parallel Computing concept to one value."""
-    return value
-
-result = apply_parallel_computing("practice")
-print(result)
+if __name__ == "__main__":
+    with ProcessPoolExecutor(max_workers=4) as executor:
+        values = list(executor.map(cube, range(10), chunksize=2))
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Parallel Computing problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+from multiprocessing import get_context
+
+if __name__ == "__main__":
+    context = get_context("spawn")
+    with context.Pool(processes=2) as pool:
+        values = pool.map(abs, [-3, -2, -1])
 ```
 
 ## Examples
@@ -11775,142 +13135,167 @@ print(result)
 ### Beginner Example
 
 ```python
-from multiprocessing import cpu_count
-print(cpu_count())
+def count_primes(limit: int) -> int:
+    def is_prime(value: int) -> bool:
+        return value > 1 and all(value % divisor for divisor in range(2, int(value ** 0.5) + 1))
+    return sum(is_prime(value) for value in range(limit))
 ```
 
 ### Intermediate Example
 
 ```python
-from multiprocessing import Pool
+from concurrent.futures import ProcessPoolExecutor
 
-def square(value):
-    return value * value
-
+limits = [10_000, 11_000, 12_000]
 if __name__ == "__main__":
-    with Pool(2) as pool:
-        print(pool.map(square, [1, 2, 3]))
+    with ProcessPoolExecutor() as executor:
+        counts = list(executor.map(count_primes, limits))
+    print(counts)
 ```
 
 ### Advanced Example
 
 ```python
-from concurrent.futures import ProcessPoolExecutor
-
-def score(value):
-    return sum(i * i for i in range(value))
+from concurrent.futures import ProcessPoolExecutor, as_completed
 
 if __name__ == "__main__":
-    with ProcessPoolExecutor() as pool:
-        print(list(pool.map(score, [1000, 2000])))
+    with ProcessPoolExecutor(max_workers=3) as executor:
+        futures = {executor.submit(count_primes, limit): limit for limit in limits}
+        for future in as_completed(futures):
+            limit = futures[future]
+            try:
+                print(limit, future.result())
+            except Exception as error:
+                print(limit, type(error).__name__)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Parallel Computing Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Measure sequential baseline] --> B[Partition coarse tasks]
+    B --> C[Choose process topology]
+    C --> D[Run and collect failures]
+    D --> E[Compare speedup and memory]
+    E -. feedback .-> A
 ```
 
-[Back to topic index](#parallel-computing)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Distributed Systems
 
 ## Overview
-- **What is it?** Distributed Systems is a Python knowledge area focused on systems automation.
-- **Why is it important?** Help developers apply systems automation techniques safely, clearly, and consistently.
-- **Where is it used?** Network services, security operations, scraping pipelines, and orchestration.
+- **What is it?** A distributed system coordinates independent processes across unreliable networks where delays, retries, duplication, reordering, and partial failure are normal.
+- **Why is it important?** Correctness requires explicit delivery semantics, idempotency, timeouts, consistency choices, and observability rather than assuming remote calls behave like local functions.
+- **Where is it used?** These principles underpin service architectures, job queues, replicated stores, event streams, and multi-region platforms.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review distributed systems code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind distributed systems.
-- Expected outcome: you can use distributed systems in a small project and recognize when it belongs in production code.
+- Model partial failure, at-least-once delivery, and consistency trade-offs.
+- Implement bounded retries, exponential backoff with jitter, and circuit breaking.
+- Design idempotent operations and correlate work across service boundaries.
 
 ## Real World Applications
-- **Industry use cases:** Network services, security operations, scraping pipelines, and orchestration.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Payment commands that may be delivered more than once.
+- Service calls that degrade safely when a dependency is slow or unavailable.
+- Replicated data and event pipelines with explicit ordering and recovery rules.
 
 ## Core Concepts
 
-### Task Unit
-- **Definition:** The main idea that gives distributed systems its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Distributed Systems model -> clear code`
+### Partial Failure and Deadlines
+- **Definition:** A caller cannot distinguish a lost request from a lost response without protocol support, so every remote operation needs a deadline and an uncertainty policy.
+- **Visual explanation:** `send → timeout? → outcome may be success, failure, or unknown`
 - **Practical example:**
 
 ```python
-apply_distributed_systems_label = "Distributed Systems"
-print(apply_distributed_systems_label)
+from urllib.request import urlopen
+
+def fetch_health(url: str, timeout: float = 2.0) -> bytes:
+    with urlopen(url, timeout=timeout) as response:
+        return response.read(1024)
 ```
 
-### Scheduler or Worker
-- **Definition:** The ordered steps Python follows when distributed systems code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Idempotency and Delivery
+- **Definition:** An idempotency key lets a receiver persist one outcome per logical command, making duplicate at-least-once deliveries return the original result.
+- **Visual explanation:** `command + stable key → deduplication record → one side effect`
 - **Practical example:**
 
 ```python
-import requests
+outcomes: dict[str, str] = {}
 
-response = requests.get("https://example.com", timeout=10)
-print(response.status_code)
+def reserve(command_id: str, sku: str) -> str:
+    if command_id not in outcomes:
+        outcomes[command_id] = f"reserved:{sku}"
+    return outcomes[command_id]
+
+assert reserve("cmd-7", "book") == reserve("cmd-7", "book")
 ```
 
-### Coordination Rule
-- **Definition:** The reliability habit that keeps distributed systems understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Resilience Policies
+- **Definition:** Retries target transient failures and must be bounded, delayed, jittered, and budgeted; circuit breakers stop amplifying a persistently unhealthy dependency.
+- **Visual explanation:** `failure → classify → backoff+jitter → retry budget or open circuit`
 - **Practical example:**
 
 ```python
-import requests
+import random
+import time
+from collections.abc import Callable
 
-with requests.Session() as session:
-    response = session.get("https://api.github.com", timeout=10)
-    print(response.headers.get("content-type"))
+def retry(operation: Callable[[], str], attempts: int = 3) -> str:
+    for attempt in range(attempts):
+        try:
+            return operation()
+        except TimeoutError:
+            if attempt + 1 == attempts:
+                raise
+            time.sleep((2 ** attempt + random.random()) / 10)
+    raise AssertionError("unreachable")
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Distributed Systems belongs to the systems automation part of Python mastery. |
-| ⚡ Purpose | Help developers apply systems automation techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional systems automation decisions. |
-| 🎯 Use Cases | Network services, security operations, scraping pipelines, and orchestration. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | A distributed system coordinates independent processes across unreliable networks where delays, retries, duplication, reordering, and partial failure are normal. |
+| ⚡ Purpose | Correctness requires explicit delivery semantics, idempotency, timeouts, consistency choices, and observability rather than assuming remote calls behave like local functions. |
+| 🔥 Benefits | Builds the ability to model partial failure, at-least-once delivery, and consistency trade-offs; it also helps practitioners implement bounded retries, exponential backoff with jitter, and circuit breaking. |
+| 🎯 Use Cases | Payment commands that may be delivered more than once. Service calls that degrade safely when a dependency is slow or unavailable. |
+| 🚀 Best Practices | Circuit breakers protect both caller and dependency during sustained failure. |
+| ❌ Common Mistakes | Ignoring the guardrail “Exactly-once effects require durable coordination, not a queue setting alone”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import requests
-response = requests.get("https://example.com", timeout=10)
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class Command:
+    idempotency_key: str
+    payload: dict[str, str]
 ```
 
 ### Standard Structure
 
 ```python
-def apply_distributed_systems(value):
-    """Apply the Distributed Systems concept to one value."""
-    return value
+import random
 
-result = apply_distributed_systems("practice")
-print(result)
+def backoff(attempt: int, cap: float = 10.0) -> float:
+    maximum = min(cap, 0.25 * (2 ** attempt))
+    return random.uniform(0.0, maximum)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Distributed Systems problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+from enum import Enum, auto
+
+class CircuitState(Enum):
+    CLOSED = auto()
+    OPEN = auto()
+    HALF_OPEN = auto()
 ```
 
 ## Examples
@@ -11918,140 +13303,176 @@ print(result)
 ### Beginner Example
 
 ```python
-import requests
+processed: set[str] = set()
 
-response = requests.get("https://example.com", timeout=10)
-print(response.status_code)
+def handle(message_id: str) -> bool:
+    if message_id in processed:
+        return False
+    processed.add(message_id)
+    return True
 ```
 
 ### Intermediate Example
 
 ```python
-import requests
+from dataclasses import dataclass
+from time import monotonic
 
-with requests.Session() as session:
-    response = session.get("https://api.github.com", timeout=10)
-    print(response.headers.get("content-type"))
+@dataclass
+class Deadline:
+    expires_at: float
+
+    @classmethod
+    def after(cls, seconds: float) -> "Deadline":
+        return cls(monotonic() + seconds)
+
+    def remaining(self) -> float:
+        return max(0.0, self.expires_at - monotonic())
 ```
 
 ### Advanced Example
 
 ```python
-import requests
-from requests.adapters import HTTPAdapter
+from dataclasses import dataclass
+from time import monotonic
 
-session = requests.Session()
-session.mount("https://", HTTPAdapter(max_retries=3))
-response = session.get("https://example.com", timeout=(3, 10))
-print(response.ok)
+@dataclass
+class CircuitBreaker:
+    threshold: int = 3
+    reset_after: float = 10.0
+    failures: int = 0
+    opened_at: float | None = None
+
+    def allow(self) -> bool:
+        return self.opened_at is None or monotonic() - self.opened_at >= self.reset_after
+
+    def record_failure(self) -> None:
+        self.failures += 1
+        if self.failures >= self.threshold:
+            self.opened_at = monotonic()
+
+    def record_success(self) -> None:
+        self.failures = 0
+        self.opened_at = None
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Distributed Systems Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Receive command] --> B[Check deadline and idempotency]
+    B --> C[Attempt dependency call]
+    C --> D[Back off or open circuit]
+    D --> E[Record outcome and telemetry]
+    E -. feedback .-> A
 ```
 
-[Back to topic index](#distributed-systems)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Network Programming
 
 ## Overview
-- **What is it?** Network Programming is a Python knowledge area focused on systems automation.
-- **Why is it important?** Help developers apply systems automation techniques safely, clearly, and consistently.
-- **Where is it used?** Network services, security operations, scraping pipelines, and orchestration.
+- **What is it?** Network programming designs application protocols over transports, including framing, addressing, name resolution, encoding, security, and failure handling.
+- **Why is it important?** Production clients must treat payloads as untrusted bytes and make connection, read, retry, and protocol limits explicit.
+- **Where is it used?** It powers API clients, service discovery, telemetry agents, proxies, and custom binary protocols.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review network programming code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind network programming.
-- Expected outcome: you can use network programming in a small project and recognize when it belongs in production code.
+- Distinguish application protocols from TCP, UDP, DNS, and TLS transport concerns.
+- Encode, frame, validate, and parse messages incrementally.
+- Apply deadlines, size limits, and error classification at network boundaries.
 
 ## Real World Applications
-- **Industry use cases:** Network services, security operations, scraping pipelines, and orchestration.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- HTTP integrations, DNS-aware clients, telemetry collectors, and service agents.
+- Length-prefixed or delimiter-based protocols for internal devices and services.
+- Securely parsing remote data while preserving protocol compatibility.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives network programming its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Network Programming model -> clear code`
+### Layered Protocols
+- **Definition:** Applications define message semantics above transports; TCP supplies an ordered byte stream, while UDP supplies independent datagrams without delivery guarantees.
+- **Visual explanation:** `application message → TLS → TCP/UDP → IP → network`
 - **Practical example:**
 
 ```python
-apply_network_programming_label = "Network Programming"
-print(apply_network_programming_label)
+from urllib.parse import urlsplit
+
+endpoint = urlsplit("https://api.example.com:8443/v1/items")
+print(endpoint.scheme, endpoint.hostname, endpoint.port, endpoint.path)
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when network programming code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Framing and Encoding
+- **Definition:** A stream has no message boundaries, so protocols need length prefixes, delimiters with escaping, or a self-delimiting format plus explicit encoding.
+- **Visual explanation:** `Python object → serialized bytes → frame boundary → byte stream`
 - **Practical example:**
 
 ```python
-import requests
+import json
+import struct
 
-response = requests.get("https://example.com", timeout=10)
-print(response.status_code)
+payload = json.dumps({"event": "ready"}).encode("utf-8")
+frame = struct.pack("!I", len(payload)) + payload
+declared_size = struct.unpack("!I", frame[:4])[0]
+assert frame[4:4 + declared_size] == payload
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps network programming understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Defensive Protocol Parsing
+- **Definition:** Parsers must cap lengths, reject malformed encodings, and separate retryable transport failures from permanent protocol errors.
+- **Visual explanation:** `bytes → length/encoding validation → schema validation → domain message`
 - **Practical example:**
 
 ```python
-import requests
+import json
 
-with requests.Session() as session:
-    response = session.get("https://api.github.com", timeout=10)
-    print(response.headers.get("content-type"))
+def decode_message(payload: bytes, limit: int = 65_536) -> dict[str, object]:
+    if len(payload) > limit:
+        raise ValueError("message too large")
+    value = json.loads(payload.decode("utf-8", errors="strict"))
+    if not isinstance(value, dict):
+        raise TypeError("object message required")
+    return value
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Network Programming belongs to the systems automation part of Python mastery. |
-| ⚡ Purpose | Help developers apply systems automation techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional systems automation decisions. |
-| 🎯 Use Cases | Network services, security operations, scraping pipelines, and orchestration. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Network programming designs application protocols over transports, including framing, addressing, name resolution, encoding, security, and failure handling. |
+| ⚡ Purpose | Production clients must treat payloads as untrusted bytes and make connection, read, retry, and protocol limits explicit. |
+| 🔥 Benefits | Builds the ability to distinguish application protocols from TCP, UDP, DNS, and TLS transport concerns; it also helps practitioners encode, frame, validate, and parse messages incrementally. |
+| 🎯 Use Cases | HTTP integrations, DNS-aware clients, telemetry collectors, and service agents. Length-prefixed or delimiter-based protocols for internal devices and services. |
+| 🚀 Best Practices | Cap frame sizes before allocating or decoding. |
+| ❌ Common Mistakes | Ignoring the guardrail “Version protocols for additive evolution and compatibility”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import requests
-response = requests.get("https://example.com", timeout=10)
+import ipaddress
+
+network = ipaddress.ip_network("10.0.0.0/24")
+allowed = ipaddress.ip_address("10.0.0.42") in network
 ```
 
 ### Standard Structure
 
 ```python
-def apply_network_programming(value):
-    """Apply the Network Programming concept to one value."""
-    return value
+import json
 
-result = apply_network_programming("practice")
-print(result)
+body = json.dumps({"version": 1, "kind": "ping"}).encode("utf-8")
+message = json.loads(body)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Network Programming problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+import struct
+
+HEADER = struct.Struct("!BI")
+header = HEADER.pack(1, 512)
+version, length = HEADER.unpack(header)
 ```
 
 ## Examples
@@ -12059,140 +13480,171 @@ print(result)
 ### Beginner Example
 
 ```python
-import requests
+from urllib.parse import urlencode
 
-response = requests.get("https://example.com", timeout=10)
-print(response.status_code)
+query = urlencode({"q": "python network", "page": 2})
+url = f"https://example.com/search?{query}"
+print(url)
 ```
 
 ### Intermediate Example
 
 ```python
-import requests
+import ssl
+from urllib.request import urlopen
 
-with requests.Session() as session:
-    response = session.get("https://api.github.com", timeout=10)
-    print(response.headers.get("content-type"))
+context = ssl.create_default_context()
+with urlopen("https://example.com", timeout=5, context=context) as response:
+    content_type = response.headers.get_content_type()
+    body = response.read(4096)
+print(content_type, len(body))
 ```
 
 ### Advanced Example
 
 ```python
-import requests
-from requests.adapters import HTTPAdapter
+import struct
 
-session = requests.Session()
-session.mount("https://", HTTPAdapter(max_retries=3))
-response = session.get("https://example.com", timeout=(3, 10))
-print(response.ok)
+def extract_frames(buffer: bytearray, maximum: int = 1_048_576) -> list[bytes]:
+    frames = []
+    while len(buffer) >= 4:
+        size = struct.unpack("!I", buffer[:4])[0]
+        if size > maximum:
+            raise ValueError("frame exceeds limit")
+        if len(buffer) < 4 + size:
+            break
+        frames.append(bytes(buffer[4:4 + size]))
+        del buffer[:4 + size]
+    return frames
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Network Programming Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Resolve endpoint] --> B[Establish protected transport]
+    B --> C[Encode and frame request]
+    C --> D[Validate framed response]
+    D --> E[Classify failure or result]
+    E -. feedback .-> A
 ```
 
-[Back to topic index](#network-programming)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Socket Programming
 
 ## Overview
-- **What is it?** Socket Programming is a Python knowledge area focused on systems automation.
-- **Why is it important?** Help developers apply systems automation techniques safely, clearly, and consistently.
-- **Where is it used?** Network services, security operations, scraping pipelines, and orchestration.
+- **What is it?** Python's `socket` module exposes operating-system network endpoints for TCP streams, UDP datagrams, and local interprocess communication.
+- **Why is it important?** Correct socket code handles partial sends and receives, connection lifetime, timeouts, framing, address families, and clean shutdown.
+- **Where is it used?** Sockets are used for custom services, proxies, protocol clients, test harnesses, and low-level network diagnostics.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review socket programming code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind socket programming.
-- Expected outcome: you can use socket programming in a small project and recognize when it belongs in production code.
+- Build TCP client and server lifecycles with context-managed sockets.
+- Implement bounded framing over a stream and handle partial reads.
+- Use selectors or async abstractions for scalable connection readiness.
 
 ## Real World Applications
-- **Industry use cases:** Network services, security operations, scraping pipelines, and orchestration.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Custom protocol servers, reverse proxies, local agents, and device gateways.
+- Testing service behavior below an HTTP framework.
+- Multiplexing many mostly idle connections through readiness notification.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives socket programming its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Socket Programming model -> clear code`
+### TCP Connection Lifecycle
+- **Definition:** A server binds and listens, accepts a new connected socket per peer, exchanges stream bytes, then closes both accepted and listening descriptors.
+- **Visual explanation:** `socket → bind → listen → accept → recv/sendall → close`
 - **Practical example:**
 
 ```python
-apply_socket_programming_label = "Socket Programming"
-print(apply_socket_programming_label)
+import socket
+
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server:
+    server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    server.bind(("127.0.0.1", 0))
+    server.listen()
+    print(server.getsockname())
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when socket programming code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Stream Reads and Framing
+- **Definition:** `recv(n)` may return fewer than n bytes and an empty result means orderly peer closure, so fixed-size fields require a receive loop.
+- **Visual explanation:** `byte stream → receive exact header → parse length → receive exact body`
 - **Practical example:**
 
 ```python
-import requests
+import socket
 
-response = requests.get("https://example.com", timeout=10)
-print(response.status_code)
+def recv_exact(connection: socket.socket, size: int) -> bytes:
+    chunks = bytearray()
+    while len(chunks) < size:
+        chunk = connection.recv(size - len(chunks))
+        if not chunk:
+            raise ConnectionError("peer closed early")
+        chunks.extend(chunk)
+    return bytes(chunks)
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps socket programming understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Readiness Multiplexing
+- **Definition:** Selectors ask the operating system which nonblocking sockets are ready, avoiding one waiting thread per connection.
+- **Visual explanation:** `registered sockets → OS readiness → event callback → update interest`
 - **Practical example:**
 
 ```python
-import requests
+import selectors
+import socket
 
-with requests.Session() as session:
-    response = session.get("https://api.github.com", timeout=10)
-    print(response.headers.get("content-type"))
+selector = selectors.DefaultSelector()
+listener = socket.socket()
+listener.setblocking(False)
+selector.register(listener, selectors.EVENT_READ, data="listener")
+selector.unregister(listener)
+listener.close()
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Socket Programming belongs to the systems automation part of Python mastery. |
-| ⚡ Purpose | Help developers apply systems automation techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional systems automation decisions. |
-| 🎯 Use Cases | Network services, security operations, scraping pipelines, and orchestration. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Python's `socket` module exposes operating-system network endpoints for TCP streams, UDP datagrams, and local interprocess communication. |
+| ⚡ Purpose | Correct socket code handles partial sends and receives, connection lifetime, timeouts, framing, address families, and clean shutdown. |
+| 🔥 Benefits | Builds the ability to build TCP client and server lifecycles with context-managed sockets; it also helps practitioners implement bounded framing over a stream and handle partial reads. |
+| 🎯 Use Cases | Custom protocol servers, reverse proxies, local agents, and device gateways. Testing service behavior below an HTTP framework. |
+| 🚀 Best Practices | Selectors scale readiness handling for many connections. |
+| ❌ Common Mistakes | Ignoring the guardrail “Never allocate a peer-declared frame without enforcing a maximum”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import requests
-response = requests.get("https://example.com", timeout=10)
+import socket
+
+with socket.create_connection(("example.com", 80), timeout=5) as client:
+    client.sendall(b"HEAD / HTTP/1.0\r\nHost: example.com\r\n\r\n")
+    prefix = client.recv(128)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_socket_programming(value):
-    """Apply the Socket Programming concept to one value."""
-    return value
+import socket
 
-result = apply_socket_programming("practice")
-print(result)
+addresses = socket.getaddrinfo(
+    "example.com",
+    443,
+    type=socket.SOCK_STREAM,
+)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Socket Programming problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+import socket
+import struct
+
+def send_frame(connection: socket.socket, payload: bytes) -> None:
+    connection.sendall(struct.pack("!I", len(payload)) + payload)
 ```
 
 ## Examples
@@ -12200,137 +13652,181 @@ print(result)
 ### Beginner Example
 
 ```python
-import requests
+import socket
 
-response = requests.get("https://example.com", timeout=10)
-print(response.status_code)
+left, right = socket.socketpair()
+try:
+    left.sendall(b"ping")
+    assert right.recv(4) == b"ping"
+finally:
+    left.close()
+    right.close()
 ```
 
 ### Intermediate Example
 
 ```python
-import requests
+import socket
+import struct
 
-with requests.Session() as session:
-    response = session.get("https://api.github.com", timeout=10)
-    print(response.headers.get("content-type"))
+left, right = socket.socketpair()
+try:
+    send_frame(left, b"hello")
+    size = struct.unpack("!I", recv_exact(right, 4))[0]
+    assert recv_exact(right, size) == b"hello"
+finally:
+    left.close()
+    right.close()
 ```
 
 ### Advanced Example
 
 ```python
-import requests
-from requests.adapters import HTTPAdapter
+import selectors
+import socket
 
-session = requests.Session()
-session.mount("https://", HTTPAdapter(max_retries=3))
-response = session.get("https://example.com", timeout=(3, 10))
-print(response.ok)
+selector = selectors.DefaultSelector()
+left, right = socket.socketpair()
+try:
+    right.setblocking(False)
+    selector.register(right, selectors.EVENT_READ)
+    left.sendall(b"event")
+    for key, mask in selector.select(timeout=1):
+        if mask & selectors.EVENT_READ:
+            print(key.fileobj.recv(1024))
+finally:
+    selector.close()
+    left.close()
+    right.close()
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Socket Programming Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Create endpoint] --> B[Connect or accept peer]
+    B --> C[Frame and exchange bytes]
+    C --> D[Handle timeout or closure]
+    D --> E[Release descriptors]
+    E -. feedback .-> A
 ```
 
-[Back to topic index](#socket-programming)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Cybersecurity Automation
 
 ## Overview
-- **What is it?** Cybersecurity Automation is a Python knowledge area focused on systems automation.
-- **Why is it important?** Help developers apply systems automation techniques safely, clearly, and consistently.
-- **Where is it used?** Network services, security operations, scraping pipelines, and orchestration.
+- **What is it?** Cybersecurity automation uses Python to collect evidence, validate configurations, verify integrity, enrich alerts, and orchestrate approved defensive actions.
+- **Why is it important?** Automation must preserve audit trails, minimize privileges, validate untrusted inputs, and fail safely because a mistaken action can widen an incident.
+- **Where is it used?** It supports security operations, vulnerability management, compliance checks, incident response, and secrets hygiene.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review cybersecurity automation code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind cybersecurity automation.
-- Expected outcome: you can use cybersecurity automation in a small project and recognize when it belongs in production code.
+- Use cryptographic primitives through safe standard-library interfaces.
+- Parse indicators and invoke system tools without shell injection.
+- Design dry-run, approval, least-privilege, and tamper-evident audit controls.
 
 ## Real World Applications
-- **Industry use cases:** Network services, security operations, scraping pipelines, and orchestration.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Verifying downloaded artifacts and signed webhook payloads.
+- Normalizing IP indicators and enriching authorized incident records.
+- Scanning configuration baselines and producing reproducible evidence.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives cybersecurity automation its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Cybersecurity Automation model -> clear code`
+### Integrity and Authentication
+- **Definition:** A cryptographic hash detects changes, while an HMAC also authenticates data with a shared secret and should be compared in constant time.
+- **Visual explanation:** `message + secret → HMAC → constant-time verification`
 - **Practical example:**
 
 ```python
-apply_cybersecurity_automation_label = "Cybersecurity Automation"
-print(apply_cybersecurity_automation_label)
+import hashlib
+import hmac
+
+secret = b"training-key"
+body = b'{"event":"login"}'
+signature = hmac.new(secret, body, hashlib.sha256).hexdigest()
+assert hmac.compare_digest(signature, signature)
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when cybersecurity automation code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Safe Input and Process Boundaries
+- **Definition:** Treat indicators and command arguments as data: parse them with strict libraries and pass argument lists without invoking a shell.
+- **Visual explanation:** `untrusted text → parser/allowlist → argument vector → bounded subprocess`
 - **Practical example:**
 
 ```python
-import re
-print(bool(re.search(r"python", "learn python")))
+import ipaddress
+import subprocess
+
+address = ipaddress.ip_address("192.0.2.10")
+result = subprocess.run(
+    ["printf", "%s", str(address)],
+    check=True,
+    capture_output=True,
+    text=True,
+    timeout=2,
+)
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps cybersecurity automation understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Controlled Remediation
+- **Definition:** Defensive actions should support dry runs, scoped credentials, idempotency, human approval for destructive steps, and structured audit events.
+- **Visual explanation:** `alert → validate scope → plan/dry-run → approve → act → audit`
 - **Practical example:**
 
 ```python
-import re
+from dataclasses import dataclass
 
-emails = re.findall(r"[\w.-]+@[\w.-]+", "Contact a@x.com and b@y.com")
-print(emails)
+@dataclass(frozen=True)
+class Action:
+    target: str
+    reason: str
+
+def quarantine(action: Action, *, execute: bool = False) -> str:
+    mode = "executed" if execute else "planned"
+    return f"{mode}:{action.target}:{action.reason}"
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Cybersecurity Automation belongs to the systems automation part of Python mastery. |
-| ⚡ Purpose | Help developers apply systems automation techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional systems automation decisions. |
-| 🎯 Use Cases | Network services, security operations, scraping pipelines, and orchestration. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Cybersecurity automation uses Python to collect evidence, validate configurations, verify integrity, enrich alerts, and orchestrate approved defensive actions. |
+| ⚡ Purpose | Automation must preserve audit trails, minimize privileges, validate untrusted inputs, and fail safely because a mistaken action can widen an incident. |
+| 🔥 Benefits | Builds the ability to use cryptographic primitives through safe standard-library interfaces; it also helps practitioners parse indicators and invoke system tools without shell injection. |
+| 🎯 Use Cases | Verifying downloaded artifacts and signed webhook payloads. Normalizing IP indicators and enriching authorized incident records. |
+| 🚀 Best Practices | Dry-run and approval gates protect high-impact remediation. |
+| ❌ Common Mistakes | Ignoring the guardrail “Never log tokens, private keys, passwords, or full sensitive payloads”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import re
-match = re.search(r"\d+", "Order 42")
+import hashlib
+from pathlib import Path
+
+with Path("artifact.bin").open("rb") as stream:
+    checksum = hashlib.file_digest(stream, "sha256").hexdigest()
 ```
 
 ### Standard Structure
 
 ```python
-def apply_cybersecurity_automation(value):
-    """Apply the Cybersecurity Automation concept to one value."""
-    return value
+import ipaddress
 
-result = apply_cybersecurity_automation("practice")
-print(result)
+def is_public(value: str) -> bool:
+    address = ipaddress.ip_address(value)
+    return address.is_global
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Cybersecurity Automation problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+import json
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logging.info(json.dumps({"action": "scan", "status": "complete"}))
 ```
 
 ## Examples
@@ -12338,135 +13834,169 @@ print(result)
 ### Beginner Example
 
 ```python
-import re
-print(bool(re.search(r"python", "learn python")))
+import secrets
+
+incident_id = secrets.token_urlsafe(16)
+print(incident_id)
 ```
 
 ### Intermediate Example
 
 ```python
-import re
+import hashlib
+import secrets
+from pathlib import Path
 
-emails = re.findall(r"[\w.-]+@[\w.-]+", "Contact a@x.com and b@y.com")
-print(emails)
+def verify(path: Path, expected: str) -> bool:
+    with path.open("rb") as stream:
+        actual = hashlib.file_digest(stream, "sha256").hexdigest()
+    return secrets.compare_digest(actual, expected)
 ```
 
 ### Advanced Example
 
 ```python
-import re
+import ipaddress
+from dataclasses import asdict, dataclass
 
-pattern = re.compile(r"(?P<status>\d{3}) (?P<path>/\S+)")
-match = pattern.search("200 /api/users")
-print(match.groupdict() if match else {})
+@dataclass(frozen=True)
+class Finding:
+    indicator: str
+    category: str
+    approved: bool = False
+
+def normalize_indicator(value: str) -> str:
+    return str(ipaddress.ip_address(value))
+
+finding = Finding(normalize_indicator("2001:db8::1"), "documentation-range")
+print(asdict(finding))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Cybersecurity Automation Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Collect authorized evidence] --> B[Validate and normalize]
+    B --> C[Assess scope and risk]
+    C --> D[Dry-run or approve action]
+    D --> E[Execute and audit]
+    E -. feedback .-> A
 ```
 
-[Back to topic index](#cybersecurity-automation)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Web Scraping
 
 ## Overview
-- **What is it?** Web Scraping is a Python knowledge area focused on integration.
-- **Why is it important?** Help developers apply integration techniques safely, clearly, and consistently.
-- **Where is it used?** Web services, persistence layers, analytics backends, and business systems.
+- **What is it?** Web scraping extracts structured data from permitted web pages while respecting site terms, robots guidance, rate limits, and data-protection obligations.
+- **Why is it important?** Reliable scrapers separate fetching from parsing, use stable semantic selectors, validate outputs, and cache or retry conservatively.
+- **Where is it used?** It is used for public-data research, price monitoring, content migration, quality assurance, and archival workflows.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review web scraping code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind web scraping.
-- Expected outcome: you can use web scraping in a small project and recognize when it belongs in production code.
+- Fetch pages with explicit identity, timeout, status handling, and pacing.
+- Parse HTML with BeautifulSoup selectors and normalize extracted fields.
+- Detect layout drift and avoid bypassing access controls or anti-abuse systems.
 
 ## Real World Applications
-- **Industry use cases:** Web services, persistence layers, analytics backends, and business systems.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Collecting permitted public catalogs, notices, and structured reports.
+- Validating links and metadata across owned websites.
+- Migrating legacy content into a documented internal schema.
 
 ## Core Concepts
 
-### Contract
-- **Definition:** The main idea that gives web scraping its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Web Scraping model -> clear code`
-- **Practical example:**
-
-```python
-apply_web_scraping_label = "Web Scraping"
-print(apply_web_scraping_label)
-```
-
-### Connection Flow
-- **Definition:** The ordered steps Python follows when web scraping code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Responsible Retrieval
+- **Definition:** A scraper should identify itself, respect published policies, limit request rate, use deadlines, and stop on denial rather than evade controls.
+- **Visual explanation:** `permission/policy → paced request → status check → cached response`
 - **Practical example:**
 
 ```python
 import requests
 
-response = requests.get("https://example.com", timeout=10)
-print(response.status_code)
+headers = {"User-Agent": "CurriculumResearchBot/1.0 (contact@example.com)"}
+response = requests.get("https://example.com", headers=headers, timeout=(3.05, 10))
+response.raise_for_status()
 ```
 
-### Reliability Boundary
-- **Definition:** The reliability habit that keeps web scraping understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### BeautifulSoup Parsing
+- **Definition:** BeautifulSoup builds a navigable tree from imperfect HTML; CSS selectors locate elements while attribute access and `get_text` extract normalized values.
+- **Visual explanation:** `HTML bytes → parser tree → CSS selection → normalized record`
 - **Practical example:**
 
 ```python
-import requests
+from bs4 import BeautifulSoup
 
-with requests.Session() as session:
-    response = session.get("https://api.github.com", timeout=10)
-    print(response.headers.get("content-type"))
+html = '<article data-id="7"><h2> Python </h2></article>'
+soup = BeautifulSoup(html, "html.parser")
+article = soup.select_one("article[data-id]")
+assert article is not None
+record = {"id": article["data-id"], "title": article.h2.get_text(strip=True)}
+```
+
+### Schema and Drift Detection
+- **Definition:** Parsing should produce a typed internal schema and fail visibly when required selectors disappear instead of silently emitting corrupt rows.
+- **Visual explanation:** `selected fields → required-field validation → record or drift alert`
+- **Practical example:**
+
+```python
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class Article:
+    identifier: str
+    title: str
+
+def require_text(element, selector: str) -> str:
+    match = element.select_one(selector)
+    if match is None:
+        raise ValueError(f"missing selector: {selector}")
+    return match.get_text(" ", strip=True)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Web Scraping belongs to the integration part of Python mastery. |
-| ⚡ Purpose | Help developers apply integration techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional integration decisions. |
-| 🎯 Use Cases | Web services, persistence layers, analytics backends, and business systems. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Web scraping extracts structured data from permitted web pages while respecting site terms, robots guidance, rate limits, and data-protection obligations. |
+| ⚡ Purpose | Reliable scrapers separate fetching from parsing, use stable semantic selectors, validate outputs, and cache or retry conservatively. |
+| 🔥 Benefits | Builds the ability to fetch pages with explicit identity, timeout, status handling, and pacing; it also helps practitioners parse HTML with BeautifulSoup selectors and normalize extracted fields. |
+| 🎯 Use Cases | Collecting permitted public catalogs, notices, and structured reports. Validating links and metadata across owned websites. |
+| 🚀 Best Practices | Cache pages during parser development to avoid repeated traffic. |
+| ❌ Common Mistakes | Ignoring the guardrail “Do not scrape private data or circumvent authentication and controls”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import requests
-response = requests.get("https://example.com", timeout=10)
+from bs4 import BeautifulSoup
+
+soup = BeautifulSoup("<p class='note'>Ready</p>", "html.parser")
+text = soup.select_one("p.note").get_text(strip=True)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_web_scraping(value):
-    """Apply the Web Scraping concept to one value."""
-    return value
+import requests
 
-result = apply_web_scraping("practice")
-print(result)
+with requests.Session() as session:
+    session.headers["User-Agent"] = "ResearchBot/1.0"
+    response = session.get("https://example.com", timeout=10)
+    response.raise_for_status()
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Web Scraping problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+from urllib.parse import urljoin
+
+def links(soup, base_url: str) -> list[str]:
+    return [
+        urljoin(base_url, anchor["href"])
+        for anchor in soup.select("a[href]")
+    ]
 ```
 
 ## Examples
@@ -12474,139 +14004,180 @@ print(result)
 ### Beginner Example
 
 ```python
-import requests
+from bs4 import BeautifulSoup
 
-response = requests.get("https://example.com", timeout=10)
-print(response.status_code)
+soup = BeautifulSoup("<ul><li>A</li><li>B</li></ul>", "html.parser")
+print([item.get_text(strip=True) for item in soup.select("li")])
 ```
 
 ### Intermediate Example
 
 ```python
-import requests
+from bs4 import BeautifulSoup
 
-with requests.Session() as session:
-    response = session.get("https://api.github.com", timeout=10)
-    print(response.headers.get("content-type"))
+html = '<div class="product" data-sku="P1"><span class="price">$12.50</span></div>'
+soup = BeautifulSoup(html, "html.parser")
+products = [
+    {"sku": node["data-sku"], "price": node.select_one(".price").get_text(strip=True)}
+    for node in soup.select(".product[data-sku]")
+]
+print(products)
 ```
 
 ### Advanced Example
 
 ```python
-import requests
-from requests.adapters import HTTPAdapter
+from bs4 import BeautifulSoup
+from decimal import Decimal
 
-session = requests.Session()
-session.mount("https://", HTTPAdapter(max_retries=3))
-response = session.get("https://example.com", timeout=(3, 10))
-print(response.ok)
+def parse_products(html: str) -> list[dict[str, object]]:
+    soup = BeautifulSoup(html, "html.parser")
+    records = []
+    for node in soup.select("article.product[data-sku]"):
+        price_text = require_text(node, ".price").removeprefix("$")
+        records.append({
+            "sku": str(node["data-sku"]),
+            "name": require_text(node, "h2"),
+            "price": Decimal(price_text),
+        })
+    if not records:
+        raise ValueError("no products found; layout may have changed")
+    return records
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Web Scraping Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Confirm permission and policy] --> B[Fetch with pacing and timeout]
+    B --> C[Parse with BeautifulSoup]
+    C --> D[Validate typed records]
+    D --> E[Persist data and drift metrics]
+    E -. feedback .-> A
 ```
 
-[Back to topic index](#web-scraping)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Automation Frameworks
 
 ## Overview
-- **What is it?** Automation Frameworks is a Python knowledge area focused on systems automation.
-- **Why is it important?** Help developers apply systems automation techniques safely, clearly, and consistently.
-- **Where is it used?** Network services, security operations, scraping pipelines, and orchestration.
+- **What is it?** An automation framework turns one-off scripts into repeatable commands with configuration, task discovery, dependency ordering, logging, retries, and testable adapters.
+- **Why is it important?** The framework should make actions observable and idempotent while keeping shell, filesystem, and network effects behind explicit interfaces.
+- **Where is it used?** It supports release tooling, environment checks, scheduled maintenance, migrations, and operator runbooks.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review automation frameworks code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind automation frameworks.
-- Expected outcome: you can use automation frameworks in a small project and recognize when it belongs in production code.
+- Design discoverable tasks with validated inputs and structured results.
+- Use `argparse`, subprocess argument vectors, and dependency graphs safely.
+- Add dry-run, idempotency, retry policy, and machine-readable logging.
 
 ## Real World Applications
-- **Industry use cases:** Network services, security operations, scraping pipelines, and orchestration.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- CLI runbooks for backups, release checks, and environment bootstrapping.
+- Reusable task libraries invoked locally, on schedules, or in CI.
+- Operational workflows where partial completion must be resumable.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives automation frameworks its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Automation Frameworks model -> clear code`
+### Task Contracts
+- **Definition:** A task contract names inputs, outputs, side effects, and failure behavior so orchestration does not depend on print statements.
+- **Visual explanation:** `validated context → task → structured result/error`
 - **Practical example:**
 
 ```python
-apply_automation_frameworks_label = "Automation Frameworks"
-print(apply_automation_frameworks_label)
+from dataclasses import dataclass
+from typing import Protocol
+
+@dataclass(frozen=True)
+class Result:
+    changed: bool
+    message: str
+
+class Task(Protocol):
+    def run(self, dry_run: bool = False) -> Result: ...
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when automation frameworks code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Dependency Ordering
+- **Definition:** A directed acyclic graph expresses prerequisites; topological execution prevents a task from running before its required state exists.
+- **Visual explanation:** `task graph → validate acyclic → topological order → execute`
 - **Practical example:**
 
 ```python
-def greet(name):
-    print(f"Hello, {name}")
+from graphlib import TopologicalSorter
 
-greet("Ada")
+dependencies = {
+    "deploy": {"test", "build"},
+    "test": {"build"},
+    "build": set(),
+}
+order = tuple(TopologicalSorter(dependencies).static_order())
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps automation frameworks understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Safe Effect Adapters
+- **Definition:** Effects use bounded, explicit APIs and return evidence; subprocesses receive argument lists, timeouts, captured output, and checked exit status.
+- **Visual explanation:** `task plan → effect adapter → external system → recorded result`
 - **Practical example:**
 
 ```python
-def calculate_total(subtotal: float, tax_rate: float = 0.08) -> float:
-    return subtotal * (1 + tax_rate)
+import subprocess
 
-print(calculate_total(100))
+def git_revision() -> str:
+    completed = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        check=True,
+        capture_output=True,
+        text=True,
+        timeout=5,
+    )
+    return completed.stdout.strip()
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Automation Frameworks belongs to the systems automation part of Python mastery. |
-| ⚡ Purpose | Help developers apply systems automation techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional systems automation decisions. |
-| 🎯 Use Cases | Network services, security operations, scraping pipelines, and orchestration. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | An automation framework turns one-off scripts into repeatable commands with configuration, task discovery, dependency ordering, logging, retries, and testable adapters. |
+| ⚡ Purpose | The framework should make actions observable and idempotent while keeping shell, filesystem, and network effects behind explicit interfaces. |
+| 🔥 Benefits | Builds the ability to design discoverable tasks with validated inputs and structured results; it also helps practitioners use `argparse`, subprocess argument vectors, and dependency graphs safely. |
+| 🎯 Use Cases | CLI runbooks for backups, release checks, and environment bootstrapping. Reusable task libraries invoked locally, on schedules, or in CI. |
+| 🚀 Best Practices | Structured logs: task, duration, attempt, outcome, correlation ID. |
+| ❌ Common Mistakes | Ignoring the guardrail “Avoid hidden module-import side effects and unbounded retries”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-def add(left, right):
-    return left + right
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--dry-run", action="store_true")
+arguments = parser.parse_args([])
 ```
 
 ### Standard Structure
 
 ```python
-def apply_automation_frameworks(value):
-    """Apply the Automation Frameworks concept to one value."""
-    return value
+from collections.abc import Callable
 
-result = apply_automation_frameworks("practice")
-print(result)
+tasks: dict[str, Callable[[], object]] = {}
+
+def task(name: str):
+    def register(function: Callable[[], object]) -> Callable[[], object]:
+        tasks[name] = function
+        return function
+    return register
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Automation Frameworks problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class TaskContext:
+    dry_run: bool
+    correlation_id: str
 ```
 
 ## Examples
@@ -12614,143 +14185,172 @@ print(result)
 ### Beginner Example
 
 ```python
-def greet(name):
-    print(f"Hello, {name}")
+from pathlib import Path
 
-greet("Ada")
+def ensure_directory(path: Path, dry_run: bool = False) -> Result:
+    if path.is_dir():
+        return Result(False, "already exists")
+    if not dry_run:
+        path.mkdir(parents=True)
+    return Result(True, f"create {path}")
 ```
 
 ### Intermediate Example
 
 ```python
-def calculate_total(subtotal: float, tax_rate: float = 0.08) -> float:
-    return subtotal * (1 + tax_rate)
+import logging
+import time
 
-print(calculate_total(100))
+def execute(name: str, action) -> Result:
+    started = time.monotonic()
+    try:
+        result = action()
+        return result
+    finally:
+        logging.info("task=%s duration=%.3f", name, time.monotonic() - started)
 ```
 
 ### Advanced Example
 
 ```python
-from functools import lru_cache
+from graphlib import TopologicalSorter
 
-@lru_cache(maxsize=128)
-def fibonacci(n: int) -> int:
-    return n if n < 2 else fibonacci(n - 1) + fibonacci(n - 2)
-
-print(fibonacci(10))
+def run_plan(graph: dict[str, set[str]], registry: dict[str, Task]) -> list[Result]:
+    results = []
+    for name in TopologicalSorter(graph).static_order():
+        try:
+            results.append(registry[name].run())
+        except KeyError as error:
+            raise ValueError(f"unknown task: {name}") from error
+    return results
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Automation Frameworks Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Load validated configuration] --> B[Resolve task DAG]
+    B --> C[Preview planned effects]
+    C --> D[Execute idempotent tasks]
+    D --> E[Record results and resume point]
+    E -. feedback .-> A
 ```
 
-[Back to topic index](#automation-frameworks)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # ETL Development
 
 ## Overview
-- **What is it?** ETL Development is a Python knowledge area focused on data engineering and analytics.
-- **Why is it important?** Help developers apply data engineering and analytics techniques safely, clearly, and consistently.
-- **Where is it used?** Pipelines, dashboards, feature engineering, and large-scale data platforms.
+- **What is it?** ETL pipelines extract data from sources, transform it into a governed schema, and load it into a destination with recoverable checkpoints.
+- **Why is it important?** Reliable ETL separates pure transformations from I/O, tracks lineage and watermarks, validates quality, and commits outputs atomically.
+- **Where is it used?** It powers warehouses, reporting, migrations, integrations, and feature-generation pipelines.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review etl development code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind etl development.
-- Expected outcome: you can use etl development in a small project and recognize when it belongs in production code.
+- Design extract, transform, and load boundaries with typed records.
+- Implement incremental watermarks, idempotent loads, and quarantine paths.
+- Validate schema, uniqueness, completeness, and reconciliation metrics.
 
 ## Real World Applications
-- **Industry use cases:** Pipelines, dashboards, feature engineering, and large-scale data platforms.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Incrementally moving transactional data into an analytics warehouse.
+- Normalizing partner files while retaining rejected rows and reasons.
+- Backfilling historical partitions without duplicating destination records.
 
 ## Core Concepts
 
-### Dataset Representation
-- **Definition:** The main idea that gives etl development its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> ETL Development model -> clear code`
+### Extraction and Watermarks
+- **Definition:** Incremental extraction reads records after a durable high-water mark and advances it only after the corresponding load commits.
+- **Visual explanation:** `saved watermark → ordered source page → committed load → new watermark`
 - **Practical example:**
 
 ```python
-apply_etl_development_label = "ETL Development"
-print(apply_etl_development_label)
+from datetime import datetime
+
+def after_watermark(rows: list[dict], watermark: datetime) -> list[dict]:
+    return sorted(
+        (row for row in rows if row["updated_at"] > watermark),
+        key=lambda row: (row["updated_at"], row["id"]),
+    )
 ```
 
-### Transformation Pipeline
-- **Definition:** The ordered steps Python follows when etl development code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Pure Transformations
+- **Definition:** A transformation maps validated source records to destination records without hidden I/O, making replay and unit testing deterministic.
+- **Visual explanation:** `source record → normalize/derive → validated destination record`
 - **Practical example:**
 
 ```python
-import csv
-from io import StringIO
+from decimal import Decimal
 
-file = StringIO("name,score\nAda,95\n")
-print(list(csv.DictReader(file)))
+def transform(row: dict[str, str]) -> dict[str, object]:
+    quantity = int(row["quantity"])
+    unit_price = Decimal(row["unit_price"])
+    return {
+        "order_id": row["id"].strip(),
+        "total": quantity * unit_price,
+    }
 ```
 
-### Validation Signal
-- **Definition:** The reliability habit that keeps etl development understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Idempotent Atomic Loads
+- **Definition:** Loads use stable business keys and a transaction or atomic partition replacement so retrying a batch does not duplicate partial results.
+- **Visual explanation:** `staged batch → validate counts → upsert/replace in transaction → checkpoint`
 - **Practical example:**
 
 ```python
-import csv
-from io import StringIO
+import sqlite3
 
-output = StringIO()
-writer = csv.DictWriter(output, fieldnames=["name", "score"])
-writer.writeheader()
-writer.writerow({"name": "Lin", "score": 98})
-print(output.getvalue())
+def upsert(connection: sqlite3.Connection, rows: list[tuple[str, str]]) -> None:
+    with connection:
+        connection.executemany(
+            "INSERT INTO target(id, value) VALUES(?, ?) "
+            "ON CONFLICT(id) DO UPDATE SET value=excluded.value",
+            rows,
+        )
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | ETL Development belongs to the data engineering and analytics part of Python mastery. |
-| ⚡ Purpose | Help developers apply data engineering and analytics techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional data engineering and analytics decisions. |
-| 🎯 Use Cases | Pipelines, dashboards, feature engineering, and large-scale data platforms. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | ETL pipelines extract data from sources, transform it into a governed schema, and load it into a destination with recoverable checkpoints. |
+| ⚡ Purpose | Reliable ETL separates pure transformations from I/O, tracks lineage and watermarks, validates quality, and commits outputs atomically. |
+| 🔥 Benefits | Builds the ability to design extract, transform, and load boundaries with typed records; it also helps practitioners implement incremental watermarks, idempotent loads, and quarantine paths. |
+| 🎯 Use Cases | Incrementally moving transactional data into an analytics warehouse. Normalizing partner files while retaining rejected rows and reasons. |
+| 🚀 Best Practices | Quarantine invalid rows with reason and lineage metadata. |
+| ❌ Common Mistakes | Ignoring the guardrail “Advance checkpoints only after durable destination success”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import csv
-rows = list(csv.DictReader(open("data.csv", newline="")))
+def extract(rows, since):
+    for row in rows:
+        if row["updated_at"] > since:
+            yield row
 ```
 
 ### Standard Structure
 
 ```python
-def apply_etl_development(value):
-    """Apply the ETL Development concept to one value."""
-    return value
-
-result = apply_etl_development("practice")
-print(result)
+def pipeline(rows, since):
+    for row in extract(rows, since):
+        try:
+            yield transform(row)
+        except (KeyError, ValueError) as error:
+            print("rejected", row.get("id"), str(error))
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the ETL Development problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class BatchMetrics:
+    extracted: int
+    loaded: int
+    rejected: int
 ```
 
 ## Examples
@@ -12758,149 +14358,159 @@ print(result)
 ### Beginner Example
 
 ```python
-import csv
-from io import StringIO
-
-file = StringIO("name,score\nAda,95\n")
-print(list(csv.DictReader(file)))
+rows = [
+    {"id": "A", "quantity": "2", "unit_price": "4.50"},
+    {"id": "B", "quantity": "1", "unit_price": "8.00"},
+]
+print([transform(row) for row in rows])
 ```
 
 ### Intermediate Example
 
 ```python
 import csv
-from io import StringIO
+from pathlib import Path
 
-output = StringIO()
-writer = csv.DictWriter(output, fieldnames=["name", "score"])
-writer.writeheader()
-writer.writerow({"name": "Lin", "score": 98})
-print(output.getvalue())
+def extract_csv(path: Path):
+    with path.open(newline="", encoding="utf-8") as stream:
+        yield from csv.DictReader(stream)
 ```
 
 ### Advanced Example
 
 ```python
-import csv
-from io import StringIO
+import sqlite3
 
-data = StringIO("dept,total\nSales,100\nSales,150\n")
-totals = {}
-for row in csv.DictReader(data):
-    totals[row["dept"]] = totals.get(row["dept"], 0) + int(row["total"])
-print(totals)
+connection = sqlite3.connect(":memory:")
+connection.execute("CREATE TABLE target(id TEXT PRIMARY KEY, value TEXT NOT NULL)")
+batch = [("A", "first"), ("B", "second")]
+upsert(connection, batch)
+upsert(connection, [("A", "updated")])
+rows = connection.execute("SELECT id, value FROM target ORDER BY id").fetchall()
+assert rows == [("A", "updated"), ("B", "second")]
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify ETL Development Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Read checkpoint] --> B[Extract ordered increment]
+    B --> C[Transform and quarantine]
+    C --> D[Validate and atomically load]
+    D --> E[Reconcile then advance checkpoint]
+    E -. feedback .-> A
 ```
 
-[Back to topic index](#etl-development)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Data Engineering
 
 ## Overview
-- **What is it?** Data Engineering is a Python knowledge area focused on data engineering and analytics.
-- **Why is it important?** Help developers apply data engineering and analytics techniques safely, clearly, and consistently.
-- **Where is it used?** Pipelines, dashboards, feature engineering, and large-scale data platforms.
+- **What is it?** Data engineering builds reliable systems that model, partition, transport, store, and serve data under explicit quality and freshness contracts.
+- **Why is it important?** Good design treats schemas, lineage, replay, observability, and late-arriving data as first-class operational concerns.
+- **Where is it used?** It supports analytics platforms, event streams, lakehouses, feature stores, and regulatory reporting.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review data engineering code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind data engineering.
-- Expected outcome: you can use data engineering in a small project and recognize when it belongs in production code.
+- Choose schemas, partitions, and file layouts from query and update patterns.
+- Design batch and streaming jobs for replay, deduplication, and late data.
+- Define data quality, lineage, freshness, and ownership signals.
 
 ## Real World Applications
-- **Industry use cases:** Pipelines, dashboards, feature engineering, and large-scale data platforms.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Partitioned analytical datasets consumed by dashboards and models.
+- Event ingestion with deduplication and event-time windows.
+- Curated data products with discoverable owners and service-level objectives.
 
 ## Core Concepts
 
-### Dataset Representation
-- **Definition:** The main idea that gives data engineering its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Data Engineering model -> clear code`
+### Schema as a Contract
+- **Definition:** A schema defines names, types, nullability, keys, and evolution rules shared by producers and consumers.
+- **Visual explanation:** `producer record → schema validation/version → compatible consumers`
 - **Practical example:**
 
 ```python
-apply_data_engineering_label = "Data Engineering"
-print(apply_data_engineering_label)
+from dataclasses import dataclass
+from datetime import datetime
+
+@dataclass(frozen=True)
+class Event:
+    event_id: str
+    occurred_at: datetime
+    customer_id: str
 ```
 
-### Transformation Pipeline
-- **Definition:** The ordered steps Python follows when data engineering code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Partitioning and Layout
+- **Definition:** Partition keys prune reads but also control file counts and skew; choose low-to-moderate cardinality fields aligned with common filters.
+- **Visual explanation:** `records → partition key → bounded files → query pruning`
 - **Practical example:**
 
 ```python
-import csv
-from io import StringIO
+from collections import defaultdict
 
-file = StringIO("name,score\nAda,95\n")
-print(list(csv.DictReader(file)))
+def partition_by_date(events):
+    partitions = defaultdict(list)
+    for event in events:
+        partitions[event.occurred_at.date().isoformat()].append(event)
+    return partitions
 ```
 
-### Validation Signal
-- **Definition:** The reliability habit that keeps data engineering understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Replay and Event Time
+- **Definition:** Replayable pipelines retain immutable inputs, deduplicate by stable IDs, and separate event time from processing time to handle delayed records.
+- **Visual explanation:** `immutable log → dedupe → event-time window → materialized result`
 - **Practical example:**
 
 ```python
-import csv
-from io import StringIO
-
-output = StringIO()
-writer = csv.DictWriter(output, fieldnames=["name", "score"])
-writer.writeheader()
-writer.writerow({"name": "Lin", "score": 98})
-print(output.getvalue())
+def deduplicate(events: list[Event]) -> list[Event]:
+    latest: dict[str, Event] = {}
+    for event in events:
+        latest[event.event_id] = event
+    return sorted(latest.values(), key=lambda event: event.occurred_at)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Data Engineering belongs to the data engineering and analytics part of Python mastery. |
-| ⚡ Purpose | Help developers apply data engineering and analytics techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional data engineering and analytics decisions. |
-| 🎯 Use Cases | Pipelines, dashboards, feature engineering, and large-scale data platforms. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Data engineering builds reliable systems that model, partition, transport, store, and serve data under explicit quality and freshness contracts. |
+| ⚡ Purpose | Good design treats schemas, lineage, replay, observability, and late-arriving data as first-class operational concerns. |
+| 🔥 Benefits | Builds the ability to choose schemas, partitions, and file layouts from query and update patterns; it also helps practitioners design batch and streaming jobs for replay, deduplication, and late data. |
+| 🎯 Use Cases | Partitioned analytical datasets consumed by dashboards and models. Event ingestion with deduplication and event-time windows. |
+| 🚀 Best Practices | Quality contracts cover freshness, completeness, uniqueness, and validity. |
+| ❌ Common Mistakes | Ignoring the guardrail “Every dataset needs lineage, an owner, and documented retention”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import csv
-rows = list(csv.DictReader(open("data.csv", newline="")))
+from datetime import UTC, datetime
+
+observed_at = datetime.now(UTC)
+partition = observed_at.strftime("date=%Y-%m-%d")
 ```
 
 ### Standard Structure
 
 ```python
-def apply_data_engineering(value):
-    """Apply the Data Engineering concept to one value."""
-    return value
-
-result = apply_data_engineering("practice")
-print(result)
+def quality_report(rows: list[dict]) -> dict[str, int]:
+    identifiers = [row.get("id") for row in rows]
+    return {
+        "rows": len(rows),
+        "missing_id": identifiers.count(None),
+        "duplicate_id": len(identifiers) - len(set(identifiers)),
+    }
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Data Engineering problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+from hashlib import sha256
+import json
+
+def record_key(record: dict[str, object]) -> str:
+    canonical = json.dumps(record, sort_keys=True, default=str)
+    return sha256(canonical.encode()).hexdigest()
 ```
 
 ## Examples
@@ -12908,117 +14518,122 @@ print(result)
 ### Beginner Example
 
 ```python
-import csv
-from io import StringIO
-
-file = StringIO("name,score\nAda,95\n")
-print(list(csv.DictReader(file)))
+rows = [{"id": "1"}, {"id": "2"}, {"id": "2"}, {}]
+print(quality_report(rows))
 ```
 
 ### Intermediate Example
 
 ```python
-import csv
-from io import StringIO
+from datetime import UTC, datetime
 
-output = StringIO()
-writer = csv.DictWriter(output, fieldnames=["name", "score"])
-writer.writeheader()
-writer.writerow({"name": "Lin", "score": 98})
-print(output.getvalue())
+events = [
+    Event("e2", datetime(2026, 1, 2, tzinfo=UTC), "c1"),
+    Event("e1", datetime(2026, 1, 1, tzinfo=UTC), "c1"),
+]
+print(partition_by_date(events).keys())
 ```
 
 ### Advanced Example
 
 ```python
-import csv
-from io import StringIO
+from dataclasses import dataclass
+from datetime import datetime, timedelta
 
-data = StringIO("dept,total\nSales,100\nSales,150\n")
-totals = {}
-for row in csv.DictReader(data):
-    totals[row["dept"]] = totals.get(row["dept"], 0) + int(row["total"])
-print(totals)
+@dataclass
+class Watermark:
+    maximum_event_time: datetime
+    allowed_lateness: timedelta
+
+    def accepts(self, event_time: datetime) -> bool:
+        return event_time >= self.maximum_event_time - self.allowed_lateness
+
+    def observe(self, event_time: datetime) -> None:
+        self.maximum_event_time = max(self.maximum_event_time, event_time)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Data Engineering Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Define data contract] --> B[Ingest immutable source]
+    B --> C[Validate and partition]
+    C --> D[Publish curated product]
+    D --> E[Monitor quality and freshness]
+    E -. feedback .-> A
 ```
 
-[Back to topic index](#data-engineering)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Pandas
 
 ## Overview
-- **What is it?** Pandas is a Python knowledge area focused on data engineering and analytics.
-- **Why is it important?** Help developers apply data engineering and analytics techniques safely, clearly, and consistently.
-- **Where is it used?** Pipelines, dashboards, feature engineering, and large-scale data platforms.
+- **What is it?** pandas provides labeled tabular data structures and vectorized operations for cleaning, joining, reshaping, aggregating, and analyzing in-memory datasets.
+- **Why is it important?** Advanced use requires explicit dtypes, index semantics, missing-value rules, join cardinality, and avoidance of chained assignment.
+- **Where is it used?** It is used for analytics, feature preparation, reconciliation, time-series work, and medium-scale ETL.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review pandas code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind pandas.
-- Expected outcome: you can use pandas in a small project and recognize when it belongs in production code.
+- Select columns and rows with explicit `.loc` and dtype-aware operations.
+- Validate merge cardinality and aggregation assumptions.
+- Build method-chained transformations with predictable missing-data behavior.
 
 ## Real World Applications
-- **Industry use cases:** Pipelines, dashboards, feature engineering, and large-scale data platforms.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Reconciling orders against customer and payment tables.
+- Computing grouped metrics and time-window summaries.
+- Preparing validated datasets before database or model ingestion.
 
 ## Core Concepts
 
-### Dataset Representation
-- **Definition:** The main idea that gives pandas its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Pandas model -> clear code`
-- **Practical example:**
-
-```python
-apply_pandas_label = "Pandas"
-print(apply_pandas_label)
-```
-
-### Transformation Pipeline
-- **Definition:** The ordered steps Python follows when pandas code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Labels, Dtypes, and Missingness
+- **Definition:** A DataFrame aligns operations by labels and stores each column with a dtype whose missing-value semantics affect comparison and arithmetic.
+- **Visual explanation:** `column labels + dtype + index alignment → vectorized result`
 - **Practical example:**
 
 ```python
 import pandas as pd
 
-df = pd.DataFrame({"name": ["Ada", "Lin"], "score": [95, 98]})
-print(df)
+frame = pd.DataFrame({"customer": ["A", "B"], "units": [2, None]})
+frame["units"] = frame["units"].astype("Int64")
+frame["known"] = frame["units"].notna()
 ```
 
-### Validation Signal
-- **Definition:** The reliability habit that keeps pandas understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Vectorized Transformation
+- **Definition:** Vectorized column expressions delegate loops to optimized array operations and preserve declarative intent better than row-wise Python iteration.
+- **Visual explanation:** `columns → boolean/arithmetic expression → aligned output column`
 - **Practical example:**
 
 ```python
 import pandas as pd
 
-df = pd.DataFrame({"team": ["A", "A", "B"], "sales": [10, 15, 7]})
-print(df.groupby("team")["sales"].sum())
+orders = pd.DataFrame({"quantity": [2, 3], "price": [4.5, 2.0]})
+orders = orders.assign(total=lambda table: table["quantity"] * table["price"])
+```
+
+### Relational Integrity
+- **Definition:** `merge(validate=...)` asserts expected key cardinality, while indicators expose unmatched rows that would otherwise silently distort metrics.
+- **Visual explanation:** `left keys + right keys → validated join → matched/unmatched audit`
+- **Practical example:**
+
+```python
+import pandas as pd
+
+orders = pd.DataFrame({"customer_id": [1, 2], "total": [10, 20]})
+customers = pd.DataFrame({"customer_id": [1, 2], "name": ["Ada", "Lin"]})
+result = orders.merge(customers, on="customer_id", validate="many_to_one")
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Pandas belongs to the data engineering and analytics part of Python mastery. |
-| ⚡ Purpose | Help developers apply data engineering and analytics techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional data engineering and analytics decisions. |
-| 🎯 Use Cases | Pipelines, dashboards, feature engineering, and large-scale data platforms. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | pandas provides labeled tabular data structures and vectorized operations for cleaning, joining, reshaping, aggregating, and analyzing in-memory datasets. |
+| ⚡ Purpose | Advanced use requires explicit dtypes, index semantics, missing-value rules, join cardinality, and avoidance of chained assignment. |
+| 🔥 Benefits | Builds the ability to select columns and rows with explicit `.loc` and dtype-aware operations; it also helps practitioners validate merge cardinality and aggregation assumptions. |
+| 🎯 Use Cases | Reconciling orders against customer and payment tables. Computing grouped metrics and time-window summaries. |
+| 🚀 Best Practices | `merge(validate=...)` turns join assumptions into checks. |
+| ❌ Common Mistakes | Ignoring the guardrail “Avoid chained assignment; assign through `.loc` or return a new frame”. |
 
 ## Syntax Guide
 
@@ -13026,26 +14641,31 @@ print(df.groupby("team")["sales"].sum())
 
 ```python
 import pandas as pd
-df = pd.DataFrame({"value": [1, 2, 3]})
+
+frame = pd.DataFrame({"name": ["Ada", "Lin"], "score": [91, 84]})
+passing = frame.loc[frame["score"].ge(90), ["name", "score"]]
 ```
 
 ### Standard Structure
 
 ```python
-def apply_pandas(value):
-    """Apply the Pandas concept to one value."""
-    return value
-
-result = apply_pandas("practice")
-print(result)
+summary = (
+    frame.assign(band=lambda table: table["score"].floordiv(10))
+    .groupby("band", as_index=False)
+    .agg(students=("name", "count"), mean_score=("score", "mean"))
+)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Pandas problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+def clean_orders(frame: "pd.DataFrame") -> "pd.DataFrame":
+    required = {"order_id", "quantity", "price"}
+    if missing := required.difference(frame.columns):
+        raise ValueError(f"missing columns: {sorted(missing)}")
+    return frame.assign(
+        total=lambda table: table["quantity"].astype("Int64") * table["price"]
+    )
 ```
 
 ## Examples
@@ -13055,8 +14675,8 @@ print(result)
 ```python
 import pandas as pd
 
-df = pd.DataFrame({"name": ["Ada", "Lin"], "score": [95, 98]})
-print(df)
+frame = pd.DataFrame({"team": ["A", "A", "B"], "score": [8, 9, 7]})
+print(frame.groupby("team")["score"].mean())
 ```
 
 ### Intermediate Example
@@ -13064,8 +14684,12 @@ print(df)
 ```python
 import pandas as pd
 
-df = pd.DataFrame({"team": ["A", "A", "B"], "sales": [10, 15, 7]})
-print(df.groupby("team")["sales"].sum())
+sales = pd.DataFrame({
+    "date": pd.to_datetime(["2026-01-01", "2026-01-08"]),
+    "amount": [100.0, 125.0],
+})
+weekly = sales.set_index("date").resample("7D")["amount"].sum()
+print(weekly)
 ```
 
 ### Advanced Example
@@ -13073,89 +14697,103 @@ print(df.groupby("team")["sales"].sum())
 ```python
 import pandas as pd
 
-orders = pd.DataFrame({"user_id": [1, 2], "total": [50, 75]})
-users = pd.DataFrame({"user_id": [1, 2], "name": ["Ada", "Lin"]})
-print(orders.merge(users, on="user_id"))
+facts = pd.DataFrame({"customer_id": [1, 3], "amount": [10, 20]})
+dimensions = pd.DataFrame({"customer_id": [1, 2], "segment": ["A", "B"]})
+audit = facts.merge(
+    dimensions,
+    on="customer_id",
+    how="left",
+    validate="many_to_one",
+    indicator=True,
+)
+unmatched = audit.loc[audit["_merge"].eq("left_only"), "customer_id"]
+assert unmatched.tolist() == [3]
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Pandas Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Inspect schema and dtypes] --> B[Select and transform columns]
+    B --> C[Validate joins and groups]
+    C --> D[Check missingness and counts]
+    D --> E[Export with explicit schema]
+    E -. feedback .-> A
 ```
 
-[Back to topic index](#pandas)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # NumPy
 
 ## Overview
-- **What is it?** NumPy is a Python knowledge area focused on data engineering and analytics.
-- **Why is it important?** Help developers apply data engineering and analytics techniques safely, clearly, and consistently.
-- **Where is it used?** Pipelines, dashboards, feature engineering, and large-scale data platforms.
+- **What is it?** NumPy arrays store homogeneous values in strided memory and execute vectorized numerical kernels without Python-level loops.
+- **Why is it important?** Shape, dtype, broadcasting, views, memory order, and numerical stability determine both correctness and performance.
+- **Where is it used?** NumPy underpins scientific computing, image processing, simulation, and most Python machine-learning libraries.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review numpy code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind numpy.
-- Expected outcome: you can use numpy in a small project and recognize when it belongs in production code.
+- Reason about shape, axes, dtype, strides, views, and copies.
+- Use broadcasting and vectorized reductions correctly.
+- Apply stable numerical comparisons and avoid accidental temporary arrays.
 
 ## Real World Applications
-- **Industry use cases:** Pipelines, dashboards, feature engineering, and large-scale data platforms.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Vector and matrix computation, simulation, signals, and image tensors.
+- Compact feature preparation for scientific and machine-learning workloads.
+- Interchange of contiguous numerical buffers with compiled libraries.
 
 ## Core Concepts
 
-### Dataset Representation
-- **Definition:** The main idea that gives numpy its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> NumPy model -> clear code`
-- **Practical example:**
-
-```python
-apply_numpy_label = "NumPy"
-print(apply_numpy_label)
-```
-
-### Transformation Pipeline
-- **Definition:** The ordered steps Python follows when numpy code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Shape, Dtype, and Strides
+- **Definition:** An ndarray combines a data buffer with shape, dtype, and byte strides that map indices to memory locations.
+- **Visual explanation:** `index tuple × strides + base pointer → typed element`
 - **Practical example:**
 
 ```python
 import numpy as np
 
-values = np.array([1, 2, 3])
-print(values.mean())
+matrix = np.arange(12, dtype=np.float64).reshape(3, 4)
+print(matrix.shape, matrix.dtype, matrix.strides)
 ```
 
-### Validation Signal
-- **Definition:** The reliability habit that keeps numpy understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Broadcasting
+- **Definition:** Broadcasting compares dimensions from the right and virtually expands size-one axes without copying data.
+- **Visual explanation:** `(rows, columns) + (columns,) → aligned virtual expansion`
 - **Practical example:**
 
 ```python
 import numpy as np
 
-matrix = np.array([[1, 2], [3, 4]])
-print(matrix.T)
+samples = np.array([[1.0, 2.0], [3.0, 4.0]])
+means = samples.mean(axis=0)
+centered = samples - means
+```
+
+### Views and Numerical Stability
+- **Definition:** Basic slicing usually returns a view that shares memory; stable algorithms avoid overflow, cancellation, and exact floating-point equality.
+- **Visual explanation:** `slice → shared buffer; stable transform → bounded numeric error`
+- **Practical example:**
+
+```python
+import numpy as np
+
+values = np.arange(6.0)
+view = values[::2]
+view += 10
+assert np.shares_memory(values, view)
+assert np.allclose(values[::2], [10, 12, 14])
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | NumPy belongs to the data engineering and analytics part of Python mastery. |
-| ⚡ Purpose | Help developers apply data engineering and analytics techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional data engineering and analytics decisions. |
-| 🎯 Use Cases | Pipelines, dashboards, feature engineering, and large-scale data platforms. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | NumPy arrays store homogeneous values in strided memory and execute vectorized numerical kernels without Python-level loops. |
+| ⚡ Purpose | Shape, dtype, broadcasting, views, memory order, and numerical stability determine both correctness and performance. |
+| 🔥 Benefits | Builds the ability to reason about shape, axes, dtype, strides, views, and copies; it also helps practitioners use broadcasting and vectorized reductions correctly. |
+| 🎯 Use Cases | Vector and matrix computation, simulation, signals, and image tensors. Compact feature preparation for scientific and machine-learning workloads. |
+| 🚀 Best Practices | Use `allclose`, not exact equality, for computed floats. |
+| ❌ Common Mistakes | Ignoring the guardrail “Profile allocations when chained expressions create large temporaries”. |
 
 ## Syntax Guide
 
@@ -13163,26 +14801,31 @@ print(matrix.T)
 
 ```python
 import numpy as np
-array = np.array([1, 2, 3])
+
+values = np.array([1, 2, 3], dtype=np.float64)
+doubled = values * 2
 ```
 
 ### Standard Structure
 
 ```python
-def apply_numpy(value):
-    """Apply the NumPy concept to one value."""
-    return value
-
-result = apply_numpy("practice")
-print(result)
+matrix = np.arange(12).reshape(3, 4)
+column_totals = matrix.sum(axis=0)
+row_means = matrix.mean(axis=1)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the NumPy problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+def standardize(values: "np.ndarray") -> "np.ndarray":
+    means = values.mean(axis=0, keepdims=True)
+    deviations = values.std(axis=0, keepdims=True)
+    return np.divide(
+        values - means,
+        deviations,
+        out=np.zeros_like(values, dtype=float),
+        where=deviations != 0,
+    )
 ```
 
 ## Examples
@@ -13192,8 +14835,9 @@ print(result)
 ```python
 import numpy as np
 
-values = np.array([1, 2, 3])
-print(values.mean())
+values = np.array([3, 7, 2, 9])
+selected = values[values >= 7]
+print(selected)
 ```
 
 ### Intermediate Example
@@ -13201,8 +14845,9 @@ print(values.mean())
 ```python
 import numpy as np
 
-matrix = np.array([[1, 2], [3, 4]])
-print(matrix.T)
+points = np.array([[0.0, 0.0], [3.0, 4.0], [6.0, 8.0]])
+distances = np.linalg.norm(points - points[0], axis=1)
+assert np.allclose(distances, [0.0, 5.0, 10.0])
 ```
 
 ### Advanced Example
@@ -13210,116 +14855,136 @@ print(matrix.T)
 ```python
 import numpy as np
 
-features = np.array([[1.0, 2.0], [3.0, 4.0]])
-weights = np.array([0.25, 0.75])
-print(features @ weights)
+rng = np.random.default_rng(42)
+samples = rng.normal(size=(10_000, 3))
+covariance = np.cov(samples, rowvar=False)
+eigenvalues, eigenvectors = np.linalg.eigh(covariance)
+principal_axis = eigenvectors[:, np.argmax(eigenvalues)]
+assert principal_axis.shape == (3,)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify NumPy Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Define shape and dtype] --> B[Align axes and broadcasting]
+    B --> C[Run vectorized kernel]
+    C --> D[Check stability and memory sharing]
+    D --> E[Benchmark representative arrays]
+    E -. feedback .-> A
 ```
 
-[Back to topic index](#numpy)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # PySpark
 
 ## Overview
-- **What is it?** PySpark is a Python knowledge area focused on data engineering and analytics.
-- **Why is it important?** Help developers apply data engineering and analytics techniques safely, clearly, and consistently.
-- **Where is it used?** Pipelines, dashboards, feature engineering, and large-scale data platforms.
+- **What is it?** PySpark exposes Apache Spark's distributed DataFrame and SQL engine from Python for partitioned, fault-tolerant data processing.
+- **Why is it important?** Spark builds lazy logical plans, optimizes them, and executes stages across workers; shuffles, skew, serialization, and partition size dominate performance.
+- **Where is it used?** It is used for lakehouse ETL, large aggregations, feature pipelines, and distributed batch or streaming analytics.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review pyspark code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind pyspark.
-- Expected outcome: you can use pyspark in a small project and recognize when it belongs in production code.
+- Construct SparkSession and DataFrame transformations with explicit schemas.
+- Read execution plans and identify narrow operations, shuffles, and skew.
+- Use built-in SQL functions before Python UDFs and validate distributed outputs.
 
 ## Real World Applications
-- **Industry use cases:** Pipelines, dashboards, feature engineering, and large-scale data platforms.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Joining and aggregating datasets larger than one machine's memory.
+- Processing partitioned Parquet tables in data lakes.
+- Building restartable batch and Structured Streaming pipelines.
 
 ## Core Concepts
 
-### Dataset Representation
-- **Definition:** The main idea that gives pyspark its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> PySpark model -> clear code`
+### Lazy DataFrame Plans
+- **Definition:** Transformations build an immutable logical plan; an action triggers optimization, stage construction, and distributed execution.
+- **Visual explanation:** `DataFrame transformations → optimized plan → stages/tasks → action result`
 - **Practical example:**
 
 ```python
-apply_pyspark_label = "PySpark"
-print(apply_pyspark_label)
+from pyspark.sql import SparkSession, functions as F
+
+spark = SparkSession.builder.appName("lesson").getOrCreate()
+events = spark.createDataFrame([("A", 2), ("B", 3)], ["key", "value"])
+plan = events.where(F.col("value") > 1).groupBy("key").sum("value")
+plan.explain()
 ```
 
-### Transformation Pipeline
-- **Definition:** The ordered steps Python follows when pyspark code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Partitions and Shuffles
+- **Definition:** Partitions are units of parallel work; joins and aggregations often redistribute records by key, creating expensive network and disk shuffles.
+- **Visual explanation:** `input partitions → exchange by key → reduce partitions`
 - **Practical example:**
 
 ```python
-import pandas as pd
+from pyspark.sql import functions as F
 
-df = pd.DataFrame({"name": ["Ada", "Lin"], "score": [95, 98]})
-print(df)
+totals = (
+    events.repartition("key")
+    .groupBy("key")
+    .agg(F.sum("value").alias("total"))
+)
 ```
 
-### Validation Signal
-- **Definition:** The reliability habit that keeps pyspark understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Schema and Built-in Expressions
+- **Definition:** Explicit schemas avoid inference surprises, and Spark SQL expressions stay in the optimized JVM plan unlike ordinary Python-row UDF execution.
+- **Visual explanation:** `typed columns → Catalyst expressions → optimized physical operators`
 - **Practical example:**
 
 ```python
-import pandas as pd
+from pyspark.sql import Row, functions as F, types as T
 
-df = pd.DataFrame({"team": ["A", "A", "B"], "sales": [10, 15, 7]})
-print(df.groupby("team")["sales"].sum())
+schema = T.StructType([
+    T.StructField("id", T.StringType(), False),
+    T.StructField("amount", T.DoubleType(), False),
+])
+frame = spark.createDataFrame([Row(id="A", amount=4.5)], schema)
+normalized = frame.withColumn("amount_cents", F.round(F.col("amount") * 100))
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | PySpark belongs to the data engineering and analytics part of Python mastery. |
-| ⚡ Purpose | Help developers apply data engineering and analytics techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional data engineering and analytics decisions. |
-| 🎯 Use Cases | Pipelines, dashboards, feature engineering, and large-scale data platforms. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | PySpark exposes Apache Spark's distributed DataFrame and SQL engine from Python for partitioned, fault-tolerant data processing. |
+| ⚡ Purpose | Spark builds lazy logical plans, optimizes them, and executes stages across workers; shuffles, skew, serialization, and partition size dominate performance. |
+| 🔥 Benefits | Builds the ability to construct SparkSession and DataFrame transformations with explicit schemas; it also helps practitioners read execution plans and identify narrow operations, shuffles, and skew. |
+| 🎯 Use Cases | Joining and aggregating datasets larger than one machine's memory. Processing partitioned Parquet tables in data lakes. |
+| 🚀 Best Practices | Use Parquet projection and predicate pushdown. |
+| ❌ Common Mistakes | Ignoring the guardrail “Inspect plans and skew before adding clusters or caching everything”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import pandas as pd
-df = pd.DataFrame({"value": [1, 2, 3]})
+from pyspark.sql import SparkSession
+
+spark = SparkSession.builder.appName("analytics").getOrCreate()
+frame = spark.read.parquet("s3://bucket/events/")
 ```
 
 ### Standard Structure
 
 ```python
-def apply_pyspark(value):
-    """Apply the PySpark concept to one value."""
-    return value
+from pyspark.sql import functions as F
 
-result = apply_pyspark("practice")
-print(result)
+daily = (
+    frame.where(F.col("status") == "complete")
+    .groupBy(F.to_date("created_at").alias("date"))
+    .agg(F.count("*").alias("orders"))
+)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the PySpark problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+def validate_unique(frame, key: str) -> None:
+    from pyspark.sql import functions as F
+
+    duplicate = frame.groupBy(key).count().where(F.col("count") > 1).limit(1)
+    if duplicate.count():
+        raise ValueError(f"duplicate key: {key}")
 ```
 
 ## Examples
@@ -13327,136 +14992,167 @@ print(result)
 ### Beginner Example
 
 ```python
-import pandas as pd
+from pyspark.sql import SparkSession
 
-df = pd.DataFrame({"name": ["Ada", "Lin"], "score": [95, 98]})
-print(df)
+spark = SparkSession.builder.master("local[*]").appName("example").getOrCreate()
+numbers = spark.range(5)
+numbers.show()
 ```
 
 ### Intermediate Example
 
 ```python
-import pandas as pd
+from pyspark.sql import functions as F
 
-df = pd.DataFrame({"team": ["A", "A", "B"], "sales": [10, 15, 7]})
-print(df.groupby("team")["sales"].sum())
+orders = spark.createDataFrame(
+    [("A", 10.0), ("A", 15.0), ("B", 7.0)],
+    ["customer", "amount"],
+)
+summary = orders.groupBy("customer").agg(F.sum("amount").alias("total"))
+summary.orderBy(F.desc("total")).show()
 ```
 
 ### Advanced Example
 
 ```python
-import pandas as pd
+from pyspark.sql import functions as F
 
-orders = pd.DataFrame({"user_id": [1, 2], "total": [50, 75]})
-users = pd.DataFrame({"user_id": [1, 2], "name": ["Ada", "Lin"]})
-print(orders.merge(users, on="user_id"))
+customers = spark.createDataFrame([("A", "gold"), ("B", "silver")], ["customer", "tier"])
+enriched = (
+    orders.join(F.broadcast(customers), "customer", "left")
+    .withColumn("event_date", F.current_date())
+    .select("event_date", "customer", "tier", "amount")
+)
+(
+    enriched.write.mode("overwrite")
+    .partitionBy("event_date")
+    .parquet("/tmp/enriched-orders")
+)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify PySpark Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Read partitioned data] --> B[Build lazy DataFrame plan]
+    B --> C[Inspect optimized exchanges]
+    C --> D[Execute distributed action]
+    D --> E[Validate counts and write partitions]
+    E -. feedback .-> A
 ```
 
-[Back to topic index](#pyspark)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Machine Learning
 
 ## Overview
-- **What is it?** Machine Learning is a Python knowledge area focused on AI engineering.
-- **Why is it important?** Help developers apply AI engineering techniques safely, clearly, and consistently.
-- **Where is it used?** Predictive products, language systems, vision applications, and model-powered automation.
+- **What is it?** Machine learning estimates patterns from data and evaluates whether those patterns generalize to unseen examples under a defined objective.
+- **Why is it important?** A sound workflow prevents leakage, establishes baselines, uses suitable metrics, and packages preprocessing with the estimator.
+- **Where is it used?** It supports classification, regression, ranking, forecasting, anomaly detection, and decision support.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review machine learning code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind machine learning.
-- Expected outcome: you can use machine learning in a small project and recognize when it belongs in production code.
+- Split data according to deployment reality and prevent target leakage.
+- Build scikit-learn preprocessing and estimator pipelines.
+- Evaluate baselines, cross-validation variance, calibration, and error slices.
 
 ## Real World Applications
-- **Industry use cases:** Predictive products, language systems, vision applications, and model-powered automation.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Predicting churn, demand, risk, quality, or response propensity.
+- Ranking candidates and detecting unusual behavior for human review.
+- Automating repeatable model training and evaluation with stored metadata.
 
 ## Core Concepts
 
-### Dataset Representation
-- **Definition:** The main idea that gives machine learning its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Machine Learning model -> clear code`
+### Generalization and Leakage
+- **Definition:** Generalization is performance on future data; leakage occurs when training features or preprocessing use information unavailable at prediction time.
+- **Visual explanation:** `raw historical data → deployment-aligned split → fit only on train → evaluate`
 - **Practical example:**
 
 ```python
-apply_machine_learning_label = "Machine Learning"
-print(apply_machine_learning_label)
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(
+    features,
+    target,
+    test_size=0.2,
+    random_state=42,
+    stratify=target,
+)
 ```
 
-### Transformation Pipeline
-- **Definition:** The ordered steps Python follows when machine learning code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Pipelines and Preprocessing
+- **Definition:** A scikit-learn Pipeline fits each preprocessing step only on training folds and applies the same transformation sequence during prediction.
+- **Visual explanation:** `raw features → fitted transformer → estimator → prediction`
 - **Practical example:**
 
 ```python
-import numpy as np
+from sklearn.impute import SimpleImputer
+from sklearn.linear_model import LogisticRegression
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
 
-values = np.array([1, 2, 3])
-print(values.mean())
+model = make_pipeline(
+    SimpleImputer(),
+    StandardScaler(),
+    LogisticRegression(max_iter=1_000),
+)
 ```
 
-### Validation Signal
-- **Definition:** The reliability habit that keeps machine learning understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Evaluation and Uncertainty
+- **Definition:** Metrics must reflect decision costs and class balance; cross-validation estimates variability but does not replace a final untouched test set.
+- **Visual explanation:** `baseline → cross-validation distribution → test metric → slice errors`
 - **Practical example:**
 
 ```python
-import numpy as np
+from sklearn.model_selection import cross_validate
 
-matrix = np.array([[1, 2], [3, 4]])
-print(matrix.T)
+scores = cross_validate(
+    model,
+    features,
+    target,
+    cv=5,
+    scoring=["roc_auc", "neg_log_loss"],
+)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Machine Learning belongs to the AI engineering part of Python mastery. |
-| ⚡ Purpose | Help developers apply AI engineering techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional AI engineering decisions. |
-| 🎯 Use Cases | Predictive products, language systems, vision applications, and model-powered automation. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Machine learning estimates patterns from data and evaluates whether those patterns generalize to unseen examples under a defined objective. |
+| ⚡ Purpose | A sound workflow prevents leakage, establishes baselines, uses suitable metrics, and packages preprocessing with the estimator. |
+| 🔥 Benefits | Builds the ability to split data according to deployment reality and prevent target leakage; it also helps practitioners build scikit-learn preprocessing and estimator pipelines. |
+| 🎯 Use Cases | Predicting churn, demand, risk, quality, or response propensity. Ranking candidates and detecting unusual behavior for human review. |
+| 🚀 Best Practices | Inspect errors by meaningful cohorts, not only one aggregate. |
+| ❌ Common Mistakes | Ignoring the guardrail “Monitor feature drift and outcome quality after deployment”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import numpy as np
-array = np.array([1, 2, 3])
+from sklearn.dummy import DummyClassifier
+
+baseline = DummyClassifier(strategy="prior")
+baseline.fit(X_train, y_train)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_machine_learning(value):
-    """Apply the Machine Learning concept to one value."""
-    return value
-
-result = apply_machine_learning("practice")
-print(result)
+model.fit(X_train, y_train)
+probabilities = model.predict_proba(X_test)[:, 1]
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Machine Learning problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+from sklearn.metrics import classification_report, roc_auc_score
+
+predictions = model.predict(X_test)
+print(classification_report(y_test, predictions))
+auc = roc_auc_score(y_test, probabilities)
 ```
 
 ## Examples
@@ -13464,136 +15160,173 @@ print(result)
 ### Beginner Example
 
 ```python
-import numpy as np
+from sklearn.datasets import load_iris
+from sklearn.linear_model import LogisticRegression
 
-values = np.array([1, 2, 3])
-print(values.mean())
+X, y = load_iris(return_X_y=True)
+classifier = LogisticRegression(max_iter=1_000).fit(X, y)
+print(classifier.predict(X[:2]))
 ```
 
 ### Intermediate Example
 
 ```python
-import numpy as np
+from sklearn.datasets import load_breast_cancer
+from sklearn.model_selection import cross_val_score
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LogisticRegression
 
-matrix = np.array([[1, 2], [3, 4]])
-print(matrix.T)
+X, y = load_breast_cancer(return_X_y=True)
+pipeline = make_pipeline(StandardScaler(), LogisticRegression(max_iter=1_000))
+print(cross_val_score(pipeline, X, y, cv=5, scoring="roc_auc").mean())
 ```
 
 ### Advanced Example
 
 ```python
-import numpy as np
+from sklearn.compose import ColumnTransformer
+from sklearn.impute import SimpleImputer
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
-features = np.array([[1.0, 2.0], [3.0, 4.0]])
-weights = np.array([0.25, 0.75])
-print(features @ weights)
+numeric = make_pipeline(SimpleImputer(strategy="median"), StandardScaler())
+categorical = make_pipeline(
+    SimpleImputer(strategy="most_frequent"),
+    OneHotEncoder(handle_unknown="ignore"),
+)
+preprocessing = ColumnTransformer([
+    ("numeric", numeric, ["age", "income"]),
+    ("categorical", categorical, ["region"]),
+])
+production_model = make_pipeline(
+    preprocessing,
+    LogisticRegression(max_iter=1_000),
+)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Machine Learning Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Define decision and metric] --> B[Create deployment-aligned split]
+    B --> C[Fit pipeline on training data]
+    C --> D[Compare baseline and validation]
+    D --> E[Evaluate test set and monitor]
+    E -. feedback .-> A
 ```
 
-[Back to topic index](#machine-learning)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Deep Learning
 
 ## Overview
-- **What is it?** Deep Learning is a Python knowledge area focused on AI engineering.
-- **Why is it important?** Help developers apply AI engineering techniques safely, clearly, and consistently.
-- **Where is it used?** Predictive products, language systems, vision applications, and model-powered automation.
+- **What is it?** Deep learning trains layered differentiable functions with gradient-based optimization to learn representations from high-dimensional data.
+- **Why is it important?** PyTorch makes tensors, modules, automatic differentiation, optimizers, devices, and data loaders explicit.
+- **Where is it used?** It is used for vision, language, audio, recommendation, scientific modeling, and representation learning.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review deep learning code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind deep learning.
-- Expected outcome: you can use deep learning in a small project and recognize when it belongs in production code.
+- Construct PyTorch tensors and `nn.Module` models with correct shapes and devices.
+- Implement training and evaluation loops with gradients enabled only where needed.
+- Track validation metrics, checkpoints, numerical stability, and reproducibility.
 
 ## Real World Applications
-- **Industry use cases:** Predictive products, language systems, vision applications, and model-powered automation.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Image and text classification, sequence modeling, and embedding generation.
+- Fine-tuning pretrained models on domain-specific labeled data.
+- Learning nonlinear representations for ranking and forecasting.
 
 ## Core Concepts
 
-### Dataset Representation
-- **Definition:** The main idea that gives deep learning its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Deep Learning model -> clear code`
+### Tensors and Autograd
+- **Definition:** A tensor carries multidimensional values and optional gradient history; backpropagation applies the chain rule through recorded operations.
+- **Visual explanation:** `parameters → forward graph → scalar loss → backward gradients`
 - **Practical example:**
 
 ```python
-apply_deep_learning_label = "Deep Learning"
-print(apply_deep_learning_label)
+import torch
+
+weight = torch.tensor(2.0, requires_grad=True)
+loss = (weight * 3 - 10) ** 2
+loss.backward()
+print(weight.grad)
 ```
 
-### Transformation Pipeline
-- **Definition:** The ordered steps Python follows when deep learning code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Modules and Optimization
+- **Definition:** `nn.Module` registers parameters and composes layers; an optimizer updates those parameters from gradients after each batch.
+- **Visual explanation:** `batch → module forward → loss → zero_grad/backward/step`
 - **Practical example:**
 
 ```python
-import numpy as np
+import torch
+from torch import nn
 
-values = np.array([1, 2, 3])
-print(values.mean())
+model = nn.Sequential(nn.Linear(4, 8), nn.ReLU(), nn.Linear(8, 2))
+optimizer = torch.optim.AdamW(model.parameters(), lr=1e-3)
+inputs = torch.randn(16, 4)
+targets = torch.randint(0, 2, (16,))
 ```
 
-### Validation Signal
-- **Definition:** The reliability habit that keeps deep learning understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Training and Evaluation Modes
+- **Definition:** `train()` enables training behavior such as dropout, while `eval()` freezes that behavior; `torch.inference_mode()` disables autograd bookkeeping for inference.
+- **Visual explanation:** `train batches → update parameters; validation batches → inference-only metrics`
 - **Practical example:**
 
 ```python
-import numpy as np
-
-matrix = np.array([[1, 2], [3, 4]])
-print(matrix.T)
+model.eval()
+with torch.inference_mode():
+    logits = model(inputs)
+    predictions = logits.argmax(dim=1)
+model.train()
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Deep Learning belongs to the AI engineering part of Python mastery. |
-| ⚡ Purpose | Help developers apply AI engineering techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional AI engineering decisions. |
-| 🎯 Use Cases | Predictive products, language systems, vision applications, and model-powered automation. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Deep learning trains layered differentiable functions with gradient-based optimization to learn representations from high-dimensional data. |
+| ⚡ Purpose | PyTorch makes tensors, modules, automatic differentiation, optimizers, devices, and data loaders explicit. |
+| 🔥 Benefits | Builds the ability to construct PyTorch tensors and `nn.Module` models with correct shapes and devices; it also helps practitioners implement training and evaluation loops with gradients enabled only where needed. |
+| 🎯 Use Cases | Image and text classification, sequence modeling, and embedding generation. Fine-tuning pretrained models on domain-specific labeled data. |
+| 🚀 Best Practices | Checkpoint model, optimizer, epoch, and metric state. |
+| ❌ Common Mistakes | Ignoring the guardrail “Validate against a baseline before increasing model size”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import numpy as np
-array = np.array([1, 2, 3])
+import torch
+
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+tensor = torch.randn(32, 4, device=device)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_deep_learning(value):
-    """Apply the Deep Learning concept to one value."""
-    return value
+from torch import nn
 
-result = apply_deep_learning("practice")
-print(result)
+class Classifier(nn.Module):
+    def __init__(self) -> None:
+        super().__init__()
+        self.network = nn.Sequential(nn.Linear(4, 16), nn.ReLU(), nn.Linear(16, 2))
+
+    def forward(self, inputs):
+        return self.network(inputs)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Deep Learning problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+def train_step(model, optimizer, criterion, inputs, targets) -> float:
+    model.train()
+    optimizer.zero_grad(set_to_none=True)
+    loss = criterion(model(inputs), targets)
+    loss.backward()
+    optimizer.step()
+    return loss.item()
 ```
 
 ## Examples
@@ -13601,134 +15334,171 @@ print(result)
 ### Beginner Example
 
 ```python
-import numpy as np
+import torch
 
-values = np.array([1, 2, 3])
-print(values.mean())
+values = torch.tensor([[1.0, 2.0], [3.0, 4.0]])
+normalized = values / values.norm(dim=1, keepdim=True)
+print(normalized)
 ```
 
 ### Intermediate Example
 
 ```python
-import numpy as np
+import torch
+from torch import nn
 
-matrix = np.array([[1, 2], [3, 4]])
-print(matrix.T)
+model = Classifier()
+optimizer = torch.optim.AdamW(model.parameters(), lr=1e-3)
+criterion = nn.CrossEntropyLoss()
+inputs = torch.randn(8, 4)
+targets = torch.randint(0, 2, (8,))
+print(train_step(model, optimizer, criterion, inputs, targets))
 ```
 
 ### Advanced Example
 
 ```python
-import numpy as np
+import torch
 
-features = np.array([[1.0, 2.0], [3.0, 4.0]])
-weights = np.array([0.25, 0.75])
-print(features @ weights)
+checkpoint = {
+    "model": model.state_dict(),
+    "optimizer": optimizer.state_dict(),
+    "epoch": 4,
+    "validation_loss": 0.31,
+}
+torch.save(checkpoint, "checkpoint.pt")
+restored = torch.load("checkpoint.pt", map_location="cpu", weights_only=True)
+model.load_state_dict(restored["model"])
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Deep Learning Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Prepare batched tensors] --> B[Run forward pass]
+    B --> C[Compute stable loss]
+    C --> D[Backpropagate and update]
+    D --> E[Evaluate and checkpoint]
+    E -. feedback .-> A
 ```
 
-[Back to topic index](#deep-learning)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # NLP
 
 ## Overview
-- **What is it?** NLP is a Python knowledge area focused on AI engineering.
-- **Why is it important?** Help developers apply AI engineering techniques safely, clearly, and consistently.
-- **Where is it used?** Predictive products, language systems, vision applications, and model-powered automation.
+- **What is it?** Natural language processing represents, analyzes, and generates human language using linguistic pipelines, statistical models, and pretrained transformers.
+- **Why is it important?** Robust NLP keeps tokenization and model versions aligned, handles language and domain variation, and evaluates task-specific errors rather than demos alone.
+- **Where is it used?** It supports search, extraction, classification, moderation, summarization, translation, and conversational systems.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review nlp code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind nlp.
-- Expected outcome: you can use nlp in a small project and recognize when it belongs in production code.
+- Use spaCy-style pipelines for tokenization, entities, and custom components.
+- Use Hugging Face tokenizer/model patterns with truncation and batching.
+- Evaluate NLP systems for domain shift, label ambiguity, and harmful bias.
 
 ## Real World Applications
-- **Industry use cases:** Predictive products, language systems, vision applications, and model-powered automation.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Extracting entities and relationships from documents.
+- Classifying support requests and routing them to workflows.
+- Semantic search and summarization with documented human review.
 
 ## Core Concepts
 
-### Dataset Representation
-- **Definition:** The main idea that gives nlp its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> NLP model -> clear code`
+### Linguistic Pipelines
+- **Definition:** An NLP pipeline tokenizes text into a document and applies ordered components such as tagging, parsing, entity recognition, or custom rules.
+- **Visual explanation:** `text → tokenizer → ordered components → annotated document`
 - **Practical example:**
 
 ```python
-apply_nlp_label = "NLP"
-print(apply_nlp_label)
+import spacy
+
+nlp = spacy.blank("en")
+ruler = nlp.add_pipe("entity_ruler")
+ruler.add_patterns([{"label": "LANGUAGE", "pattern": "Python"}])
+document = nlp("Python powers this curriculum.")
+entities = [(entity.text, entity.label_) for entity in document.ents]
 ```
 
-### Transformation Pipeline
-- **Definition:** The ordered steps Python follows when nlp code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Transformer Inputs
+- **Definition:** A pretrained tokenizer converts text to bounded token IDs and attention masks that must match the model checkpoint and batch shape.
+- **Visual explanation:** `texts → checkpoint tokenizer → padded tensors → transformer logits`
 - **Practical example:**
 
 ```python
-import re
-print(bool(re.search(r"python", "learn python")))
+from transformers import AutoTokenizer
+
+tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased")
+batch = tokenizer(
+    ["clear documentation", "ambiguous requirement"],
+    padding=True,
+    truncation=True,
+    return_tensors="pt",
+)
 ```
 
-### Validation Signal
-- **Definition:** The reliability habit that keeps nlp understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Task Evaluation
+- **Definition:** Evaluation uses label-aware metrics, representative slices, and error review because token overlap or aggregate accuracy can hide systematic failures.
+- **Visual explanation:** `held-out examples → predictions → per-label metrics → qualitative error slices`
 - **Practical example:**
 
 ```python
-import re
+from sklearn.metrics import classification_report
 
-emails = re.findall(r"[\w.-]+@[\w.-]+", "Contact a@x.com and b@y.com")
-print(emails)
+expected = ["billing", "technical", "billing"]
+predicted = ["billing", "billing", "billing"]
+report = classification_report(expected, predicted, zero_division=0)
+print(report)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | NLP belongs to the AI engineering part of Python mastery. |
-| ⚡ Purpose | Help developers apply AI engineering techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional AI engineering decisions. |
-| 🎯 Use Cases | Predictive products, language systems, vision applications, and model-powered automation. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Natural language processing represents, analyzes, and generates human language using linguistic pipelines, statistical models, and pretrained transformers. |
+| ⚡ Purpose | Robust NLP keeps tokenization and model versions aligned, handles language and domain variation, and evaluates task-specific errors rather than demos alone. |
+| 🔥 Benefits | Builds the ability to use spaCy-style pipelines for tokenization, entities, and custom components; it also helps practitioners use Hugging Face tokenizer/model patterns with truncation and batching. |
+| 🎯 Use Cases | Extracting entities and relationships from documents. Classifying support requests and routing them to workflows. |
+| 🚀 Best Practices | Report per-label precision, recall, and representative error slices. |
+| ❌ Common Mistakes | Ignoring the guardrail “Review privacy, bias, prompt injection, and human escalation needs”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import re
-match = re.search(r"\d+", "Order 42")
+import spacy
+
+nlp = spacy.blank("en")
+doc = nlp("Tokenize this sentence.")
+tokens = [token.text for token in doc]
 ```
 
 ### Standard Structure
 
 ```python
-def apply_nlp(value):
-    """Apply the NLP concept to one value."""
-    return value
+from transformers import pipeline
 
-result = apply_nlp("practice")
-print(result)
+classifier = pipeline(
+    "sentiment-analysis",
+    model="distilbert/distilbert-base-uncased-finetuned-sst-2-english",
+)
+result = classifier("The API is reliable.")
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the NLP problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+import spacy
+from spacy.language import Language
+
+@Language.component("character_count")
+def character_count(doc):
+    doc.user_data["characters"] = len(doc.text)
+    return doc
+
+nlp = spacy.blank("en")
+nlp.add_pipe("character_count")
 ```
 
 ## Examples
@@ -13737,133 +15507,155 @@ print(result)
 
 ```python
 import re
-print(bool(re.search(r"python", "learn python")))
+
+words = re.findall(r"\b[\w'-]+\b", "Python's tokenizer baseline.", flags=re.UNICODE)
+print(words)
 ```
 
 ### Intermediate Example
 
 ```python
-import re
+import spacy
 
-emails = re.findall(r"[\w.-]+@[\w.-]+", "Contact a@x.com and b@y.com")
-print(emails)
+nlp = spacy.blank("en")
+ruler = nlp.add_pipe("sentencizer")
+doc = nlp("First sentence. Second sentence.")
+print([sentence.text for sentence in doc.sents])
 ```
 
 ### Advanced Example
 
 ```python
-import re
+import torch
+from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
-pattern = re.compile(r"(?P<status>\d{3}) (?P<path>/\S+)")
-match = pattern.search("200 /api/users")
-print(match.groupdict() if match else {})
+checkpoint = "distilbert/distilbert-base-uncased-finetuned-sst-2-english"
+tokenizer = AutoTokenizer.from_pretrained(checkpoint)
+model = AutoModelForSequenceClassification.from_pretrained(checkpoint)
+encoded = tokenizer(["reliable", "broken"], padding=True, return_tensors="pt")
+with torch.inference_mode():
+    probabilities = model(**encoded).logits.softmax(dim=-1)
+print(probabilities)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify NLP Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Define language task and labels] --> B[Version tokenizer and pipeline]
+    B --> C[Train or configure model]
+    C --> D[Evaluate metrics and slices]
+    D --> E[Monitor drift and human escalations]
+    E -. feedback .-> A
 ```
 
-[Back to topic index](#nlp)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Computer Vision
 
 ## Overview
-- **What is it?** Computer Vision is a Python knowledge area focused on AI engineering.
-- **Why is it important?** Help developers apply AI engineering techniques safely, clearly, and consistently.
-- **Where is it used?** Predictive products, language systems, vision applications, and model-powered automation.
+- **What is it?** Computer vision converts images or video into measurements and predictions through image geometry, color transforms, filtering, feature extraction, and learned models.
+- **Why is it important?** OpenCV arrays require careful handling of BGR channel order, coordinate conventions, dtypes, interpolation, and camera or dataset variation.
+- **Where is it used?** It is used in inspection, document processing, robotics, medical imaging, media analysis, and visual search.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review computer vision code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind computer vision.
-- Expected outcome: you can use computer vision in a small project and recognize when it belongs in production code.
+- Read, validate, transform, and write images with OpenCV.
+- Build reproducible thresholding, morphology, contour, and feature pipelines.
+- Evaluate robustness across lighting, scale, viewpoint, and acquisition devices.
 
 ## Real World Applications
-- **Industry use cases:** Predictive products, language systems, vision applications, and model-powered automation.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Detecting defects and measuring objects on production lines.
+- Deskewing, cleaning, and segmenting scanned documents.
+- Preparing frames and post-processing outputs for learned vision models.
 
 ## Core Concepts
 
-### Dataset Representation
-- **Definition:** The main idea that gives computer vision its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Computer Vision model -> clear code`
+### Image Arrays and Color
+- **Definition:** OpenCV represents images as NumPy arrays with height, width, and channels; color images are normally decoded in BGR order.
+- **Visual explanation:** `encoded file → BGR ndarray [height,width,channel] → color transform`
 - **Practical example:**
 
 ```python
-apply_computer_vision_label = "Computer Vision"
-print(apply_computer_vision_label)
+import cv2
+
+image = cv2.imread("input.png", cv2.IMREAD_COLOR)
+if image is None:
+    raise FileNotFoundError("input.png")
+rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 ```
 
-### Transformation Pipeline
-- **Definition:** The ordered steps Python follows when computer vision code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Segmentation and Morphology
+- **Definition:** Thresholding separates pixels by intensity, while erosion, dilation, opening, and closing reshape binary regions using a structuring element.
+- **Visual explanation:** `gray image → threshold → morphology → connected regions`
 - **Practical example:**
 
 ```python
+import cv2
 import numpy as np
 
-values = np.array([1, 2, 3])
-print(values.mean())
+gray = np.array([[10, 240], [20, 230]], dtype=np.uint8)
+_, mask = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3, 3))
+cleaned = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel)
 ```
 
-### Validation Signal
-- **Definition:** The reliability habit that keeps computer vision understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Geometry and Contours
+- **Definition:** Contours approximate binary boundaries; their area, bounding box, and moments produce measurements in pixel coordinates.
+- **Visual explanation:** `binary mask → contours → filter geometry → annotated measurement`
 - **Practical example:**
 
 ```python
-import numpy as np
+import cv2
 
-matrix = np.array([[1, 2], [3, 4]])
-print(matrix.T)
+contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+boxes = [
+    cv2.boundingRect(contour)
+    for contour in contours
+    if cv2.contourArea(contour) >= 10
+]
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Computer Vision belongs to the AI engineering part of Python mastery. |
-| ⚡ Purpose | Help developers apply AI engineering techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional AI engineering decisions. |
-| 🎯 Use Cases | Predictive products, language systems, vision applications, and model-powered automation. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Computer vision converts images or video into measurements and predictions through image geometry, color transforms, filtering, feature extraction, and learned models. |
+| ⚡ Purpose | OpenCV arrays require careful handling of BGR channel order, coordinate conventions, dtypes, interpolation, and camera or dataset variation. |
+| 🔥 Benefits | Builds the ability to read, validate, transform, and write images with OpenCV; it also helps practitioners build reproducible thresholding, morphology, contour, and feature pipelines. |
+| 🎯 Use Cases | Detecting defects and measuring objects on production lines. Deskewing, cleaning, and segmenting scanned documents. |
+| 🚀 Best Practices | Validate image load before accessing shape or pixels. |
+| ❌ Common Mistakes | Ignoring the guardrail “Evaluate across acquisition conditions, not one sample frame”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import numpy as np
-array = np.array([1, 2, 3])
+import cv2
+
+image = cv2.imread("photo.jpg")
+if image is None:
+    raise FileNotFoundError("photo.jpg")
+height, width = image.shape[:2]
 ```
 
 ### Standard Structure
 
 ```python
-def apply_computer_vision(value):
-    """Apply the Computer Vision concept to one value."""
-    return value
-
-result = apply_computer_vision("practice")
-print(result)
+gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+blurred = cv2.GaussianBlur(gray, (5, 5), 0)
+edges = cv2.Canny(blurred, 50, 150)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Computer Vision problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+def resize_to_width(image, width: int):
+    scale = width / image.shape[1]
+    size = (width, round(image.shape[0] * scale))
+    return cv2.resize(image, size, interpolation=cv2.INTER_AREA)
 ```
 
 ## Examples
@@ -13871,117 +15663,149 @@ print(result)
 ### Beginner Example
 
 ```python
+import cv2
 import numpy as np
 
-values = np.array([1, 2, 3])
-print(values.mean())
+image = np.zeros((100, 100, 3), dtype=np.uint8)
+cv2.circle(image, (50, 50), 20, (0, 255, 0), thickness=-1)
+assert image.shape == (100, 100, 3)
 ```
 
 ### Intermediate Example
 
 ```python
+import cv2
 import numpy as np
 
-matrix = np.array([[1, 2], [3, 4]])
-print(matrix.T)
+gray = np.zeros((120, 120), dtype=np.uint8)
+cv2.rectangle(gray, (20, 30), (80, 90), 255, thickness=-1)
+contours, _ = cv2.findContours(gray, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+largest = max(contours, key=cv2.contourArea)
+print(cv2.boundingRect(largest))
 ```
 
 ### Advanced Example
 
 ```python
-import numpy as np
+import cv2
 
-features = np.array([[1.0, 2.0], [3.0, 4.0]])
-weights = np.array([0.25, 0.75])
-print(features @ weights)
+capture = cv2.VideoCapture("input.mp4")
+if not capture.isOpened():
+    raise OSError("cannot open video")
+try:
+    while True:
+        ok, frame = capture.read()
+        if not ok:
+            break
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        edges = cv2.Canny(gray, 80, 160)
+        print(cv2.countNonZero(edges))
+finally:
+    capture.release()
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Computer Vision Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Acquire and validate image] --> B[Normalize color and geometry]
+    B --> C[Segment or infer features]
+    C --> D[Measure and filter results]
+    D --> E[Evaluate across conditions]
+    E -. feedback .-> A
 ```
 
-[Back to topic index](#computer-vision)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # FastAPI
 
 ## Overview
-- **What is it?** FastAPI is a Python knowledge area focused on integration.
-- **Why is it important?** Help developers apply integration techniques safely, clearly, and consistently.
-- **Where is it used?** Web services, persistence layers, analytics backends, and business systems.
+- **What is it?** FastAPI is an ASGI framework that derives request validation and OpenAPI schemas from Python type annotations and Pydantic models.
+- **Why is it important?** Production APIs require explicit contracts, dependency lifetimes, exception mapping, async-safe I/O, authentication, and observability.
+- **Where is it used?** It is used for typed HTTP APIs, model-serving endpoints, internal services, and asynchronous integrations.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review fastapi code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind fastapi.
-- Expected outcome: you can use fastapi in a small project and recognize when it belongs in production code.
+- Define FastAPI routes with request, response, path, and dependency models.
+- Choose synchronous or asynchronous handlers according to downstream libraries.
+- Test contracts and map domain failures to stable HTTP responses.
 
 ## Real World Applications
-- **Industry use cases:** Web services, persistence layers, analytics backends, and business systems.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- JSON APIs with generated OpenAPI documentation and client schemas.
+- Async endpoints that coordinate databases and remote services.
+- Dependency-injected authorization, settings, and request-scoped resources.
 
 ## Core Concepts
 
-### Contract
-- **Definition:** The main idea that gives fastapi its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> FastAPI model -> clear code`
-- **Practical example:**
-
-```python
-apply_fastapi_label = "FastAPI"
-print(apply_fastapi_label)
-```
-
-### Connection Flow
-- **Definition:** The ordered steps Python follows when fastapi code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Typed API Contracts
+- **Definition:** FastAPI reads annotations and Pydantic models to parse inputs, report validation errors, serialize outputs, and generate OpenAPI.
+- **Visual explanation:** `HTTP request → validation model → handler → response model`
 - **Practical example:**
 
 ```python
 from fastapi import FastAPI
+from pydantic import BaseModel, Field
 
 app = FastAPI()
 
-@app.get("/")
-def root():
-    return {"message": "Hello API"}
+class ItemIn(BaseModel):
+    name: str = Field(min_length=1)
+    quantity: int = Field(gt=0)
+
+@app.post("/items", status_code=201)
+def create_item(item: ItemIn) -> ItemIn:
+    return item
 ```
 
-### Reliability Boundary
-- **Definition:** The reliability habit that keeps fastapi understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Dependencies and Lifetimes
+- **Definition:** `Depends` resolves a dependency graph per request and generator dependencies can safely release resources after the response.
+- **Visual explanation:** `route → dependency graph → handler → dependency cleanup`
 - **Practical example:**
 
 ```python
-from pydantic import BaseModel
+from collections.abc import Iterator
+from fastapi import Depends
 
-class UserIn(BaseModel):
-    email: str
+def database() -> Iterator[dict[str, str]]:
+    connection = {"state": "open"}
+    try:
+        yield connection
+    finally:
+        connection["state"] = "closed"
 
-def create_user(user: UserIn) -> dict[str, str]:
-    return {"email": user.email, "status": "created"}
+@app.get("/health")
+def health(connection = Depends(database)) -> dict[str, str]:
+    return {"database": connection["state"]}
+```
 
-print(create_user(UserIn(email="a@example.com")))
+### Async Boundaries and Errors
+- **Definition:** An async route should await nonblocking clients; blocking work belongs in synchronous dependencies or a worker, and domain errors need stable HTTP mapping.
+- **Visual explanation:** `request → async I/O or worker boundary → domain result → HTTP mapping`
+- **Practical example:**
+
+```python
+import asyncio
+from fastapi import HTTPException
+
+@app.get("/items/{item_id}")
+async def read_item(item_id: int) -> dict[str, int]:
+    await asyncio.sleep(0)
+    if item_id < 1:
+        raise HTTPException(status_code=404, detail="item not found")
+    return {"id": item_id}
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | FastAPI belongs to the integration part of Python mastery. |
-| ⚡ Purpose | Help developers apply integration techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional integration decisions. |
-| 🎯 Use Cases | Web services, persistence layers, analytics backends, and business systems. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | FastAPI is an ASGI framework that derives request validation and OpenAPI schemas from Python type annotations and Pydantic models. |
+| ⚡ Purpose | Production APIs require explicit contracts, dependency lifetimes, exception mapping, async-safe I/O, authentication, and observability. |
+| 🔥 Benefits | Builds the ability to define FastAPI routes with request, response, path, and dependency models; it also helps practitioners choose synchronous or asynchronous handlers according to downstream libraries. |
+| 🎯 Use Cases | JSON APIs with generated OpenAPI documentation and client schemas. Async endpoints that coordinate databases and remote services. |
+| 🚀 Best Practices | Response models prevent accidental field disclosure. |
+| ❌ Common Mistakes | Ignoring the guardrail “Do not call blocking SDKs directly inside async routes”. |
 
 ## Syntax Guide
 
@@ -13989,30 +15813,38 @@ print(create_user(UserIn(email="a@example.com")))
 
 ```python
 from fastapi import FastAPI
+
 app = FastAPI()
 
-@app.get("/health")
-def health():
-    return {"ok": True}
+@app.get("/")
+def root() -> dict[str, str]:
+    return {"status": "ready"}
 ```
 
 ### Standard Structure
 
 ```python
-def apply_fastapi(value):
-    """Apply the FastAPI concept to one value."""
-    return value
+from pydantic import BaseModel
 
-result = apply_fastapi("practice")
-print(result)
+class ItemOut(BaseModel):
+    id: int
+    name: str
+
+@app.get("/items/{item_id}", response_model=ItemOut)
+def item(item_id: int) -> ItemOut:
+    return ItemOut(id=item_id, name="book")
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the FastAPI problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+from typing import Annotated
+from fastapi import Depends, Header, HTTPException
+
+def require_token(x_token: Annotated[str | None, Header()] = None) -> str:
+    if x_token != "training-token":
+        raise HTTPException(status_code=401, detail="invalid token")
+    return x_token
 ```
 
 ## Examples
@@ -14024,157 +15856,165 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
-@app.get("/")
-def root():
-    return {"message": "Hello API"}
+@app.get("/greet/{name}")
+def greet(name: str) -> dict[str, str]:
+    return {"message": f"Hello, {name}"}
 ```
 
 ### Intermediate Example
 
 ```python
-from pydantic import BaseModel
+from fastapi.testclient import TestClient
 
-class UserIn(BaseModel):
-    email: str
-
-def create_user(user: UserIn) -> dict[str, str]:
-    return {"email": user.email, "status": "created"}
-
-print(create_user(UserIn(email="a@example.com")))
+client = TestClient(app)
+response = client.get("/greet/Ada")
+assert response.status_code == 200
+assert response.json() == {"message": "Hello, Ada"}
 ```
 
 ### Advanced Example
 
 ```python
-from fastapi import Depends, FastAPI
+from contextlib import asynccontextmanager
+from fastapi import FastAPI
 
-app = FastAPI()
+@asynccontextmanager
+async def lifespan(application: FastAPI):
+    application.state.ready = True
+    yield
+    application.state.ready = False
 
-def get_settings():
-    return {"debug": False}
+service = FastAPI(lifespan=lifespan)
 
-@app.get("/settings")
-def settings(settings = Depends(get_settings)):
-    return settings
+@service.get("/ready")
+async def ready() -> dict[str, bool]:
+    return {"ready": service.state.ready}
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify FastAPI Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Receive ASGI request] --> B[Resolve dependencies and validate]
+    B --> C[Execute sync or async domain work]
+    C --> D[Serialize response contract]
+    D --> E[Emit metrics and clean resources]
+    E -. feedback .-> A
 ```
 
-[Back to topic index](#fastapi)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Django
 
 ## Overview
-- **What is it?** Django is a Python knowledge area focused on web application engineering.
-- **Why is it important?** Help developers apply web application engineering techniques safely, clearly, and consistently.
-- **Where is it used?** Apis, saas platforms, internal tools, and microservice ecosystems.
+- **What is it?** Django is a batteries-included web framework with an ORM, URL routing, templates, forms, authentication, migrations, middleware, and administrative tooling.
+- **Why is it important?** Its request lifecycle and conventions support cohesive server-rendered applications and APIs, but database boundaries and query behavior must remain explicit.
+- **Where is it used?** It is used for content systems, marketplaces, internal platforms, and data-backed business applications.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review django code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind django.
-- Expected outcome: you can use django in a small project and recognize when it belongs in production code.
+- Define Django models, queries, views, URLs, forms, and transactions.
+- Prevent N+1 queries and enforce constraints at the database boundary.
+- Apply middleware, authentication, CSRF protection, and settings conventions.
 
 ## Real World Applications
-- **Industry use cases:** Apis, saas platforms, internal tools, and microservice ecosystems.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Data-backed sites with administrative workflows and authentication.
+- Transactional business systems with relational models and migrations.
+- Server-rendered interfaces or APIs sharing one domain and ORM.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives django its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Django model -> clear code`
+### Models and Migrations
+- **Definition:** A Django model declares application-level fields and database constraints; migrations version schema changes separately from runtime model code.
+- **Visual explanation:** `model declaration → migration operations → database schema`
 - **Practical example:**
 
 ```python
-apply_django_label = "Django"
-print(apply_django_label)
+from django.db import models
+
+class Article(models.Model):
+    slug = models.SlugField(unique=True)
+    title = models.CharField(max_length=200)
+    published_at = models.DateTimeField(null=True, blank=True)
+
+    class Meta:
+        ordering = ["-published_at"]
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when django code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Request Routing and Views
+- **Definition:** The URL resolver matches a path to a view, which validates request state, invokes domain or ORM work, and returns an HttpResponse.
+- **Visual explanation:** `WSGI/ASGI request → middleware → URL resolver → view → response`
 - **Practical example:**
 
 ```python
-from fastapi import FastAPI
+from django.http import JsonResponse
+from django.urls import path
 
-app = FastAPI()
+def health(request):
+    return JsonResponse({"status": "ready"})
 
-@app.get("/")
-def root():
-    return {"message": "Hello API"}
+urlpatterns = [path("health/", health, name="health")]
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps django understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### QuerySets and Transactions
+- **Definition:** QuerySets are lazy database queries; eager relationship loading and `transaction.atomic` control query count and all-or-nothing writes.
+- **Visual explanation:** `lazy QuerySet → optimized SQL → atomic commit or rollback`
 - **Practical example:**
 
 ```python
-from pydantic import BaseModel
+from django.db import transaction
 
-class UserIn(BaseModel):
-    email: str
+@transaction.atomic
+def publish(article: Article) -> None:
+    from django.utils import timezone
 
-def create_user(user: UserIn) -> dict[str, str]:
-    return {"email": user.email, "status": "created"}
-
-print(create_user(UserIn(email="a@example.com")))
+    article.published_at = timezone.now()
+    article.save(update_fields=["published_at"])
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Django belongs to the web application engineering part of Python mastery. |
-| ⚡ Purpose | Help developers apply web application engineering techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional web application engineering decisions. |
-| 🎯 Use Cases | Apis, saas platforms, internal tools, and microservice ecosystems. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Django is a batteries-included web framework with an ORM, URL routing, templates, forms, authentication, migrations, middleware, and administrative tooling. |
+| ⚡ Purpose | Its request lifecycle and conventions support cohesive server-rendered applications and APIs, but database boundaries and query behavior must remain explicit. |
+| 🔥 Benefits | Builds the ability to define Django models, queries, views, URLs, forms, and transactions; it also helps practitioners prevent N+1 queries and enforce constraints at the database boundary. |
+| 🎯 Use Cases | Data-backed sites with administrative workflows and authentication. Transactional business systems with relational models and migrations. |
+| 🚀 Best Practices | Database constraints defend invariants under concurrency. |
+| ❌ Common Mistakes | Ignoring the guardrail “Keep secrets outside settings modules and preserve CSRF protection”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-from fastapi import FastAPI
-app = FastAPI()
+from django.db import models
 
-@app.get("/health")
-def health():
-    return {"ok": True}
+class Tag(models.Model):
+    name = models.CharField(max_length=80, unique=True)
 ```
 
 ### Standard Structure
 
 ```python
-def apply_django(value):
-    """Apply the Django concept to one value."""
-    return value
-
-result = apply_django("practice")
-print(result)
+articles = (
+    Article.objects.filter(published_at__isnull=False)
+    .only("slug", "title", "published_at")
+    .order_by("-published_at")
+)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Django problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+from django.views.decorators.http import require_GET
+from django.shortcuts import get_object_or_404
+
+@require_GET
+def article_detail(request, slug: str):
+    article = get_object_or_404(Article, slug=slug)
+    return JsonResponse({"slug": article.slug, "title": article.title})
 ```
 
 ## Examples
@@ -14182,161 +16022,167 @@ print(result)
 ### Beginner Example
 
 ```python
-from fastapi import FastAPI
+from django.http import HttpResponse
 
-app = FastAPI()
-
-@app.get("/")
-def root():
-    return {"message": "Hello API"}
+def index(request):
+    return HttpResponse("Django ready", content_type="text/plain")
 ```
 
 ### Intermediate Example
 
 ```python
-from pydantic import BaseModel
+from django import forms
 
-class UserIn(BaseModel):
-    email: str
+class ArticleForm(forms.ModelForm):
+    class Meta:
+        model = Article
+        fields = ["slug", "title"]
 
-def create_user(user: UserIn) -> dict[str, str]:
-    return {"email": user.email, "status": "created"}
-
-print(create_user(UserIn(email="a@example.com")))
+    def clean_title(self) -> str:
+        return self.cleaned_data["title"].strip()
 ```
 
 ### Advanced Example
 
 ```python
-from fastapi import Depends, FastAPI
+from django.db import IntegrityError, transaction
 
-app = FastAPI()
-
-def get_settings():
-    return {"debug": False}
-
-@app.get("/settings")
-def settings(settings = Depends(get_settings)):
-    return settings
+def create_article(slug: str, title: str) -> Article:
+    try:
+        with transaction.atomic():
+            return Article.objects.create(slug=slug, title=title)
+    except IntegrityError as error:
+        raise ValueError(f"article already exists: {slug}") from error
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Django Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Receive request through middleware] --> B[Resolve URL and authorize]
+    B --> C[Execute validated ORM/domain work]
+    C --> D[Render or serialize response]
+    D --> E[Commit transaction and observe]
+    E -. feedback .-> A
 ```
 
-[Back to topic index](#django)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Flask
 
 ## Overview
-- **What is it?** Flask is a Python knowledge area focused on web application engineering.
-- **Why is it important?** Help developers apply web application engineering techniques safely, clearly, and consistently.
-- **Where is it used?** Apis, saas platforms, internal tools, and microservice ecosystems.
+- **What is it?** Flask is a focused WSGI web framework that provides routing, request and application contexts, response handling, templates, and extension integration.
+- **Why is it important?** Larger Flask systems use an application factory, blueprints, explicit configuration, and scoped resources to avoid global import-time coupling.
+- **Where is it used?** It is used for HTTP APIs, server-rendered sites, internal tools, webhooks, and small-to-medium services.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review flask code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind flask.
-- Expected outcome: you can use flask in a small project and recognize when it belongs in production code.
+- Build Flask routes, responses, error handlers, and request validation.
+- Structure applications with factories, blueprints, and context-scoped resources.
+- Test behavior with Flask's test client and isolate configuration.
 
 ## Real World Applications
-- **Industry use cases:** Apis, saas platforms, internal tools, and microservice ecosystems.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Compact APIs and webhook receivers with explicit composition.
+- Server-rendered internal tools using Jinja templates.
+- Modular services assembled from blueprints and extensions.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives flask its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Flask model -> clear code`
+### Application and Request Contexts
+- **Definition:** Flask proxies such as `request`, `current_app`, and `g` resolve to context-local objects during an active request or application context.
+- **Visual explanation:** `WSGI request → push contexts → view → teardown → pop contexts`
 - **Practical example:**
 
 ```python
-apply_flask_label = "Flask"
-print(apply_flask_label)
+from flask import Flask, current_app
+
+app = Flask(__name__)
+
+@app.get("/name")
+def name():
+    return {"application": current_app.name}
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when flask code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Application Factory and Blueprints
+- **Definition:** A factory builds a configured app instance and registers blueprints, enabling isolated tests and multiple deployments without import-time singleton state.
+- **Visual explanation:** `configuration → app factory → extensions + blueprints → WSGI app`
 - **Practical example:**
 
 ```python
-from fastapi import FastAPI
+from flask import Blueprint, Flask
 
-app = FastAPI()
+api = Blueprint("api", __name__, url_prefix="/api")
 
-@app.get("/")
-def root():
-    return {"message": "Hello API"}
+@api.get("/health")
+def health():
+    return {"status": "ready"}
+
+def create_app() -> Flask:
+    application = Flask(__name__)
+    application.register_blueprint(api)
+    return application
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps flask understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Validation and Error Responses
+- **Definition:** Flask leaves schema choices explicit, so handlers should reject malformed inputs and centralize stable JSON error mappings.
+- **Visual explanation:** `request payload → schema validation → domain action → response/error handler`
 - **Practical example:**
 
 ```python
-from pydantic import BaseModel
+from flask import request
 
-class UserIn(BaseModel):
-    email: str
-
-def create_user(user: UserIn) -> dict[str, str]:
-    return {"email": user.email, "status": "created"}
-
-print(create_user(UserIn(email="a@example.com")))
+@api.post("/items")
+def create_item():
+    payload = request.get_json(silent=False)
+    if not isinstance(payload, dict) or not payload.get("name"):
+        return {"error": "name is required"}, 400
+    return {"name": payload["name"]}, 201
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Flask belongs to the web application engineering part of Python mastery. |
-| ⚡ Purpose | Help developers apply web application engineering techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional web application engineering decisions. |
-| 🎯 Use Cases | Apis, saas platforms, internal tools, and microservice ecosystems. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Flask is a focused WSGI web framework that provides routing, request and application contexts, response handling, templates, and extension integration. |
+| ⚡ Purpose | Larger Flask systems use an application factory, blueprints, explicit configuration, and scoped resources to avoid global import-time coupling. |
+| 🔥 Benefits | Builds the ability to build Flask routes, responses, error handlers, and request validation; it also helps practitioners structure applications with factories, blueprints, and context-scoped resources. |
+| 🎯 Use Cases | Compact APIs and webhook receivers with explicit composition. Server-rendered internal tools using Jinja templates. |
+| 🚀 Best Practices | Teardown handlers release request-scoped resources. |
+| ❌ Common Mistakes | Ignoring the guardrail “Validate JSON shape before passing values to domain code”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-from fastapi import FastAPI
-app = FastAPI()
+from flask import Flask
 
-@app.get("/health")
-def health():
-    return {"ok": True}
+app = Flask(__name__)
+
+@app.get("/")
+def index():
+    return {"status": "ready"}
 ```
 
 ### Standard Structure
 
 ```python
-def apply_flask(value):
-    """Apply the Flask concept to one value."""
-    return value
+from flask import abort
 
-result = apply_flask("practice")
-print(result)
+@app.get("/items/<int:item_id>")
+def item(item_id: int):
+    if item_id < 1:
+        abort(404)
+    return {"id": item_id}
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Flask problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+@app.errorhandler(404)
+def not_found(error):
+    return {"error": "not found"}, 404
 ```
 
 ## Examples
@@ -14344,161 +16190,172 @@ print(result)
 ### Beginner Example
 
 ```python
-from fastapi import FastAPI
+from flask import Flask
 
-app = FastAPI()
+app = Flask(__name__)
 
-@app.get("/")
-def root():
-    return {"message": "Hello API"}
+@app.get("/greet/<name>")
+def greet(name: str):
+    return {"message": f"Hello, {name}"}
 ```
 
 ### Intermediate Example
 
 ```python
-from pydantic import BaseModel
-
-class UserIn(BaseModel):
-    email: str
-
-def create_user(user: UserIn) -> dict[str, str]:
-    return {"email": user.email, "status": "created"}
-
-print(create_user(UserIn(email="a@example.com")))
+with app.test_client() as client:
+    response = client.get("/greet/Ada")
+    assert response.status_code == 200
+    assert response.get_json()["message"] == "Hello, Ada"
 ```
 
 ### Advanced Example
 
 ```python
-from fastapi import Depends, FastAPI
+from flask import Flask, g
 
-app = FastAPI()
+def create_app(testing: bool = False) -> Flask:
+    application = Flask(__name__)
+    application.config["TESTING"] = testing
 
-def get_settings():
-    return {"debug": False}
+    @application.before_request
+    def begin_request() -> None:
+        g.request_state = {"opened": True}
 
-@app.get("/settings")
-def settings(settings = Depends(get_settings)):
-    return settings
+    @application.teardown_request
+    def end_request(error: BaseException | None) -> None:
+        g.pop("request_state", None)
+
+    return application
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Flask Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Create configured app] --> B[Receive WSGI request and contexts]
+    B --> C[Match blueprint route]
+    C --> D[Validate and execute handler]
+    D --> E[Build response and teardown]
+    E -. feedback .-> A
 ```
 
-[Back to topic index](#flask)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Microservices
 
 ## Overview
-- **What is it?** Microservices is a Python knowledge area focused on web application engineering.
-- **Why is it important?** Help developers apply web application engineering techniques safely, clearly, and consistently.
-- **Where is it used?** Apis, saas platforms, internal tools, and microservice ecosystems.
+- **What is it?** Microservices split a system into independently deployable services aligned to business capabilities and communicating through explicit network contracts.
+- **Why is it important?** The approach trades local modularity for distributed-system costs: latency, partial failure, versioning, observability, data ownership, and operational overhead.
+- **Where is it used?** It is appropriate when teams need independent delivery or scaling and can support mature platform operations.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review microservices code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind microservices.
-- Expected outcome: you can use microservices in a small project and recognize when it belongs in production code.
+- Define service boundaries around ownership and cohesive capabilities.
+- Design version-tolerant synchronous and asynchronous contracts.
+- Apply deadlines, idempotency, tracing, bulkheads, and graceful degradation.
 
 ## Real World Applications
-- **Industry use cases:** Apis, saas platforms, internal tools, and microservice ecosystems.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Separating independently owned order, catalog, identity, or billing capabilities.
+- Scaling compute-heavy services independently from transactional services.
+- Isolating deployment risk where organizational ownership justifies the boundary.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives microservices its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Microservices model -> clear code`
+### Capability and Data Boundaries
+- **Definition:** A service owns its business rules and data; other services use contracts rather than reading its database tables directly.
+- **Visual explanation:** `capability owner → service API/events → consumers; no shared-table coupling`
 - **Practical example:**
 
 ```python
-apply_microservices_label = "Microservices"
-print(apply_microservices_label)
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class OrderPlaced:
+    event_id: str
+    order_id: str
+    schema_version: int = 1
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when microservices code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Resilient Synchronous Calls
+- **Definition:** Service clients need connection and read timeouts, bounded retries only for safe operations, and response validation.
+- **Visual explanation:** `caller → deadline/bulkhead → service → validated response or fallback`
 - **Practical example:**
 
 ```python
-from fastapi import FastAPI
+import requests
 
-app = FastAPI()
-
-@app.get("/")
-def root():
-    return {"message": "Hello API"}
+def fetch_catalog(item_id: str) -> dict[str, object]:
+    response = requests.get(
+        f"https://catalog.example/items/{item_id}",
+        timeout=(1.0, 2.0),
+        headers={"Accept": "application/json"},
+    )
+    response.raise_for_status()
+    return response.json()
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps microservices understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Events and Observability
+- **Definition:** Asynchronous integration decouples availability but requires idempotent consumers, schema evolution, correlation identifiers, and lag monitoring.
+- **Visual explanation:** `transaction/outbox → broker → idempotent consumer → correlated telemetry`
 - **Practical example:**
 
 ```python
-from pydantic import BaseModel
+handled: set[str] = set()
 
-class UserIn(BaseModel):
-    email: str
-
-def create_user(user: UserIn) -> dict[str, str]:
-    return {"email": user.email, "status": "created"}
-
-print(create_user(UserIn(email="a@example.com")))
+def consume(event: OrderPlaced) -> bool:
+    if event.event_id in handled:
+        return False
+    handled.add(event.event_id)
+    print("order", event.order_id)
+    return True
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Microservices belongs to the web application engineering part of Python mastery. |
-| ⚡ Purpose | Help developers apply web application engineering techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional web application engineering decisions. |
-| 🎯 Use Cases | Apis, saas platforms, internal tools, and microservice ecosystems. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Microservices split a system into independently deployable services aligned to business capabilities and communicating through explicit network contracts. |
+| ⚡ Purpose | The approach trades local modularity for distributed-system costs: latency, partial failure, versioning, observability, data ownership, and operational overhead. |
+| 🔥 Benefits | Builds the ability to define service boundaries around ownership and cohesive capabilities; it also helps practitioners design version-tolerant synchronous and asynchronous contracts. |
+| 🎯 Use Cases | Separating independently owned order, catalog, identity, or billing capabilities. Scaling compute-heavy services independently from transactional services. |
+| 🚀 Best Practices | Trace IDs connect calls, messages, logs, and metrics. |
+| ❌ Common Mistakes | Ignoring the guardrail “Start with a modular monolith unless independent deployment solves a real constraint”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-from fastapi import FastAPI
-app = FastAPI()
+from dataclasses import dataclass
 
-@app.get("/health")
-def health():
-    return {"ok": True}
+@dataclass(frozen=True)
+class ServiceResponse:
+    request_id: str
+    payload: dict[str, object]
 ```
 
 ### Standard Structure
 
 ```python
-def apply_microservices(value):
-    """Apply the Microservices concept to one value."""
-    return value
+import uuid
 
-result = apply_microservices("practice")
-print(result)
+headers = {
+    "X-Request-ID": str(uuid.uuid4()),
+    "Accept": "application/json",
+}
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Microservices problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+from collections.abc import Callable
+
+def fallback(call: Callable[[], dict], default: dict) -> dict:
+    try:
+        return call()
+    except (TimeoutError, ConnectionError):
+        return default
 ```
 
 ## Examples
@@ -14506,150 +16363,190 @@ print(result)
 ### Beginner Example
 
 ```python
-from fastapi import FastAPI
-
-app = FastAPI()
-
-@app.get("/")
-def root():
-    return {"message": "Hello API"}
+def versioned_payload(order_id: str) -> dict[str, object]:
+    return {"schema_version": 1, "order_id": order_id}
 ```
 
 ### Intermediate Example
 
 ```python
-from pydantic import BaseModel
+import requests
 
-class UserIn(BaseModel):
-    email: str
-
-def create_user(user: UserIn) -> dict[str, str]:
-    return {"email": user.email, "status": "created"}
-
-print(create_user(UserIn(email="a@example.com")))
+session = requests.Session()
+session.headers["User-Agent"] = "orders-service/1.0"
+response = session.get("https://example.com", timeout=(1, 3))
+print(response.status_code)
+session.close()
 ```
 
 ### Advanced Example
 
 ```python
-from fastapi import Depends, FastAPI
+from dataclasses import dataclass, field
 
-app = FastAPI()
+@dataclass
+class Outbox:
+    pending: list[OrderPlaced] = field(default_factory=list)
 
-def get_settings():
-    return {"debug": False}
+    def append(self, event: OrderPlaced) -> None:
+        self.pending.append(event)
 
-@app.get("/settings")
-def settings(settings = Depends(get_settings)):
-    return settings
+    def publish(self, sender) -> None:
+        remaining = []
+        for event in self.pending:
+            try:
+                sender(event)
+            except Exception:
+                remaining.append(event)
+        self.pending = remaining
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Microservices Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Route to capability owner] --> B[Enforce deadline and contract]
+    B --> C[Execute owned transaction]
+    C --> D[Publish outbox event]
+    D --> E[Trace outcome and recover failures]
+    E -. feedback .-> A
 ```
 
-[Back to topic index](#microservices)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Docker with Python
 
 ## Overview
-- **What is it?** Docker with Python is a Python knowledge area focused on cloud and DevOps.
-- **Why is it important?** Help developers apply cloud and DevOps techniques safely, clearly, and consistently.
-- **Where is it used?** Deployment automation, infrastructure operations, and scalable production delivery.
+- **What is it?** Docker packages a Python application, interpreter, dependencies, and filesystem into an immutable image executed as an isolated container process.
+- **Why is it important?** Secure, reproducible images use pinned lock data, multi-stage builds, a non-root runtime, small build contexts, health signals, and external configuration.
+- **Where is it used?** Docker supports consistent development, CI, service deployment, batch jobs, and dependency isolation.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review docker with python code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind docker with python.
-- Expected outcome: you can use docker with python in a small project and recognize when it belongs in production code.
+- Write cache-efficient multi-stage Dockerfiles for Python.
+- Run one foreground process as a non-root user with correct signal behavior.
+- Scan, label, test, and promote immutable images by digest.
 
 ## Real World Applications
-- **Industry use cases:** Deployment automation, infrastructure operations, and scalable production delivery.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Packaging web services and workers consistently across environments.
+- Creating reproducible test environments in CI.
+- Shipping immutable application artifacts to orchestrators.
 
 ## Core Concepts
 
-### Runtime Artifact
-- **Definition:** The main idea that gives docker with python its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Docker with Python model -> clear code`
+### Images, Layers, and Build Context
+- **Definition:** A Dockerfile creates content-addressed layers from a build context; stable dependency layers should precede frequently changing source layers.
+- **Visual explanation:** `context + Dockerfile → cached layers → immutable image digest`
 - **Practical example:**
 
 ```python
-apply_docker_with_python_label = "Docker with Python"
-print(apply_docker_with_python_label)
+from pathlib import Path
+
+required = {"Dockerfile", "pyproject.toml"}
+context_files = {path.name for path in Path(".").iterdir()}
+missing = required - context_files
+if missing:
+    print("missing build inputs", sorted(missing))
 ```
 
-### Deployment Target
-- **Definition:** The ordered steps Python follows when docker with python code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Multi-stage Python Build
+- **Definition:** A builder stage compiles wheels or installs dependencies, while the runtime stage copies only required artifacts and excludes compilers and caches.
+- **Visual explanation:** `builder dependencies → wheel/venv artifact → minimal runtime stage`
 - **Practical example:**
 
 ```python
-import platform
-print(platform.python_version())
+dockerfile = '''
+FROM python:3.12-slim AS builder
+WORKDIR /build
+COPY requirements.txt .
+RUN pip wheel --no-cache-dir --wheel-dir /wheels -r requirements.txt
+
+FROM python:3.12-slim AS runtime
+RUN useradd --create-home app
+COPY --from=builder /wheels /wheels
+RUN pip install --no-cache-dir /wheels/* && rm -rf /wheels
+USER app
+WORKDIR /app
+COPY --chown=app:app . .
+CMD ["python", "-m", "service"]
+'''
 ```
 
-### Operational Feedback
-- **Definition:** The reliability habit that keeps docker with python understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Container Runtime Contract
+- **Definition:** The application runs as PID 1, reads configuration from the environment, writes logs to standard streams, handles termination, and stores durable data externally.
+- **Visual explanation:** `image + env/secrets → foreground process → stdout/health → graceful stop`
 - **Practical example:**
 
 ```python
-import sys
+import signal
 
-if sys.version_info < (3, 12):
-    raise RuntimeError("Python 3.12 or newer is recommended")
-print("Python version is ready")
+stopping = False
+
+def request_stop(signum, frame) -> None:
+    global stopping
+    stopping = True
+
+signal.signal(signal.SIGTERM, request_stop)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Docker with Python belongs to the cloud and DevOps part of Python mastery. |
-| ⚡ Purpose | Help developers apply cloud and DevOps techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional cloud and DevOps decisions. |
-| 🎯 Use Cases | Deployment automation, infrastructure operations, and scalable production delivery. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Docker packages a Python application, interpreter, dependencies, and filesystem into an immutable image executed as an isolated container process. |
+| ⚡ Purpose | Secure, reproducible images use pinned lock data, multi-stage builds, a non-root runtime, small build contexts, health signals, and external configuration. |
+| 🔥 Benefits | Builds the ability to write cache-efficient multi-stage Dockerfiles for Python; it also helps practitioners run one foreground process as a non-root user with correct signal behavior. |
+| 🎯 Use Cases | Packaging web services and workers consistently across environments. Creating reproducible test environments in CI. |
+| 🚀 Best Practices | `.dockerignore` removes secrets, VCS data, caches, and local environments. |
+| ❌ Common Mistakes | Ignoring the guardrail “Never bake credentials or environment-specific config into image layers”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
-```dockerfile
-FROM python:3.12-slim
-WORKDIR /app
-COPY . .
-CMD ["python", "main.py"]
+```python
+from pathlib import Path
+
+ignore = Path(".dockerignore")
+patterns = {"__pycache__/", ".git/", ".venv/", ".env"}
 ```
 
 ### Standard Structure
 
 ```python
-def apply_docker_with_python(value):
-    """Apply the Docker with Python concept to one value."""
-    return value
+import os
 
-result = apply_docker_with_python("practice")
-print(result)
+port = int(os.environ.get("PORT", "8000"))
+environment = os.environ.get("APP_ENV", "development")
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Docker with Python problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+import json
+import subprocess
+
+def image_id(tag: str) -> str:
+    result = subprocess.run(
+        ["docker", "image", "inspect", tag, "--format", "{{json .Id}}"],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    return json.loads(result.stdout)
+```
+
+#### Deployment Artifact
+
+```Dockerfile
+FROM python:3.12-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+USER 1000:1000
+CMD ["python", "-m", "service"]
 ```
 
 ## Examples
@@ -14657,136 +16554,203 @@ print(result)
 ### Beginner Example
 
 ```python
-import platform
-print(platform.python_version())
+dockerfile = '''
+FROM python:3.12-slim
+WORKDIR /app
+COPY app.py .
+CMD ["python", "app.py"]
+'''
 ```
 
 ### Intermediate Example
 
 ```python
-import sys
+import subprocess
 
-if sys.version_info < (3, 12):
-    raise RuntimeError("Python 3.12 or newer is recommended")
-print("Python version is ready")
+subprocess.run(
+    ["docker", "build", "--tag", "learning-api:test", "."],
+    check=True,
+    timeout=600,
+)
 ```
 
 ### Advanced Example
 
 ```python
-from pathlib import Path
-import sys
+import subprocess
 
-project = Path.cwd()
-print({"python": sys.version.split()[0], "project": project.name})
+subprocess.run(
+    [
+        "docker", "run", "--rm",
+        "--read-only",
+        "--cap-drop=ALL",
+        "--user=1000:1000",
+        "--env", "APP_ENV=test",
+        "learning-api:test",
+        "python", "-m", "pytest", "-q",
+    ],
+    check=True,
+    timeout=300,
+)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Docker with Python Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Assemble minimal build context] --> B[Build and cache dependency layers]
+    B --> C[Create non-root runtime image]
+    C --> D[Scan and test container]
+    D --> E[Push immutable digest]
+    E -. feedback .-> A
 ```
 
-[Back to topic index](#docker-with-python)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Kubernetes Integration
 
 ## Overview
-- **What is it?** Kubernetes Integration is a Python knowledge area focused on cloud and DevOps.
-- **Why is it important?** Help developers apply cloud and DevOps techniques safely, clearly, and consistently.
-- **Where is it used?** Deployment automation, infrastructure operations, and scalable production delivery.
+- **What is it?** Kubernetes reconciles declared workload state through APIs and controllers, while the Python client can inspect or modify resources using the same authenticated API.
+- **Why is it important?** Reliable integrations use declarative manifests, namespaces, least-privilege service accounts, idempotent patching, watches, and conflict-aware retries.
+- **Where is it used?** It is used for deploying Python services, writing operators, automating jobs, and integrating platform workflows.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review kubernetes integration code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind kubernetes integration.
-- Expected outcome: you can use kubernetes integration in a small project and recognize when it belongs in production code.
+- Describe Pods, Deployments, Services, ConfigMaps, Secrets, and reconciliation.
+- Use Kubernetes Python client configuration and typed APIs.
+- Create safe manifests with probes, resources, security context, and rolling updates.
 
 ## Real World Applications
-- **Industry use cases:** Deployment automation, infrastructure operations, and scalable production delivery.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Deploying replicated Python HTTP services and background workers.
+- Creating Jobs or inspecting rollout state from automation.
+- Building controllers that converge custom resources toward desired state.
 
 ## Core Concepts
 
-### Runtime Artifact
-- **Definition:** The main idea that gives kubernetes integration its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Kubernetes Integration model -> clear code`
+### Declarative Reconciliation
+- **Definition:** Clients submit desired objects to the API server and controllers repeatedly compare observed state with desired state until they converge.
+- **Visual explanation:** `manifest → API server → controller reconcile loop → Pods/status`
 - **Practical example:**
 
 ```python
-apply_kubernetes_integration_label = "Kubernetes Integration"
-print(apply_kubernetes_integration_label)
+from kubernetes import client, config
+
+config.load_kube_config()
+apps = client.AppsV1Api()
+deployments = apps.list_namespaced_deployment(namespace="default")
+print([item.metadata.name for item in deployments.items])
 ```
 
-### Deployment Target
-- **Definition:** The ordered steps Python follows when kubernetes integration code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Workload Runtime Contract
+- **Definition:** A Deployment manages ReplicaSets and Pods; readiness gates traffic, liveness requests restarts, and resource requests inform scheduling.
+- **Visual explanation:** `Deployment → ReplicaSet → Pods → readiness → Service endpoints`
 - **Practical example:**
 
 ```python
-import json
-print(json.dumps({"language": "Python"}))
+deployment = client.V1Deployment(
+    metadata=client.V1ObjectMeta(name="api"),
+    spec=client.V1DeploymentSpec(
+        replicas=2,
+        selector=client.V1LabelSelector(match_labels={"app": "api"}),
+        template=client.V1PodTemplateSpec(
+            metadata=client.V1ObjectMeta(labels={"app": "api"}),
+            spec=client.V1PodSpec(containers=[
+                client.V1Container(name="api", image="example/api@sha256:digest")
+            ]),
+        ),
+    ),
+)
 ```
 
-### Operational Feedback
-- **Definition:** The reliability habit that keeps kubernetes integration understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### API Safety and Watches
+- **Definition:** Automation should scope namespace and RBAC, handle resource-version conflicts, watch from a known version, and make repeated actions converge.
+- **Visual explanation:** `authenticate → read resourceVersion → patch desired fields → watch status`
 - **Practical example:**
 
 ```python
-import json
+from kubernetes import client, config, watch
 
-raw = "{\"items\": [1, 2, 3]}"
-payload = json.loads(raw)
-print(sum(payload["items"]))
+config.load_kube_config()
+core = client.CoreV1Api()
+stream = watch.Watch().stream(
+    core.list_namespaced_pod,
+    namespace="default",
+    timeout_seconds=30,
+)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Kubernetes Integration belongs to the cloud and DevOps part of Python mastery. |
-| ⚡ Purpose | Help developers apply cloud and DevOps techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional cloud and DevOps decisions. |
-| 🎯 Use Cases | Deployment automation, infrastructure operations, and scalable production delivery. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Kubernetes reconciles declared workload state through APIs and controllers, while the Python client can inspect or modify resources using the same authenticated API. |
+| ⚡ Purpose | Reliable integrations use declarative manifests, namespaces, least-privilege service accounts, idempotent patching, watches, and conflict-aware retries. |
+| 🔥 Benefits | Builds the ability to describe Pods, Deployments, Services, ConfigMaps, Secrets, and reconciliation; it also helps practitioners use Kubernetes Python client configuration and typed APIs. |
+| 🎯 Use Cases | Deploying replicated Python HTTP services and background workers. Creating Jobs or inspecting rollout state from automation. |
+| 🚀 Best Practices | RBAC grants verbs on named resource scopes. |
+| ❌ Common Mistakes | Ignoring the guardrail “Avoid broad cluster-admin credentials and mutable image tags”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
-```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: python-api
+```python
+from kubernetes import client, config
+
+config.load_incluster_config()
+core = client.CoreV1Api()
+pods = core.list_namespaced_pod("default")
 ```
 
 ### Standard Structure
 
 ```python
-def apply_kubernetes_integration(value):
-    """Apply the Kubernetes Integration concept to one value."""
-    return value
-
-result = apply_kubernetes_integration("practice")
-print(result)
+job = client.V1Job(
+    metadata=client.V1ObjectMeta(name="report"),
+    spec=client.V1JobSpec(
+        template=client.V1PodTemplateSpec(
+            spec=client.V1PodSpec(
+                restart_policy="Never",
+                containers=[client.V1Container(name="report", image="example/report:1.0")],
+            )
+        )
+    ),
+)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Kubernetes Integration problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+def scale(name: str, replicas: int, namespace: str = "default") -> None:
+    api = client.AppsV1Api()
+    body = {"spec": {"replicas": replicas}}
+    api.patch_namespaced_deployment_scale(name, namespace, body)
+```
+
+#### Deployment Artifact
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: learning-api
+spec:
+  selector:
+    matchLabels:
+      app: learning-api
+  template:
+    metadata:
+      labels:
+        app: learning-api
+    spec:
+      containers:
+        - name: api
+          image: example/learning-api:1.0
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: 8000
 ```
 
 ## Examples
@@ -14794,140 +16758,158 @@ print(result)
 ### Beginner Example
 
 ```python
-import json
-print(json.dumps({"language": "Python"}))
+from kubernetes import client
+
+metadata = client.V1ObjectMeta(
+    name="lesson",
+    labels={"app.kubernetes.io/name": "lesson"},
+)
 ```
 
 ### Intermediate Example
 
 ```python
-import json
+from kubernetes import client, config
 
-raw = "{\"items\": [1, 2, 3]}"
-payload = json.loads(raw)
-print(sum(payload["items"]))
+config.load_kube_config()
+batch = client.BatchV1Api()
+created = batch.create_namespaced_job(namespace="default", body=job)
+print(created.metadata.name)
 ```
 
 ### Advanced Example
 
 ```python
-import json
-from dataclasses import asdict, dataclass
+from kubernetes import client, config
 
-@dataclass
-class Event:
-    name: str
-    count: int
-
-print(json.dumps(asdict(Event("login", 3))))
+config.load_kube_config()
+apps = client.AppsV1Api()
+status = apps.read_namespaced_deployment_status("api", "default").status
+available = status.available_replicas or 0
+desired = status.replicas or 0
+if available < desired:
+    raise RuntimeError(f"rollout incomplete: {available}/{desired}")
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Kubernetes Integration Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Authenticate to API] --> B[Submit desired manifest]
+    B --> C[Controller creates workload]
+    C --> D[Probes establish availability]
+    D --> E[Watch status and reconcile drift]
+    E -. feedback .-> A
 ```
 
-[Back to topic index](#kubernetes-integration)
-
+[Back to complete topic index](#complete-topic-index)
 
 ---
 
 # Cloud Development
 
 ## Overview
-- **What is it?** Cloud Development is a Python knowledge area focused on cloud and DevOps.
-- **Why is it important?** Help developers apply cloud and DevOps techniques safely, clearly, and consistently.
-- **Where is it used?** Deployment automation, infrastructure operations, and scalable production delivery.
+- **What is it?** Cloud development builds applications from managed compute, storage, messaging, identity, and observability services exposed through APIs.
+- **Why is it important?** Portable application code still needs provider-aware decisions about consistency, quotas, networking, identity, cost, and failure domains.
+- **Where is it used?** It supports elastic web services, event-driven processing, data platforms, globally distributed delivery, and managed operations.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review cloud development code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind cloud development.
-- Expected outcome: you can use cloud development in a small project and recognize when it belongs in production code.
+- Design stateless compute with external durable state and asynchronous work.
+- Use workload identity, least privilege, retries, and idempotency around cloud APIs.
+- Model regions, availability zones, quotas, cost, and observability.
 
 ## Real World Applications
-- **Industry use cases:** Deployment automation, infrastructure operations, and scalable production delivery.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Autoscaled APIs backed by managed databases and object storage.
+- Event-triggered functions and durable queue-based workers.
+- Multi-zone systems with tested backup and recovery objectives.
 
 ## Core Concepts
 
-### Runtime Artifact
-- **Definition:** The main idea that gives cloud development its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Cloud Development model -> clear code`
+### Managed Service Contracts
+- **Definition:** A managed service removes some operations but exposes API semantics, quotas, consistency, pricing, and regional availability that architecture must honor.
+- **Visual explanation:** `application → SDK/API contract → managed control/data plane`
 - **Practical example:**
 
 ```python
-apply_cloud_development_label = "Cloud Development"
-print(apply_cloud_development_label)
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class ServiceLimit:
+    requests_per_second: int
+    maximum_payload_bytes: int
 ```
 
-### Deployment Target
-- **Definition:** The ordered steps Python follows when cloud development code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Identity and Configuration
+- **Definition:** Applications should obtain short-lived workload credentials from the runtime and keep nonsecret configuration separate from image artifacts.
+- **Visual explanation:** `workload identity → temporary token → scoped API request`
 - **Practical example:**
 
 ```python
-import requests
+import os
 
-response = requests.get("https://example.com", timeout=10)
-print(response.status_code)
+region = os.environ["CLOUD_REGION"]
+bucket = os.environ["OBJECT_BUCKET"]
+if not region or not bucket:
+    raise RuntimeError("cloud configuration is incomplete")
 ```
 
-### Operational Feedback
-- **Definition:** The reliability habit that keeps cloud development understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Failure Domains and Recovery
+- **Definition:** Regions and zones define correlated failure boundaries; recovery objectives determine replication, backup, restore, and failover design.
+- **Visual explanation:** `service SLO + RPO/RTO → redundancy/backup plan → recovery drill`
 - **Practical example:**
 
 ```python
-import requests
+from dataclasses import dataclass
+from datetime import timedelta
 
-with requests.Session() as session:
-    response = session.get("https://api.github.com", timeout=10)
-    print(response.headers.get("content-type"))
+@dataclass(frozen=True)
+class RecoveryObjective:
+    maximum_data_loss: timedelta
+    maximum_downtime: timedelta
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Cloud Development belongs to the cloud and DevOps part of Python mastery. |
-| ⚡ Purpose | Help developers apply cloud and DevOps techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional cloud and DevOps decisions. |
-| 🎯 Use Cases | Deployment automation, infrastructure operations, and scalable production delivery. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Cloud development builds applications from managed compute, storage, messaging, identity, and observability services exposed through APIs. |
+| ⚡ Purpose | Portable application code still needs provider-aware decisions about consistency, quotas, networking, identity, cost, and failure domains. |
+| 🔥 Benefits | Builds the ability to design stateless compute with external durable state and asynchronous work; it also helps practitioners use workload identity, least privilege, retries, and idempotency around cloud APIs. |
+| 🎯 Use Cases | Autoscaled APIs backed by managed databases and object storage. Event-triggered functions and durable queue-based workers. |
+| 🚀 Best Practices | RPO bounds data loss; RTO bounds restoration time. |
+| ❌ Common Mistakes | Ignoring the guardrail “Tag resources and monitor unit cost, saturation, errors, and latency”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import requests
-response = requests.get("https://example.com", timeout=10)
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class CloudConfig:
+    region: str
+    object_bucket: str
+    queue_name: str
 ```
 
 ### Standard Structure
 
 ```python
-def apply_cloud_development(value):
-    """Apply the Cloud Development concept to one value."""
-    return value
+import random
 
-result = apply_cloud_development("practice")
-print(result)
+def retry_delay(attempt: int, cap: float = 8.0) -> float:
+    return random.uniform(0, min(cap, 0.2 * 2 ** attempt))
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Cloud Development problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+from typing import Protocol
+
+class ObjectStore(Protocol):
+    def put(self, key: str, body: bytes) -> None: ...
+    def get(self, key: str) -> bytes: ...
 ```
 
 ## Examples
@@ -14935,1050 +16917,20 @@ print(result)
 ### Beginner Example
 
 ```python
-import requests
+import os
 
-response = requests.get("https://example.com", timeout=10)
-print(response.status_code)
+environment = os.getenv("APP_ENV", "development")
+print({"environment": environment})
 ```
 
 ### Intermediate Example
 
 ```python
-import requests
-
-with requests.Session() as session:
-    response = session.get("https://api.github.com", timeout=10)
-    print(response.headers.get("content-type"))
-```
-
-### Advanced Example
-
-```python
-import requests
-from requests.adapters import HTTPAdapter
-
-session = requests.Session()
-session.mount("https://", HTTPAdapter(max_retries=3))
-response = session.get("https://example.com", timeout=(3, 10))
-print(response.ok)
-```
-
-## Workflow Diagram
-
-```mermaid
-flowchart LR
-    A[Identify Cloud Development Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
-```
-
-[Back to topic index](#cloud-development)
-
-
----
-
-# AWS with Python
-
-## Overview
-- **What is it?** AWS with Python is a Python knowledge area focused on cloud and DevOps.
-- **Why is it important?** Help developers apply cloud and DevOps techniques safely, clearly, and consistently.
-- **Where is it used?** Deployment automation, infrastructure operations, and scalable production delivery.
-
-## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review aws with python code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind aws with python.
-- Expected outcome: you can use aws with python in a small project and recognize when it belongs in production code.
-
-## Real World Applications
-- **Industry use cases:** Deployment automation, infrastructure operations, and scalable production delivery.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
-
-## Core Concepts
-
-### Runtime Artifact
-- **Definition:** The main idea that gives aws with python its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> AWS with Python model -> clear code`
-- **Practical example:**
-
-```python
-apply_aws_with_python_label = "AWS with Python"
-print(apply_aws_with_python_label)
-```
-
-### Deployment Target
-- **Definition:** The ordered steps Python follows when aws with python code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
-- **Practical example:**
-
-```python
-import requests
-
-response = requests.get("https://example.com", timeout=10)
-print(response.status_code)
-```
-
-### Operational Feedback
-- **Definition:** The reliability habit that keeps aws with python understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
-- **Practical example:**
-
-```python
-import requests
-
-with requests.Session() as session:
-    response = session.get("https://api.github.com", timeout=10)
-    print(response.headers.get("content-type"))
-```
-
-## Infographic Summary
-
-| Infographic Block | Key Message |
-| --- | --- |
-| 📌 Concept | AWS with Python belongs to the cloud and DevOps part of Python mastery. |
-| ⚡ Purpose | Help developers apply cloud and DevOps techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional cloud and DevOps decisions. |
-| 🎯 Use Cases | Deployment automation, infrastructure operations, and scalable production delivery. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
-
-## Syntax Guide
-
-### Basic Syntax
-
-```python
-import requests
-response = requests.get("https://example.com", timeout=10)
-```
-
-### Standard Structure
-
-```python
-def apply_aws_with_python(value):
-    """Apply the AWS with Python concept to one value."""
-    return value
-
-result = apply_aws_with_python("practice")
-print(result)
-```
-
-### Code Pattern
-
-```python
-# 1. Identify the AWS with Python problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
-```
-
-## Examples
-
-### Beginner Example
-
-```python
-import requests
-
-response = requests.get("https://example.com", timeout=10)
-print(response.status_code)
-```
-
-### Intermediate Example
-
-```python
-import requests
-
-with requests.Session() as session:
-    response = session.get("https://api.github.com", timeout=10)
-    print(response.headers.get("content-type"))
-```
-
-### Advanced Example
-
-```python
-import requests
-from requests.adapters import HTTPAdapter
-
-session = requests.Session()
-session.mount("https://", HTTPAdapter(max_retries=3))
-response = session.get("https://example.com", timeout=(3, 10))
-print(response.ok)
-```
-
-## Workflow Diagram
-
-```mermaid
-flowchart LR
-    A[Identify AWS with Python Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
-```
-
-[Back to topic index](#aws-with-python)
-
-
----
-
-# Azure with Python
-
-## Overview
-- **What is it?** Azure with Python is a Python knowledge area focused on cloud and DevOps.
-- **Why is it important?** Help developers apply cloud and DevOps techniques safely, clearly, and consistently.
-- **Where is it used?** Deployment automation, infrastructure operations, and scalable production delivery.
-
-## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review azure with python code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind azure with python.
-- Expected outcome: you can use azure with python in a small project and recognize when it belongs in production code.
-
-## Real World Applications
-- **Industry use cases:** Deployment automation, infrastructure operations, and scalable production delivery.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
-
-## Core Concepts
-
-### Runtime Artifact
-- **Definition:** The main idea that gives azure with python its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Azure with Python model -> clear code`
-- **Practical example:**
-
-```python
-apply_azure_with_python_label = "Azure with Python"
-print(apply_azure_with_python_label)
-```
-
-### Deployment Target
-- **Definition:** The ordered steps Python follows when azure with python code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
-- **Practical example:**
-
-```python
-import requests
-
-response = requests.get("https://example.com", timeout=10)
-print(response.status_code)
-```
-
-### Operational Feedback
-- **Definition:** The reliability habit that keeps azure with python understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
-- **Practical example:**
-
-```python
-import requests
-
-with requests.Session() as session:
-    response = session.get("https://api.github.com", timeout=10)
-    print(response.headers.get("content-type"))
-```
-
-## Infographic Summary
-
-| Infographic Block | Key Message |
-| --- | --- |
-| 📌 Concept | Azure with Python belongs to the cloud and DevOps part of Python mastery. |
-| ⚡ Purpose | Help developers apply cloud and DevOps techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional cloud and DevOps decisions. |
-| 🎯 Use Cases | Deployment automation, infrastructure operations, and scalable production delivery. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
-
-## Syntax Guide
-
-### Basic Syntax
-
-```python
-import requests
-response = requests.get("https://example.com", timeout=10)
-```
-
-### Standard Structure
-
-```python
-def apply_azure_with_python(value):
-    """Apply the Azure with Python concept to one value."""
-    return value
-
-result = apply_azure_with_python("practice")
-print(result)
-```
-
-### Code Pattern
-
-```python
-# 1. Identify the Azure with Python problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
-```
-
-## Examples
-
-### Beginner Example
-
-```python
-import requests
-
-response = requests.get("https://example.com", timeout=10)
-print(response.status_code)
-```
-
-### Intermediate Example
-
-```python
-import requests
-
-with requests.Session() as session:
-    response = session.get("https://api.github.com", timeout=10)
-    print(response.headers.get("content-type"))
-```
-
-### Advanced Example
-
-```python
-import requests
-from requests.adapters import HTTPAdapter
-
-session = requests.Session()
-session.mount("https://", HTTPAdapter(max_retries=3))
-response = session.get("https://example.com", timeout=(3, 10))
-print(response.ok)
-```
-
-## Workflow Diagram
-
-```mermaid
-flowchart LR
-    A[Identify Azure with Python Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
-```
-
-[Back to topic index](#azure-with-python)
-
-
----
-
-# GCP with Python
-
-## Overview
-- **What is it?** GCP with Python is a Python knowledge area focused on cloud and DevOps.
-- **Why is it important?** Help developers apply cloud and DevOps techniques safely, clearly, and consistently.
-- **Where is it used?** Deployment automation, infrastructure operations, and scalable production delivery.
-
-## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review gcp with python code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind gcp with python.
-- Expected outcome: you can use gcp with python in a small project and recognize when it belongs in production code.
-
-## Real World Applications
-- **Industry use cases:** Deployment automation, infrastructure operations, and scalable production delivery.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
-
-## Core Concepts
-
-### Runtime Artifact
-- **Definition:** The main idea that gives gcp with python its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> GCP with Python model -> clear code`
-- **Practical example:**
-
-```python
-apply_gcp_with_python_label = "GCP with Python"
-print(apply_gcp_with_python_label)
-```
-
-### Deployment Target
-- **Definition:** The ordered steps Python follows when gcp with python code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
-- **Practical example:**
-
-```python
-import requests
-
-response = requests.get("https://example.com", timeout=10)
-print(response.status_code)
-```
-
-### Operational Feedback
-- **Definition:** The reliability habit that keeps gcp with python understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
-- **Practical example:**
-
-```python
-import requests
-
-with requests.Session() as session:
-    response = session.get("https://api.github.com", timeout=10)
-    print(response.headers.get("content-type"))
-```
-
-## Infographic Summary
-
-| Infographic Block | Key Message |
-| --- | --- |
-| 📌 Concept | GCP with Python belongs to the cloud and DevOps part of Python mastery. |
-| ⚡ Purpose | Help developers apply cloud and DevOps techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional cloud and DevOps decisions. |
-| 🎯 Use Cases | Deployment automation, infrastructure operations, and scalable production delivery. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
-
-## Syntax Guide
-
-### Basic Syntax
-
-```python
-import requests
-response = requests.get("https://example.com", timeout=10)
-```
-
-### Standard Structure
-
-```python
-def apply_gcp_with_python(value):
-    """Apply the GCP with Python concept to one value."""
-    return value
-
-result = apply_gcp_with_python("practice")
-print(result)
-```
-
-### Code Pattern
-
-```python
-# 1. Identify the GCP with Python problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
-```
-
-## Examples
-
-### Beginner Example
-
-```python
-import requests
-
-response = requests.get("https://example.com", timeout=10)
-print(response.status_code)
-```
-
-### Intermediate Example
-
-```python
-import requests
-
-with requests.Session() as session:
-    response = session.get("https://api.github.com", timeout=10)
-    print(response.headers.get("content-type"))
-```
-
-### Advanced Example
-
-```python
-import requests
-from requests.adapters import HTTPAdapter
-
-session = requests.Session()
-session.mount("https://", HTTPAdapter(max_retries=3))
-response = session.get("https://example.com", timeout=(3, 10))
-print(response.ok)
-```
-
-## Workflow Diagram
-
-```mermaid
-flowchart LR
-    A[Identify GCP with Python Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
-```
-
-[Back to topic index](#gcp-with-python)
-
-
----
-
-# DevOps Automation
-
-## Overview
-- **What is it?** DevOps Automation is a Python knowledge area focused on cloud and DevOps.
-- **Why is it important?** Help developers apply cloud and DevOps techniques safely, clearly, and consistently.
-- **Where is it used?** Deployment automation, infrastructure operations, and scalable production delivery.
-
-## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review devops automation code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind devops automation.
-- Expected outcome: you can use devops automation in a small project and recognize when it belongs in production code.
-
-## Real World Applications
-- **Industry use cases:** Deployment automation, infrastructure operations, and scalable production delivery.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
-
-## Core Concepts
-
-### Runtime Artifact
-- **Definition:** The main idea that gives devops automation its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> DevOps Automation model -> clear code`
-- **Practical example:**
-
-```python
-apply_devops_automation_label = "DevOps Automation"
-print(apply_devops_automation_label)
-```
-
-### Deployment Target
-- **Definition:** The ordered steps Python follows when devops automation code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
-- **Practical example:**
-
-```python
-import argparse
-
-parser = argparse.ArgumentParser()
-parser.add_argument("--name", default="Python")
-args = parser.parse_args([])
-print(args.name)
-```
-
-### Operational Feedback
-- **Definition:** The reliability habit that keeps devops automation understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
-- **Practical example:**
-
-```python
-import argparse
-
-def build_parser():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("count", type=int)
-    return parser
-
-args = build_parser().parse_args(["3"])
-print(args.count * 2)
-```
-
-## Infographic Summary
-
-| Infographic Block | Key Message |
-| --- | --- |
-| 📌 Concept | DevOps Automation belongs to the cloud and DevOps part of Python mastery. |
-| ⚡ Purpose | Help developers apply cloud and DevOps techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional cloud and DevOps decisions. |
-| 🎯 Use Cases | Deployment automation, infrastructure operations, and scalable production delivery. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
-
-## Syntax Guide
-
-### Basic Syntax
-
-```python
-import argparse
-parser = argparse.ArgumentParser()
-parser.add_argument("name")
-```
-
-### Standard Structure
-
-```python
-def apply_devops_automation(value):
-    """Apply the DevOps Automation concept to one value."""
-    return value
-
-result = apply_devops_automation("practice")
-print(result)
-```
-
-### Code Pattern
-
-```python
-# 1. Identify the DevOps Automation problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
-```
-
-## Examples
-
-### Beginner Example
-
-```python
-import argparse
-
-parser = argparse.ArgumentParser()
-parser.add_argument("--name", default="Python")
-args = parser.parse_args([])
-print(args.name)
-```
-
-### Intermediate Example
-
-```python
-import argparse
-
-def build_parser():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("count", type=int)
-    return parser
-
-args = build_parser().parse_args(["3"])
-print(args.count * 2)
-```
-
-### Advanced Example
-
-```python
-import argparse
-
-parser = argparse.ArgumentParser(prog="portal")
-subcommands = parser.add_subparsers(dest="command", required=True)
-run = subcommands.add_parser("run")
-run.add_argument("--dry-run", action="store_true")
-print(parser.parse_args(["run", "--dry-run"]))
-```
-
-## Workflow Diagram
-
-```mermaid
-flowchart LR
-    A[Identify DevOps Automation Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
-```
-
-[Back to topic index](#devops-automation)
-
-
----
-
-# CI/CD Pipelines
-
-## Overview
-- **What is it?** CI/CD Pipelines is a Python knowledge area focused on cloud and DevOps.
-- **Why is it important?** Help developers apply cloud and DevOps techniques safely, clearly, and consistently.
-- **Where is it used?** Deployment automation, infrastructure operations, and scalable production delivery.
-
-## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review ci/cd pipelines code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind ci/cd pipelines.
-- Expected outcome: you can use ci/cd pipelines in a small project and recognize when it belongs in production code.
-
-## Real World Applications
-- **Industry use cases:** Deployment automation, infrastructure operations, and scalable production delivery.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
-
-## Core Concepts
-
-### Runtime Artifact
-- **Definition:** The main idea that gives ci/cd pipelines its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> CI/CD Pipelines model -> clear code`
-- **Practical example:**
-
-```python
-apply_ci_cd_pipelines_label = "CI/CD Pipelines"
-print(apply_ci_cd_pipelines_label)
-```
-
-### Deployment Target
-- **Definition:** The ordered steps Python follows when ci/cd pipelines code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
-- **Practical example:**
-
-```python
-import argparse
-
-parser = argparse.ArgumentParser()
-parser.add_argument("--name", default="Python")
-args = parser.parse_args([])
-print(args.name)
-```
-
-### Operational Feedback
-- **Definition:** The reliability habit that keeps ci/cd pipelines understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
-- **Practical example:**
-
-```python
-import argparse
-
-def build_parser():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("count", type=int)
-    return parser
-
-args = build_parser().parse_args(["3"])
-print(args.count * 2)
-```
-
-## Infographic Summary
-
-| Infographic Block | Key Message |
-| --- | --- |
-| 📌 Concept | CI/CD Pipelines belongs to the cloud and DevOps part of Python mastery. |
-| ⚡ Purpose | Help developers apply cloud and DevOps techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional cloud and DevOps decisions. |
-| 🎯 Use Cases | Deployment automation, infrastructure operations, and scalable production delivery. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
-
-## Syntax Guide
-
-### Basic Syntax
-
-```yaml
-name: Python CI
-on: [push]
-jobs:
-  test:
-    runs-on: ubuntu-latest
-```
-
-### Standard Structure
-
-```python
-def apply_ci_cd_pipelines(value):
-    """Apply the CI/CD Pipelines concept to one value."""
-    return value
-
-result = apply_ci_cd_pipelines("practice")
-print(result)
-```
-
-### Code Pattern
-
-```python
-# 1. Identify the CI/CD Pipelines problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
-```
-
-## Examples
-
-### Beginner Example
-
-```python
-import argparse
-
-parser = argparse.ArgumentParser()
-parser.add_argument("--name", default="Python")
-args = parser.parse_args([])
-print(args.name)
-```
-
-### Intermediate Example
-
-```python
-import argparse
-
-def build_parser():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("count", type=int)
-    return parser
-
-args = build_parser().parse_args(["3"])
-print(args.count * 2)
-```
-
-### Advanced Example
-
-```python
-import argparse
-
-parser = argparse.ArgumentParser(prog="portal")
-subcommands = parser.add_subparsers(dest="command", required=True)
-run = subcommands.add_parser("run")
-run.add_argument("--dry-run", action="store_true")
-print(parser.parse_args(["run", "--dry-run"]))
-```
-
-## Workflow Diagram
-
-```mermaid
-flowchart LR
-    A[Identify CI/CD Pipelines Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
-```
-
-[Back to topic index](#ci-cd-pipelines)
-
-
----
-
-# Performance Optimization
-
-## Overview
-- **What is it?** Performance Optimization is a Python knowledge area focused on architecture.
-- **Why is it important?** Help developers apply architecture techniques safely, clearly, and consistently.
-- **Where is it used?** Large systems, latency reduction, scaling, reliability, and senior engineering decisions.
-
-## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review performance optimization code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind performance optimization.
-- Expected outcome: you can use performance optimization in a small project and recognize when it belongs in production code.
-
-## Real World Applications
-- **Industry use cases:** Large systems, latency reduction, scaling, reliability, and senior engineering decisions.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
-
-## Core Concepts
-
-### Mental Model
-- **Definition:** The main idea that gives performance optimization its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Performance Optimization model -> clear code`
-- **Practical example:**
-
-```python
-apply_performance_optimization_label = "Performance Optimization"
-print(apply_performance_optimization_label)
-```
-
-### Execution Flow
-- **Definition:** The ordered steps Python follows when performance optimization code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
-- **Practical example:**
-
-```python
-def countdown(start):
-    while start > 0:
-        yield start
-        start -= 1
-
-print(list(countdown(3)))
-```
-
-### Quality Rule
-- **Definition:** The reliability habit that keeps performance optimization understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
-- **Practical example:**
-
-```python
-def read_batches(rows, size):
-    for index in range(0, len(rows), size):
-        yield rows[index:index + size]
-
-print(list(read_batches([1, 2, 3, 4], 2)))
-```
-
-## Infographic Summary
-
-| Infographic Block | Key Message |
-| --- | --- |
-| 📌 Concept | Performance Optimization belongs to the architecture part of Python mastery. |
-| ⚡ Purpose | Help developers apply architecture techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional architecture decisions. |
-| 🎯 Use Cases | Large systems, latency reduction, scaling, reliability, and senior engineering decisions. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
-
-## Syntax Guide
-
-### Basic Syntax
-
-```python
-def numbers():
-    yield 1
-    yield 2
-```
-
-### Standard Structure
-
-```python
-def apply_performance_optimization(value):
-    """Apply the Performance Optimization concept to one value."""
-    return value
-
-result = apply_performance_optimization("practice")
-print(result)
-```
-
-### Code Pattern
-
-```python
-# 1. Identify the Performance Optimization problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
-```
-
-## Examples
-
-### Beginner Example
-
-```python
-def countdown(start):
-    while start > 0:
-        yield start
-        start -= 1
-
-print(list(countdown(3)))
-```
-
-### Intermediate Example
-
-```python
-def read_batches(rows, size):
-    for index in range(0, len(rows), size):
-        yield rows[index:index + size]
-
-print(list(read_batches([1, 2, 3, 4], 2)))
-```
-
-### Advanced Example
-
-```python
-def pipeline(values):
-    yield from (value * value for value in values if value % 2 == 0)
-
-print(list(pipeline(range(10))))
-```
-
-## Workflow Diagram
-
-```mermaid
-flowchart LR
-    A[Identify Performance Optimization Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
-```
-
-[Back to topic index](#performance-optimization)
-
-
----
-
-# System Design with Python
-
-## Overview
-- **What is it?** System Design with Python is a Python knowledge area focused on architecture.
-- **Why is it important?** Help developers apply architecture techniques safely, clearly, and consistently.
-- **Where is it used?** Large systems, latency reduction, scaling, reliability, and senior engineering decisions.
-
-## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review system design with python code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind system design with python.
-- Expected outcome: you can use system design with python in a small project and recognize when it belongs in production code.
-
-## Real World Applications
-- **Industry use cases:** Large systems, latency reduction, scaling, reliability, and senior engineering decisions.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
-
-## Core Concepts
-
-### Mental Model
-- **Definition:** The main idea that gives system design with python its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> System Design with Python model -> clear code`
-- **Practical example:**
-
-```python
-apply_system_design_with_python_label = "System Design with Python"
-print(apply_system_design_with_python_label)
-```
-
-### Execution Flow
-- **Definition:** The ordered steps Python follows when system design with python code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
-- **Practical example:**
-
-```python
-class Dog:
-    def speak(self):
-        return "woof"
-
-print(Dog().speak())
-```
-
-### Quality Rule
-- **Definition:** The reliability habit that keeps system design with python understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
-- **Practical example:**
-
-```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
-
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
-
-account = Account()
-account.deposit(50)
-print(account.balance)
-```
-
-## Infographic Summary
-
-| Infographic Block | Key Message |
-| --- | --- |
-| 📌 Concept | System Design with Python belongs to the architecture part of Python mastery. |
-| ⚡ Purpose | Help developers apply architecture techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional architecture decisions. |
-| 🎯 Use Cases | Large systems, latency reduction, scaling, reliability, and senior engineering decisions. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
-
-## Syntax Guide
-
-### Basic Syntax
-
-```python
-class Customer:
-    def __init__(self, name):
-        self.name = name
-```
-
-### Standard Structure
-
-```python
-def apply_system_design_with_python(value):
-    """Apply the System Design with Python concept to one value."""
-    return value
-
-result = apply_system_design_with_python("practice")
-print(result)
-```
-
-### Code Pattern
-
-```python
-# 1. Identify the System Design with Python problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
-```
-
-## Examples
-
-### Beginner Example
-
-```python
-class Dog:
-    def speak(self):
-        return "woof"
-
-print(Dog().speak())
-```
-
-### Intermediate Example
-
-```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
-
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
-
-account = Account()
-account.deposit(50)
-print(account.balance)
+from hashlib import sha256
+
+def object_key(body: bytes) -> str:
+    digest = sha256(body).hexdigest()
+    return f"objects/{digest[:2]}/{digest}"
 ```
 
 ### Advanced Example
@@ -15987,28 +16939,1235 @@ print(account.balance)
 from dataclasses import dataclass
 
 @dataclass
-class Order:
-    id: int
-    total: float
+class MemoryObjectStore:
+    objects: dict[str, bytes]
 
-    def is_large(self) -> bool:
-        return self.total >= 1000
+    def put(self, key: str, body: bytes) -> None:
+        self.objects.setdefault(key, body)
 
-print(Order(1, 1200).is_large())
+    def get(self, key: str) -> bytes:
+        return self.objects[key]
+
+store: ObjectStore = MemoryObjectStore({})
+key = object_key(b"immutable payload")
+store.put(key, b"immutable payload")
+assert store.get(key) == b"immutable payload"
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify System Design with Python Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Define SLO and failure domain] --> B[Select managed service contracts]
+    B --> C[Provision identity and network]
+    C --> D[Deploy stateless workload]
+    D --> E[Observe cost and rehearse recovery]
+    E -. feedback .-> A
 ```
 
-[Back to topic index](#system-design-with-python)
+[Back to complete topic index](#complete-topic-index)
 
+---
+
+# AWS with Python
+
+## Overview
+- **What is it?** boto3 is the AWS SDK for Python, exposing service clients and higher-level resources configured through the standard credential and region provider chains.
+- **Why is it important?** Reliable AWS code uses IAM least privilege, pagination, waiters, retries, idempotency, and service-specific error inspection.
+- **Where is it used?** It is used to automate S3, DynamoDB, SQS, Lambda, infrastructure operations, and observability workflows.
+
+## Learning Objectives
+- Create boto3 sessions and clients without embedding credentials.
+- Use paginators, waiters, conditional writes, and SDK error codes.
+- Design idempotent operations with bounded concurrency and auditability.
+
+## Real World Applications
+- Managing versioned objects and lifecycle-aware data in Amazon S3.
+- Publishing queue messages and operating event-driven workers.
+- Automating inventory, tagging, backup, and deployment checks.
+
+## Core Concepts
+
+### Sessions and Credential Resolution
+- **Definition:** A boto3 Session resolves region and short-lived credentials through explicit configuration, profiles, environment, containers, or instance roles.
+- **Visual explanation:** `provider chain → signed request → regional AWS endpoint`
+- **Practical example:**
+
+```python
+import boto3
+
+session = boto3.Session(region_name="us-east-1")
+s3 = session.client("s3")
+print(session.region_name)
+```
+
+### Pagination and Waiters
+- **Definition:** List APIs return bounded pages and continuation tokens; paginators iterate all pages, while waiters poll modeled resource states.
+- **Visual explanation:** `API page + token → paginator → complete stream; create → waiter → ready`
+- **Practical example:**
+
+```python
+import boto3
+
+s3 = boto3.client("s3")
+paginator = s3.get_paginator("list_objects_v2")
+for page in paginator.paginate(Bucket="example-bucket", Prefix="reports/"):
+    for item in page.get("Contents", []):
+        print(item["Key"])
+```
+
+### Errors and Conditional Effects
+- **Definition:** botocore exposes structured service error codes; callers should distinguish expected conflicts and throttling from authorization or validation failures.
+- **Visual explanation:** `ClientError → service code → recover, retry, or fail permanently`
+- **Practical example:**
+
+```python
+import boto3
+from botocore.exceptions import ClientError
+
+table = boto3.resource("dynamodb").Table("jobs")
+try:
+    table.put_item(
+        Item={"job_id": "J-7", "state": "new"},
+        ConditionExpression="attribute_not_exists(job_id)",
+    )
+except ClientError as error:
+    if error.response["Error"]["Code"] != "ConditionalCheckFailedException":
+        raise
+```
+
+## Infographic Summary
+
+| Infographic Block | Topic-specific takeaway |
+| --- | --- |
+| 📌 Concept | boto3 is the AWS SDK for Python, exposing service clients and higher-level resources configured through the standard credential and region provider chains. |
+| ⚡ Purpose | Reliable AWS code uses IAM least privilege, pagination, waiters, retries, idempotency, and service-specific error inspection. |
+| 🔥 Benefits | Builds the ability to create boto3 sessions and clients without embedding credentials; it also helps practitioners use paginators, waiters, conditional writes, and SDK error codes. |
+| 🎯 Use Cases | Managing versioned objects and lifecycle-aware data in Amazon S3. Publishing queue messages and operating event-driven workers. |
+| 🚀 Best Practices | DynamoDB condition expressions make writes concurrency-safe. |
+| ❌ Common Mistakes | Ignoring the guardrail “Never hard-code access keys or assume one API response contains every item”. |
+
+## Syntax Guide
+
+### Basic Syntax
+
+```python
+import boto3
+
+s3 = boto3.client("s3", region_name="us-east-1")
+response = s3.get_object(Bucket="example-bucket", Key="data/report.json")
+body = response["Body"].read()
+```
+
+### Standard Structure
+
+```python
+sqs = boto3.client("sqs")
+result = sqs.send_message(
+    QueueUrl="https://sqs.us-east-1.amazonaws.com/123/jobs",
+    MessageBody='{"job_id":"J-7"}',
+)
+```
+
+### Code Pattern
+
+```python
+from botocore.config import Config
+
+config = Config(
+    retries={"mode": "adaptive", "max_attempts": 5},
+    connect_timeout=2,
+    read_timeout=10,
+)
+client = boto3.client("s3", config=config)
+```
+
+## Examples
+
+### Beginner Example
+
+```python
+import boto3
+
+sts = boto3.client("sts")
+identity = sts.get_caller_identity()
+print(identity["Arn"])
+```
+
+### Intermediate Example
+
+```python
+import json
+import boto3
+
+s3 = boto3.client("s3")
+payload = json.dumps({"status": "ready"}).encode()
+s3.put_object(
+    Bucket="example-bucket",
+    Key="status/current.json",
+    Body=payload,
+    ContentType="application/json",
+)
+```
+
+### Advanced Example
+
+```python
+import boto3
+
+sqs = boto3.client("sqs")
+response = sqs.receive_message(
+    QueueUrl="https://sqs.us-east-1.amazonaws.com/123/jobs",
+    MaxNumberOfMessages=10,
+    WaitTimeSeconds=20,
+    VisibilityTimeout=60,
+)
+for message in response.get("Messages", []):
+    process(message["Body"])
+    sqs.delete_message(
+        QueueUrl="https://sqs.us-east-1.amazonaws.com/123/jobs",
+        ReceiptHandle=message["ReceiptHandle"],
+    )
+```
+
+## Workflow Diagram
+
+```mermaid
+flowchart LR
+    A[Resolve role and region] --> B[Create boto3 client]
+    B --> C[Call paginated/idempotent API]
+    C --> D[Classify service response]
+    D --> E[Wait or emit audit result]
+    E -. feedback .-> A
+```
+
+[Back to complete topic index](#complete-topic-index)
+
+---
+
+# Azure with Python
+
+## Overview
+- **What is it?** Azure SDK for Python packages expose service clients that authenticate through Azure Identity and call Azure data-plane or management-plane APIs.
+- **Why is it important?** Applications should use `DefaultAzureCredential`, explicit resource scopes, async clients when appropriate, paging, long-running-operation pollers, and structured Azure errors.
+- **Where is it used?** It is used with Blob Storage, Service Bus, Key Vault, Cosmos DB, Azure ML, and Resource Manager.
+
+## Learning Objectives
+- Authenticate Azure SDK clients with workload or developer identity.
+- Use Blob Storage paging and upload APIs safely.
+- Handle async clients, pollers, retries, and `azure.core` exceptions.
+
+## Real World Applications
+- Uploading application artifacts and datasets to Azure Blob Storage.
+- Publishing messages and retrieving secrets through managed identity.
+- Automating resource inventory and long-running management operations.
+
+## Core Concepts
+
+### Azure Identity
+- **Definition:** `DefaultAzureCredential` tries a documented chain suitable for local development and hosted workload identity without putting secrets in source.
+- **Visual explanation:** `developer/workload identity → OAuth token → Azure service client`
+- **Practical example:**
+
+```python
+from azure.identity import DefaultAzureCredential
+from azure.storage.blob import BlobServiceClient
+
+credential = DefaultAzureCredential()
+blobs = BlobServiceClient(
+    account_url="https://example.blob.core.windows.net",
+    credential=credential,
+)
+```
+
+### Data-plane Clients and Paging
+- **Definition:** Service clients create resource-scoped clients, and list operations expose pageable iterators that fetch continuation pages lazily.
+- **Visual explanation:** `service client → container client → pageable API → resources`
+- **Practical example:**
+
+```python
+container = blobs.get_container_client("reports")
+for blob in container.list_blobs(name_starts_with="daily/"):
+    print(blob.name, blob.size)
+```
+
+### Pollers and Azure Errors
+- **Definition:** Management and copy operations may return pollers; SDK exceptions carry HTTP status and service details for retry or operator decisions.
+- **Visual explanation:** `begin operation → poll status → result or `HttpResponseError``
+- **Practical example:**
+
+```python
+from azure.core.exceptions import HttpResponseError, ResourceNotFoundError
+
+blob = container.get_blob_client("daily/report.json")
+try:
+    properties = blob.get_blob_properties()
+except ResourceNotFoundError:
+    properties = None
+except HttpResponseError:
+    raise
+```
+
+## Infographic Summary
+
+| Infographic Block | Topic-specific takeaway |
+| --- | --- |
+| 📌 Concept | Azure SDK for Python packages expose service clients that authenticate through Azure Identity and call Azure data-plane or management-plane APIs. |
+| ⚡ Purpose | Applications should use `DefaultAzureCredential`, explicit resource scopes, async clients when appropriate, paging, long-running-operation pollers, and structured Azure errors. |
+| 🔥 Benefits | Builds the ability to authenticate Azure SDK clients with workload or developer identity; it also helps practitioners use Blob Storage paging and upload APIs safely. |
+| 🎯 Use Cases | Uploading application artifacts and datasets to Azure Blob Storage. Publishing messages and retrieving secrets through managed identity. |
+| 🚀 Best Practices | `azure.core.exceptions` distinguishes transport and service failures. |
+| ❌ Common Mistakes | Ignoring the guardrail “Close clients or use context managers to release transports”. |
+
+## Syntax Guide
+
+### Basic Syntax
+
+```python
+from azure.identity import DefaultAzureCredential
+
+credential = DefaultAzureCredential()
+token = credential.get_token("https://storage.azure.com/.default")
+```
+
+### Standard Structure
+
+```python
+blob = blobs.get_blob_client(container="reports", blob="daily/result.json")
+blob.upload_blob(b'{"status":"ready"}', overwrite=True)
+```
+
+### Code Pattern
+
+```python
+from azure.identity.aio import DefaultAzureCredential
+from azure.storage.blob.aio import BlobServiceClient
+
+async def list_names(account_url: str) -> list[str]:
+    async with DefaultAzureCredential() as credential:
+        async with BlobServiceClient(account_url, credential=credential) as service:
+            container = service.get_container_client("reports")
+            return [item.name async for item in container.list_blobs()]
+```
+
+## Examples
+
+### Beginner Example
+
+```python
+from azure.identity import DefaultAzureCredential
+from azure.keyvault.secrets import SecretClient
+
+client = SecretClient(
+    vault_url="https://example.vault.azure.net",
+    credential=DefaultAzureCredential(),
+)
+secret = client.get_secret("database-url")
+```
+
+### Intermediate Example
+
+```python
+from azure.core.exceptions import ResourceExistsError
+
+container = blobs.get_container_client("reports")
+try:
+    container.create_container()
+except ResourceExistsError:
+    pass
+```
+
+### Advanced Example
+
+```python
+from azure.servicebus import ServiceBusClient, ServiceBusMessage
+from azure.identity import DefaultAzureCredential
+
+namespace = "example.servicebus.windows.net"
+with DefaultAzureCredential() as credential:
+    with ServiceBusClient(
+        fully_qualified_namespace=namespace,
+        credential=credential,
+    ) as service_bus:
+        with service_bus.get_queue_sender("jobs") as sender:
+            sender.send_messages(
+                ServiceBusMessage('{"job_id":"J-7"}', message_id="J-7")
+            )
+```
+
+## Workflow Diagram
+
+```mermaid
+flowchart LR
+    A[Resolve Azure identity] --> B[Construct scoped service client]
+    B --> C[Call pageable or begin API]
+    C --> D[Poll/classify Azure response]
+    D --> E[Close transport and record outcome]
+    E -. feedback .-> A
+```
+
+[Back to complete topic index](#complete-topic-index)
+
+---
+
+# GCP with Python
+
+## Overview
+- **What is it?** Google Cloud Python libraries provide idiomatic clients for services such as Cloud Storage, Pub/Sub, BigQuery, and Secret Manager using Application Default Credentials.
+- **Why is it important?** Reliable code uses service accounts or workload identity, project/location configuration, iterators, preconditions, deadlines, and `google.api_core` retry semantics.
+- **Where is it used?** It is used for object storage, analytics, messaging, AI platforms, and cloud operations.
+
+## Learning Objectives
+- Authenticate google-cloud clients with Application Default Credentials.
+- Use Cloud Storage generations and Pub/Sub acknowledgements safely.
+- Configure timeouts, retries, paging, and structured Google API errors.
+
+## Real World Applications
+- Uploading versioned data and artifacts to Cloud Storage.
+- Publishing and consuming messages through Pub/Sub.
+- Submitting BigQuery jobs and automating cloud resource workflows.
+
+## Core Concepts
+
+### Application Default Credentials
+- **Definition:** ADC searches the runtime's supported identity sources and scopes tokens for a client, avoiding embedded service-account keys.
+- **Visual explanation:** `developer/workload identity → ADC token → google-cloud client`
+- **Practical example:**
+
+```python
+import google.auth
+from google.cloud import storage
+
+credentials, project = google.auth.default()
+client = storage.Client(project=project, credentials=credentials)
+```
+
+### Object Generations and Preconditions
+- **Definition:** Cloud Storage assigns a generation to each object version; generation-match preconditions prevent lost updates and make retries safe.
+- **Visual explanation:** `read generation → conditional write → new immutable generation`
+- **Practical example:**
+
+```python
+from google.cloud import storage
+
+client = storage.Client()
+blob = client.bucket("example-bucket").blob("reports/current.json")
+blob.upload_from_string(
+    '{"status":"ready"}',
+    content_type="application/json",
+    if_generation_match=0,
+    timeout=30,
+)
+```
+
+### Pub/Sub Delivery
+- **Definition:** Pub/Sub subscribers receive messages at least once and acknowledge only after an idempotent handler durably completes.
+- **Visual explanation:** `publisher → topic/subscription → handler → durable effect → ack`
+- **Practical example:**
+
+```python
+from google.cloud import pubsub_v1
+
+subscriber = pubsub_v1.SubscriberClient()
+
+def callback(message: pubsub_v1.subscriber.message.Message) -> None:
+    handle(message.message_id, message.data)
+    message.ack()
+```
+
+## Infographic Summary
+
+| Infographic Block | Topic-specific takeaway |
+| --- | --- |
+| 📌 Concept | Google Cloud Python libraries provide idiomatic clients for services such as Cloud Storage, Pub/Sub, BigQuery, and Secret Manager using Application Default Credentials. |
+| ⚡ Purpose | Reliable code uses service accounts or workload identity, project/location configuration, iterators, preconditions, deadlines, and `google.api_core` retry semantics. |
+| 🔥 Benefits | Builds the ability to authenticate google-cloud clients with Application Default Credentials; it also helps practitioners use Cloud Storage generations and Pub/Sub acknowledgements safely. |
+| 🎯 Use Cases | Uploading versioned data and artifacts to Cloud Storage. Publishing and consuming messages through Pub/Sub. |
+| 🚀 Best Practices | `google.api_core.retry.Retry` targets selected transient exceptions. |
+| ❌ Common Mistakes | Ignoring the guardrail “Avoid downloadable service-account keys for hosted workloads”. |
+
+## Syntax Guide
+
+### Basic Syntax
+
+```python
+from google.cloud import storage
+
+client = storage.Client()
+bucket = client.bucket("example-bucket")
+names = [blob.name for blob in client.list_blobs(bucket, prefix="daily/")]
+```
+
+### Standard Structure
+
+```python
+from google.cloud import pubsub_v1
+
+publisher = pubsub_v1.PublisherClient()
+topic = publisher.topic_path("example-project", "jobs")
+future = publisher.publish(topic, b'{"job_id":"J-7"}', schema="v1")
+message_id = future.result(timeout=10)
+```
+
+### Code Pattern
+
+```python
+from google.api_core import retry
+from google.api_core.exceptions import ServiceUnavailable
+
+transient_retry = retry.Retry(
+    predicate=retry.if_exception_type(ServiceUnavailable),
+    deadline=30,
+)
+```
+
+## Examples
+
+### Beginner Example
+
+```python
+from google.cloud import storage
+
+client = storage.Client()
+for bucket in client.list_buckets(page_size=20):
+    print(bucket.name)
+```
+
+### Intermediate Example
+
+```python
+from google.cloud import bigquery
+
+client = bigquery.Client()
+job = client.query(
+    "SELECT word, word_count FROM `bigquery-public-data.samples.shakespeare` "
+    "ORDER BY word_count DESC LIMIT 5"
+)
+for row in job.result(timeout=60):
+    print(row.word, row.word_count)
+```
+
+### Advanced Example
+
+```python
+from google.cloud import pubsub_v1
+
+subscriber = pubsub_v1.SubscriberClient()
+path = subscriber.subscription_path("example-project", "jobs-subscription")
+streaming_pull = subscriber.subscribe(path, callback=callback)
+try:
+    streaming_pull.result(timeout=60)
+except TimeoutError:
+    streaming_pull.cancel()
+    streaming_pull.result()
+```
+
+## Workflow Diagram
+
+```mermaid
+flowchart LR
+    A[Resolve ADC and project] --> B[Create google-cloud client]
+    B --> C[Call conditional/paged API]
+    C --> D[Await operation or acknowledge message]
+    D --> E[Record result and close clients]
+    E -. feedback .-> A
+```
+
+[Back to complete topic index](#complete-topic-index)
+
+---
+
+# DevOps Automation
+
+## Overview
+- **What is it?** DevOps automation turns build, infrastructure, release, and operational procedures into versioned, repeatable, observable workflows.
+- **Why is it important?** Safe automation is idempotent, least-privileged, reviewable, bounded by timeouts, and able to report partial failure without hiding it.
+- **Where is it used?** It supports environment checks, release orchestration, configuration generation, fleet inventory, and incident runbooks.
+
+## Learning Objectives
+- Implement safe filesystem and subprocess operations with explicit plans.
+- Make automation idempotent, resumable, and structured for CI or operators.
+- Add dry-run, audit events, concurrency bounds, and rollback criteria.
+
+## Real World Applications
+- Validating repositories and packaging release artifacts.
+- Generating configuration from typed inputs without embedding secrets.
+- Executing approved maintenance across a bounded host or service inventory.
+
+## Core Concepts
+
+### Desired State and Idempotency
+- **Definition:** Automation should compare observed state with desired state and change only the difference, so repeating a successful run converges.
+- **Visual explanation:** `desired state + observed state → plan delta → apply → verify`
+- **Practical example:**
+
+```python
+from pathlib import Path
+
+def ensure_text(path: Path, desired: str, dry_run: bool = False) -> bool:
+    current = path.read_text() if path.exists() else None
+    if current == desired:
+        return False
+    if not dry_run:
+        path.write_text(desired)
+    return True
+```
+
+### Bounded Command Execution
+- **Definition:** Commands use explicit argument vectors, known working directories, scrubbed environments, checked status, captured evidence, and deadlines.
+- **Visual explanation:** `validated argv/env → subprocess → status/stdout/stderr → structured result`
+- **Practical example:**
+
+```python
+import subprocess
+
+def run_check(arguments: list[str]) -> str:
+    result = subprocess.run(
+        arguments,
+        check=True,
+        capture_output=True,
+        text=True,
+        timeout=120,
+    )
+    return result.stdout
+```
+
+### Plans, Rollouts, and Verification
+- **Definition:** High-impact automation separates planning from application, limits blast radius in batches, verifies health, and stops before expanding a failed rollout.
+- **Visual explanation:** `inventory → plan → canary batch → health gate → progressive rollout`
+- **Practical example:**
+
+```python
+from collections.abc import Callable
+
+def rollout(targets: list[str], deploy: Callable[[str], None], healthy: Callable[[str], bool]) -> None:
+    for target in targets:
+        deploy(target)
+        if not healthy(target):
+            raise RuntimeError(f"health gate failed: {target}")
+```
+
+## Infographic Summary
+
+| Infographic Block | Topic-specific takeaway |
+| --- | --- |
+| 📌 Concept | DevOps automation turns build, infrastructure, release, and operational procedures into versioned, repeatable, observable workflows. |
+| ⚡ Purpose | Safe automation is idempotent, least-privileged, reviewable, bounded by timeouts, and able to report partial failure without hiding it. |
+| 🔥 Benefits | Builds the ability to implement safe filesystem and subprocess operations with explicit plans; it also helps practitioners make automation idempotent, resumable, and structured for CI or operators. |
+| 🎯 Use Cases | Validating repositories and packaging release artifacts. Generating configuration from typed inputs without embedding secrets. |
+| 🚀 Best Practices | Structured logs connect target, change, actor, duration, and result. |
+| ❌ Common Mistakes | Ignoring the guardrail “Never use `shell=True` with untrusted or interpolated input”. |
+
+## Syntax Guide
+
+### Basic Syntax
+
+```python
+from pathlib import Path
+
+files = sorted(Path("config").glob("*.toml"))
+```
+
+### Standard Structure
+
+```python
+import subprocess
+
+revision = subprocess.run(
+    ["git", "rev-parse", "--verify", "HEAD"],
+    check=True,
+    capture_output=True,
+    text=True,
+    timeout=10,
+).stdout.strip()
+```
+
+### Code Pattern
+
+```python
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class Change:
+    target: str
+    before: str | None
+    after: str
+```
+
+## Examples
+
+### Beginner Example
+
+```python
+from pathlib import Path
+
+changed = ensure_text(Path("service.conf"), "workers=4\n", dry_run=True)
+print({"would_change": changed})
+```
+
+### Intermediate Example
+
+```python
+import json
+from pathlib import Path
+
+def write_json(path: Path, payload: dict) -> None:
+    temporary = path.with_suffix(path.suffix + ".tmp")
+    temporary.write_text(json.dumps(payload, indent=2) + "\n")
+    temporary.replace(path)
+```
+
+### Advanced Example
+
+```python
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
+def bounded_checks(targets: list[str], check) -> dict[str, bool]:
+    results = {}
+    with ThreadPoolExecutor(max_workers=8) as executor:
+        futures = {executor.submit(check, target): target for target in targets}
+        for future in as_completed(futures):
+            target = futures[future]
+            try:
+                results[target] = bool(future.result())
+            except Exception:
+                results[target] = False
+    return results
+```
+
+## Workflow Diagram
+
+```mermaid
+flowchart LR
+    A[Discover observed state] --> B[Build reviewable change plan]
+    B --> C[Dry-run and approve]
+    C --> D[Apply canary with bounds]
+    D --> E[Verify health and continue or stop]
+    E -. feedback .-> A
+```
+
+[Back to complete topic index](#complete-topic-index)
+
+---
+
+# CI/CD Pipelines
+
+## Overview
+- **What is it?** Continuous integration validates every change in a clean environment, while continuous delivery builds, secures, and promotes one immutable artifact through controlled environments.
+- **Why is it important?** A trustworthy pipeline is reproducible, least-privileged, cache-aware, observable, and protected by required checks and deployment approvals.
+- **Where is it used?** It supports automated tests, artifact publication, supply-chain evidence, progressive deployment, and rollback.
+
+## Learning Objectives
+- Design CI stages for deterministic install, lint, test, build, and scan.
+- Use YAML workflows with pinned permissions, matrices, caches, and artifacts.
+- Promote one artifact by digest through gated deployment and verification.
+
+## Real World Applications
+- Validating Python versions and dependency compatibility on pull requests.
+- Building and signing container or package artifacts once.
+- Deploying to staging and production with approvals and health gates.
+
+## Core Concepts
+
+### Clean Reproducible CI
+- **Definition:** Each CI job starts from declared source, runtime, and locked dependencies so results do not depend on a developer machine.
+- **Visual explanation:** `commit + lockfile + runner image → checks → immutable evidence`
+- **Practical example:**
+
+```python
+from pathlib import Path
+
+required = ["pyproject.toml", "requirements.lock"]
+missing = [name for name in required if not Path(name).exists()]
+if missing:
+    raise SystemExit(f"missing reproducibility inputs: {missing}")
+```
+
+### Artifact Promotion
+- **Definition:** A build creates one content-addressed artifact; later stages verify and promote that same digest instead of rebuilding environment-specific variants.
+- **Visual explanation:** `commit → build/test/scan → artifact digest → stage → production`
+- **Practical example:**
+
+```python
+from hashlib import sha256
+from pathlib import Path
+
+artifact = Path("dist/application.whl")
+digest = sha256(artifact.read_bytes()).hexdigest()
+print(f"sha256:{digest}")
+```
+
+### Deployment Safety
+- **Definition:** Protected environments, least-privilege identity, concurrency controls, health checks, and rollback thresholds turn deployment into a bounded experiment.
+- **Visual explanation:** `approval → canary → health/SLO gate → expand or rollback`
+- **Practical example:**
+
+```python
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class HealthGate:
+    maximum_error_rate: float
+    maximum_p95_ms: int
+
+    def passes(self, error_rate: float, p95_ms: int) -> bool:
+        return error_rate <= self.maximum_error_rate and p95_ms <= self.maximum_p95_ms
+```
+
+## Infographic Summary
+
+| Infographic Block | Topic-specific takeaway |
+| --- | --- |
+| 📌 Concept | Continuous integration validates every change in a clean environment, while continuous delivery builds, secures, and promotes one immutable artifact through controlled environments. |
+| ⚡ Purpose | A trustworthy pipeline is reproducible, least-privileged, cache-aware, observable, and protected by required checks and deployment approvals. |
+| 🔥 Benefits | Builds the ability to design CI stages for deterministic install, lint, test, build, and scan; it also helps practitioners use YAML workflows with pinned permissions, matrices, caches, and artifacts. |
+| 🎯 Use Cases | Validating Python versions and dependency compatibility on pull requests. Building and signing container or package artifacts once. |
+| 🚀 Best Practices | Environment approvals and concurrency serialize risky deployments. |
+| ❌ Common Mistakes | Ignoring the guardrail “Do not rebuild between staging and production”. |
+
+## Syntax Guide
+
+### Basic Syntax
+
+```python
+import os
+
+commit = os.environ.get("GITHUB_SHA", "local")
+run_id = os.environ.get("GITHUB_RUN_ID", "manual")
+```
+
+### Standard Structure
+
+```python
+from pathlib import Path
+
+artifacts = sorted(Path("dist").glob("*"))
+if not artifacts:
+    raise SystemExit("build produced no artifacts")
+```
+
+### Code Pattern
+
+```python
+import json
+from pathlib import Path
+
+evidence = {"commit": commit, "run_id": run_id, "artifacts": [p.name for p in artifacts]}
+Path("build-evidence.json").write_text(json.dumps(evidence, indent=2))
+```
+
+#### Deployment Artifact
+
+```yaml
+name: ci
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+      - run: python -m pip install -r requirements.lock
+      - run: python -m pytest -q
+```
+
+## Examples
+
+### Beginner Example
+
+```python
+import subprocess
+
+subprocess.run(["python", "-m", "pytest", "-q"], check=True, timeout=600)
+```
+
+### Intermediate Example
+
+```python
+import subprocess
+from pathlib import Path
+
+subprocess.run(["python", "-m", "build"], check=True, timeout=600)
+distributions = [str(path) for path in Path("dist").iterdir()]
+subprocess.run(
+    ["python", "-m", "twine", "check", *distributions],
+    check=True,
+    timeout=120,
+)
+```
+
+### Advanced Example
+
+```python
+gate = HealthGate(maximum_error_rate=0.01, maximum_p95_ms=300)
+measurements = {"error_rate": 0.004, "p95_ms": 180}
+if not gate.passes(**measurements):
+    raise SystemExit("rollback: canary health gate failed")
+print("promote canary")
+```
+
+## Workflow Diagram
+
+```mermaid
+flowchart LR
+    A[Checkout immutable commit] --> B[Install and run CI checks]
+    B --> C[Build/scan/sign artifact]
+    C --> D[Deploy canary by digest]
+    D --> E[Promote or rollback from health gate]
+    E -. feedback .-> A
+```
+
+[Back to complete topic index](#complete-topic-index)
+
+---
+
+# Performance Optimization
+
+## Overview
+- **What is it?** Performance optimization is an evidence-driven process: define a user-visible target, profile the real workload, fix the dominant bottleneck, and verify the trade-off.
+- **Why is it important?** Python offers wall-clock timing, deterministic and sampling CPU profilers, allocation tracing, benchmark tools, and optimized built-ins.
+- **Where is it used?** It is used to reduce latency, increase throughput, lower memory and compute cost, and protect service-level objectives.
+
+## Learning Objectives
+- Establish representative baselines and profile before changing code.
+- Interpret CPU, wall-time, allocation, and I/O evidence correctly.
+- Apply algorithmic, data-structure, batching, caching, and vectorization improvements.
+
+## Real World Applications
+- Finding hot functions in request, batch, and data-processing workloads.
+- Reducing allocation pressure and peak memory in long-lived processes.
+- Comparing an optimization against regression-safe benchmarks.
+
+## Core Concepts
+
+### Baseline Before Optimization
+- **Definition:** A baseline records representative inputs, environment, warm-up, latency distribution, throughput, and resource use before any optimization.
+- **Visual explanation:** `performance goal → reproducible workload → baseline distribution`
+- **Practical example:**
+
+```python
+from timeit import repeat
+
+samples = repeat(
+    "sum(range(10_000))",
+    repeat=7,
+    number=1_000,
+)
+print(min(samples), sorted(samples)[len(samples) // 2])
+```
+
+### Profile the Bottleneck
+- **Definition:** `cProfile` attributes deterministic call time and `tracemalloc` attributes Python allocations; both guide investigation but add measurement overhead.
+- **Visual explanation:** `representative run → CPU/allocation profile → dominant call site`
+- **Practical example:**
+
+```python
+import cProfile
+import pstats
+
+profiler = cProfile.Profile()
+profiler.enable()
+result = sum(value * value for value in range(100_000))
+profiler.disable()
+pstats.Stats(profiler).sort_stats("cumulative").print_stats(5)
+```
+
+### Optimize and Re-verify
+- **Definition:** Prefer algorithmic improvements and less work before micro-optimizations, then rerun correctness tests and the same benchmark to detect regressions.
+- **Visual explanation:** `profile hotspot → change one cause → correctness → benchmark comparison`
+- **Practical example:**
+
+```python
+def repeated_membership(items: list[int], queries: list[int]) -> list[bool]:
+    index = set(items)
+    return [query in index for query in queries]
+
+assert repeated_membership([1, 2, 3], [2, 4]) == [True, False]
+```
+
+## Infographic Summary
+
+| Infographic Block | Topic-specific takeaway |
+| --- | --- |
+| 📌 Concept | Performance optimization is an evidence-driven process: define a user-visible target, profile the real workload, fix the dominant bottleneck, and verify the trade-off. |
+| ⚡ Purpose | Python offers wall-clock timing, deterministic and sampling CPU profilers, allocation tracing, benchmark tools, and optimized built-ins. |
+| 🔥 Benefits | Builds the ability to establish representative baselines and profile before changing code; it also helps practitioners interpret CPU, wall-time, allocation, and I/O evidence correctly. |
+| 🎯 Use Cases | Finding hot functions in request, batch, and data-processing workloads. Reducing allocation pressure and peak memory in long-lived processes. |
+| 🚀 Best Practices | Verify correctness and benchmark against the same baseline. |
+| ❌ Common Mistakes | Ignoring the guardrail “Reject optimizations that shift cost beyond the actual SLO”. |
+
+## Syntax Guide
+
+### Basic Syntax
+
+```python
+from time import perf_counter
+
+started = perf_counter()
+result = sum(range(1_000_000))
+elapsed = perf_counter() - started
+```
+
+### Standard Structure
+
+```python
+import cProfile
+
+cProfile.run("sum(range(1_000_000))", sort="cumulative")
+```
+
+### Code Pattern
+
+```python
+import tracemalloc
+
+tracemalloc.start()
+before = tracemalloc.take_snapshot()
+values = [str(number) for number in range(10_000)]
+after = tracemalloc.take_snapshot()
+changes = after.compare_to(before, "lineno")
+tracemalloc.stop()
+```
+
+## Examples
+
+### Beginner Example
+
+```python
+from timeit import timeit
+
+duration = timeit("'-'.join(['a', 'b', 'c'])", number=100_000)
+print(duration)
+```
+
+### Intermediate Example
+
+```python
+def duplicate_pairs_slow(values: list[int]) -> int:
+    return sum(left == right for i, left in enumerate(values) for right in values[i + 1:])
+
+def duplicate_pairs(values: list[int]) -> int:
+    from collections import Counter
+
+    return sum(count * (count - 1) // 2 for count in Counter(values).values())
+
+assert duplicate_pairs_slow([1, 2, 1, 1]) == duplicate_pairs([1, 2, 1, 1])
+```
+
+### Advanced Example
+
+```python
+from functools import lru_cache
+from timeit import repeat
+
+@lru_cache(maxsize=1_024)
+def parse_rule(text: str) -> tuple[str, str]:
+    key, separator, value = text.partition("=")
+    if not separator:
+        raise ValueError("rule requires '='")
+    return key.strip(), value.strip()
+
+baseline = min(repeat(lambda: parse_rule("mode = safe"), repeat=5, number=10_000))
+print(parse_rule.cache_info(), baseline)
+```
+
+## Workflow Diagram
+
+```mermaid
+flowchart LR
+    A[Define SLO and workload] --> B[Capture baseline]
+    B --> C[Profile CPU/I/O/memory]
+    C --> D[Change dominant bottleneck]
+    D --> E[Test and benchmark again]
+    E -. feedback .-> A
+```
+
+[Back to complete topic index](#complete-topic-index)
+
+---
+
+# System Design with Python
+
+## Overview
+- **What is it?** System design translates functional requirements and service-level objectives into components, data flows, capacity assumptions, consistency rules, and failure handling.
+- **Why is it important?** Python is well suited to orchestration and service logic, but architecture must account for runtime concurrency, deployment topology, storage semantics, and operational feedback.
+- **Where is it used?** It is used for scalable APIs, job platforms, event systems, data products, and senior engineering design decisions.
+
+## Learning Objectives
+- Turn requirements into capacity estimates, interfaces, and data models.
+- Choose caching, partitioning, queues, consistency, and resilience deliberately.
+- Design observability, overload behavior, migration, and recovery before launch.
+
+## Real World Applications
+- Designing read-heavy content services with bounded stale caching.
+- Building asynchronous job systems with idempotent execution.
+- Scaling stateful data while preserving ownership and recovery guarantees.
+
+## Core Concepts
+
+### Requirements and Capacity
+- **Definition:** A design begins with workload shape, latency and availability targets, data volume, growth, read/write ratio, object size, and retention.
+- **Visual explanation:** `requirements + estimates → bottlenecks → component budget`
+- **Practical example:**
+
+```python
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class Workload:
+    requests_per_second: int
+    average_payload_bytes: int
+
+    @property
+    def ingress_bytes_per_second(self) -> int:
+        return self.requests_per_second * self.average_payload_bytes
+```
+
+### State, Caching, and Partitioning
+- **Definition:** Caches trade freshness for latency and load, while partitioning distributes authoritative state by a stable key and requires rebalancing strategy.
+- **Visual explanation:** `request → cache → owner partition → replicated durable state`
+- **Practical example:**
+
+```python
+from hashlib import blake2b
+
+def shard_for(key: str, shard_count: int) -> int:
+    if shard_count < 1:
+        raise ValueError("shard_count must be positive")
+    digest = blake2b(key.encode(), digest_size=8).digest()
+    return int.from_bytes(digest, "big") % shard_count
+```
+
+### Overload and Failure Design
+- **Definition:** A resilient system bounds queues and concurrency, applies deadlines, sheds excess work, makes retries idempotent, and degrades noncritical features.
+- **Visual explanation:** `admission control → bounded work → dependency budgets → fallback or result`
+- **Practical example:**
+
+```python
+from asyncio import Semaphore
+
+class AdmissionController:
+    def __init__(self, capacity: int) -> None:
+        self._slots = Semaphore(capacity)
+
+    async def run(self, operation):
+        async with self._slots:
+            return await operation()
+```
+
+## Infographic Summary
+
+| Infographic Block | Topic-specific takeaway |
+| --- | --- |
+| 📌 Concept | System design translates functional requirements and service-level objectives into components, data flows, capacity assumptions, consistency rules, and failure handling. |
+| ⚡ Purpose | Python is well suited to orchestration and service logic, but architecture must account for runtime concurrency, deployment topology, storage semantics, and operational feedback. |
+| 🔥 Benefits | Builds the ability to turn requirements into capacity estimates, interfaces, and data models; it also helps practitioners choose caching, partitioning, queues, consistency, and resilience deliberately. |
+| 🎯 Use Cases | Designing read-heavy content services with bounded stale caching. Building asynchronous job systems with idempotent execution. |
+| 🚀 Best Practices | Partitioning needs stable ownership, rebalancing, and hotspot policy. |
+| ❌ Common Mistakes | Ignoring the guardrail “Document failure modes, recovery objectives, and migration paths”. |
+
+## Syntax Guide
+
+### Basic Syntax
+
+```python
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class SLO:
+    availability: float
+    p95_latency_ms: int
+```
+
+### Standard Structure
+
+```python
+def cache_key(namespace: str, version: int, identifier: str) -> str:
+    return f"{namespace}:v{version}:{identifier}"
+```
+
+### Code Pattern
+
+```python
+from collections import deque
+
+class BoundedBuffer:
+    def __init__(self, capacity: int) -> None:
+        self._items = deque(maxlen=capacity)
+
+    def offer(self, item: object) -> bool:
+        if len(self._items) == self._items.maxlen:
+            return False
+        self._items.append(item)
+        return True
+```
+
+## Examples
+
+### Beginner Example
+
+```python
+workload = Workload(requests_per_second=2_000, average_payload_bytes=4_096)
+print(workload.ingress_bytes_per_second)
+```
+
+### Intermediate Example
+
+```python
+users = ["user-a", "user-b", "user-c"]
+assignments = {user: shard_for(user, shard_count=16) for user in users}
+print(assignments)
+```
+
+### Advanced Example
+
+```python
+from dataclasses import dataclass
+from time import monotonic
+
+@dataclass
+class CacheEntry:
+    value: object
+    expires_at: float
+
+class TTLCache:
+    def __init__(self) -> None:
+        self._entries: dict[str, CacheEntry] = {}
+
+    def get(self, key: str) -> object | None:
+        entry = self._entries.get(key)
+        if entry is None or entry.expires_at <= monotonic():
+            self._entries.pop(key, None)
+            return None
+        return entry.value
+
+    def put(self, key: str, value: object, ttl: float) -> None:
+        self._entries[key] = CacheEntry(value, monotonic() + ttl)
+```
+
+## Workflow Diagram
+
+```mermaid
+flowchart LR
+    A[Define requirements and SLO] --> B[Estimate capacity and data growth]
+    B --> C[Choose state and communication]
+    C --> D[Design overload and failure recovery]
+    D --> E[Validate with tests and telemetry]
+    E -. feedback .-> A
+```
+
+[Back to complete topic index](#complete-topic-index)
 
 ---
 

@@ -5,95 +5,101 @@
 # Pytest
 
 ## Overview
-- **What is it?** Pytest is a Python knowledge area focused on delivery quality.
-- **Why is it important?** Help developers apply delivery quality techniques safely, clearly, and consistently.
-- **Where is it used?** Reliable releases, automation tools, reusable packages, and developer productivity.
+- **What is it?** Pytest is the intermediate Python topic of writing concise tests with pytest assertions, fixtures, and parametrization.
+- **Why is it important?** pytest uses plain test functions, assertion rewriting, composable fixtures, and a rich plugin ecosystem.
+- **Where is it used?** modern application suites, integration test fixtures, data-driven testing.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review pytest code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind pytest.
-- Expected outcome: you can use pytest in a small project and recognize when it belongs in production code.
+- Write plain assert tests.
+- Build scoped fixtures with cleanup.
+- Parametrize cases and use pytest.raises.
 
 ## Real World Applications
-- **Industry use cases:** Reliable releases, automation tools, reusable packages, and developer productivity.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Modern application suites rely on this topic.
+- **Product work:** It supports integration test fixtures.
+- **Operations:** It appears in data-driven testing.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives pytest its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Pytest model -> clear code`
+### Assertion rewriting
+- **Definition:** pytest rewrites assert statements during collection to show evaluated subexpressions on failure.
+- **Visual explanation:** ``plain assert expression -> detailed failure explanation``
 - **Practical example:**
 
 ```python
-apply_pytest_label = "Pytest"
-print(apply_pytest_label)
+def test_total():
+    assert sum([2, 3]) == 5
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when pytest code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
-- **Practical example:**
-
-```python
-def increment(value):
-    return value + 1
-
-def test_increment():
-    assert increment(2) == 3
-```
-
-### Quality Rule
-- **Definition:** The reliability habit that keeps pytest understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Fixtures
+- **Definition:** A fixture declares reusable setup by dependency name; yield fixtures run teardown after consumers finish.
+- **Visual explanation:** ``test parameter -> fixture setup -> test -> teardown``
 - **Practical example:**
 
 ```python
 import pytest
 
-@pytest.mark.parametrize("raw,expected", [("1", 1), ("2", 2)])
-def test_parse_int(raw, expected):
-    assert int(raw) == expected
+@pytest.fixture
+def records():
+    return [{"id": 1}]
+```
+
+### Parametrization
+- **Definition:** parametrize collects one test case per argument set, keeping behavior and edge cases visible.
+- **Visual explanation:** ``one test function x case table -> many test items``
+- **Practical example:**
+
+```python
+import pytest
+
+@pytest.mark.parametrize("value", [1, 2, 3])
+def test_positive(value):
+    assert value > 0
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Pytest belongs to the delivery quality part of Python mastery. |
-| ⚡ Purpose | Help developers apply delivery quality techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional delivery quality decisions. |
-| 🎯 Use Cases | Reliable releases, automation tools, reusable packages, and developer productivity. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Assertion rewriting, Fixtures, Parametrization |
+| ⚡ Purpose | pytest uses plain test functions, assertion rewriting, composable fixtures, and a rich plugin ecosystem. |
+| 🔥 Benefits | Concise assertions, composable setup, and scalable data-driven test coverage. |
+| 🎯 Use Cases | modern application suites, integration test fixtures, data-driven testing |
+| 🚀 Best Practices | Keep fixture scope narrow and assert outcomes rather than implementation sequence. |
+| ❌ Common Mistakes | Turning fixtures into hidden, autouse-heavy global setup. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-def test_total():
-    assert sum([1, 2]) == 3
+def test_slugify():
+    assert slugify("Hello World") == "hello-world"
 ```
 
 ### Standard Structure
 
 ```python
-def apply_pytest(value):
-    """Apply the Pytest concept to one value."""
-    return value
+import pytest
 
-result = apply_pytest("practice")
-print(result)
+@pytest.fixture
+def repository():
+    repo = Repository()
+    yield repo
+    repo.close()
+
+def test_save(repository):
+    repository.save("item")
+    assert repository.count() == 1
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Pytest problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# pytest collects test_* functions.
+# Fixture names declare setup dependencies.
+# Plain assert states expected behavior.
+# yield fixture performs guaranteed teardown.
 ```
 
 ## Examples
@@ -101,11 +107,11 @@ print(result)
 ### Beginner Example
 
 ```python
-def increment(value):
-    return value + 1
+def add_tax(amount: float, rate: float) -> float:
+    return amount * (1 + rate)
 
-def test_increment():
-    assert increment(2) == 3
+def test_add_tax():
+    assert add_tax(100, 0.2) == 120
 ```
 
 ### Intermediate Example
@@ -113,9 +119,22 @@ def test_increment():
 ```python
 import pytest
 
-@pytest.mark.parametrize("raw,expected", [("1", 1), ("2", 2)])
-def test_parse_int(raw, expected):
-    assert int(raw) == expected
+def parse_port(text: str) -> int:
+    port = int(text)
+    if not 1 <= port <= 65535:
+        raise ValueError("port out of range")
+    return port
+
+@pytest.mark.parametrize(
+    ("text", "expected"),
+    [("80", 80), ("443", 443), ("8080", 8080)],
+)
+def test_parse_port(text, expected):
+    assert parse_port(text) == expected
+
+def test_parse_port_rejects_out_of_range():
+    with pytest.raises(ValueError, match="out of range"):
+        parse_port("70000")
 ```
 
 ### Advanced Example
@@ -123,26 +142,37 @@ def test_parse_int(raw, expected):
 ```python
 import pytest
 
-@pytest.fixture
-def user():
-    return {"role": "admin"}
+class MemoryRepository:
+    def __init__(self):
+        self.items = []
 
-def test_user_role(user):
-    assert user["role"] == "admin"
+    def close(self):
+        self.closed = True
+
+@pytest.fixture
+def repository():
+    value = MemoryRepository()
+    yield value
+    value.close()
+
+@pytest.fixture
+def populated_repository(repository):
+    repository.items.extend(["alpha", "beta"])
+    return repository
+
+def test_repository_starts_populated(populated_repository):
+    assert populated_repository.items == ["alpha", "beta"]
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Pytest Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Collect test functions] --> B[Resolve fixture graph]
+    B --> C[Run fixture setup]
+    C --> D[Execute plain assertions]
+    D --> E[Finalize fixtures and report]
 ```
-
-
----
 
 ---
 

@@ -5,94 +5,105 @@
 # Network Programming
 
 ## Overview
-- **What is it?** Network Programming is a Python knowledge area focused on systems automation.
-- **Why is it important?** Help developers apply systems automation techniques safely, clearly, and consistently.
-- **Where is it used?** Network services, security operations, scraping pipelines, and orchestration.
+- **What is it?** Network programming designs application protocols over transports, including framing, addressing, name resolution, encoding, security, and failure handling.
+- **Why is it important?** Production clients must treat payloads as untrusted bytes and make connection, read, retry, and protocol limits explicit.
+- **Where is it used?** It powers API clients, service discovery, telemetry agents, proxies, and custom binary protocols.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review network programming code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind network programming.
-- Expected outcome: you can use network programming in a small project and recognize when it belongs in production code.
+- Distinguish application protocols from TCP, UDP, DNS, and TLS transport concerns.
+- Encode, frame, validate, and parse messages incrementally.
+- Apply deadlines, size limits, and error classification at network boundaries.
 
 ## Real World Applications
-- **Industry use cases:** Network services, security operations, scraping pipelines, and orchestration.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- HTTP integrations, DNS-aware clients, telemetry collectors, and service agents.
+- Length-prefixed or delimiter-based protocols for internal devices and services.
+- Securely parsing remote data while preserving protocol compatibility.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives network programming its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Network Programming model -> clear code`
+### Layered Protocols
+- **Definition:** Applications define message semantics above transports; TCP supplies an ordered byte stream, while UDP supplies independent datagrams without delivery guarantees.
+- **Visual explanation:** `application message → TLS → TCP/UDP → IP → network`
 - **Practical example:**
 
 ```python
-apply_network_programming_label = "Network Programming"
-print(apply_network_programming_label)
+from urllib.parse import urlsplit
+
+endpoint = urlsplit("https://api.example.com:8443/v1/items")
+print(endpoint.scheme, endpoint.hostname, endpoint.port, endpoint.path)
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when network programming code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Framing and Encoding
+- **Definition:** A stream has no message boundaries, so protocols need length prefixes, delimiters with escaping, or a self-delimiting format plus explicit encoding.
+- **Visual explanation:** `Python object → serialized bytes → frame boundary → byte stream`
 - **Practical example:**
 
 ```python
-import requests
+import json
+import struct
 
-response = requests.get("https://example.com", timeout=10)
-print(response.status_code)
+payload = json.dumps({"event": "ready"}).encode("utf-8")
+frame = struct.pack("!I", len(payload)) + payload
+declared_size = struct.unpack("!I", frame[:4])[0]
+assert frame[4:4 + declared_size] == payload
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps network programming understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Defensive Protocol Parsing
+- **Definition:** Parsers must cap lengths, reject malformed encodings, and separate retryable transport failures from permanent protocol errors.
+- **Visual explanation:** `bytes → length/encoding validation → schema validation → domain message`
 - **Practical example:**
 
 ```python
-import requests
+import json
 
-with requests.Session() as session:
-    response = session.get("https://api.github.com", timeout=10)
-    print(response.headers.get("content-type"))
+def decode_message(payload: bytes, limit: int = 65_536) -> dict[str, object]:
+    if len(payload) > limit:
+        raise ValueError("message too large")
+    value = json.loads(payload.decode("utf-8", errors="strict"))
+    if not isinstance(value, dict):
+        raise TypeError("object message required")
+    return value
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | Network Programming belongs to the systems automation part of Python mastery. |
-| ⚡ Purpose | Help developers apply systems automation techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional systems automation decisions. |
-| 🎯 Use Cases | Network services, security operations, scraping pipelines, and orchestration. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Network programming designs application protocols over transports, including framing, addressing, name resolution, encoding, security, and failure handling. |
+| ⚡ Purpose | Production clients must treat payloads as untrusted bytes and make connection, read, retry, and protocol limits explicit. |
+| 🔥 Benefits | Builds the ability to distinguish application protocols from TCP, UDP, DNS, and TLS transport concerns; it also helps practitioners encode, frame, validate, and parse messages incrementally. |
+| 🎯 Use Cases | HTTP integrations, DNS-aware clients, telemetry collectors, and service agents. Length-prefixed or delimiter-based protocols for internal devices and services. |
+| 🚀 Best Practices | Cap frame sizes before allocating or decoding. |
+| ❌ Common Mistakes | Ignoring the guardrail “Version protocols for additive evolution and compatibility”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import requests
-response = requests.get("https://example.com", timeout=10)
+import ipaddress
+
+network = ipaddress.ip_network("10.0.0.0/24")
+allowed = ipaddress.ip_address("10.0.0.42") in network
 ```
 
 ### Standard Structure
 
 ```python
-def apply_network_programming(value):
-    """Apply the Network Programming concept to one value."""
-    return value
+import json
 
-result = apply_network_programming("practice")
-print(result)
+body = json.dumps({"version": 1, "kind": "ping"}).encode("utf-8")
+message = json.loads(body)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Network Programming problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+import struct
+
+HEADER = struct.Struct("!BI")
+header = HEADER.pack(1, 512)
+version, length = HEADER.unpack(header)
 ```
 
 ## Examples
@@ -100,46 +111,54 @@ print(result)
 ### Beginner Example
 
 ```python
-import requests
+from urllib.parse import urlencode
 
-response = requests.get("https://example.com", timeout=10)
-print(response.status_code)
+query = urlencode({"q": "python network", "page": 2})
+url = f"https://example.com/search?{query}"
+print(url)
 ```
 
 ### Intermediate Example
 
 ```python
-import requests
+import ssl
+from urllib.request import urlopen
 
-with requests.Session() as session:
-    response = session.get("https://api.github.com", timeout=10)
-    print(response.headers.get("content-type"))
+context = ssl.create_default_context()
+with urlopen("https://example.com", timeout=5, context=context) as response:
+    content_type = response.headers.get_content_type()
+    body = response.read(4096)
+print(content_type, len(body))
 ```
 
 ### Advanced Example
 
 ```python
-import requests
-from requests.adapters import HTTPAdapter
+import struct
 
-session = requests.Session()
-session.mount("https://", HTTPAdapter(max_retries=3))
-response = session.get("https://example.com", timeout=(3, 10))
-print(response.ok)
+def extract_frames(buffer: bytearray, maximum: int = 1_048_576) -> list[bytes]:
+    frames = []
+    while len(buffer) >= 4:
+        size = struct.unpack("!I", buffer[:4])[0]
+        if size > maximum:
+            raise ValueError("frame exceeds limit")
+        if len(buffer) < 4 + size:
+            break
+        frames.append(bytes(buffer[4:4 + size]))
+        del buffer[:4 + size]
+    return frames
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Network Programming Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Resolve endpoint] --> B[Establish protected transport]
+    B --> C[Encode and frame request]
+    C --> D[Validate framed response]
+    D --> E[Classify failure or result]
+    E -. feedback .-> A
 ```
-
-
----
 
 ---
 

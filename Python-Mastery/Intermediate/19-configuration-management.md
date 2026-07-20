@@ -5,92 +5,98 @@
 # Configuration Management
 
 ## Overview
-- **What is it?** Configuration Management is a Python knowledge area focused on professional Python patterns.
-- **Why is it important?** Help developers apply professional Python patterns techniques safely, clearly, and consistently.
-- **Where is it used?** Data exchange, observability, clean abstractions, and production utilities.
+- **What is it?** Configuration Management is the intermediate Python topic of loading, validating, and layering settings outside application logic.
+- **Why is it important?** Configuration separates deployment-specific values from code while typed validation makes failures early and explicit.
+- **Where is it used?** environment-specific endpoints, feature switches, runtime limits.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review configuration management code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind configuration management.
-- Expected outcome: you can use configuration management in a small project and recognize when it belongs in production code.
+- Layer defaults, files, environment, and arguments.
+- Parse strings into validated types.
+- Keep secrets out of source control and logs.
 
 ## Real World Applications
-- **Industry use cases:** Data exchange, observability, clean abstractions, and production utilities.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Environment-specific endpoints rely on this topic.
+- **Product work:** It supports feature switches.
+- **Operations:** It appears in runtime limits.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives configuration management its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Configuration Management model -> clear code`
+### Configuration sources
+- **Definition:** Settings may come from defaults, files, environment variables, or CLI flags with a documented precedence.
+- **Visual explanation:** ``defaults < file < environment < CLI``
 - **Practical example:**
 
 ```python
-apply_configuration_management_label = "Configuration Management"
-print(apply_configuration_management_label)
+import os
+port = int(os.getenv("APP_PORT", "8000"))
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when configuration management code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Parsing and validation
+- **Definition:** External configuration is text until converted; validation should reject missing, malformed, or unsafe values at startup.
+- **Visual explanation:** ``raw strings -> convert -> validate -> Settings``
 - **Practical example:**
 
 ```python
-import json
-print(json.dumps({"language": "Python"}))
+timeout = float("2.5")
+if timeout <= 0:
+    raise ValueError("timeout must be positive")
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps configuration management understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Secrets
+- **Definition:** Secret values belong in a secret manager or injected environment and must not be committed, printed, or embedded in defaults.
+- **Visual explanation:** ``secret store -> process environment -> narrow consumer``
 - **Practical example:**
 
 ```python
-import json
-
-raw = "{\"items\": [1, 2, 3]}"
-payload = json.loads(raw)
-print(sum(payload["items"]))
+import os
+token = os.environ["SERVICE_TOKEN"]
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Configuration Management belongs to the professional Python patterns part of Python mastery. |
-| ⚡ Purpose | Help developers apply professional Python patterns techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional professional Python patterns decisions. |
-| 🎯 Use Cases | Data exchange, observability, clean abstractions, and production utilities. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Configuration sources, Parsing and validation, Secrets |
+| ⚡ Purpose | Configuration separates deployment-specific values from code while typed validation makes failures early and explicit. |
+| 🔥 Benefits | Portable deployments, fail-fast startup validation, and secure separation of settings from code. |
+| 🎯 Use Cases | environment-specific endpoints, feature switches, runtime limits |
+| 🚀 Best Practices | Construct one immutable settings object at the composition root. |
+| ❌ Common Mistakes | Reading environment variables throughout business logic. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import json
-data = json.loads("{\"name\": \"Ada\"}")
+import os
+
+debug = os.getenv("APP_DEBUG", "false").lower() in {"1", "true", "yes"}
 ```
 
 ### Standard Structure
 
 ```python
-def apply_configuration_management(value):
-    """Apply the Configuration Management concept to one value."""
-    return value
+from dataclasses import dataclass
+import os
 
-result = apply_configuration_management("practice")
-print(result)
+@dataclass(frozen=True)
+class Settings:
+    endpoint: str
+    timeout: float
+
+settings = Settings(
+    endpoint=os.environ["API_ENDPOINT"],
+    timeout=float(os.getenv("API_TIMEOUT", "5")),
+)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Configuration Management problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Load defaults and external sources.
+# Apply explicit precedence.
+# Parse and validate once at startup.
+# Pass a typed settings object to consumers.
 ```
 
 ## Examples
@@ -98,46 +104,72 @@ print(result)
 ### Beginner Example
 
 ```python
-import json
-print(json.dumps({"language": "Python"}))
+import os
+
+host = os.getenv("APP_HOST", "127.0.0.1")
+port = int(os.getenv("APP_PORT", "8000"))
+print(f"http://{host}:{port}")
 ```
 
 ### Intermediate Example
 
 ```python
-import json
+from dataclasses import dataclass
+import os
 
-raw = "{\"items\": [1, 2, 3]}"
-payload = json.loads(raw)
-print(sum(payload["items"]))
+@dataclass(frozen=True)
+class Settings:
+    workers: int
+    log_level: str
+
+    @classmethod
+    def from_environment(cls):
+        workers = int(os.getenv("WORKERS", "2"))
+        level = os.getenv("LOG_LEVEL", "INFO").upper()
+        if workers < 1:
+            raise ValueError("WORKERS must be positive")
+        if level not in {"DEBUG", "INFO", "WARNING", "ERROR"}:
+            raise ValueError("invalid LOG_LEVEL")
+        return cls(workers, level)
+
+print(Settings.from_environment())
 ```
 
 ### Advanced Example
 
 ```python
-import json
-from dataclasses import asdict, dataclass
+import argparse
+import os
+from dataclasses import dataclass
 
-@dataclass
-class Event:
-    name: str
-    count: int
+@dataclass(frozen=True)
+class Settings:
+    region: str
+    retries: int
 
-print(json.dumps(asdict(Event("login", 3))))
+def load_settings(arguments=None) -> Settings:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--region")
+    parser.add_argument("--retries", type=int)
+    options = parser.parse_args(arguments)
+    region = options.region or os.getenv("APP_REGION", "eu-west")
+    retries = options.retries if options.retries is not None else int(os.getenv("APP_RETRIES", "3"))
+    if retries < 0:
+        parser.error("retries cannot be negative")
+    return Settings(region, retries)
+
+print(load_settings(["--retries", "5"]))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Configuration Management Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Read ordered sources] --> B[Resolve precedence]
+    B --> C[Convert text values]
+    C --> D[Validate constraints]
+    D --> E[Inject immutable settings]
 ```
-
-
----
 
 ---
 

@@ -5,96 +5,100 @@
 # PostgreSQL Integration
 
 ## Overview
-- **What is it?** PostgreSQL Integration is a Python knowledge area focused on integration.
-- **Why is it important?** Help developers apply integration techniques safely, clearly, and consistently.
-- **Where is it used?** Web services, persistence layers, analytics backends, and business systems.
+- **What is it?** PostgreSQL Integration is the intermediate Python topic of connecting Python applications to PostgreSQL with psycopg 3.
+- **Why is it important?** psycopg provides safe %s binding, context-managed transactions, row factories, pools, and PostgreSQL-specific capabilities.
+- **Where is it used?** transactional services, analytics backends, PostgreSQL feature-rich applications.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review postgresql integration code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind postgresql integration.
-- Expected outcome: you can use postgresql integration in a small project and recognize when it belongs in production code.
+- Use psycopg 3 connections and cursors.
+- Configure dict_row and transaction scopes.
+- Use psycopg_pool for bounded production connections.
 
 ## Real World Applications
-- **Industry use cases:** Web services, persistence layers, analytics backends, and business systems.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Transactional services rely on this topic.
+- **Product work:** It supports analytics backends.
+- **Operations:** It appears in PostgreSQL feature-rich applications.
 
 ## Core Concepts
 
-### Contract
-- **Definition:** The main idea that gives postgresql integration its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> PostgreSQL Integration model -> clear code`
+### psycopg connections
+- **Definition:** psycopg.connect opens a PostgreSQL session; a connection context commits on success, rolls back on error, and closes.
+- **Visual explanation:** ``Python -> psycopg -> PostgreSQL session``
 - **Practical example:**
 
 ```python
-apply_postgresql_integration_label = "PostgreSQL Integration"
-print(apply_postgresql_integration_label)
+import psycopg
+
+with psycopg.connect("dbname=learning user=app") as connection:
+    row = connection.execute("SELECT current_database()").fetchone()
 ```
 
-### Connection Flow
-- **Definition:** The ordered steps Python follows when postgresql integration code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Binding and row factories
+- **Definition:** psycopg uses %s for all bound value types and row_factory to select tuple, dict, or typed row representations.
+- **Visual explanation:** ``SQL + %s values -> server; row factory -> Python shape``
 - **Practical example:**
 
 ```python
-import sqlite3
-connection = sqlite3.connect(":memory:")
-connection.execute("CREATE TABLE users (name TEXT)")
-connection.execute("INSERT INTO users VALUES (?)", ("Ada",))
-print(connection.execute("SELECT name FROM users").fetchone()[0])
+from psycopg.rows import dict_row
+with connection.cursor(row_factory=dict_row) as cursor:
+    cursor.execute("SELECT id FROM users WHERE email = %s", ("ada@example.com",))
 ```
 
-### Reliability Boundary
-- **Definition:** The reliability habit that keeps postgresql integration understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Transactions and pools
+- **Definition:** Nested connection.transaction blocks create explicit scopes; ConnectionPool controls reusable concurrent sessions.
+- **Visual explanation:** ``ConnectionPool -> transaction -> commit/rollback -> pool``
 - **Practical example:**
 
 ```python
-import sqlite3
-
-with sqlite3.connect(":memory:") as connection:
-    connection.execute("CREATE TABLE metrics (name TEXT, value REAL)")
-    connection.executemany("INSERT INTO metrics VALUES (?, ?)", [("latency", 120.5)])
-    print(connection.execute("SELECT COUNT(*) FROM metrics").fetchone()[0])
+with connection.transaction():
+    connection.execute("UPDATE counters SET value = value + 1 WHERE name = %s", ("jobs",))
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | PostgreSQL Integration belongs to the integration part of Python mastery. |
-| ⚡ Purpose | Help developers apply integration techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional integration decisions. |
-| 🎯 Use Cases | Web services, persistence layers, analytics backends, and business systems. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | psycopg connections, Binding and row factories, Transactions and pools |
+| ⚡ Purpose | psycopg provides safe %s binding, context-managed transactions, row factories, pools, and PostgreSQL-specific capabilities. |
+| 🔥 Benefits | Typed PostgreSQL rows, concise transaction scopes, and bounded production connection reuse. |
+| 🎯 Use Cases | transactional services, analytics backends, PostgreSQL feature-rich applications |
+| 🚀 Best Practices | Use psycopg SQL composition for identifiers and parameters only for values. |
+| ❌ Common Mistakes | Using Python string formatting to insert table names or values into SQL. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import sqlite3
-connection = sqlite3.connect(":memory:")
+import psycopg
+
+with psycopg.connect(connection_string) as connection:
+    row = connection.execute(
+        "SELECT name FROM users WHERE id = %s",
+        (user_id,),
+    ).fetchone()
 ```
 
 ### Standard Structure
 
 ```python
-def apply_postgresql_integration(value):
-    """Apply the PostgreSQL Integration concept to one value."""
-    return value
+from psycopg.rows import dict_row
 
-result = apply_postgresql_integration("practice")
-print(result)
+with connection.cursor(row_factory=dict_row) as cursor:
+    cursor.execute(
+        "SELECT id, email FROM users WHERE active = %s ORDER BY id",
+        (True,),
+    )
+    users = cursor.fetchall()
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the PostgreSQL Integration problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# Acquire a psycopg connection or pool lease.
+# Begin the intended transaction scope.
+# Bind values with %s; compose identifiers safely.
+# Commit/rollback and release the session.
 ```
 
 ## Examples
@@ -102,49 +106,73 @@ print(result)
 ### Beginner Example
 
 ```python
-import sqlite3
-connection = sqlite3.connect(":memory:")
-connection.execute("CREATE TABLE users (name TEXT)")
-connection.execute("INSERT INTO users VALUES (?)", ("Ada",))
-print(connection.execute("SELECT name FROM users").fetchone()[0])
+import psycopg
+
+with psycopg.connect("dbname=learning user=app") as connection:
+    with connection.cursor() as cursor:
+        cursor.execute("SELECT id, title FROM course WHERE id = %s", (1,))
+        print(cursor.fetchone())
 ```
 
 ### Intermediate Example
 
 ```python
-import sqlite3
+import psycopg
+from psycopg.rows import dict_row
 
-with sqlite3.connect(":memory:") as connection:
-    connection.execute("CREATE TABLE metrics (name TEXT, value REAL)")
-    connection.executemany("INSERT INTO metrics VALUES (?, ?)", [("latency", 120.5)])
-    print(connection.execute("SELECT COUNT(*) FROM metrics").fetchone()[0])
+def create_task(connection: psycopg.Connection, title: str) -> dict:
+    with connection.cursor(row_factory=dict_row) as cursor:
+        cursor.execute(
+            "INSERT INTO task (title) VALUES (%s) "
+            "RETURNING id, title, created_at",
+            (title,),
+        )
+        task = cursor.fetchone()
+        if task is None:
+            raise RuntimeError("insert returned no row")
+        return task
+
+with psycopg.connect("dbname=learning user=app") as connection:
+    print(create_task(connection, "Learn psycopg"))
 ```
 
 ### Advanced Example
 
 ```python
-import sqlite3
+from psycopg.rows import class_row
+from psycopg_pool import ConnectionPool
+from dataclasses import dataclass
 
-connection = sqlite3.connect(":memory:")
-connection.row_factory = sqlite3.Row
-connection.execute("CREATE TABLE users (id INTEGER, email TEXT)")
-connection.execute("INSERT INTO users VALUES (?, ?)", (1, "a@example.com"))
-row = connection.execute("SELECT * FROM users").fetchone()
-print(dict(row))
+@dataclass
+class User:
+    id: int
+    email: str
+
+pool = ConnectionPool(
+    "dbname=learning user=app",
+    min_size=1,
+    max_size=8,
+)
+
+def find_user(user_id: int) -> User | None:
+    with pool.connection() as connection:
+        with connection.cursor(row_factory=class_row(User)) as cursor:
+            cursor.execute(
+                "SELECT id, email FROM users WHERE id = %s",
+                (user_id,),
+            )
+            return cursor.fetchone()
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify PostgreSQL Integration Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Lease psycopg connection] --> B[Enter transaction]
+    B --> C[Bind and execute PostgreSQL SQL]
+    C --> D[Map returned rows]
+    D --> E[Commit/rollback and release]
 ```
-
-
----
 
 ---
 

@@ -5,90 +5,91 @@
 # Dictionaries
 
 ## Overview
-- **What is it?** Dictionaries map keys to values.
-- **Why is it important?** Represent structured records and fast lookups.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** A dictionary is a mutable mapping from unique hashable keys to values.
+- **Why is it important?** Key-based access models named fields and provides direct lookup without searching every item.
+- **Where is it used?** Profiles, configuration, counters, indexes, and structured records commonly use dictionaries.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review dictionaries code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind dictionaries.
-- Expected outcome: you can use dictionaries in a small project and recognize when it belongs in production code.
+- Create, read, add, update, and delete key-value pairs.
+- Use `get`, membership, and iteration safely.
+- Build counters and nested records with clear key choices.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Represent a user or product record.
+- Count occurrences by category.
+- Look up configuration or inventory by name.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives dictionaries its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Dictionaries model -> clear code`
+### Key-value mapping
+- **Definition:** Each unique key maps to one value; assigning an existing key replaces its value.
+- **Visual explanation:** `key -> value, key -> value`
 - **Practical example:**
 
 ```python
-apply_dictionaries_label = "Dictionaries"
-print(apply_dictionaries_label)
+student = {"name": "Ivy", "score": 88}
+student["score"] = 91
+print(student["name"], student["score"])
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when dictionaries code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Safe lookup
+- **Definition:** `key in mapping` tests existence, while `get` returns a default instead of raising `KeyError` for a missing key.
+- **Visual explanation:** `requested key -> found value or chosen default`
 - **Practical example:**
 
 ```python
-profile = {"name": "Lin", "age": 29}
-print(profile["name"])
+stock = {"pens": 12}
+print(stock.get("books", 0))
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps dictionaries understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Dictionary iteration
+- **Definition:** Iteration can expose keys, values, or key-value pairs through `keys`, `values`, or `items`.
+- **Visual explanation:** `mapping.items -> key value pairs`
 - **Practical example:**
 
 ```python
-inventory = {"laptop": 3, "mouse": 10}
-inventory["laptop"] -= 1
-print(inventory)
+prices = {"tea": 2.5, "cake": 4.0}
+for item, price in prices.items():
+    print(item, price)
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Dictionaries belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Represent structured records and fast lookups. |
-| 🔥 Benefits | JSON-like data, caches, configurations, indexes, and API payloads. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | A dictionary is a mutable mapping from unique hashable keys to values. |
+| ⚡ Purpose | Associate unique keys with values for structured records and direct lookup. |
+| 🔥 Benefits | Key-based access models named fields and provides direct lookup without searching every item. |
+| 🎯 Use Cases | Profiles, configuration, counters, indexes, and structured records commonly use dictionaries. |
+| 🚀 Best Practices | Use stable meaningful keys, test optional keys explicitly, and avoid deeply nested records when a class would be clearer. |
+| ❌ Common Mistakes | Indexing an optional key directly and allowing a preventable `KeyError`. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-user = {"name": "Ada", "role": "admin"}
-print(user["name"])
+book = {"title": "Python 101", "pages": 240}
+print(book["title"])
 ```
 
 ### Standard Structure
 
 ```python
-def apply_dictionaries(value):
-    """Apply the Dictionaries concept to one value."""
-    return value
-
-result = apply_dictionaries("practice")
-print(result)
+inventory = {"pen": 10}
+inventory["book"] = 4
+inventory["pen"] -= 1
+print(inventory.get("eraser", 0), inventory)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Dictionaries problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+words = ["red", "blue", "red", "green", "blue", "red"]
+counts = {}
+for word in words:
+    counts[word] = counts.get(word, 0) + 1
+print(counts)
 ```
 
 ## Examples
@@ -96,41 +97,47 @@ print(result)
 ### Beginner Example
 
 ```python
-profile = {"name": "Lin", "age": 29}
+profile = {"name": "Luz", "active": True}
 print(profile["name"])
 ```
 
 ### Intermediate Example
 
 ```python
-inventory = {"laptop": 3, "mouse": 10}
-inventory["laptop"] -= 1
-print(inventory)
+settings = {"theme": "dark", "notifications": True}
+for key, value in settings.items():
+    print(f"{key}={value}")
 ```
 
 ### Advanced Example
 
 ```python
-from collections import defaultdict
-
-counts = defaultdict(int)
-for word in ["api", "db", "api"]:
-    counts[word] += 1
-print(dict(counts))
+orders = [
+    {"product": "pen", "quantity": 2},
+    {"product": "book", "quantity": 1},
+    {"product": "pen", "quantity": 3},
+]
+totals = {}
+for order in orders:
+    product = order["product"]
+    totals[product] = totals.get(product, 0) + order["quantity"]
+print(totals)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Dictionaries Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Choose hashable keys]
+    B[Create mapping]
+    C[Read or update by key]
+    D[Handle missing keys]
+    E[Iterate items or return record]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
-
-
----
 
 ---
 

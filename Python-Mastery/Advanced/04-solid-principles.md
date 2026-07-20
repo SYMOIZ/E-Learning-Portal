@@ -5,101 +5,108 @@
 # SOLID Principles
 
 ## Overview
-- **What is it?** SOLID Principles is a Python knowledge area focused on advanced language engineering.
-- **Why is it important?** Help developers apply advanced language engineering techniques safely, clearly, and consistently.
-- **Where is it used?** Performance-sensitive systems, frameworks, libraries, and technical interviews.
+- **What is it?** SOLID is a set of design heuristics for managing reasons to change, extension, substitutability, interface size, and dependency direction.
+- **Why is it important?** The principles guide trade-offs rather than requiring one class per action; Python protocols and composition keep boundaries small.
+- **Where is it used?** They are useful in long-lived services, libraries, and integrations where policy changes independently from infrastructure.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review solid principles code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind solid principles.
-- Expected outcome: you can use solid principles in a small project and recognize when it belongs in production code.
+- Apply each SOLID principle to concrete Python module and object boundaries.
+- Use protocols and dependency injection to reverse dependencies.
+- Detect violations through change friction, broad interfaces, and unsafe substitution.
 
 ## Real World Applications
-- **Industry use cases:** Performance-sensitive systems, frameworks, libraries, and technical interviews.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Separating invoice policy from persistence and delivery infrastructure.
+- Adding integrations without editing stable domain decision code.
+- Constructing testable services with small, substitutable collaborators.
 
 ## Core Concepts
 
-### Model
-- **Definition:** The main idea that gives solid principles its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> SOLID Principles model -> clear code`
+### Single Responsibility and Cohesion
+- **Definition:** A component should have one coherent reason to change; calculation, persistence, and presentation usually evolve under different pressures.
+- **Visual explanation:** `domain policy | storage policy | presentation policy`
 - **Practical example:**
 
 ```python
-apply_solid_principles_label = "SOLID Principles"
-print(apply_solid_principles_label)
+def invoice_total(lines: list[tuple[int, float]]) -> float:
+    return sum(quantity * price for quantity, price in lines)
+
+def render_total(total: float) -> str:
+    return f"${total:,.2f}"
 ```
 
-### Interface
-- **Definition:** The ordered steps Python follows when solid principles code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Open/Closed and Substitution
+- **Definition:** Stable callers should accept new behavior through a contract, and every implementation must preserve that contract's inputs, outputs, and failure semantics.
+- **Visual explanation:** `caller → stable protocol → old or new implementation`
 - **Practical example:**
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
+from typing import Protocol
 
-print(Dog().speak())
+class TaxPolicy(Protocol):
+    def tax(self, subtotal: float) -> float: ...
+
+class FlatTax:
+    def tax(self, subtotal: float) -> float:
+        return subtotal * 0.2
 ```
 
-### Behavior Rule
-- **Definition:** The reliability habit that keeps solid principles understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Dependency Inversion
+- **Definition:** High-level policy owns an abstraction and receives infrastructure implementations rather than importing concrete databases or gateways directly.
+- **Visual explanation:** `high-level use case → owned port ← infrastructure adapter`
 - **Practical example:**
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
+from typing import Protocol
 
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
+class AuditLog(Protocol):
+    def record(self, message: str) -> None: ...
 
-account = Account()
-account.deposit(50)
-print(account.balance)
+def approve(order_id: str, audit: AuditLog) -> None:
+    audit.record(f"approved:{order_id}")
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | SOLID Principles belongs to the advanced language engineering part of Python mastery. |
-| ⚡ Purpose | Help developers apply advanced language engineering techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional advanced language engineering decisions. |
-| 🎯 Use Cases | Performance-sensitive systems, frameworks, libraries, and technical interviews. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | SOLID is a set of design heuristics for managing reasons to change, extension, substitutability, interface size, and dependency direction. |
+| ⚡ Purpose | The principles guide trade-offs rather than requiring one class per action; Python protocols and composition keep boundaries small. |
+| 🔥 Benefits | Builds the ability to apply each SOLID principle to concrete Python module and object boundaries; it also helps practitioners use protocols and dependency injection to reverse dependencies. |
+| 🎯 Use Cases | Separating invoice policy from persistence and delivery infrastructure. Adding integrations without editing stable domain decision code. |
+| 🚀 Best Practices | D: policy owns abstractions; infrastructure plugs in. |
+| ❌ Common Mistakes | Ignoring the guardrail “Watch for pass-through classes that add ceremony without isolation”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-class Customer:
-    def __init__(self, name):
-        self.name = name
+from typing import Protocol
+
+class Reader(Protocol):
+    def read(self, key: str) -> bytes: ...
 ```
 
 ### Standard Structure
 
 ```python
-def apply_solid_principles(value):
-    """Apply the SOLID Principles concept to one value."""
-    return value
+class ReportService:
+    def __init__(self, reader: "Reader") -> None:
+        self._reader = reader
 
-result = apply_solid_principles("practice")
-print(result)
+    def load(self, key: str) -> bytes:
+        return self._reader.read(key)
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the SOLID Principles problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+class MemoryReader:
+    def __init__(self, values: dict[str, bytes]) -> None:
+        self._values = values
+
+    def read(self, key: str) -> bytes:
+        return self._values[key]
 ```
 
 ## Examples
@@ -107,56 +114,51 @@ print(result)
 ### Beginner Example
 
 ```python
-class Dog:
-    def speak(self):
-        return "woof"
-
-print(Dog().speak())
+def shipping(weight: float, rate: float) -> float:
+    if weight < 0:
+        raise ValueError("weight must be nonnegative")
+    return weight * rate
 ```
 
 ### Intermediate Example
 
 ```python
-class Account:
-    def __init__(self, balance: float = 0):
-        self.balance = balance
+class PercentageTax:
+    def __init__(self, rate: float) -> None:
+        self.rate = rate
 
-    def deposit(self, amount: float) -> None:
-        self.balance += amount
+    def tax(self, subtotal: float) -> float:
+        return subtotal * self.rate
 
-account = Account()
-account.deposit(50)
-print(account.balance)
+policy: TaxPolicy = PercentageTax(0.075)
+print(policy.tax(200.0))
 ```
 
 ### Advanced Example
 
 ```python
-from dataclasses import dataclass
+class MemoryAudit:
+    def __init__(self) -> None:
+        self.events: list[str] = []
 
-@dataclass
-class Order:
-    id: int
-    total: float
+    def record(self, message: str) -> None:
+        self.events.append(message)
 
-    def is_large(self) -> bool:
-        return self.total >= 1000
-
-print(Order(1, 1200).is_large())
+audit = MemoryAudit()
+approve("A-42", audit)
+assert audit.events == ["approved:A-42"]
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify SOLID Principles Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Identify change pressures] --> B[Draw responsibility boundaries]
+    B --> C[Define narrow contract]
+    C --> D[Inject adapters]
+    D --> E[Verify behavioral substitution]
+    E -. feedback .-> A
 ```
-
-
----
 
 ---
 

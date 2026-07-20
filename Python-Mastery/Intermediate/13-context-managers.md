@@ -5,101 +5,103 @@
 # Context Managers
 
 ## Overview
-- **What is it?** Context Managers is a Python knowledge area focused on professional Python patterns.
-- **Why is it important?** Help developers apply professional Python patterns techniques safely, clearly, and consistently.
-- **Where is it used?** Data exchange, observability, clean abstractions, and production utilities.
+- **What is it?** Context Managers is the intermediate Python topic of pairing resource acquisition with reliable cleanup around a with block.
+- **Why is it important?** The context manager protocol guarantees __exit__ runs when control leaves the block, including through exceptions.
+- **Where is it used?** files and locks, database transactions, temporary state.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review context managers code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind context managers.
-- Expected outcome: you can use context managers in a small project and recognize when it belongs in production code.
+- Implement __enter__ and __exit__.
+- Use contextlib.contextmanager.
+- Decide whether an exception should be suppressed.
 
 ## Real World Applications
-- **Industry use cases:** Data exchange, observability, clean abstractions, and production utilities.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- **Engineering:** Files and locks rely on this topic.
+- **Product work:** It supports database transactions.
+- **Operations:** It appears in temporary state.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives context managers its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Context Managers model -> clear code`
+### Context protocol
+- **Definition:** __enter__ produces the bound value and __exit__ receives exception details while releasing resources.
+- **Visual explanation:** ``with -> __enter__ -> body -> __exit__``
 - **Practical example:**
 
 ```python
-apply_context_managers_label = "Context Managers"
-print(apply_context_managers_label)
+with open("notes.txt", "w", encoding="utf-8") as handle:
+    handle.write("safe cleanup")
 ```
 
-### Execution Flow
-- **Definition:** The ordered steps Python follows when context managers code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Exception handling
+- **Definition:** __exit__ returning truthy suppresses the active exception; returning falsey propagates it after cleanup.
+- **Visual explanation:** ``body error -> __exit__(type, value, traceback) -> suppress or raise``
 - **Practical example:**
 
 ```python
-from pathlib import Path
-
-with Path("note.txt").open("w", encoding="utf-8") as file:
-    file.write("safe write")
+class VisibleErrors:
+    def __enter__(self):
+        return self
+    def __exit__(self, exc_type, exc, tb):
+        return False
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps context managers understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Generator-based managers
+- **Definition:** contextmanager turns a one-yield generator into setup before yield and cleanup in finally.
+- **Visual explanation:** ``setup -> yield resource -> finally cleanup``
 - **Practical example:**
 
 ```python
 from contextlib import contextmanager
 
 @contextmanager
-def managed_resource():
-    print("open")
+def managed():
     try:
         yield "resource"
     finally:
-        print("close")
-
-with managed_resource() as resource:
-    print(resource)
+        pass
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Context Managers belongs to the professional Python patterns part of Python mastery. |
-| ⚡ Purpose | Help developers apply professional Python patterns techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional professional Python patterns decisions. |
-| 🎯 Use Cases | Data exchange, observability, clean abstractions, and production utilities. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | Context protocol, Exception handling, Generator-based managers |
+| ⚡ Purpose | The context manager protocol guarantees __exit__ runs when control leaves the block, including through exceptions. |
+| 🔥 Benefits | Guaranteed cleanup, concise resource lifetimes, and reliable transaction or temporary-state handling. |
+| 🎯 Use Cases | files and locks, database transactions, temporary state |
+| 🚀 Best Practices | Keep acquisition and release adjacent and make cleanup idempotent where possible. |
+| ❌ Common Mistakes | Returning True from __exit__ accidentally and hiding real failures. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-with open("file.txt", "w", encoding="utf-8") as file:
-    file.write("data")
+with open("report.txt", "w", encoding="utf-8") as file:
+    file.write("complete")
 ```
 
 ### Standard Structure
 
 ```python
-def apply_context_managers(value):
-    """Apply the Context Managers concept to one value."""
-    return value
+from contextlib import contextmanager
 
-result = apply_context_managers("practice")
-print(result)
+@contextmanager
+def transaction(connection):
+    try:
+        yield connection
+        connection.commit()
+    except Exception:
+        connection.rollback()
+        raise
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Context Managers problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+# __enter__: acquire and return resource
+# with body: use resource
+# __exit__: release in every exit path
+# False return: propagate active exception
 ```
 
 ## Examples
@@ -107,54 +109,66 @@ print(result)
 ### Beginner Example
 
 ```python
-from pathlib import Path
+from io import StringIO
 
-with Path("note.txt").open("w", encoding="utf-8") as file:
-    file.write("safe write")
+with StringIO() as buffer:
+    buffer.write("context-managed")
+    print(buffer.getvalue())
 ```
 
 ### Intermediate Example
 
 ```python
-from contextlib import contextmanager
+class TemporarySetting:
+    def __init__(self, settings, key, value):
+        self.settings, self.key, self.value = settings, key, value
 
-@contextmanager
-def managed_resource():
-    print("open")
-    try:
-        yield "resource"
-    finally:
-        print("close")
+    def __enter__(self):
+        self.previous = self.settings.get(self.key)
+        self.settings[self.key] = self.value
+        return self.settings
 
-with managed_resource() as resource:
-    print(resource)
+    def __exit__(self, exc_type, exc, traceback):
+        if self.previous is None:
+            self.settings.pop(self.key, None)
+        else:
+            self.settings[self.key] = self.previous
+        return False
+
+settings = {"mode": "normal"}
+with TemporarySetting(settings, "mode", "debug"):
+    print(settings)
+print(settings)
 ```
 
 ### Advanced Example
 
 ```python
-from contextlib import ExitStack
-from pathlib import Path
+from contextlib import ExitStack, contextmanager
 
-paths = [Path("a.txt"), Path("b.txt")]
+@contextmanager
+def resource(name):
+    print("open", name)
+    try:
+        yield name
+    finally:
+        print("close", name)
+
+names = ["input", "output", "audit"]
 with ExitStack() as stack:
-    files = [stack.enter_context(path.open("w", encoding="utf-8")) for path in paths]
-    for file in files:
-        file.write("ok")
+    opened = [stack.enter_context(resource(name)) for name in names]
+    print("using", opened)
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Context Managers Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Evaluate manager] --> B[Call __enter__]
+    B --> C[Execute with body]
+    C --> D[Call __exit__ with outcome]
+    D --> E[Release and propagate or suppress]
 ```
-
-
----
 
 ---
 

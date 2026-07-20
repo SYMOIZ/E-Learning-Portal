@@ -5,64 +5,67 @@
 # Random Module
 
 ## Overview
-- **What is it?** The random module generates pseudo-random values.
-- **Why is it important?** Support simulations, sampling, games, test data, and randomized decisions.
-- **Where is it used?** Software teams, education, automation, analytics, and backend development.
+- **What is it?** The `random` module produces deterministic pseudo-random sequences suitable for simulation, sampling, and games.
+- **Why is it important?** It offers controlled variation and reproducibility through explicit random generator instances and seeds.
+- **Where is it used?** Games, randomized tests, classroom exercises, and statistical samples use pseudo-random values.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review random module code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind random module.
-- Expected outcome: you can use random module in a small project and recognize when it belongs in production code.
+- Generate ranges, choices, samples, and shuffled sequences.
+- Use a local `Random` instance with a seed for repeatable tests.
+- Avoid `random` for passwords, tokens, or security decisions.
 
 ## Real World Applications
-- **Industry use cases:** Software teams, education, automation, analytics, and backend development.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Roll dice or select a game move.
+- Sample records without replacement.
+- Create repeatable test fixtures and simulations.
 
 ## Core Concepts
 
-### Mental Model
-- **Definition:** The main idea that gives random module its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> Random Module model -> clear code`
-- **Practical example:**
-
-```python
-apply_random_module_label = "Random Module"
-print(apply_random_module_label)
-```
-
-### Execution Flow
-- **Definition:** The ordered steps Python follows when random module code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Pseudo-random generator
+- **Definition:** A generator evolves deterministic internal state, so the same seed produces the same sequence.
+- **Visual explanation:** `seed + state -> next value -> updated state`
 - **Practical example:**
 
 ```python
 import random
-print(random.choice(["red", "green", "blue"]))
+rng = random.Random(7)
+print(rng.randint(1, 6), rng.randint(1, 6))
 ```
 
-### Quality Rule
-- **Definition:** The reliability habit that keeps random module understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Choice and sampling
+- **Definition:** `choice` picks one element; `sample` returns distinct selections without replacement.
+- **Visual explanation:** `population -> random index or distinct indexes -> selection`
 - **Practical example:**
 
 ```python
 import random
+rng = random.Random(3)
+colors = ["red", "green", "blue", "gold"]
+print(rng.choice(colors), rng.sample(colors, k=2))
+```
 
-sample = random.sample(range(100), k=5)
-print(sample)
+### Security boundary
+- **Definition:** The algorithm is predictable and must not generate credentials; the `secrets` module serves security-sensitive choices.
+- **Visual explanation:** `simulation -> random; secret token -> secrets`
+- **Practical example:**
+
+```python
+import secrets
+alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"
+code = "".join(secrets.choice(alphabet) for _ in range(8))
+print(len(code))
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-Specific Takeaway |
 | --- | --- |
-| 📌 Concept | Random Module belongs to the core programming foundation part of Python mastery. |
-| ⚡ Purpose | Support simulations, sampling, games, test data, and randomized decisions. |
-| 🔥 Benefits | Experiments, demos, games, load tests, and statistical sampling. |
-| 🎯 Use Cases | Software teams, education, automation, analytics, and backend development. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | The `random` module produces deterministic pseudo-random sequences suitable for simulation, sampling, and games. |
+| ⚡ Purpose | Generate controlled pseudo-random choices, samples, and simulations. |
+| 🔥 Benefits | It offers controlled variation and reproducibility through explicit random generator instances and seeds. |
+| 🎯 Use Cases | Games, randomized tests, classroom exercises, and statistical samples use pseudo-random values. |
+| 🚀 Best Practices | Inject or create a seeded generator for tests, omit the seed for ordinary simulation, and use `secrets` for security. |
+| ❌ Common Mistakes | Seeding globally in production code or using `random` to create reset tokens and passwords. |
 
 ## Syntax Guide
 
@@ -76,20 +79,22 @@ print(random.randint(1, 6))
 ### Standard Structure
 
 ```python
-def apply_random_module(value):
-    """Apply the Random Module concept to one value."""
-    return value
-
-result = apply_random_module("practice")
-print(result)
+import random
+rng = random.Random(42)
+participants = ["Ada", "Bo", "Chen", "Dia"]
+print(rng.sample(participants, k=2))
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the Random Module problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+import random
+rng = random.Random(10)
+results = {"heads": 0, "tails": 0}
+for _ in range(1000):
+    side = rng.choice(list(results))
+    results[side] += 1
+print(results)
 ```
 
 ## Examples
@@ -98,16 +103,18 @@ print(result)
 
 ```python
 import random
-print(random.choice(["red", "green", "blue"]))
+print(random.choice(["north", "south", "east", "west"]))
 ```
 
 ### Intermediate Example
 
 ```python
 import random
-
-sample = random.sample(range(100), k=5)
-print(sample)
+rng = random.Random(5)
+deck = list(range(1, 11))
+rng.shuffle(deck)
+hand = deck[:3]
+print(hand)
 ```
 
 ### Advanced Example
@@ -115,22 +122,30 @@ print(sample)
 ```python
 import random
 
-rng = random.Random(42)
-print([rng.random() for _ in range(3)])
+def estimate_even_probability(trials, seed):
+    rng = random.Random(seed)
+    even = 0
+    for _ in range(trials):
+        even += rng.randint(1, 6) % 2 == 0
+    return even / trials
+
+print(estimate_even_probability(10_000, 11))
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify Random Module Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Choose simulation or security need]
+    B[Create correct generator]
+    C[Seed only for reproducibility]
+    D[Generate choice sample or shuffle]
+    E[Validate distribution or result]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
-
-
----
 
 ---
 

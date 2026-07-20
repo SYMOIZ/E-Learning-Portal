@@ -5,98 +5,114 @@
 # ETL Development
 
 ## Overview
-- **What is it?** ETL Development is a Python knowledge area focused on data engineering and analytics.
-- **Why is it important?** Help developers apply data engineering and analytics techniques safely, clearly, and consistently.
-- **Where is it used?** Pipelines, dashboards, feature engineering, and large-scale data platforms.
+- **What is it?** ETL pipelines extract data from sources, transform it into a governed schema, and load it into a destination with recoverable checkpoints.
+- **Why is it important?** Reliable ETL separates pure transformations from I/O, tracks lineage and watermarks, validates quality, and commits outputs atomically.
+- **Where is it used?** It powers warehouses, reporting, migrations, integrations, and feature-generation pipelines.
 
 ## Learning Objectives
-- Gain the practical skill to explain, write, debug, and review etl development code.
-- Cover the vocabulary, syntax, workflow, edge cases, and professional habits behind etl development.
-- Expected outcome: you can use etl development in a small project and recognize when it belongs in production code.
+- Design extract, transform, and load boundaries with typed records.
+- Implement incremental watermarks, idempotent loads, and quarantine paths.
+- Validate schema, uniqueness, completeness, and reconciliation metrics.
 
 ## Real World Applications
-- **Industry use cases:** Pipelines, dashboards, feature engineering, and large-scale data platforms.
-- **Business applications:** Reduce manual work, improve reliability, support reporting, automate decisions, and ship maintainable features.
-- **Career relevance:** Supports Python developer, backend engineer, data engineer, AI engineer, DevOps engineer, QA automation, and cybersecurity automation roles.
+- Incrementally moving transactional data into an analytics warehouse.
+- Normalizing partner files while retaining rejected rows and reasons.
+- Backfilling historical partitions without duplicating destination records.
 
 ## Core Concepts
 
-### Dataset Representation
-- **Definition:** The main idea that gives etl development its structure and purpose inside a Python program.
-- **Visual explanation:** `problem -> ETL Development model -> clear code`
+### Extraction and Watermarks
+- **Definition:** Incremental extraction reads records after a durable high-water mark and advances it only after the corresponding load commits.
+- **Visual explanation:** `saved watermark → ordered source page → committed load → new watermark`
 - **Practical example:**
 
 ```python
-apply_etl_development_label = "ETL Development"
-print(apply_etl_development_label)
+from datetime import datetime
+
+def after_watermark(rows: list[dict], watermark: datetime) -> list[dict]:
+    return sorted(
+        (row for row in rows if row["updated_at"] > watermark),
+        key=lambda row: (row["updated_at"], row["id"]),
+    )
 ```
 
-### Transformation Pipeline
-- **Definition:** The ordered steps Python follows when etl development code is created, executed, or integrated.
-- **Visual explanation:** `input -> Python operation -> result -> feedback`
+### Pure Transformations
+- **Definition:** A transformation maps validated source records to destination records without hidden I/O, making replay and unit testing deterministic.
+- **Visual explanation:** `source record → normalize/derive → validated destination record`
 - **Practical example:**
 
 ```python
-import csv
-from io import StringIO
+from decimal import Decimal
 
-file = StringIO("name,score\nAda,95\n")
-print(list(csv.DictReader(file)))
+def transform(row: dict[str, str]) -> dict[str, object]:
+    quantity = int(row["quantity"])
+    unit_price = Decimal(row["unit_price"])
+    return {
+        "order_id": row["id"].strip(),
+        "total": quantity * unit_price,
+    }
 ```
 
-### Validation Signal
-- **Definition:** The reliability habit that keeps etl development understandable, testable, secure, and maintainable.
-- **Visual explanation:** `working code -> validation -> production confidence`
+### Idempotent Atomic Loads
+- **Definition:** Loads use stable business keys and a transaction or atomic partition replacement so retrying a batch does not duplicate partial results.
+- **Visual explanation:** `staged batch → validate counts → upsert/replace in transaction → checkpoint`
 - **Practical example:**
 
 ```python
-import csv
-from io import StringIO
+import sqlite3
 
-output = StringIO()
-writer = csv.DictWriter(output, fieldnames=["name", "score"])
-writer.writeheader()
-writer.writerow({"name": "Lin", "score": 98})
-print(output.getvalue())
+def upsert(connection: sqlite3.Connection, rows: list[tuple[str, str]]) -> None:
+    with connection:
+        connection.executemany(
+            "INSERT INTO target(id, value) VALUES(?, ?) "
+            "ON CONFLICT(id) DO UPDATE SET value=excluded.value",
+            rows,
+        )
 ```
 
 ## Infographic Summary
 
-| Infographic Block | Key Message |
+| Infographic Block | Topic-specific takeaway |
 | --- | --- |
-| 📌 Concept | ETL Development belongs to the data engineering and analytics part of Python mastery. |
-| ⚡ Purpose | Help developers apply data engineering and analytics techniques safely, clearly, and consistently. |
-| 🔥 Benefits | Stronger maintainability, better reliability, and more professional data engineering and analytics decisions. |
-| 🎯 Use Cases | Pipelines, dashboards, feature engineering, and large-scale data platforms. |
-| 🚀 Best Practices | Prefer readable names, small examples, explicit errors, tests, documentation, and version-aware choices. |
-| ❌ Common Mistakes | Copying code without understanding it, ignoring edge cases, skipping validation, and mixing unrelated responsibilities. |
+| 📌 Concept | ETL pipelines extract data from sources, transform it into a governed schema, and load it into a destination with recoverable checkpoints. |
+| ⚡ Purpose | Reliable ETL separates pure transformations from I/O, tracks lineage and watermarks, validates quality, and commits outputs atomically. |
+| 🔥 Benefits | Builds the ability to design extract, transform, and load boundaries with typed records; it also helps practitioners implement incremental watermarks, idempotent loads, and quarantine paths. |
+| 🎯 Use Cases | Incrementally moving transactional data into an analytics warehouse. Normalizing partner files while retaining rejected rows and reasons. |
+| 🚀 Best Practices | Quarantine invalid rows with reason and lineage metadata. |
+| ❌ Common Mistakes | Ignoring the guardrail “Advance checkpoints only after durable destination success”. |
 
 ## Syntax Guide
 
 ### Basic Syntax
 
 ```python
-import csv
-rows = list(csv.DictReader(open("data.csv", newline="")))
+def extract(rows, since):
+    for row in rows:
+        if row["updated_at"] > since:
+            yield row
 ```
 
 ### Standard Structure
 
 ```python
-def apply_etl_development(value):
-    """Apply the ETL Development concept to one value."""
-    return value
-
-result = apply_etl_development("practice")
-print(result)
+def pipeline(rows, since):
+    for row in extract(rows, since):
+        try:
+            yield transform(row)
+        except (KeyError, ValueError) as error:
+            print("rejected", row.get("id"), str(error))
 ```
 
 ### Code Pattern
 
 ```python
-# 1. Identify the ETL Development problem
-# 2. Apply the correct Python structure
-# 3. Validate the result with tests or output
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class BatchMetrics:
+    extracted: int
+    loaded: int
+    rejected: int
 ```
 
 ## Examples
@@ -104,51 +120,48 @@ print(result)
 ### Beginner Example
 
 ```python
-import csv
-from io import StringIO
-
-file = StringIO("name,score\nAda,95\n")
-print(list(csv.DictReader(file)))
+rows = [
+    {"id": "A", "quantity": "2", "unit_price": "4.50"},
+    {"id": "B", "quantity": "1", "unit_price": "8.00"},
+]
+print([transform(row) for row in rows])
 ```
 
 ### Intermediate Example
 
 ```python
 import csv
-from io import StringIO
+from pathlib import Path
 
-output = StringIO()
-writer = csv.DictWriter(output, fieldnames=["name", "score"])
-writer.writeheader()
-writer.writerow({"name": "Lin", "score": 98})
-print(output.getvalue())
+def extract_csv(path: Path):
+    with path.open(newline="", encoding="utf-8") as stream:
+        yield from csv.DictReader(stream)
 ```
 
 ### Advanced Example
 
 ```python
-import csv
-from io import StringIO
+import sqlite3
 
-data = StringIO("dept,total\nSales,100\nSales,150\n")
-totals = {}
-for row in csv.DictReader(data):
-    totals[row["dept"]] = totals.get(row["dept"], 0) + int(row["total"])
-print(totals)
+connection = sqlite3.connect(":memory:")
+connection.execute("CREATE TABLE target(id TEXT PRIMARY KEY, value TEXT NOT NULL)")
+batch = [("A", "first"), ("B", "second")]
+upsert(connection, batch)
+upsert(connection, [("A", "updated")])
+rows = connection.execute("SELECT id, value FROM target ORDER BY id").fetchall()
+assert rows == [("A", "updated"), ("B", "second")]
 ```
 
 ## Workflow Diagram
 
 ```mermaid
 flowchart LR
-    A[Identify ETL Development Need] --> B[Choose Python Tooling]
-    B --> C[Write Small Example]
-    C --> D[Test and Debug]
-    D --> E[Apply in Project]
+    A[Read checkpoint] --> B[Extract ordered increment]
+    B --> C[Transform and quarantine]
+    C --> D[Validate and atomically load]
+    D --> E[Reconcile then advance checkpoint]
+    E -. feedback .-> A
 ```
-
-
----
 
 ---
 
