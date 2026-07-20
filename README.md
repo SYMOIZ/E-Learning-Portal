@@ -9,7 +9,16 @@ This guide is written for students, instructors, technical writers, curriculum a
 - Study one topic at a time: overview, objectives, real-world value, concepts, infographic, syntax, examples, and workflow.
 - Run the beginner example, modify the intermediate example, and explain the advanced example.
 - Use the final roadmaps to connect topics to career outcomes.
-- Keep notes in NotebookLM, Obsidian, Notion, or a documentation portal by splitting sections into topic files when needed.
+- Use [`Python-Mastery/`](./Python-Mastery/) for the ready-made, topic-by-topic NotebookLM, Obsidian, Notion, and documentation-portal edition.
+
+## Choose Your Edition
+
+| Edition | Best for | Open |
+| --- | --- | --- |
+| Single-page knowledge base | GitHub browsing, full-text search, and one-source import | Continue below |
+| Topic-by-topic knowledge base | NotebookLM source selection, Obsidian vaults, Notion imports, and focused study | [`Python-Mastery/`](./Python-Mastery/) |
+| Deep-dive curriculum | Smaller learning units, practice questions, and runnable examples | [`python-learning-roadmap/`](./python-learning-roadmap/) |
+| Supplemental book | Additional repetition and practice | [`A Smarter Way to Learn Python .pdf`](./A%20Smarter%20Way%20to%20Learn%20Python%20.pdf) |
 
 ## Knowledge Base Architecture
 

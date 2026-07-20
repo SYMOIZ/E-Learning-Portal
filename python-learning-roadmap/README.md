@@ -1,6 +1,8 @@
 # Python Learning Roadmap Curriculum Directory
 
-This folder is the companion curriculum space for the complete single-page knowledge base in the repository root [`README.md`](../README.md). The root README now contains an explicit section for every requested Python topic across beginner, intermediate, and advanced levels.
+This folder is the deep-dive companion curriculum for the complete single-page knowledge base in the repository root [`README.md`](../README.md). The root README contains an explicit section for every requested Python topic across beginner, intermediate, and advanced levels.
+
+For one self-contained Markdown document per topic, use the portable [`Python-Mastery/`](../Python-Mastery/) edition. It mirrors all 110 lessons and adds dedicated indexes for infographics, cheat sheets, interview questions, projects, and career roadmaps.
 
 ## Learning Levels
 
