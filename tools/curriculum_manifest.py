@@ -1,0 +1,150 @@
+"""Shared curriculum manifest for generation and validation tools."""
+
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+SOURCE = ROOT / "README.md"
+DESTINATION = ROOT / "Python-Mastery"
+
+LEVELS: dict[str, list[str]] = {
+    "Beginner": [
+        "Introduction to Python",
+        "Installing Python",
+        "IDE Setup",
+        "Python Syntax",
+        "Variables",
+        "Data Types",
+        "Type Casting",
+        "Input and Output",
+        "Operators",
+        "Conditional Statements",
+        "Loops",
+        "Nested Loops",
+        "Break Continue Pass",
+        "Strings",
+        "String Methods",
+        "Lists",
+        "List Methods",
+        "Tuples",
+        "Sets",
+        "Dictionaries",
+        "Functions",
+        "Arguments and Parameters",
+        "Return Statements",
+        "Scope",
+        "Lambda Functions",
+        "Modules",
+        "Packages",
+        "Date and Time",
+        "Math Module",
+        "Random Module",
+        "File Handling",
+        "Exception Handling",
+        "Debugging Basics",
+        "Virtual Environments",
+        "Basic Project Structure",
+    ],
+    "Intermediate": [
+        "Object Oriented Programming",
+        "Classes",
+        "Objects",
+        "Constructors",
+        "Encapsulation",
+        "Inheritance",
+        "Polymorphism",
+        "Abstraction",
+        "Magic Methods",
+        "Iterators",
+        "Generators",
+        "Decorators",
+        "Context Managers",
+        "Regular Expressions",
+        "JSON Processing",
+        "CSV Processing",
+        "XML Processing",
+        "Logging",
+        "Configuration Management",
+        "Multithreading",
+        "Multiprocessing",
+        "Async Programming",
+        "API Development",
+        "API Consumption",
+        "Requests Library",
+        "Database Fundamentals",
+        "SQLite",
+        "MySQL Integration",
+        "PostgreSQL Integration",
+        "SQLAlchemy ORM",
+        "Unit Testing",
+        "Pytest",
+        "Mocking",
+        "Packaging Python Projects",
+        "CLI Applications",
+    ],
+    "Advanced": [
+        "Data Structures Internals",
+        "Algorithms in Python",
+        "Design Patterns",
+        "SOLID Principles",
+        "Memory Management",
+        "Garbage Collection",
+        "Python Internals",
+        "Metaclasses",
+        "Descriptors",
+        "Concurrency",
+        "Parallel Computing",
+        "Distributed Systems",
+        "Network Programming",
+        "Socket Programming",
+        "Cybersecurity Automation",
+        "Web Scraping",
+        "Automation Frameworks",
+        "ETL Development",
+        "Data Engineering",
+        "Pandas",
+        "NumPy",
+        "PySpark",
+        "Machine Learning",
+        "Deep Learning",
+        "NLP",
+        "Computer Vision",
+        "FastAPI",
+        "Django",
+        "Flask",
+        "Microservices",
+        "Docker with Python",
+        "Kubernetes Integration",
+        "Cloud Development",
+        "AWS with Python",
+        "Azure with Python",
+        "GCP with Python",
+        "DevOps Automation",
+        "CI/CD Pipelines",
+        "Performance Optimization",
+        "System Design with Python",
+    ],
+}
+
+REQUIRED_SECTIONS = (
+    "Overview",
+    "Learning Objectives",
+    "Real World Applications",
+    "Core Concepts",
+    "Infographic Summary",
+    "Syntax Guide",
+    "Examples",
+    "Workflow Diagram",
+)
+
+
+def slugify(value: str) -> str:
+    """Return a filesystem-safe, readable topic slug."""
+    import re
+
+    return re.sub(r"[^a-z0-9]+", "-", value.casefold()).strip("-")
+
+
+def topic_filename(number: int, topic: str) -> str:
+    """Return the numbered filename for a topic."""
+    return f"{number:02d}-{slugify(topic)}.md"
