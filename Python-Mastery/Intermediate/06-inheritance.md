@@ -5,9 +5,9 @@
 # Inheritance
 
 ## Overview
-- **What is it?** Inheritance is the intermediate Python topic of specializing behavior through an is-a relationship between classes.
-- **Why is it important?** Inheritance can reuse and extend contracts, but composition is safer when substitutability does not hold.
-- **Where is it used?** framework extension points, exception hierarchies, related domain variants.
+- **What is it?** Inheritance lets a class specialize or reuse behavior from a parent through an is-a relationship.
+- **Why is it important?** It reduces duplication for closely related types and enables polymorphic substitution when used carefully.
+- **Where is it used?** Framework extension points, exception hierarchies, UI widgets, and specialized domain subtypes.
 
 ## Learning Objectives
 - Apply is-a and substitutability tests.
@@ -15,9 +15,9 @@
 - Understand method resolution order.
 
 ## Real World Applications
-- **Engineering:** Framework extension points rely on this topic.
-- **Product work:** It supports exception hierarchies.
-- **Operations:** It appears in related domain variants.
+- Create PaymentError subclasses that share handling while remaining specific.
+- Extend base view or handler classes provided by web frameworks.
+- Specialize employee or account types without copying shared validation.
 
 ## Core Concepts
 
@@ -65,7 +65,7 @@ class Response(JsonMixin):
 
 | Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Subclass relationship, Overriding and super, Method resolution order |
+| 📌 Concept | Inheritance lets a class specialize or reuse behavior from a parent through an is-a relationship. |
 | ⚡ Purpose | Inheritance can reuse and extend contracts, but composition is safer when substitutability does not hold. |
 | 🔥 Benefits | Focused specialization, framework extensibility, and reusable behavior where substitutability holds. |
 | 🎯 Use Cases | framework extension points, exception hierarchies, related domain variants |

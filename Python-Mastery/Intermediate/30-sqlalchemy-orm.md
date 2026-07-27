@@ -5,9 +5,9 @@
 # SQLAlchemy ORM
 
 ## Overview
-- **What is it?** SQLAlchemy ORM is the intermediate Python topic of mapping Python domain classes to relational tables with SQLAlchemy 2.x.
-- **Why is it important?** The ORM unit of work tracks mapped objects and flushes SQL through an explicit Session transaction.
-- **Where is it used?** backend persistence layers, complex relational domains, database-portable data access.
+- **What is it?** SQLAlchemy ORM maps Python domain classes to relational tables and generates SQL through a unit-of-work session.
+- **Why is it important?** It reduces repetitive SQL while keeping type-friendly models and portable dialect support.
+- **Where is it used?** Web backends, admin tools, data access layers, and applications that need maintainable persistence.
 
 ## Learning Objectives
 - Declare 2.x typed mappings.
@@ -15,9 +15,9 @@
 - Model relationships and avoid hidden N+1 queries.
 
 ## Real World Applications
-- **Engineering:** Backend persistence layers rely on this topic.
-- **Product work:** It supports complex relational domains.
-- **Operations:** It appears in database-portable data access.
+- Map User and Order models with relationships and cascades.
+- Keep repository code readable while supporting multiple databases.
+- Combine ORM convenience with targeted SQL for hot paths.
 
 ## Core Concepts
 
@@ -64,7 +64,7 @@ user = session.scalar(statement)
 
 | Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Declarative mappings, Session and unit of work, 2.x queries and loading |
+| 📌 Concept | SQLAlchemy ORM maps Python domain classes to relational tables and generates SQL through a unit-of-work session. |
 | ⚡ Purpose | The ORM unit of work tracks mapped objects and flushes SQL through an explicit Session transaction. |
 | 🔥 Benefits | Typed relational mappings, coordinated units of work, and expressive database-independent querying. |
 | 🎯 Use Cases | backend persistence layers, complex relational domains, database-portable data access |

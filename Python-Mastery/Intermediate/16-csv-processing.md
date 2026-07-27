@@ -5,9 +5,9 @@
 # CSV Processing
 
 ## Overview
-- **What is it?** CSV Processing is the intermediate Python topic of reading and writing delimited tabular text with the csv module.
-- **Why is it important?** The csv module handles quoting, delimiters, and embedded newlines that manual string splitting gets wrong.
-- **Where is it used?** spreadsheet exchange, bulk imports, report exports.
+- **What is it?** CSV processing reads and writes delimited tabular text using Python's csv module and related tools.
+- **Why is it important?** CSV remains the common export format for spreadsheets, finance systems, and analytics handoffs.
+- **Where is it used?** Data imports/exports, reporting, ETL staging, and spreadsheet interoperability.
 
 ## Learning Objectives
 - Use reader/writer and DictReader/DictWriter.
@@ -15,9 +15,9 @@
 - Validate rows and stream large files.
 
 ## Real World Applications
-- **Engineering:** Spreadsheet exchange rely on this topic.
-- **Product work:** It supports bulk imports.
-- **Operations:** It appears in report exports.
+- Import supplier catalogs into inventory systems.
+- Export monthly finance reports for analysts.
+- Stage messy tabular data before loading a warehouse.
 
 ## Core Concepts
 
@@ -61,7 +61,7 @@ if quantity < 0:
 
 | Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | CSV dialect, Dictionary rows, Type conversion and validation |
+| 📌 Concept | CSV processing reads and writes delimited tabular text using Python's csv module and related tools. |
 | ⚡ Purpose | The csv module handles quoting, delimiters, and embedded newlines that manual string splitting gets wrong. |
 | 🔥 Benefits | Correct quoting and delimiter handling, streaming imports, and stable tabular exchange. |
 | 🎯 Use Cases | spreadsheet exchange, bulk imports, report exports |

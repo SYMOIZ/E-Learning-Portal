@@ -5,9 +5,9 @@
 # Generators
 
 ## Overview
-- **What is it?** Generators is the intermediate Python topic of writing lazy iterators with yield and generator expressions.
-- **Why is it important?** A generator suspends its frame between values, providing iterator behavior without a manual state-machine class.
-- **Where is it used?** large-file pipelines, event streams, incremental transformations.
+- **What is it?** Generators create lazy iterators with yield (and generator expressions) that pause and resume execution.
+- **Why is it important?** They simplify streaming pipelines and reduce memory use compared with building full intermediate lists.
+- **Where is it used?** ETL transforms, event streams, recursive tree walks, and incremental report generation.
 
 ## Learning Objectives
 - Explain yield suspension.
@@ -15,9 +15,9 @@
 - Compose lazy pipelines without retaining all data.
 
 ## Real World Applications
-- **Engineering:** Large-file pipelines rely on this topic.
-- **Product work:** It supports event streams.
-- **Operations:** It appears in incremental transformations.
+- Yield cleaned CSV rows as they are parsed.
+- Produce batches for bulk database inserts.
+- Traverse filesystem trees without materializing every path first.
 
 ## Core Concepts
 
@@ -60,7 +60,7 @@ print(next(squares))
 
 | Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Generator functions, Generator state, Lazy composition |
+| 📌 Concept | Generators create lazy iterators with yield (and generator expressions) that pause and resume execution. |
 | ⚡ Purpose | A generator suspends its frame between values, providing iterator behavior without a manual state-machine class. |
 | 🔥 Benefits | Lazy production, low memory use, and readable streaming pipelines without manual iterator classes. |
 | 🎯 Use Cases | large-file pipelines, event streams, incremental transformations |

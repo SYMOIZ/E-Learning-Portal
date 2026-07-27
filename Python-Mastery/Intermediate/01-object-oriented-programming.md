@@ -5,9 +5,9 @@
 # Object Oriented Programming
 
 ## Overview
-- **What is it?** Object Oriented Programming is the intermediate Python topic of organizing behavior and state around domain objects rather than unrelated procedures.
-- **Why is it important?** It provides a vocabulary for modeling changing state, responsibilities, and collaborations without turning every value into a class.
-- **Where is it used?** business domain models, GUI components, service layers and plugins.
+- **What is it?** Object-oriented programming (OOP) organizes software around objects that combine state and behavior, instead of only free-standing procedures.
+- **Why is it important?** OOP helps model real domains, encapsulate complexity, and share behavior through composition and inheritance.
+- **Where is it used?** Business domain models, GUI frameworks, service layers, plugins, and most large Python applications.
 
 ## Learning Objectives
 - Separate state, behavior, and collaboration responsibilities.
@@ -15,9 +15,9 @@
 - Keep object boundaries small enough to test.
 
 ## Real World Applications
-- **Engineering:** Business domain models rely on this topic.
-- **Product work:** It supports GUI components.
-- **Operations:** It appears in service layers and plugins.
+- Model customers, orders, and invoices as collaborating domain objects.
+- Structure desktop, web, and game frameworks around reusable component types.
+- Keep service boundaries clear so teams can extend behavior without rewriting everything.
 
 ## Core Concepts
 
@@ -67,7 +67,7 @@ class Notifier:
 
 | Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Objects and responsibilities, Composition, Cohesion and coupling |
+| 📌 Concept | Object-oriented programming (OOP) organizes software around objects that combine state and behavior, instead of only free-standing procedures. |
 | ⚡ Purpose | It provides a vocabulary for modeling changing state, responsibilities, and collaborations without turning every value into a class. |
 | 🔥 Benefits | Clear responsibility boundaries, replaceable collaborators, and behavior-focused tests. |
 | 🎯 Use Cases | business domain models, GUI components, service layers and plugins |

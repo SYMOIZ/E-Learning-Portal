@@ -5,9 +5,9 @@
 # SQLite
 
 ## Overview
-- **What is it?** SQLite is the intermediate Python topic of using Python's built-in sqlite3 driver for embedded relational storage.
-- **Why is it important?** SQLite stores a transactional database in one file and needs no server, making it ideal for local tools and modest workloads.
-- **Where is it used?** desktop and CLI state, local caches, tests and prototypes.
+- **What is it?** SQLite is an embedded relational database accessed in Python through the built-in sqlite3 module.
+- **Why is it important?** It gives durable SQL storage with zero server setup—ideal for local apps, tests, and small tools.
+- **Where is it used?** Desktop apps, prototypes, mobile-ish local stores, CI fixtures, and edge devices.
 
 ## Learning Objectives
 - Manage sqlite3 connections and transactions.
@@ -15,9 +15,9 @@
 - Understand locking, foreign keys, and file lifetime.
 
 ## Real World Applications
-- **Engineering:** Desktop and cli state rely on this topic.
-- **Product work:** It supports local caches.
-- **Operations:** It appears in tests and prototypes.
+- Persist CLI app state without running a database server.
+- Ship integration tests with a disposable file database.
+- Prototype schemas before migrating to Postgres or MySQL.
 
 ## Core Concepts
 
@@ -58,7 +58,7 @@ connection.execute("PRAGMA foreign_keys = ON")
 
 | Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Embedded connection, Rows and parameters, Transactions and constraints |
+| 📌 Concept | SQLite is an embedded relational database accessed in Python through the built-in sqlite3 module. |
 | ⚡ Purpose | SQLite stores a transactional database in one file and needs no server, making it ideal for local tools and modest workloads. |
 | 🔥 Benefits | Zero-service relational storage, transactional local data, and fast setup for tools and tests. |
 | 🎯 Use Cases | desktop and CLI state, local caches, tests and prototypes |

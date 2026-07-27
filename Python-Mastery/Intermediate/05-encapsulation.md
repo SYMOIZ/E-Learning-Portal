@@ -5,9 +5,9 @@
 # Encapsulation
 
 ## Overview
-- **What is it?** Encapsulation is the intermediate Python topic of protecting invariants behind a small public interface.
-- **Why is it important?** Python uses conventions, properties, and name mangling rather than absolute private access control.
-- **Where is it used?** validated account state, stable library APIs, replaceable implementations.
+- **What is it?** Encapsulation hides internal representation behind a small public interface that protects invariants.
+- **Why is it important?** It reduces coupling, prevents invalid state changes, and lets internals evolve without breaking callers.
+- **Where is it used?** Domain aggregates, libraries, SDKs, and any API where misuse would corrupt data.
 
 ## Learning Objectives
 - Design public and non-public interfaces.
@@ -15,9 +15,9 @@
 - Explain why name mangling is not security.
 
 ## Real World Applications
-- **Engineering:** Validated account state rely on this topic.
-- **Product work:** It supports stable library APIs.
-- **Operations:** It appears in replaceable implementations.
+- Keep bank balances mutable only through deposit and withdraw methods.
+- Expose properties instead of raw fields for validated settings.
+- Ship libraries that can change storage format without breaking clients.
 
 ## Core Concepts
 
@@ -62,7 +62,7 @@ class Base:
 
 | Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Public interface, Properties, Underscores and mangling |
+| 📌 Concept | Encapsulation hides internal representation behind a small public interface that protects invariants. |
 | ⚡ Purpose | Python uses conventions, properties, and name mangling rather than absolute private access control. |
 | 🔥 Benefits | Protected invariants, stable public APIs, and freedom to change internal representation. |
 | 🎯 Use Cases | validated account state, stable library APIs, replaceable implementations |

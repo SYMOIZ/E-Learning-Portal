@@ -5,9 +5,9 @@
 # MySQL Integration
 
 ## Overview
-- **What is it?** MySQL Integration is the intermediate Python topic of connecting Python applications to MySQL with a MySQL DB-API driver.
-- **Why is it important?** MySQL integration requires server connection management, %s parameter binding, transactions, and production pooling.
-- **Where is it used?** web application persistence, transactional business systems, MySQL-backed services.
+- **What is it?** MySQL integration connects Python applications to MySQL using a DB-API driver and connection pooling patterns.
+- **Why is it important?** MySQL powers many production apps; correct connections, charset, and transactions are essential.
+- **Where is it used?** LAMP-style stacks, CMS backends, e-commerce catalogs, and shared hosting environments.
 
 ## Learning Objectives
 - Use mysql.connector connection and cursor patterns.
@@ -15,9 +15,9 @@
 - Manage transactions, dictionary rows, and connection pools.
 
 ## Real World Applications
-- **Engineering:** Web application persistence rely on this topic.
-- **Product work:** It supports transactional business systems.
-- **Operations:** It appears in MySQL-backed services.
+- Read and write product catalogs stored in MySQL.
+- Run migrations and connection pools for web workers.
+- Handle replication lag and timeout policies in clients.
 
 ## Core Concepts
 
@@ -64,7 +64,7 @@ except Exception:
 
 | Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Driver connection, MySQL parameters and cursors, Transactions and pooling |
+| 📌 Concept | MySQL integration connects Python applications to MySQL using a DB-API driver and connection pooling patterns. |
 | ⚡ Purpose | MySQL integration requires server connection management, %s parameter binding, transactions, and production pooling. |
 | 🔥 Benefits | Safe MySQL queries, reusable server connections, and explicit transactional durability. |
 | 🎯 Use Cases | web application persistence, transactional business systems, MySQL-backed services |

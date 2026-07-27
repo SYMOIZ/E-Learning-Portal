@@ -5,9 +5,9 @@
 # Async Programming
 
 ## Overview
-- **What is it?** Async Programming is the intermediate Python topic of cooperatively overlapping many non-blocking I/O operations on an event loop.
-- **Why is it important?** asyncio scales I/O concurrency with tasks that yield control at await points; it does not make CPU work parallel.
-- **Where is it used?** many network connections, concurrent service calls, event-driven workers.
+- **What is it?** Async programming cooperatively overlaps many non-blocking I/O operations on an event loop with async/await.
+- **Why is it important?** One process can handle thousands of waiting connections efficiently when work is mostly I/O.
+- **Where is it used?** Web servers, chat systems, websocket gateways, scrapers, and high-concurrency API clients.
 
 ## Learning Objectives
 - Explain coroutine, task, and event-loop roles.
@@ -15,9 +15,9 @@
 - Keep blocking and CPU-heavy work off the event loop.
 
 ## Real World Applications
-- **Engineering:** Many network connections rely on this topic.
-- **Product work:** It supports concurrent service calls.
-- **Operations:** It appears in event-driven workers.
+- Serve many simultaneous HTTP requests with FastAPI or aiohttp.
+- Fan out outbound API calls without blocking the event loop.
+- Build realtime notification hubs with websockets.
 
 ## Core Concepts
 
@@ -67,7 +67,7 @@ async def read_text(path):
 
 | Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Coroutines and await, Tasks and structured concurrency, Blocking boundaries |
+| 📌 Concept | Async programming cooperatively overlaps many non-blocking I/O operations on an event loop with async/await. |
 | ⚡ Purpose | asyncio scales I/O concurrency with tasks that yield control at await points; it does not make CPU work parallel. |
 | 🔥 Benefits | High I/O concurrency, efficient task scheduling, and structured cancellation and timeout handling. |
 | 🎯 Use Cases | many network connections, concurrent service calls, event-driven workers |

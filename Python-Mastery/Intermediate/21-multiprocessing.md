@@ -5,9 +5,9 @@
 # Multiprocessing
 
 ## Overview
-- **What is it?** Multiprocessing is the intermediate Python topic of running CPU-bound Python work across separate processes.
-- **Why is it important?** Processes have independent interpreters and memory, bypassing the GIL at the cost of serialization and startup overhead.
-- **Where is it used?** image transforms, numeric batch calculations, CPU-heavy parsing.
+- **What is it?** Multiprocessing runs work in separate processes so CPU-bound Python tasks can use multiple cores.
+- **Why is it important?** It bypasses the GIL for parallel computation at the cost of higher memory and IPC complexity.
+- **Where is it used?** Image processing, numerical jobs, data transforms, and batch crunching.
 
 ## Learning Objectives
 - Choose processes for coarse CPU-bound tasks.
@@ -15,9 +15,9 @@
 - Use pools and IPC without assuming shared memory.
 
 ## Real World Applications
-- **Engineering:** Image transforms rely on this topic.
-- **Product work:** It supports numeric batch calculations.
-- **Operations:** It appears in CPU-heavy parsing.
+- Resize thousands of images across CPU cores.
+- Parallelize CPU-heavy feature engineering steps.
+- Isolate crash-prone workers from the main process.
 
 ## Core Concepts
 
@@ -63,7 +63,7 @@ if __name__ == "__main__":
 
 | Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Process isolation, Process pools, Safe startup and IPC |
+| 📌 Concept | Multiprocessing runs work in separate processes so CPU-bound Python tasks can use multiple cores. |
 | ⚡ Purpose | Processes have independent interpreters and memory, bypassing the GIL at the cost of serialization and startup overhead. |
 | 🔥 Benefits | Parallel CPU execution across cores, process isolation, and scalable batch computation. |
 | 🎯 Use Cases | image transforms, numeric batch calculations, CPU-heavy parsing |

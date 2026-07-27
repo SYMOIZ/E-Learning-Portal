@@ -5,9 +5,9 @@
 # Requests Library
 
 ## Overview
-- **What is it?** Requests Library is the intermediate Python topic of sending HTTP requests with the third-party requests library.
-- **Why is it important?** Requests provides ergonomic sessions, parameter encoding, response decoding, exceptions, and adapter-based retry configuration.
-- **Where is it used?** REST clients, webhook delivery, service health checks.
+- **What is it?** The requests library is a popular third-party HTTP client for concise, session-aware request/response handling.
+- **Why is it important?** It simplifies headers, cookies, JSON, and sessions compared with raw urllib for many scripts and services.
+- **Where is it used?** Automation scripts, integration tests, admin tools, and service-to-service clients.
 
 ## Learning Objectives
 - Use params, json, headers, timeout, and raise_for_status.
@@ -15,9 +15,9 @@
 - Configure narrow retries with urllib3 Retry.
 
 ## Real World Applications
-- **Engineering:** Rest clients rely on this topic.
-- **Product work:** It supports webhook delivery.
-- **Operations:** It appears in service health checks.
+- Pull JSON dashboards from internal metrics APIs.
+- Post form data to legacy systems during migrations.
+- Reuse authenticated sessions across multiple endpoints.
 
 ## Core Concepts
 
@@ -57,7 +57,7 @@ response = requests.get("https://example.com", timeout=(2, 10))
 
 | Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Request and response, Sessions, Timeouts and retries |
+| 📌 Concept | The requests library is a popular third-party HTTP client for concise, session-aware request/response handling. |
 | ⚡ Purpose | Requests provides ergonomic sessions, parameter encoding, response decoding, exceptions, and adapter-based retry configuration. |
 | 🔥 Benefits | Concise HTTP clients, pooled connections, and centralized timeout, status, and retry policy. |
 | 🎯 Use Cases | REST clients, webhook delivery, service health checks |

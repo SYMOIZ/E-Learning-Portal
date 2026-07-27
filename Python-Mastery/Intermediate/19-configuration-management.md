@@ -5,9 +5,9 @@
 # Configuration Management
 
 ## Overview
-- **What is it?** Configuration Management is the intermediate Python topic of loading, validating, and layering settings outside application logic.
-- **Why is it important?** Configuration separates deployment-specific values from code while typed validation makes failures early and explicit.
-- **Where is it used?** environment-specific endpoints, feature switches, runtime limits.
+- **What is it?** Configuration management loads, validates, and layers settings outside application logic.
+- **Why is it important?** Hard-coded settings block promotion across environments and create security risks.
+- **Where is it used?** 12-factor apps, containers, CI pipelines, feature flags, and multi-tenant services.
 
 ## Learning Objectives
 - Layer defaults, files, environment, and arguments.
@@ -15,9 +15,9 @@
 - Keep secrets out of source control and logs.
 
 ## Real World Applications
-- **Engineering:** Environment-specific endpoints rely on this topic.
-- **Product work:** It supports feature switches.
-- **Operations:** It appears in runtime limits.
+- Separate local, staging, and production database credentials.
+- Validate required env vars at startup before serving traffic.
+- Toggle features without redeploying business logic.
 
 ## Core Concepts
 
@@ -56,7 +56,7 @@ token = os.environ["SERVICE_TOKEN"]
 
 | Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Configuration sources, Parsing and validation, Secrets |
+| 📌 Concept | Configuration management loads, validates, and layers settings outside application logic. |
 | ⚡ Purpose | Configuration separates deployment-specific values from code while typed validation makes failures early and explicit. |
 | 🔥 Benefits | Portable deployments, fail-fast startup validation, and secure separation of settings from code. |
 | 🎯 Use Cases | environment-specific endpoints, feature switches, runtime limits |

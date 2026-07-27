@@ -5,9 +5,9 @@
 # PostgreSQL Integration
 
 ## Overview
-- **What is it?** PostgreSQL Integration is the intermediate Python topic of connecting Python applications to PostgreSQL with psycopg 3.
-- **Why is it important?** psycopg provides safe %s binding, context-managed transactions, row factories, pools, and PostgreSQL-specific capabilities.
-- **Where is it used?** transactional services, analytics backends, PostgreSQL feature-rich applications.
+- **What is it?** PostgreSQL integration connects Python apps to Postgres with drivers such as psycopg 3.
+- **Why is it important?** Postgres is a strong default for production relational workloads with rich types and integrity features.
+- **Where is it used?** SaaS backends, analytics-friendly OLTP, geospatial apps, and event-sourced systems.
 
 ## Learning Objectives
 - Use psycopg 3 connections and cursors.
@@ -15,9 +15,9 @@
 - Use psycopg_pool for bounded production connections.
 
 ## Real World Applications
-- **Engineering:** Transactional services rely on this topic.
-- **Product work:** It supports analytics backends.
-- **Operations:** It appears in PostgreSQL feature-rich applications.
+- Store transactional SaaS data with strong constraints.
+- Use JSONB, arrays, or full-text search from Python clients.
+- Coordinate migrations and connection pooling under load.
 
 ## Core Concepts
 
@@ -58,7 +58,7 @@ with connection.transaction():
 
 | Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | psycopg connections, Binding and row factories, Transactions and pools |
+| 📌 Concept | PostgreSQL integration connects Python apps to Postgres with drivers such as psycopg 3. |
 | ⚡ Purpose | psycopg provides safe %s binding, context-managed transactions, row factories, pools, and PostgreSQL-specific capabilities. |
 | 🔥 Benefits | Typed PostgreSQL rows, concise transaction scopes, and bounded production connection reuse. |
 | 🎯 Use Cases | transactional services, analytics backends, PostgreSQL feature-rich applications |

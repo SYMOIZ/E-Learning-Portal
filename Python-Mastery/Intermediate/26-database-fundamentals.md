@@ -5,9 +5,9 @@
 # Database Fundamentals
 
 ## Overview
-- **What is it?** Database Fundamentals is the intermediate Python topic of using relational data, SQL, transactions, and DB-API concepts correctly.
-- **Why is it important?** Database fundamentals explain schemas and consistency independently of a specific driver or ORM.
-- **Where is it used?** transactional applications, reporting stores, durable service state.
+- **What is it?** Database fundamentals cover relational modeling, SQL, transactions, and DB-API concepts used from Python.
+- **Why is it important?** Persistent data is the core of most products; incorrect SQL or transactions destroy integrity.
+- **Where is it used?** CRUD apps, analytics extracts, reporting, and any system with durable business records.
 
 ## Learning Objectives
 - Model tables, keys, and relationships.
@@ -15,9 +15,9 @@
 - Understand connections, cursors, commits, and rollbacks.
 
 ## Real World Applications
-- **Engineering:** Transactional applications rely on this topic.
-- **Product work:** It supports reporting stores.
-- **Operations:** It appears in durable service state.
+- Design normalized schemas for users, orders, and inventory.
+- Use transactions to keep multi-table writes consistent.
+- Parameterize queries to prevent SQL injection.
 
 ## Core Concepts
 
@@ -65,7 +65,7 @@ except Exception:
 
 | Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Relational schema, Parameterized SQL, Transactions |
+| 📌 Concept | Database fundamentals cover relational modeling, SQL, transactions, and DB-API concepts used from Python. |
 | ⚡ Purpose | Database fundamentals explain schemas and consistency independently of a specific driver or ORM. |
 | 🔥 Benefits | Durable relational state, injection-safe queries, and atomic consistency through transactions. |
 | 🎯 Use Cases | transactional applications, reporting stores, durable service state |

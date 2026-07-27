@@ -5,9 +5,9 @@
 # Regular Expressions
 
 ## Overview
-- **What is it?** Regular Expressions is the intermediate Python topic of describing and extracting structured text with compiled patterns.
-- **Why is it important?** Regex is effective for local text grammars but should not replace a parser for deeply nested formats.
-- **Where is it used?** input validation, log extraction, search and redaction.
+- **What is it?** Regular expressions describe text patterns used to search, validate, extract, and rewrite strings.
+- **Why is it important?** They compactly express structured text rules that would be brittle as hand-written loops.
+- **Where is it used?** Log parsing, form validation, scraping cleanup, token extraction, and configuration linting.
 
 ## Learning Objectives
 - Use raw strings, groups, and quantifiers.
@@ -15,9 +15,9 @@
 - Control backtracking with precise patterns.
 
 ## Real World Applications
-- **Engineering:** Input validation rely on this topic.
-- **Product work:** It supports log extraction.
-- **Operations:** It appears in search and redaction.
+- Extract IPs, emails, or order IDs from unstructured logs.
+- Validate user input formats before persistence.
+- Normalize scraped HTML text into structured fields.
 
 ## Core Concepts
 
@@ -57,7 +57,7 @@ print(bool(slug.fullmatch("python-patterns")))
 
 | Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Pattern language, Groups and captures, Compilation and boundaries |
+| 📌 Concept | Regular expressions describe text patterns used to search, validate, extract, and rewrite strings. |
 | ⚡ Purpose | Regex is effective for local text grammars but should not replace a parser for deeply nested formats. |
 | 🔥 Benefits | Concise text validation, structured capture, and repeatable search or redaction rules. |
 | 🎯 Use Cases | input validation, log extraction, search and redaction |

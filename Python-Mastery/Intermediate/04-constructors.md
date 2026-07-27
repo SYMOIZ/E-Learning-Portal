@@ -5,9 +5,9 @@
 # Constructors
 
 ## Overview
-- **What is it?** Constructors is the intermediate Python topic of establishing valid instance state during object creation.
-- **Why is it important?** Python separates allocation in __new__ from initialization in __init__; most application classes customize only __init__.
-- **Where is it used?** validated value objects, dependency injection, alternative factories.
+- **What is it?** Constructors initialize a new object so it starts in a valid, usable state.
+- **Why is it important?** Invalid objects create cascading bugs; construction is the right place to enforce required data and defaults.
+- **Where is it used?** Factory helpers, ORM model creation, config loaders, and any class that needs invariants from day one.
 
 ## Learning Objectives
 - Explain __new__ versus __init__.
@@ -15,9 +15,9 @@
 - Design keyword-only and alternative constructors.
 
 ## Real World Applications
-- **Engineering:** Validated value objects rely on this topic.
-- **Product work:** It supports dependency injection.
-- **Operations:** It appears in alternative factories.
+- Reject incomplete account or payment objects at creation time.
+- Apply defaults for optional settings while requiring critical fields.
+- Centralize expensive setup so callers always receive ready-to-use instances.
 
 ## Core Concepts
 
@@ -62,7 +62,7 @@ class DateKey:
 
 | Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Allocation and initialization, Constructor invariants, Alternative constructors |
+| 📌 Concept | Constructors initialize a new object so it starts in a valid, usable state. |
 | ⚡ Purpose | Python separates allocation in __new__ from initialization in __init__; most application classes customize only __init__. |
 | 🔥 Benefits | Valid objects from creation time, centralized normalization, and readable alternative factories. |
 | 🎯 Use Cases | validated value objects, dependency injection, alternative factories |

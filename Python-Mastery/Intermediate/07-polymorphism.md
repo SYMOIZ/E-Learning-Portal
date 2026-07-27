@@ -5,9 +5,9 @@
 # Polymorphism
 
 ## Overview
-- **What is it?** Polymorphism is the intermediate Python topic of using one operation with values of different concrete types.
-- **Why is it important?** Python commonly achieves polymorphism through duck typing and protocols, not only inheritance.
-- **Where is it used?** payment strategies, serializers, replaceable infrastructure adapters.
+- **What is it?** Polymorphism lets the same operation work with values of different concrete types that share a contract.
+- **Why is it important?** Callers can depend on behavior, not concrete classes, which makes systems extensible and testable.
+- **Where is it used?** Payment processors, serializers, notification channels, storage backends, and plugin systems.
 
 ## Learning Objectives
 - Use duck typing safely.
@@ -15,9 +15,9 @@
 - Distinguish polymorphism from inheritance.
 
 ## Real World Applications
-- **Engineering:** Payment strategies rely on this topic.
-- **Product work:** It supports serializers.
-- **Operations:** It appears in replaceable infrastructure adapters.
+- Swap credit-card, wallet, and invoice processors behind one pay() interface.
+- Render reports to PDF, CSV, or HTML without changing reporting logic.
+- Inject fake collaborators in tests that honor the same protocol.
 
 ## Core Concepts
 
@@ -57,7 +57,7 @@ class Renderable(Protocol):
 
 | Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Duck typing, Substitution, Protocols |
+| 📌 Concept | Polymorphism lets the same operation work with values of different concrete types that share a contract. |
 | ⚡ Purpose | Python commonly achieves polymorphism through duck typing and protocols, not only inheritance. |
 | 🔥 Benefits | Interchangeable implementations, smaller caller dependencies, and easier extension without type switches. |
 | 🎯 Use Cases | payment strategies, serializers, replaceable infrastructure adapters |

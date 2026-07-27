@@ -5,9 +5,9 @@
 # Context Managers
 
 ## Overview
-- **What is it?** Context Managers is the intermediate Python topic of pairing resource acquisition with reliable cleanup around a with block.
-- **Why is it important?** The context manager protocol guarantees __exit__ runs when control leaves the block, including through exceptions.
-- **Where is it used?** files and locks, database transactions, temporary state.
+- **What is it?** Context managers pair resource acquisition with reliable cleanup around a with block via __enter__/__exit__ or contextlib.
+- **Why is it important?** They guarantee cleanup on success and failure, preventing leaks of files, locks, connections, and transactions.
+- **Where is it used?** Files, database sessions, locks, temporary directories, and transactional units of work.
 
 ## Learning Objectives
 - Implement __enter__ and __exit__.
@@ -15,9 +15,9 @@
 - Decide whether an exception should be suppressed.
 
 ## Real World Applications
-- **Engineering:** Files and locks rely on this topic.
-- **Product work:** It supports database transactions.
-- **Operations:** It appears in temporary state.
+- Always close files and sockets even when exceptions occur.
+- Commit or roll back database transactions consistently.
+- Hold concurrency locks for the smallest correct critical section.
 
 ## Core Concepts
 
@@ -64,7 +64,7 @@ def managed():
 
 | Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Context protocol, Exception handling, Generator-based managers |
+| 📌 Concept | Context managers pair resource acquisition with reliable cleanup around a with block via __enter__/__exit__ or contextlib. |
 | ⚡ Purpose | The context manager protocol guarantees __exit__ runs when control leaves the block, including through exceptions. |
 | 🔥 Benefits | Guaranteed cleanup, concise resource lifetimes, and reliable transaction or temporary-state handling. |
 | 🎯 Use Cases | files and locks, database transactions, temporary state |

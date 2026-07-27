@@ -5,9 +5,9 @@
 # API Development
 
 ## Overview
-- **What is it?** API Development is the intermediate Python topic of designing and implementing HTTP endpoints that expose a stable service contract.
-- **Why is it important?** API development covers server-side routing, validation, status codes, serialization, and operational behavior.
-- **Where is it used?** web and mobile backends, internal microservices, automation interfaces.
+- **What is it?** API development designs and implements HTTP endpoints that expose a stable service contract to clients.
+- **Why is it important?** Well-designed APIs decouple frontends, mobile apps, and partner systems from internal storage details.
+- **Where is it used?** REST/JSON services, internal microservices, public partner APIs, and BFF layers.
 
 ## Learning Objectives
 - Design resource-oriented endpoints and schemas.
@@ -15,9 +15,9 @@
 - Separate transport, business logic, and persistence.
 
 ## Real World Applications
-- **Engineering:** Web and mobile backends rely on this topic.
-- **Product work:** It supports internal microservices.
-- **Operations:** It appears in automation interfaces.
+- Expose product catalog and checkout endpoints for a storefront.
+- Provide versioned partner integrations with clear error contracts.
+- Separate validation, business logic, and persistence cleanly.
 
 ## Core Concepts
 
@@ -64,7 +64,7 @@ def create_task(payload, service):
 
 | Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | HTTP contract, Validation and errors, Layered handlers |
+| 📌 Concept | API development designs and implements HTTP endpoints that expose a stable service contract to clients. |
 | ⚡ Purpose | API development covers server-side routing, validation, status codes, serialization, and operational behavior. |
 | 🔥 Benefits | Stable service contracts, validated boundaries, and maintainable separation of HTTP and domain logic. |
 | 🎯 Use Cases | web and mobile backends, internal microservices, automation interfaces |

@@ -5,9 +5,9 @@
 # API Consumption
 
 ## Overview
-- **What is it?** API Consumption is the intermediate Python topic of integrating with remote APIs as a reliable client, independent of a particular HTTP library.
-- **Why is it important?** API consumption is the broader discipline of understanding contracts, authentication, pagination, rate limits, and failure modes.
-- **Where is it used?** third-party integrations, data synchronization, service-to-service calls.
+- **What is it?** API consumption integrates remote services as a reliable client—handling auth, retries, timeouts, and schema drift.
+- **Why is it important?** Most applications depend on third parties; fragile clients cause outages and data corruption.
+- **Where is it used?** Payment gateways, SaaS integrations, webhooks reverse-flows, and microservice clients.
 
 ## Learning Objectives
 - Read API contracts and encode parameters.
@@ -15,9 +15,9 @@
 - Implement pagination, authentication, and idempotent retries.
 
 ## Real World Applications
-- **Engineering:** Third-party integrations rely on this topic.
-- **Product work:** It supports data synchronization.
-- **Operations:** It appears in service-to-service calls.
+- Sync CRM contacts with pagination and backoff.
+- Call payment APIs with idempotency keys and timeouts.
+- Normalize third-party payloads into internal domain models.
 
 ## Core Concepts
 
@@ -63,7 +63,7 @@ def pages(fetch):
 
 | Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Contract consumption, Failure layers, Pagination and resilience |
+| 📌 Concept | API consumption integrates remote services as a reliable client—handling auth, retries, timeouts, and schema drift. |
 | ⚡ Purpose | API consumption is the broader discipline of understanding contracts, authentication, pagination, rate limits, and failure modes. |
 | 🔥 Benefits | Reliable integrations, explicit failure classification, and safe pagination and retry behavior. |
 | 🎯 Use Cases | third-party integrations, data synchronization, service-to-service calls |

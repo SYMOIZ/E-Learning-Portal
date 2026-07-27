@@ -5,9 +5,9 @@
 # Iterators
 
 ## Overview
-- **What is it?** Iterators is the intermediate Python topic of representing pull-based streams that produce one item at a time.
-- **Why is it important?** An iterable creates an iterator; an iterator tracks traversal state and raises StopIteration when exhausted.
-- **Where is it used?** custom collections, streaming parsers, lazy data pipelines.
+- **What is it?** Iterators are pull-based objects that produce one item at a time through the iterator protocol (__iter__/__next__).
+- **Why is it important?** They enable lazy processing of large or infinite streams without loading everything into memory.
+- **Where is it used?** File readers, database cursors, pagination clients, pipelines, and custom collections.
 
 ## Learning Objectives
 - Distinguish iterable from iterator.
@@ -15,9 +15,9 @@
 - Use iter(callable, sentinel) and iterator tools.
 
 ## Real World Applications
-- **Engineering:** Custom collections rely on this topic.
-- **Product work:** It supports streaming parsers.
-- **Operations:** It appears in lazy data pipelines.
+- Stream log lines from multi-gigabyte files safely.
+- Page through API results without buffering every record.
+- Build custom collections that work with for-loops and comprehensions.
 
 ## Core Concepts
 
@@ -57,7 +57,7 @@ rest = list(cursor)
 
 | Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Iterable protocol, Iterator protocol, Stateful consumption |
+| 📌 Concept | Iterators are pull-based objects that produce one item at a time through the iterator protocol (__iter__/__next__). |
 | ⚡ Purpose | An iterable creates an iterator; an iterator tracks traversal state and raises StopIteration when exhausted. |
 | 🔥 Benefits | Memory-efficient traversal, explicit single-pass state, and compatibility with Python iteration tools. |
 | 🎯 Use Cases | custom collections, streaming parsers, lazy data pipelines |

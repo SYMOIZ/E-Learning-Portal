@@ -5,9 +5,9 @@
 # Packaging Python Projects
 
 ## Overview
-- **What is it?** Packaging Python Projects is the intermediate Python topic of building installable Python distributions from a pyproject.toml and src layout.
-- **Why is it important?** Modern packaging separates build metadata, import packages, distributions, and isolated build backends.
-- **Where is it used?** reusable libraries, internal tools, PyPI distributions.
+- **What is it?** Packaging builds installable Python distributions from a modern pyproject.toml and project layout.
+- **Why is it important?** Installable packages make reuse, versioning, and deployment reproducible across machines and CI.
+- **Where is it used?** Internal libraries, CLI tools, PyPI releases, and containerized app builds.
 
 ## Learning Objectives
 - Create pyproject.toml metadata.
@@ -15,9 +15,9 @@
 - Build and inspect wheel and source distributions.
 
 ## Real World Applications
-- **Engineering:** Reusable libraries rely on this topic.
-- **Product work:** It supports internal tools.
-- **Operations:** It appears in PyPI distributions.
+- Publish a shared utility package for multiple services.
+- Ship an installable CLI with entry points.
+- Pin build backends so CI produces identical artifacts.
 
 ## Core Concepts
 
@@ -58,7 +58,7 @@ print([path.suffix for path in artifacts])
 
 | Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Project metadata, Source layout, Distribution artifacts |
+| 📌 Concept | Packaging builds installable Python distributions from a modern pyproject.toml and project layout. |
 | ⚡ Purpose | Modern packaging separates build metadata, import packages, distributions, and isolated build backends. |
 | 🔥 Benefits | Reproducible builds, clean installed imports, and distributable versioned artifacts. |
 | 🎯 Use Cases | reusable libraries, internal tools, PyPI distributions |

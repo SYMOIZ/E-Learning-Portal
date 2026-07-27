@@ -5,9 +5,9 @@
 # Decorators
 
 ## Overview
-- **What is it?** Decorators is the intermediate Python topic of wrapping callables or classes to add reusable behavior declaratively.
-- **Why is it important?** Decorator syntax rebinds a name to the result of a transformation performed when the definition executes.
-- **Where is it used?** authorization checks, instrumentation, registration and caching.
+- **What is it?** A decorator is a callable that wraps another callable or class to add reusable behavior declaratively with @syntax.
+- **Why is it important?** Decorators keep cross-cutting concerns—auth, caching, timing, retries—out of core business logic.
+- **Where is it used?** Authorization checks, instrumentation, registration, caching, rate limiting, and framework hooks.
 
 ## Learning Objectives
 - Translate @syntax into function application.
@@ -15,9 +15,9 @@
 - Write parameterized and stateful decorators.
 
 ## Real World Applications
-- **Engineering:** Authorization checks rely on this topic.
-- **Product work:** It supports instrumentation.
-- **Operations:** It appears in registration and caching.
+- Protect API handlers with @require_role decorators.
+- Measure latency with timing wrappers that preserve function metadata.
+- Register CLI commands or routes through decorator-based registries.
 
 ## Core Concepts
 
@@ -65,7 +65,7 @@ def tagged(label):
 
 | Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Callable transformation, Closures and metadata, Decorator factories |
+| 📌 Concept | A decorator is a callable that wraps another callable or class to add reusable behavior declaratively with @syntax. |
 | ⚡ Purpose | Decorator syntax rebinds a name to the result of a transformation performed when the definition executes. |
 | 🔥 Benefits | Reusable cross-cutting behavior, declarative application, and consistent instrumentation or policy. |
 | 🎯 Use Cases | authorization checks, instrumentation, registration and caching |

@@ -5,9 +5,9 @@
 # Pytest
 
 ## Overview
-- **What is it?** Pytest is the intermediate Python topic of writing concise tests with pytest assertions, fixtures, and parametrization.
-- **Why is it important?** pytest uses plain test functions, assertion rewriting, composable fixtures, and a rich plugin ecosystem.
-- **Where is it used?** modern application suites, integration test fixtures, data-driven testing.
+- **What is it?** Pytest is a testing framework that uses plain assert statements, fixtures, and parametrization for concise tests.
+- **Why is it important?** It reduces boilerplate and scales from unit tests to integration suites used across the Python ecosystem.
+- **Where is it used?** Open-source libraries, web apps, data pipelines, and CI quality gates.
 
 ## Learning Objectives
 - Write plain assert tests.
@@ -15,9 +15,9 @@
 - Parametrize cases and use pytest.raises.
 
 ## Real World Applications
-- **Engineering:** Modern application suites rely on this topic.
-- **Product work:** It supports integration test fixtures.
-- **Operations:** It appears in data-driven testing.
+- Parametrize validation rules across many input cases.
+- Share database fixtures safely across integration tests.
+- Generate clear failure reports for pull-request reviews.
 
 ## Core Concepts
 
@@ -61,7 +61,7 @@ def test_positive(value):
 
 | Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Assertion rewriting, Fixtures, Parametrization |
+| 📌 Concept | Pytest is a testing framework that uses plain assert statements, fixtures, and parametrization for concise tests. |
 | ⚡ Purpose | pytest uses plain test functions, assertion rewriting, composable fixtures, and a rich plugin ecosystem. |
 | 🔥 Benefits | Concise assertions, composable setup, and scalable data-driven test coverage. |
 | 🎯 Use Cases | modern application suites, integration test fixtures, data-driven testing |

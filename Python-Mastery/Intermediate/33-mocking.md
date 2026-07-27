@@ -5,9 +5,9 @@
 # Mocking
 
 ## Overview
-- **What is it?** Mocking is the intermediate Python topic of replacing collaborators at test boundaries with controlled test doubles.
-- **Why is it important?** unittest.mock isolates nondeterministic or external behavior, but excessive mocking couples tests to implementation.
-- **Where is it used?** network failure simulation, time and randomness control, interaction verification.
+- **What is it?** Mocking replaces collaborators at test boundaries with controlled test doubles so units can be verified in isolation.
+- **Why is it important?** It makes tests fast and deterministic when real networks, clocks, or databases would be flaky or expensive.
+- **Where is it used?** Service-layer tests, API clients, time-dependent logic, and failure-path simulation.
 
 ## Learning Objectives
 - Use Mock, patch, autospec, and side_effect.
@@ -15,9 +15,9 @@
 - Choose fakes or real collaborators when behavior matters.
 
 ## Real World Applications
-- **Engineering:** Network failure simulation rely on this topic.
-- **Product work:** It supports time and randomness control.
-- **Operations:** It appears in interaction verification.
+- Simulate payment-gateway timeouts without spending money.
+- Force rare error branches that are hard to reproduce live.
+- Keep unit tests independent of network and filesystem state.
 
 ## Core Concepts
 
@@ -59,7 +59,7 @@ client.fetch.side_effect = [TimeoutError, {"ok": True}]
 
 | Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Test doubles, Patching lookup names, Specifications and side effects |
+| 📌 Concept | Mocking replaces collaborators at test boundaries with controlled test doubles so units can be verified in isolation. |
 | ⚡ Purpose | unittest.mock isolates nondeterministic or external behavior, but excessive mocking couples tests to implementation. |
 | 🔥 Benefits | Deterministic boundary tests, reproducible failures, and precise collaborator interaction checks. |
 | 🎯 Use Cases | network failure simulation, time and randomness control, interaction verification |

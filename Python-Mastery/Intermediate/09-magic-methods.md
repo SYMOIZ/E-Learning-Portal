@@ -5,9 +5,9 @@
 # Magic Methods
 
 ## Overview
-- **What is it?** Magic Methods is the intermediate Python topic of integrating custom types with Python's data model through special methods.
-- **Why is it important?** Methods such as __repr__, __len__, and __eq__ let syntax and built-ins delegate to your type.
-- **Where is it used?** value objects, collection-like types, context-aware resources.
+- **What is it?** Magic methods (dunder methods) integrate custom types with Python's data model for operators, iteration, and representation.
+- **Why is it important?** They make domain objects feel native—comparable, printable, hashable, or context-managed—without awkward helper APIs.
+- **Where is it used?** Value objects, collections, ORMs, DSLs, and any type that should support operators or protocols.
 
 ## Learning Objectives
 - Map Python operations to special methods.
@@ -15,9 +15,9 @@
 - Keep operator semantics unsurprising.
 
 ## Real World Applications
-- **Engineering:** Value objects rely on this topic.
-- **Product work:** It supports collection-like types.
-- **Operations:** It appears in context-aware resources.
+- Compare Money or Version objects with readable operators.
+- Make containers iterable and length-aware with __iter__ and __len__.
+- Control debug output via __repr__ for faster incident diagnosis.
 
 ## Core Concepts
 
@@ -62,7 +62,7 @@ class Distance:
 
 | Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Protocol hooks, Representations, Binary operation dispatch |
+| 📌 Concept | Magic methods (dunder methods) integrate custom types with Python's data model for operators, iteration, and representation. |
 | ⚡ Purpose | Methods such as __repr__, __len__, and __eq__ let syntax and built-ins delegate to your type. |
 | 🔥 Benefits | Custom types that compose naturally with Python syntax, operators, and built-ins. |
 | 🎯 Use Cases | value objects, collection-like types, context-aware resources |

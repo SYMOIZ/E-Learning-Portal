@@ -5,9 +5,9 @@
 # Abstraction
 
 ## Overview
-- **What is it?** Abstraction is the intermediate Python topic of exposing essential operations while hiding implementation details.
-- **Why is it important?** Abstraction controls what callers must know; Python supports informal interfaces, Protocol, and abstract base classes.
-- **Where is it used?** storage ports, plugin contracts, service boundaries.
+- **What is it?** Abstraction exposes essential operations while hiding implementation details behind interfaces or base types.
+- **Why is it important?** It focuses callers on what to do, not how internals work, and stabilizes boundaries between modules.
+- **Where is it used?** Repository interfaces, protocol classes, abstract base classes, and service contracts.
 
 ## Learning Objectives
 - Separate interface from implementation.
@@ -15,9 +15,9 @@
 - Avoid abstractions with only one speculative use.
 
 ## Real World Applications
-- **Engineering:** Storage ports rely on this topic.
-- **Product work:** It supports plugin contracts.
-- **Operations:** It appears in service boundaries.
+- Define a storage interface implemented by SQLite today and Postgres tomorrow.
+- Hide third-party SDK details behind a thin application port.
+- Document team contracts with abstract methods and protocols.
 
 ## Core Concepts
 
@@ -59,7 +59,7 @@ class Catalog:
 
 | Infographic Block | Topic-specific guidance |
 | --- | --- |
-| 📌 Concept | Interface boundary, Abstract base classes, Dependency inversion |
+| 📌 Concept | Abstraction exposes essential operations while hiding implementation details behind interfaces or base types. |
 | ⚡ Purpose | Abstraction controls what callers must know; Python supports informal interfaces, Protocol, and abstract base classes. |
 | 🔥 Benefits | Lower coupling, testable high-level policy, and replaceable infrastructure adapters. |
 | 🎯 Use Cases | storage ports, plugin contracts, service boundaries |
