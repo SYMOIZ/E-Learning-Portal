@@ -115,6 +115,20 @@ def validate_python_examples(errors: list[str]) -> int:
 
 
 def validate_indexes(errors: list[str]) -> None:
+    root_document = SOURCE.read_text(encoding="utf-8")
+    root_index_start = root_document.find("## Complete Topic Index")
+    root_index_end = root_document.find("## Level 1: Beginner")
+    if root_index_start < 0 or root_index_end <= root_index_start:
+        errors.append("README.md: missing Complete Topic Index")
+    else:
+        root_index = root_document[root_index_start:root_index_end]
+        if re.search(r"^#\s*$", root_index, flags=re.MULTILINE):
+            errors.append("README.md: empty heading in Complete Topic Index")
+        for topics in LEVELS.values():
+            for topic in topics:
+                if f"| [{topic}](" not in root_index:
+                    errors.append(f"README.md: Complete Topic Index missing {topic}")
+
     index = (DESTINATION / "README.md").read_text(encoding="utf-8")
     for level, topics in LEVELS.items():
         if f"## Level {list(LEVELS).index(level) + 1}: {level}" not in index:

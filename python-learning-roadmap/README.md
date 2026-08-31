@@ -1,6 +1,8 @@
 # Python Learning Roadmap Curriculum Directory
 
-This folder converts the complete Python knowledge base into a formal nested curriculum. It is designed for students, instructors, mentors, and self-paced learners who need clear study paths and topic-level learning material.
+This folder is the **deep-dive companion** to the complete 110-topic knowledge base. Use it for smaller learning units, practice questions, and runnable examples.
+
+The canonical topic-by-topic edition lives in [`../Python-Mastery/`](../Python-Mastery/) (35 Beginner, 35 Intermediate, 40 Advanced lessons). The single-page edition is the root [`../README.md`](../README.md).
 
 ## Directory Structure
 
@@ -44,8 +46,6 @@ python-learning-roadmap/
 - [Data Engineering, APIs, and Databases](./level-3-advanced/13-data-engineering-apis-and-databases/)
 - [Performance, Memory, and Profiling](./level-3-advanced/14-performance-memory-and-profiling/)
 - [Production Architecture, Security, and Deployment](./level-3-advanced/15-production-architecture-security-and-deployment/)
-
-
 
 ## Deep Nested Topic Structure
 

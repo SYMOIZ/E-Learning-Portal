@@ -137,6 +137,14 @@ print(transform("pattern"))
 ### Intermediate Example
 
 ```python
+class Service:
+    def __init__(self, formatter):
+        self.formatter = formatter
+
+    def render(self, value):
+        return self.formatter.format(value)
+
+
 class CsvFormatter:
     def format(self, value: object) -> str:
         return f'"{value}"'

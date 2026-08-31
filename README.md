@@ -30,7 +30,133 @@ This guide is written for students, instructors, technical writers, curriculum a
 
 ## Complete Topic Index
 
-#
+Jump to a lesson in this single-page edition, or open the split NotebookLM document.
+
+### Beginner lessons (35)
+
+| # | Topic | Split lesson |
+| ---: | --- | --- |
+| 01 | [Introduction to Python](#introduction-to-python) | [Open](./Python-Mastery/Beginner/01-introduction-to-python.md) |
+| 02 | [Installing Python](#installing-python) | [Open](./Python-Mastery/Beginner/02-installing-python.md) |
+| 03 | [IDE Setup](#ide-setup) | [Open](./Python-Mastery/Beginner/03-ide-setup.md) |
+| 04 | [Python Syntax](#python-syntax) | [Open](./Python-Mastery/Beginner/04-python-syntax.md) |
+| 05 | [Variables](#variables) | [Open](./Python-Mastery/Beginner/05-variables.md) |
+| 06 | [Data Types](#data-types) | [Open](./Python-Mastery/Beginner/06-data-types.md) |
+| 07 | [Type Casting](#type-casting) | [Open](./Python-Mastery/Beginner/07-type-casting.md) |
+| 08 | [Input and Output](#input-and-output) | [Open](./Python-Mastery/Beginner/08-input-and-output.md) |
+| 09 | [Operators](#operators) | [Open](./Python-Mastery/Beginner/09-operators.md) |
+| 10 | [Conditional Statements](#conditional-statements) | [Open](./Python-Mastery/Beginner/10-conditional-statements.md) |
+| 11 | [Loops](#loops) | [Open](./Python-Mastery/Beginner/11-loops.md) |
+| 12 | [Nested Loops](#nested-loops) | [Open](./Python-Mastery/Beginner/12-nested-loops.md) |
+| 13 | [Break Continue Pass](#break-continue-pass) | [Open](./Python-Mastery/Beginner/13-break-continue-pass.md) |
+| 14 | [Strings](#strings) | [Open](./Python-Mastery/Beginner/14-strings.md) |
+| 15 | [String Methods](#string-methods) | [Open](./Python-Mastery/Beginner/15-string-methods.md) |
+| 16 | [Lists](#lists) | [Open](./Python-Mastery/Beginner/16-lists.md) |
+| 17 | [List Methods](#list-methods) | [Open](./Python-Mastery/Beginner/17-list-methods.md) |
+| 18 | [Tuples](#tuples) | [Open](./Python-Mastery/Beginner/18-tuples.md) |
+| 19 | [Sets](#sets) | [Open](./Python-Mastery/Beginner/19-sets.md) |
+| 20 | [Dictionaries](#dictionaries) | [Open](./Python-Mastery/Beginner/20-dictionaries.md) |
+| 21 | [Functions](#functions) | [Open](./Python-Mastery/Beginner/21-functions.md) |
+| 22 | [Arguments and Parameters](#arguments-and-parameters) | [Open](./Python-Mastery/Beginner/22-arguments-and-parameters.md) |
+| 23 | [Return Statements](#return-statements) | [Open](./Python-Mastery/Beginner/23-return-statements.md) |
+| 24 | [Scope](#scope) | [Open](./Python-Mastery/Beginner/24-scope.md) |
+| 25 | [Lambda Functions](#lambda-functions) | [Open](./Python-Mastery/Beginner/25-lambda-functions.md) |
+| 26 | [Modules](#modules) | [Open](./Python-Mastery/Beginner/26-modules.md) |
+| 27 | [Packages](#packages) | [Open](./Python-Mastery/Beginner/27-packages.md) |
+| 28 | [Date and Time](#date-and-time) | [Open](./Python-Mastery/Beginner/28-date-and-time.md) |
+| 29 | [Math Module](#math-module) | [Open](./Python-Mastery/Beginner/29-math-module.md) |
+| 30 | [Random Module](#random-module) | [Open](./Python-Mastery/Beginner/30-random-module.md) |
+| 31 | [File Handling](#file-handling) | [Open](./Python-Mastery/Beginner/31-file-handling.md) |
+| 32 | [Exception Handling](#exception-handling) | [Open](./Python-Mastery/Beginner/32-exception-handling.md) |
+| 33 | [Debugging Basics](#debugging-basics) | [Open](./Python-Mastery/Beginner/33-debugging-basics.md) |
+| 34 | [Virtual Environments](#virtual-environments) | [Open](./Python-Mastery/Beginner/34-virtual-environments.md) |
+| 35 | [Basic Project Structure](#basic-project-structure) | [Open](./Python-Mastery/Beginner/35-basic-project-structure.md) |
+
+### Intermediate lessons (35)
+
+| # | Topic | Split lesson |
+| ---: | --- | --- |
+| 01 | [Object Oriented Programming](#object-oriented-programming) | [Open](./Python-Mastery/Intermediate/01-object-oriented-programming.md) |
+| 02 | [Classes](#classes) | [Open](./Python-Mastery/Intermediate/02-classes.md) |
+| 03 | [Objects](#objects) | [Open](./Python-Mastery/Intermediate/03-objects.md) |
+| 04 | [Constructors](#constructors) | [Open](./Python-Mastery/Intermediate/04-constructors.md) |
+| 05 | [Encapsulation](#encapsulation) | [Open](./Python-Mastery/Intermediate/05-encapsulation.md) |
+| 06 | [Inheritance](#inheritance) | [Open](./Python-Mastery/Intermediate/06-inheritance.md) |
+| 07 | [Polymorphism](#polymorphism) | [Open](./Python-Mastery/Intermediate/07-polymorphism.md) |
+| 08 | [Abstraction](#abstraction) | [Open](./Python-Mastery/Intermediate/08-abstraction.md) |
+| 09 | [Magic Methods](#magic-methods) | [Open](./Python-Mastery/Intermediate/09-magic-methods.md) |
+| 10 | [Iterators](#iterators) | [Open](./Python-Mastery/Intermediate/10-iterators.md) |
+| 11 | [Generators](#generators) | [Open](./Python-Mastery/Intermediate/11-generators.md) |
+| 12 | [Decorators](#decorators) | [Open](./Python-Mastery/Intermediate/12-decorators.md) |
+| 13 | [Context Managers](#context-managers) | [Open](./Python-Mastery/Intermediate/13-context-managers.md) |
+| 14 | [Regular Expressions](#regular-expressions) | [Open](./Python-Mastery/Intermediate/14-regular-expressions.md) |
+| 15 | [JSON Processing](#json-processing) | [Open](./Python-Mastery/Intermediate/15-json-processing.md) |
+| 16 | [CSV Processing](#csv-processing) | [Open](./Python-Mastery/Intermediate/16-csv-processing.md) |
+| 17 | [XML Processing](#xml-processing) | [Open](./Python-Mastery/Intermediate/17-xml-processing.md) |
+| 18 | [Logging](#logging) | [Open](./Python-Mastery/Intermediate/18-logging.md) |
+| 19 | [Configuration Management](#configuration-management) | [Open](./Python-Mastery/Intermediate/19-configuration-management.md) |
+| 20 | [Multithreading](#multithreading) | [Open](./Python-Mastery/Intermediate/20-multithreading.md) |
+| 21 | [Multiprocessing](#multiprocessing) | [Open](./Python-Mastery/Intermediate/21-multiprocessing.md) |
+| 22 | [Async Programming](#async-programming) | [Open](./Python-Mastery/Intermediate/22-async-programming.md) |
+| 23 | [API Development](#api-development) | [Open](./Python-Mastery/Intermediate/23-api-development.md) |
+| 24 | [API Consumption](#api-consumption) | [Open](./Python-Mastery/Intermediate/24-api-consumption.md) |
+| 25 | [Requests Library](#requests-library) | [Open](./Python-Mastery/Intermediate/25-requests-library.md) |
+| 26 | [Database Fundamentals](#database-fundamentals) | [Open](./Python-Mastery/Intermediate/26-database-fundamentals.md) |
+| 27 | [SQLite](#sqlite) | [Open](./Python-Mastery/Intermediate/27-sqlite.md) |
+| 28 | [MySQL Integration](#mysql-integration) | [Open](./Python-Mastery/Intermediate/28-mysql-integration.md) |
+| 29 | [PostgreSQL Integration](#postgresql-integration) | [Open](./Python-Mastery/Intermediate/29-postgresql-integration.md) |
+| 30 | [SQLAlchemy ORM](#sqlalchemy-orm) | [Open](./Python-Mastery/Intermediate/30-sqlalchemy-orm.md) |
+| 31 | [Unit Testing](#unit-testing) | [Open](./Python-Mastery/Intermediate/31-unit-testing.md) |
+| 32 | [Pytest](#pytest) | [Open](./Python-Mastery/Intermediate/32-pytest.md) |
+| 33 | [Mocking](#mocking) | [Open](./Python-Mastery/Intermediate/33-mocking.md) |
+| 34 | [Packaging Python Projects](#packaging-python-projects) | [Open](./Python-Mastery/Intermediate/34-packaging-python-projects.md) |
+| 35 | [CLI Applications](#cli-applications) | [Open](./Python-Mastery/Intermediate/35-cli-applications.md) |
+
+### Advanced lessons (40)
+
+| # | Topic | Split lesson |
+| ---: | --- | --- |
+| 01 | [Data Structures Internals](#data-structures-internals) | [Open](./Python-Mastery/Advanced/01-data-structures-internals.md) |
+| 02 | [Algorithms in Python](#algorithms-in-python) | [Open](./Python-Mastery/Advanced/02-algorithms-in-python.md) |
+| 03 | [Design Patterns](#design-patterns) | [Open](./Python-Mastery/Advanced/03-design-patterns.md) |
+| 04 | [SOLID Principles](#solid-principles) | [Open](./Python-Mastery/Advanced/04-solid-principles.md) |
+| 05 | [Memory Management](#memory-management) | [Open](./Python-Mastery/Advanced/05-memory-management.md) |
+| 06 | [Garbage Collection](#garbage-collection) | [Open](./Python-Mastery/Advanced/06-garbage-collection.md) |
+| 07 | [Python Internals](#python-internals) | [Open](./Python-Mastery/Advanced/07-python-internals.md) |
+| 08 | [Metaclasses](#metaclasses) | [Open](./Python-Mastery/Advanced/08-metaclasses.md) |
+| 09 | [Descriptors](#descriptors) | [Open](./Python-Mastery/Advanced/09-descriptors.md) |
+| 10 | [Concurrency](#concurrency) | [Open](./Python-Mastery/Advanced/10-concurrency.md) |
+| 11 | [Parallel Computing](#parallel-computing) | [Open](./Python-Mastery/Advanced/11-parallel-computing.md) |
+| 12 | [Distributed Systems](#distributed-systems) | [Open](./Python-Mastery/Advanced/12-distributed-systems.md) |
+| 13 | [Network Programming](#network-programming) | [Open](./Python-Mastery/Advanced/13-network-programming.md) |
+| 14 | [Socket Programming](#socket-programming) | [Open](./Python-Mastery/Advanced/14-socket-programming.md) |
+| 15 | [Cybersecurity Automation](#cybersecurity-automation) | [Open](./Python-Mastery/Advanced/15-cybersecurity-automation.md) |
+| 16 | [Web Scraping](#web-scraping) | [Open](./Python-Mastery/Advanced/16-web-scraping.md) |
+| 17 | [Automation Frameworks](#automation-frameworks) | [Open](./Python-Mastery/Advanced/17-automation-frameworks.md) |
+| 18 | [ETL Development](#etl-development) | [Open](./Python-Mastery/Advanced/18-etl-development.md) |
+| 19 | [Data Engineering](#data-engineering) | [Open](./Python-Mastery/Advanced/19-data-engineering.md) |
+| 20 | [Pandas](#pandas) | [Open](./Python-Mastery/Advanced/20-pandas.md) |
+| 21 | [NumPy](#numpy) | [Open](./Python-Mastery/Advanced/21-numpy.md) |
+| 22 | [PySpark](#pyspark) | [Open](./Python-Mastery/Advanced/22-pyspark.md) |
+| 23 | [Machine Learning](#machine-learning) | [Open](./Python-Mastery/Advanced/23-machine-learning.md) |
+| 24 | [Deep Learning](#deep-learning) | [Open](./Python-Mastery/Advanced/24-deep-learning.md) |
+| 25 | [NLP](#nlp) | [Open](./Python-Mastery/Advanced/25-nlp.md) |
+| 26 | [Computer Vision](#computer-vision) | [Open](./Python-Mastery/Advanced/26-computer-vision.md) |
+| 27 | [FastAPI](#fastapi) | [Open](./Python-Mastery/Advanced/27-fastapi.md) |
+| 28 | [Django](#django) | [Open](./Python-Mastery/Advanced/28-django.md) |
+| 29 | [Flask](#flask) | [Open](./Python-Mastery/Advanced/29-flask.md) |
+| 30 | [Microservices](#microservices) | [Open](./Python-Mastery/Advanced/30-microservices.md) |
+| 31 | [Docker with Python](#docker-with-python) | [Open](./Python-Mastery/Advanced/31-docker-with-python.md) |
+| 32 | [Kubernetes Integration](#kubernetes-integration) | [Open](./Python-Mastery/Advanced/32-kubernetes-integration.md) |
+| 33 | [Cloud Development](#cloud-development) | [Open](./Python-Mastery/Advanced/33-cloud-development.md) |
+| 34 | [AWS with Python](#aws-with-python) | [Open](./Python-Mastery/Advanced/34-aws-with-python.md) |
+| 35 | [Azure with Python](#azure-with-python) | [Open](./Python-Mastery/Advanced/35-azure-with-python.md) |
+| 36 | [GCP with Python](#gcp-with-python) | [Open](./Python-Mastery/Advanced/36-gcp-with-python.md) |
+| 37 | [DevOps Automation](#devops-automation) | [Open](./Python-Mastery/Advanced/37-devops-automation.md) |
+| 38 | [CI/CD Pipelines](#cicd-pipelines) | [Open](./Python-Mastery/Advanced/38-ci-cd-pipelines.md) |
+| 39 | [Performance Optimization](#performance-optimization) | [Open](./Python-Mastery/Advanced/39-performance-optimization.md) |
+| 40 | [System Design with Python](#system-design-with-python) | [Open](./Python-Mastery/Advanced/40-system-design-with-python.md) |
+
 
 ## Level 1: Beginner
 
@@ -11771,6 +11897,14 @@ print(transform("pattern"))
 ### Intermediate Example
 
 ```python
+class Service:
+    def __init__(self, formatter):
+        self.formatter = formatter
+
+    def render(self, value):
+        return self.formatter.format(value)
+
+
 class CsvFormatter:
     def format(self, value: object) -> str:
         return f'"{value}"'

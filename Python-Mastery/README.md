@@ -172,6 +172,7 @@ flowchart LR
 | [Interview Questions](./Interview-Questions/) | Recall, discussion, and system-design prompts |
 | [Projects](./Projects/) | Progressive portfolio briefs and acceptance criteria |
 | [Roadmaps](./Roadmaps/) | Complete and role-specific learning sequences |
+| [Deep-dive curriculum](../python-learning-roadmap/) | Nested units, practice questions, and runnable examples |
 | [Supplemental book](../A%20Smarter%20Way%20to%20Learn%20Python%20.pdf) | Additional practice reading (241-page PDF) |
 
 ## Directory Map

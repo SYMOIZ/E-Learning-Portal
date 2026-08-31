@@ -145,6 +145,42 @@ def slugify(value: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", value.casefold()).strip("-")
 
 
+def github_heading_slug(value: str) -> str:
+    """Return a GitHub-compatible heading anchor for an ASCII topic title."""
+    import re
+
+    slug = re.sub(r"[^\w\s-]", "", value.casefold(), flags=re.UNICODE)
+    return re.sub(r"\s+", "-", slug.strip())
+
+
 def topic_filename(number: int, topic: str) -> str:
     """Return the numbered filename for a topic."""
     return f"{number:02d}-{slugify(topic)}.md"
+
+
+def complete_topic_index() -> str:
+    """Return the single-page README topic index with in-page and split links."""
+    lines = [
+        "## Complete Topic Index",
+        "",
+        "Jump to a lesson in this single-page edition, or open the split NotebookLM document.",
+        "",
+    ]
+    labels = {
+        "Beginner": "Beginner lessons (35)",
+        "Intermediate": "Intermediate lessons (35)",
+        "Advanced": "Advanced lessons (40)",
+    }
+    for level, topics in LEVELS.items():
+        lines.append(f"### {labels[level]}")
+        lines.append("")
+        lines.append("| # | Topic | Split lesson |")
+        lines.append("| ---: | --- | --- |")
+        for number, topic in enumerate(topics, start=1):
+            split_path = f"./Python-Mastery/{level}/{topic_filename(number, topic)}"
+            lines.append(
+                f"| {number:02d} | [{topic}](#{github_heading_slug(topic)}) | "
+                f"[Open]({split_path}) |"
+            )
+        lines.append("")
+    return "\n".join(lines).rstrip()

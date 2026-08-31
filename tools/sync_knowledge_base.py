@@ -3,13 +3,20 @@
 
 Topic files in ``Python-Mastery/{Beginner,Intermediate,Advanced}`` are the
 maintainable source for lesson bodies. This command preserves the root README's
-front matter, topic index, and final career section while replacing all lesson
-sections in level order.
+front matter and final career section, regenerates the complete topic index,
+and replaces all lesson sections in level order.
 """
 
 from __future__ import annotations
 
-from curriculum_manifest import DESTINATION, LEVELS, ROOT, SOURCE, slugify, topic_filename
+from curriculum_manifest import (
+    DESTINATION,
+    LEVELS,
+    ROOT,
+    SOURCE,
+    complete_topic_index,
+    topic_filename,
+)
 
 
 def lesson_body(level: str, number: int, topic: str) -> str:
@@ -46,6 +53,11 @@ def main() -> None:
         raise ValueError("README does not contain the expected level and final markers")
 
     prefix = source[:lessons_start].rstrip()
+    index_marker = "## Complete Topic Index"
+    index_start = prefix.find(index_marker)
+    if index_start < 0:
+        raise ValueError("README is missing the Complete Topic Index heading")
+    prefix = f"{prefix[:index_start].rstrip()}\n\n{complete_topic_index()}\n"
     final_section = source[final_start:].lstrip()
     levels = [
         build_level(level_number, level)
