@@ -1,5 +1,7 @@
 # Python Learning Roadmap Curriculum Directory
 
+This folder is the **deep-dive companion** to the canonical 110-topic knowledge base. Use [`Python-Mastery/`](../Python-Mastery/) for NotebookLM, Obsidian, Notion, and GitHub topic files (35 Beginner, 35 Intermediate, 40 Advanced). Use this directory when you want nested units, practice questions, and runnable example files.
+
 This folder converts the complete Python knowledge base into a formal nested curriculum. It is designed for students, instructors, mentors, and self-paced learners who need clear study paths and topic-level learning material.
 
 ## Directory Structure

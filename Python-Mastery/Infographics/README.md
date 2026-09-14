@@ -47,6 +47,14 @@ flowchart LR
 
 Every topic document contains a focused infographic table and workflow diagram. Use this directory as the visual entry point, then open the relevant lesson for code and detail.
 
+## Level Maps
+
+| Level | Visual map |
+| --- | --- |
+| Level 1: Beginner | [Beginner cluster map](./01-beginner-map.md) |
+| Level 2: Intermediate | [Intermediate cluster map](./02-intermediate-map.md) |
+| Level 3: Advanced | [Advanced cluster map](./03-advanced-map.md) |
+
 ## Topic Cluster Map
 
 | Cluster | Representative topics | Outcome |
