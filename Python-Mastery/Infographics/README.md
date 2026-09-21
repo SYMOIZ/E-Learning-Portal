@@ -54,6 +54,7 @@ Every topic document contains a focused infographic table and workflow diagram. 
 | Level 1: Beginner | [Beginner cluster map](./01-beginner-map.md) |
 | Level 2: Intermediate | [Intermediate cluster map](./02-intermediate-map.md) |
 | Level 3: Advanced | [Advanced cluster map](./03-advanced-map.md) |
+| Career specialization | [Career path map](./04-career-path-map.md) |
 
 ## Topic Cluster Map
 

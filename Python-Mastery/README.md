@@ -20,8 +20,9 @@
 2. Recreate each **Core Concepts** example instead of copying it.
 3. Move through the beginner, intermediate, and advanced examples.
 4. Explain the **Workflow Diagram** aloud in your own words.
-5. Build one project from the [Projects](./Projects/) catalog.
-6. Use the [career roadmaps](./Roadmaps/) to select deeper topics.
+5. Follow a [study guide](./Study-Guides/) if you want a 12- or 24-week calendar.
+6. Build one project from the [Projects](./Projects/) catalog.
+7. Use the [career roadmaps](./Roadmaps/) to select deeper topics.
 
 ```mermaid
 flowchart LR
@@ -167,11 +168,12 @@ flowchart LR
 
 | Resource | Purpose |
 | --- | --- |
-| [Infographics](./Infographics/) | Visual mental models and symbol legend |
-| [Cheat Sheets](./CheatSheets/) | Fast syntax and standard-library reference |
+| [Infographics](./Infographics/) | Visual mental models, level maps, and career-path map |
+| [Cheat Sheets](./CheatSheets/) | Fast syntax reference split by beginner, intermediate, and advanced |
 | [Interview Questions](./Interview-Questions/) | Recall, discussion, and system-design prompts |
 | [Projects](./Projects/) | Progressive portfolio briefs and acceptance criteria |
 | [Roadmaps](./Roadmaps/) | Complete and role-specific learning sequences |
+| [Study Guides](./Study-Guides/) | NotebookLM/Obsidian/Notion import, 12- and 24-week plans, deep-dive crosswalk |
 | [Deep-dive curriculum](../python-learning-roadmap/) | Nested units, practice questions, and runnable examples |
 | [Supplemental book](../A%20Smarter%20Way%20to%20Learn%20Python%20.pdf) | Additional practice reading (241-page PDF) |
 
@@ -187,6 +189,7 @@ Python-Mastery/
 ├── Interview-Questions/
 ├── Projects/
 ├── Roadmaps/
+├── Study-Guides/
 └── README.md
 ```
 

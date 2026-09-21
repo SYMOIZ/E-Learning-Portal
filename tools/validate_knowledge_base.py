@@ -40,6 +40,40 @@ CAREER_ROADMAPS = (
     "Cybersecurity Engineer Roadmap",
 )
 
+SPLIT_ROADMAPS = (
+    "01-complete-python-roadmap.md",
+    "02-python-career-paths.md",
+    "03-python-developer-roadmap.md",
+    "04-backend-engineer-roadmap.md",
+    "05-data-engineer-roadmap.md",
+    "06-ai-engineer-roadmap.md",
+    "07-devops-engineer-roadmap.md",
+    "08-cybersecurity-engineer-roadmap.md",
+)
+
+STUDY_GUIDES = (
+    "README.md",
+    "notebooklm-obsidian-notion.md",
+    "12-week-plan.md",
+    "24-week-plan.md",
+    "deep-dive-crosswalk.md",
+)
+
+CHEAT_SHEETS = (
+    "README.md",
+    "01-beginner.md",
+    "02-intermediate.md",
+    "03-advanced.md",
+)
+
+INFOGRAPHIC_MAPS = (
+    "README.md",
+    "01-beginner-map.md",
+    "02-intermediate-map.md",
+    "03-advanced-map.md",
+    "04-career-path-map.md",
+)
+
 
 def markdown_links(document: str) -> list[str]:
     return re.findall(r"(?<!!)\[[^\]]+\]\(([^)]+)\)", document)
@@ -236,6 +270,38 @@ def validate_indexes(errors: list[str]) -> None:
         if f"## {roadmap}" not in roadmaps:
             errors.append(f"Roadmaps/README.md: missing {roadmap}")
 
+    for filename in SPLIT_ROADMAPS:
+        path = DESTINATION / "Roadmaps" / filename
+        if not path.is_file():
+            errors.append(f"Roadmaps/{filename}: missing split roadmap")
+        else:
+            heading = path.read_text(encoding="utf-8").lstrip().splitlines()[0]
+            if not heading.startswith("# "):
+                errors.append(f"Roadmaps/{filename}: missing title heading")
+
+    for filename in STUDY_GUIDES:
+        path = DESTINATION / "Study-Guides" / filename
+        if not path.is_file():
+            errors.append(f"Study-Guides/{filename}: missing study guide")
+
+    for filename in CHEAT_SHEETS:
+        path = DESTINATION / "CheatSheets" / filename
+        if not path.is_file():
+            errors.append(f"CheatSheets/{filename}: missing cheat sheet")
+
+    for filename in INFOGRAPHIC_MAPS:
+        path = DESTINATION / "Infographics" / filename
+        if not path.is_file():
+            errors.append(f"Infographics/{filename}: missing infographic map")
+
+    companion = ROOT / "python-learning-roadmap" / "README.md"
+    if companion.is_file():
+        text = companion.read_text(encoding="utf-8")
+        if "Python-Mastery/" not in text:
+            errors.append(
+                "python-learning-roadmap/README.md: missing canonical Python-Mastery link"
+            )
+
     for path in DESTINATION.rglob("*.md"):
         validate_relative_links(path, errors)
 
@@ -260,7 +326,7 @@ def main() -> None:
     print(
         "Knowledge-base validation passed: "
         f"{topic_count} topic files, {snippet_count} Python examples, "
-        "8 final roadmaps, valid relative links."
+        "8 final roadmaps, 8 split roadmaps, study guides, valid relative links."
     )
 
 

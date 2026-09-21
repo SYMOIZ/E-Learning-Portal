@@ -4,6 +4,21 @@
 
 Use the complete roadmap for shared foundations, then choose one role path. The **Demonstrate** column is a portfolio requirement, not an optional reading task.
 
+NotebookLM and Obsidian users can open each path as its own source file:
+
+| Roadmap | Split document |
+| --- | --- |
+| Complete Python Roadmap | [Open](./01-complete-python-roadmap.md) |
+| Python Career Paths | [Open](./02-python-career-paths.md) |
+| Python Developer Roadmap | [Open](./03-python-developer-roadmap.md) |
+| Backend Engineer Roadmap | [Open](./04-backend-engineer-roadmap.md) |
+| Data Engineer Roadmap | [Open](./05-data-engineer-roadmap.md) |
+| AI Engineer Roadmap | [Open](./06-ai-engineer-roadmap.md) |
+| DevOps Engineer Roadmap | [Open](./07-devops-engineer-roadmap.md) |
+| Cybersecurity Engineer Roadmap | [Open](./08-cybersecurity-engineer-roadmap.md) |
+
+Study calendars: [12-week intensive](../Study-Guides/12-week-plan.md) · [24-week mastery](../Study-Guides/24-week-plan.md)
+
 ## Complete Python Roadmap
 
 | Phase | Topics | Build Evidence |

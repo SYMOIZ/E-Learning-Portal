@@ -67,6 +67,34 @@ Use these as scoring rubrics during mock interviews. Expand them with your own c
 - **Failure mode:** Building SQL with f-strings enables injection.
 - **Production rule:** Never interpolate untrusted input into SQL; prefer an ORM or query builder with binds.
 
+### Iterators vs generators
+
+- **Define:** An iterator is any object with `__next__`; a generator is a function that yields values and is already an iterator.
+- **Example:** `def lines(path): yield from open(path)` streams a file without loading it all.
+- **Tradeoff:** Generators are lazy and single-pass; lists are reusable but cost memory.
+- **Production rule:** Use generators for large streams; materialize only at API or test boundaries.
+
+### `__slots__` and memory
+
+- **Define:** `__slots__` replaces a per-instance `__dict__` with a fixed layout.
+- **When it helps:** Millions of tiny objects with a known attribute set.
+- **When it hurts:** You still need dynamic attributes, weakrefs, or multiple inheritance without care.
+- **Production rule:** Measure with a profiler; slots are not a default style choice.
+
+### Idempotent HTTP and ETL
+
+- **Define:** Repeating the same request or job does not create extra business effects.
+- **Example:** Upsert by natural key instead of blind `INSERT`.
+- **Failure mode:** Retries after timeouts duplicate orders or facts.
+- **Production rule:** Design handlers and pipelines as if the network will retry them.
+
+### GIL and CPython
+
+- **Define:** The Global Interpreter Lock allows only one thread to execute Python bytecode at a time in CPython.
+- **Choose threads** for blocking I/O.
+- **Choose processes or native code** for CPU-heavy Python.
+- **Production rule:** Name the bottleneck first; extra threads will not speed a tight Python loop.
+
 ## Answer Framework
 
 ```mermaid

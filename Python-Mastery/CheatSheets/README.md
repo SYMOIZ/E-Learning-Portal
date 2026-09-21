@@ -2,6 +2,14 @@
 
 [← Knowledge base](../README.md)
 
+Level-specific sheets for quick retrieval. This page remains the combined reference.
+
+| Level | Sheet |
+| --- | --- |
+| Beginner | [Syntax, collections, files](./01-beginner.md) |
+| Intermediate | [Objects, data, tests](./02-intermediate.md) |
+| Advanced | [Internals, architecture, safety](./03-advanced.md) |
+
 ## Core Syntax
 
 | Goal | Pattern | Note |
