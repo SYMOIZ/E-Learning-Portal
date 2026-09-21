@@ -6,8 +6,10 @@ Guidance for AI agents working in this repository.
 
 **E-Learning Portal** is currently a documentation-focused Python learning repository. It contains:
 
-- `README.md` — complete single-page Python learning roadmap
-- `python-learning-roadmap/` — nested curriculum directory with level and topic README files
+- `Python-Mastery/` — maintainable topic-by-topic knowledge base (110 lessons: 35 Beginner, 35 Intermediate, 40 Advanced) plus Infographics, CheatSheets, Interview-Questions, Projects, and Roadmaps
+- `README.md` — complete single-page synchronized edition of the same curriculum
+- `python-learning-roadmap/` — older nested deep-dive companion curriculum
+- `tools/` — `sync_knowledge_base.py` and `validate_knowledge_base.py` for README parity and quality checks
 - `A Smarter Way to Learn Python .pdf` — static Python learning material (241 pages)
 
 There is no application source code, package manifests, Docker configuration, or CI setup yet.
@@ -25,8 +27,11 @@ There is no application source code, package manifests, Docker configuration, or
 ### Development workflow
 
 - **Dependencies:** None to install. The VM update script is a no-op (`true`).
-- **Lint / test / build:** No scripts exist. Skip unless new tooling is added to the repo.
-- **Run:** There is no dev server. Validate changes with `git status` and file checks until an app is scaffolded.
+- **Lint / test / build:** After editing topic lessons under `Python-Mastery/`, run:
+  - `python3 tools/sync_knowledge_base.py` — rebuild root `README.md` from topic files
+  - `python3 tools/validate_knowledge_base.py` — require 110 topics, section structure, example AST syntax, self-contained example `NameError` checks, Mermaid blocks, roadmaps, and relative links
+- **Run:** There is no dev server. Prefer the validators above plus `git status` / PDF checks until an app is scaffolded.
+- **Canonical lesson source:** Edit files in `Python-Mastery/{Beginner,Intermediate,Advanced}/` first; treat root `README.md` as the generated single-page mirror.
 
 ### Validating the learning resource
 
@@ -54,7 +59,7 @@ Document in this file:
 2. Environment variables (`.env.example`)
 3. Non-obvious setup steps (migrations, seed data, etc.)
 
-Refer to the root `README.md` and `python-learning-roadmap/README.md` first once application setup instructions are added.
+Refer to `Python-Mastery/README.md`, the root `README.md`, and `python-learning-roadmap/README.md` first once application setup instructions are added.
 
 ### Tooling available on the VM
 
