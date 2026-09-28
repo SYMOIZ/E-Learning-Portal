@@ -74,6 +74,32 @@ INFOGRAPHIC_MAPS = (
     "04-career-path-map.md",
 )
 
+ASSESSMENTS = (
+    "README.md",
+    "01-beginner-checkpoint.md",
+    "01-beginner-answers.md",
+    "02-intermediate-checkpoint.md",
+    "02-intermediate-answers.md",
+    "03-advanced-checkpoint.md",
+    "03-advanced-answers.md",
+)
+
+PROJECT_BRIEFS = (
+    "README.md",
+    "01-expense-tracker-cli.md",
+    "02-text-analytics-tool.md",
+    "03-quiz-engine.md",
+    "04-installable-task-cli.md",
+    "05-api-data-synchronizer.md",
+    "06-inventory-service.md",
+    "07-concurrent-url-checker.md",
+    "08-fastapi-order-service.md",
+    "09-resilient-etl-pipeline.md",
+    "10-ml-inference-service.md",
+    "11-cloud-automation-controller.md",
+    "12-distributed-job-platform.md",
+)
+
 
 def markdown_links(document: str) -> list[str]:
     return re.findall(r"(?<!!)\[[^\]]+\]\(([^)]+)\)", document)
@@ -242,6 +268,26 @@ def validate_self_contained_examples(errors: list[str]) -> None:
                     continue
 
 
+def validate_python_fences(errors: list[str]) -> int:
+    """Parse every Python fence in the knowledge base, including starters."""
+    checked = 0
+    for path in sorted(DESTINATION.rglob("*.md")):
+        document = path.read_text(encoding="utf-8")
+        for index, snippet in enumerate(
+            re.findall(r"```python\n(.*?)```", document, flags=re.DOTALL),
+            start=1,
+        ):
+            checked += 1
+            try:
+                ast.parse(snippet)
+            except SyntaxError as error:
+                errors.append(
+                    f"{path.relative_to(ROOT)}: Python fence {index} "
+                    f"has invalid syntax at line {error.lineno}: {error.msg}"
+                )
+    return checked
+
+
 def validate_indexes(errors: list[str]) -> None:
     root_document = SOURCE.read_text(encoding="utf-8")
     root_index_start = root_document.find("## Complete Topic Index")
@@ -294,6 +340,20 @@ def validate_indexes(errors: list[str]) -> None:
         if not path.is_file():
             errors.append(f"Infographics/{filename}: missing infographic map")
 
+    glossary = DESTINATION / "Glossary" / "README.md"
+    if not glossary.is_file():
+        errors.append("Glossary/README.md: missing glossary")
+
+    for filename in ASSESSMENTS:
+        path = DESTINATION / "Assessments" / filename
+        if not path.is_file():
+            errors.append(f"Assessments/{filename}: missing assessment file")
+
+    for filename in PROJECT_BRIEFS:
+        path = DESTINATION / "Projects" / filename
+        if not path.is_file():
+            errors.append(f"Projects/{filename}: missing project brief")
+
     companion = ROOT / "python-learning-roadmap" / "README.md"
     if companion.is_file():
         text = companion.read_text(encoding="utf-8")
@@ -310,8 +370,10 @@ def main() -> None:
     errors: list[str] = []
     topic_count = validate_topic_files(errors)
     snippet_count = validate_python_examples(errors)
+    knowledge_base_snippets = validate_python_fences(errors)
     validate_self_contained_examples(errors)
     validate_indexes(errors)
+    validate_relative_links(SOURCE, errors)
 
     pdf = ROOT / "A Smarter Way to Learn Python .pdf"
     if not pdf.is_file() or pdf.stat().st_size == 0:
@@ -325,8 +387,10 @@ def main() -> None:
 
     print(
         "Knowledge-base validation passed: "
-        f"{topic_count} topic files, {snippet_count} Python examples, "
-        "8 final roadmaps, 8 split roadmaps, study guides, valid relative links."
+        f"{topic_count} topic files, {snippet_count} README Python examples, "
+        f"{knowledge_base_snippets} knowledge-base Python fences, "
+        "8 final roadmaps, 8 split roadmaps, study guides, checkpoints, "
+        "project briefs, valid relative links."
     )
 
 

@@ -10,6 +10,7 @@ This guide is written for students, instructors, technical writers, curriculum a
 - Run the beginner example, modify the intermediate example, and explain the advanced example.
 - Use the final roadmaps to connect topics to career outcomes.
 - Use [`Python-Mastery/`](./Python-Mastery/) for the ready-made, topic-by-topic NotebookLM, Obsidian, Notion, and documentation-portal edition. Study calendars and import steps live in [`Python-Mastery/Study-Guides/`](./Python-Mastery/Study-Guides/).
+- After each level, take the matching checkpoint in [`Python-Mastery/Assessments/`](./Python-Mastery/Assessments/) and look up terms in the [`Python-Mastery/Glossary/`](./Python-Mastery/Glossary/).
 
 ## Choose Your Edition
 

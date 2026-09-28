@@ -13,6 +13,8 @@ Python-Mastery/
 ├── Advanced/              # 40 topic documents
 ├── Infographics/
 ├── CheatSheets/
+├── Glossary/
+├── Assessments/
 ├── Interview-Questions/
 ├── Projects/
 ├── Roadmaps/
@@ -31,6 +33,7 @@ Upload or clone this folder as-is. Do not flatten Beginner, Intermediate, and Ad
    - `Python-Mastery/Intermediate/` (all 35 files)
    - `Python-Mastery/Advanced/` (all 40 files)
    - `Python-Mastery/Roadmaps/` if you want career-path answers
+   - `Python-Mastery/Glossary/README.md` and one checkpoint from `Assessments/`
    - one study guide (`12-week-plan.md` or `24-week-plan.md`)
 3. Ask questions that name a topic, for example: “Explain generators using the intermediate and advanced examples.”
 4. Keep the root single-page `README.md` **out** of the same notebook if you already imported the split lessons; the two editions duplicate the same 110 topics.
@@ -41,8 +44,9 @@ Upload or clone this folder as-is. Do not flatten Beginner, Intermediate, and Ad
 | --- | --- |
 | Learn one topic | That topic file only |
 | Compare related topics | 2–5 sibling files, such as Lists + List Methods |
-| Career planning | `Roadmaps/` plus `Projects/README.md` |
+| Career planning | `Roadmaps/` plus one file from `Projects/` |
 | Interview prep | Topic file plus `Interview-Questions/README.md` |
+| Self-check | The matching file in `Assessments/` before its answer key |
 
 ## Obsidian
 

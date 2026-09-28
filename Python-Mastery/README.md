@@ -21,8 +21,9 @@
 3. Move through the beginner, intermediate, and advanced examples.
 4. Explain the **Workflow Diagram** aloud in your own words.
 5. Follow a [study guide](./Study-Guides/) if you want a 12- or 24-week calendar.
-6. Build one project from the [Projects](./Projects/) catalog.
-7. Use the [career roadmaps](./Roadmaps/) to select deeper topics.
+6. Take the level [checkpoint](./Assessments/) before you move on.
+7. Build one project from the [Projects](./Projects/) briefs.
+8. Use the [career roadmaps](./Roadmaps/) to select deeper topics.
 
 ```mermaid
 flowchart LR
@@ -170,8 +171,10 @@ flowchart LR
 | --- | --- |
 | [Infographics](./Infographics/) | Visual mental models, level maps, and career-path map |
 | [Cheat Sheets](./CheatSheets/) | Fast syntax reference split by beginner, intermediate, and advanced |
+| [Glossary](./Glossary/) | Short definitions linked back to the lesson that teaches each term |
+| [Assessments](./Assessments/) | Level checkpoints with separate answer keys |
 | [Interview Questions](./Interview-Questions/) | Recall, discussion, and system-design prompts |
-| [Projects](./Projects/) | Progressive portfolio briefs and acceptance criteria |
+| [Projects](./Projects/) | Implementable portfolio briefs, starters, and acceptance checks |
 | [Roadmaps](./Roadmaps/) | Complete and role-specific learning sequences |
 | [Study Guides](./Study-Guides/) | NotebookLM/Obsidian/Notion import, 12- and 24-week plans, deep-dive crosswalk |
 | [Deep-dive curriculum](../python-learning-roadmap/) | Nested units, practice questions, and runnable examples |
@@ -186,6 +189,8 @@ Python-Mastery/
 ├── Advanced/              # 40 topic documents
 ├── Infographics/
 ├── CheatSheets/
+├── Glossary/
+├── Assessments/
 ├── Interview-Questions/
 ├── Projects/
 ├── Roadmaps/

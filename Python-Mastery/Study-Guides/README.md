@@ -31,6 +31,8 @@ flowchart TD
 | --- | --- |
 | Visual overview | [Infographics](../Infographics/) |
 | Fast syntax lookup | [Cheat Sheets](../CheatSheets/) |
+| Term definitions | [Glossary](../Glossary/) |
+| Level checkpoint | [Assessments](../Assessments/) |
 | Active recall | [Interview Questions](../Interview-Questions/) |
 | Portfolio briefs | [Projects](../Projects/) |
 | Role sequences | [Roadmaps](../Roadmaps/) |
