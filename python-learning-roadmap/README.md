@@ -1,5 +1,9 @@
 # Python Learning Roadmap Curriculum Directory
 
+This folder is the nested deep-dive companion: smaller learning units, practice questions, and runnable example files.
+
+The canonical **110-topic** knowledge base lives in [`Python-Mastery/`](../Python-Mastery/). Use the [deep-dive crosswalk](../Python-Mastery/Study-Guides/deep-dive-crosswalk.md) to jump from these 15 units to the matching topic lessons.
+
 This folder converts the complete Python knowledge base into a formal nested curriculum. It is designed for students, instructors, mentors, and self-paced learners who need clear study paths and topic-level learning material.
 
 ## Directory Structure
